@@ -1,0 +1,50 @@
+
+TODO: figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
+
+- [x] must be in path when applicable, e.g. for Observation.value, effective, medication, etc.
+- whitespaces cannot be in paths
+- resourcename must start with a capital
+- typo, missing 't' in "MedicationAdminisration"
+- a lot of "Error in snapshot generation: Differential for <profileId> has an element id: <path> that is not marked with a snapshot match - check validity of differential (including order)"
+  Those are not existing paths!
+  Not blocking for IG publication.
+- pt-observation-observation & pt-observation-Observation <- is in there twice cap and small typo!
+
+- when property is a [x] property you need a path with the type added, e.g. for pt-vitals-Observation!
+    {
+	    "path": "Observation.valueQuantity"
+    },
+  This is BLOCKING for IG publication (during snapshot generation).
+  Herkenbaar aan: java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(ArrayList.java:657)
+	at java.util.ArrayList.get(ArrayList.java:433)
+	at org.hl7.fhir.r5.conformance.ProfileUtilities.processPaths(ProfileUtilities.java:675)
+	at org.hl7.fhir.r5.conformance.ProfileUtilities.generateSnapshot(ProfileUtilities.java:472)
+	at org.hl7.fhir.igtools.publisher.Publisher.generateSnapshot(Publisher.java:3779)
+
+
+???
+- (A) Unable to find profile '' at MedicationDispense.medication[x]
+
+There is something wrong with:
+- (A?) pat-medOrder-ext-MedicationOrder
+- (A?) pat-medOrder-MedicationDispense
+- (A?) pat-medDispense-MedicationDispense
+- (A?) pat-medDispense-ext-MedicationDispense
+
+
+- AllergyIntolerance.patient.reference.display and then a mapping is not valid
+-- should be a profile on Patient with a mapping added to patient.display?!
+-- paths cannot go beyond reference.
+
+
+-----------------
+Validate the profiles first through:
+POST to https://r2.smarthealthit.org//StructureDefinition/$validate
+Helps a little bit, doesnot check for valid paths.
+
+or the "official" validator
+> java -jar org.hl7.fhir.validator-4.1.19.jar -version 1.0.2 -snapshot input/resources/StructureDefinition-pt-Patient.json 
+
+!! TODO: Turns out that the "Error in snapshot generation" is caused by the order of the elements. 
+!! Turns out the order of the element paths must be in the order it has in the base resource property and datatype attributes.

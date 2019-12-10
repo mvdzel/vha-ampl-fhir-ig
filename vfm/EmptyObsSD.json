@@ -1,0 +1,25 @@
+{
+    "fhirVersion": "1.0.2",
+    "status": "draft",
+    "resourceType": "StructureDefinition",
+    "differential": {
+    },
+    "abstract": false,
+    "name": "MyObservation",
+    "id": "MyObservation",
+    "constrainedType": "Observation",
+    "mapping": [
+      {
+        "identity": "vista",
+        "name": "VistA",
+        "uri": "http://va.gov/vista/"
+      }
+    ],
+    "base": "http://hl7.org/fhir/StructureDefinition/Observation",
+    "date": "2019-11-22T10:07:12.04+01:00",
+    "url": "StructureDefinition/MyObservation",
+    "meta": {
+      "lastUpdated": "2019-11-22T10:21:36.3+01:00"
+    },
+    "kind": "resource"
+  }
