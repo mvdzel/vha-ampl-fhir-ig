@@ -1,6 +1,31 @@
 
-TODO: figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
 
+Q: 2. We also need a 'package' or a 'group' - one that says, put this VAAllergyIntolerance profile together with these Provenance profiles. We'd publish as one profile if we could but we can't.
+A: 2. There is ImplementationGuide.grouping and groupingId that is used for that.
+
+  <grouping id="allergy">
+    <name value="Allergy Group"/>	
+  </grouping>
+
+  and then for each resource in that group add <groupingId value="allergy"/>
+
+Q: 3. Can we split up the Artifacts, a. specific profiles, b. extensions, c. value sets & maps
+A: 3. Expect this to happen automatically based on constrainedType="StructureDefinition", constrainedType="Extension", constrainedType="ValueSet"
+
+   @base: "<should match constrainedType>"
+   @constrainedType: "Extension"
+   @contextType: "resource(.property)"
+   @context: [ "<ResourceName(s) where this Extension is applied on>" ]
+   Use "special" paths in the mapping table and derive the above attributes.
+
+   !! kind: "datatype" or "resource" <-- how do I know from the current table?
+
+Q: 0. figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
+
+Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
+
+---------------------------------
+- Data_x0020_Elements used as .short should not start or end with space
 - [x] must be in path when applicable, e.g. for Observation.value, effective, medication, etc.
 - whitespaces cannot be in paths
 - resourcename must start with a capital
@@ -34,8 +59,8 @@ There is something wrong with:
 
 
 - AllergyIntolerance.patient.reference.display and then a mapping is not valid
--- should be a profile on Patient with a mapping added to patient.display?!
--- paths cannot go beyond reference.
+-- should be a profile on Patient with a mapping added to patient.display: YES
+-- [] paths cannot go beyond reference?! Check with Grahame..
 
 
 -----------------

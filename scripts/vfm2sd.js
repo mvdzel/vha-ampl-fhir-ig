@@ -1,5 +1,8 @@
 const fs = require('fs');
 
+//
+// =========================== StructureDefinitions ===========================
+//
 let rawdata = fs.readFileSync('VistA_FHIR_Map_Full.json');
 let vfm = JSON.parse(rawdata);
 
@@ -74,6 +77,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     // REPAIR missing [x]; N.B. do this after the ASSERT of the elementPath!
     if (elementPath == "Observation.effective") elementPath += "[x]";
     if (elementPath == "Observation.value") elementPath += "[x]";
+    if (elementPath == "Observation.component.value") elementPath += "[x]";
     if (elementPath == "MedicationOrder.medication") elementPath += "[x]";
     if (elementPath == "MedicationOrder.dispenseRequest.medication") elementPath += "[x]";
     if (elementPath == "MedicationDispense.medication") elementPath += "[x]";    
@@ -91,10 +95,12 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
     element.label = row.Field_x0020_Name[0].trim();
     if (row.Data_x0020_Elements != undefined) { 
-        element.short = row.Data_x0020_Elements[0];
+        element.short = row.Data_x0020_Elements[0].trim();
     }
     element.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
-    // TODO: add element.definition
+    if (row.description != undefined) {
+        element.description = row.description[0].trim();
+    }    
 
     /*
      Somehow there shouldbe a path valueQuantity so that the SD "knows" about the Quantity type.
@@ -126,7 +132,7 @@ profileIds.forEach(profileId => {
     fs.writeFile("resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
 
-// Display myig.xml resource xml
+// Display myig.xml resource xml part
 profileIds.forEach(profileId => {
     var entry = sds[profileId];
     if (entry.differential.element.length == 0) {
@@ -139,6 +145,64 @@ profileIds.forEach(profileId => {
         <reference value="StructureDefinition/${profileId}"/>
       </reference>
       <name value="${profileId}"/>
+      <description value=""/>
+    </resource>`);
+});
+
+//
+// =========================== ValueSets ===========================
+//
+let rawdata2 = fs.readFileSync('ValueSetMembership.json');
+let vss = JSON.parse(rawdata2);
+
+let valuesets = [];
+let valuesetNames = [];
+
+vss.ValueSetMembership.forEach(row => {
+    var name = row.valueSetName[0];
+    var code = row.code[0];
+    var display = row.display[0];
+
+    var valueset = valuesets[name];
+    if (valueset == undefined) {
+        valueset = {
+            resourceType: "ValueSet",
+            id: name,
+            uri: `http://va.gov/vista/ValueSet/${name}`,
+            name: name,
+            status: "draft",
+            compose: {
+                include: [
+                    {
+                        system: "http://va.gov/vista/",
+                        concept: []
+                    }
+                ]
+            }
+        };
+        valuesets[name] = valueset;
+        valuesetNames.push(name);
+    }
+    valueset.compose.include[0].concept.push({
+        "code": code,
+        "display": display
+    });
+});
+
+// Write the valuesets to separate files
+valuesetNames.forEach(name => {
+    var valueset = valuesets[name];
+    fs.writeFile("resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
+});
+
+// Display myig.xml resource xml part
+valuesetNames.forEach(name => {
+    console.log(`\
+    <resource>
+      <reference>
+        <reference value="ValueSet/${name}"/>
+      </reference>
+      <name value="${name}"/>
       <description value=""/>
     </resource>`);
 });
