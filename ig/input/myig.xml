@@ -31,9 +31,81 @@
   <!-- This is whatever FHIR version the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
   <fhirVersion value="1.0.2"/>
   <definition>
-<grouping id="allergy">
-<name value="Allergy Group"/>	
-</grouping>
+        <grouping id="group-6">
+            <name value="Coversheet Area Allergies/Adverse Reactions"/>
+        </grouping>
+        <grouping id="group-33">
+            <name value="Coversheet Area Vitals"/>
+        </grouping>
+        <grouping id="group-30">
+            <name value="Coversheet Area Progress Notes"/>
+        </grouping>
+        <grouping id="group-10">
+            <name value="Coversheet Area Consults"/>
+        </grouping>
+        <grouping id="group-14">
+            <name value="Coversheet Area Immunizations"/>
+        </grouping>
+        <grouping id="group-25">
+            <name value="Coversheet Area Patient Demographics"/>
+        </grouping>
+        <grouping id="group-15">
+            <name value="Coversheet Area Inpatient Orders - pending/non-verified"/>
+        </grouping>
+        <grouping id="group-17">
+            <name value="Coversheet Area Inpatient Orders Unit Dose/Clinic Medications"/>
+        </grouping>
+        <grouping id="group-31">
+            <name value="Coversheet Area Surgical Pathology"/>
+        </grouping>
+        <grouping id="group-24">
+            <name value="Coversheet Area Patient Security"/>
+        </grouping>
+        <grouping id="group-29">
+            <name value="Coversheet Area Problem List"/>
+        </grouping>
+        <grouping id="group-28">
+            <name value="Coversheet Area Primary Care Management "/>
+        </grouping>
+        <grouping id="group-7">
+            <name value="Coversheet Area Appointment Button"/>
+        </grouping>
+        <grouping id="group-16">
+            <name value="Coversheet Area Inpatient Orders IV/Clinic Infusions"/>
+        </grouping>
+        <grouping id="group-23">
+            <name value="Coversheet Area Outpatient Orders"/>
+        </grouping>
+        <grouping id="group-22">
+            <name value="Coversheet Area Non-VA Medications"/>
+        </grouping>
+        <grouping id="group-27">
+            <name value="Coversheet Area Outpatient Orders - pending"/>
+        </grouping>
+        <grouping id="group-9">
+            <name value="Coversheet Area BCMA Order"/>
+        </grouping>
+        <grouping id="group-12">
+            <name value="Coversheet Area Drug Info"/>
+        </grouping>
+        <grouping id="group-32">
+            <name value="Coversheet Area User Info"/>
+        </grouping>
+        <grouping id="group-21">
+            <name value="Coversheet Area Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
+        </grouping>
+        <grouping id="group-20">
+            <name value="Coversheet Area Lab - Microbiology"/>
+        </grouping>
+        <grouping id="group-11">
+            <name value="Coversheet Area Lab - Cytopathology"/>
+        </grouping>
+        <grouping id="group-26">
+            <name value="Coversheet Area Patient Record Flags"/>
+        </grouping>
+        <grouping id="group-13">
+            <name value="Coversheet Area Electron Microscopy"/>
+        </grouping>
     <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
     <!--    <resource>
@@ -54,6 +126,16 @@
         <generation value="html"/>
       </page>
       <page>
+        <nameUrl value="background.html"/>
+        <title value="Background"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="spec.html"/>
+        <title value="Detailed Specification"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <nameUrl value="downloads.html"/>
         <title value="Useful Downloads"/>
         <generation value="html"/>
@@ -64,13 +146,13 @@
         <generation value="html"/>
       </page>
     </page>
-   <resource>
+<resource>
       <reference>
         <reference value="StructureDefinition/pt-allergy-AllergyIntolerance"/>
       </reference>
       <name value="pt-allergy-AllergyIntolerance"/>
       <description value=""/>
-<groupingId value="allergy"/>
+      <groupingId value="group-6"/>
     </resource>
     <resource>
       <reference>
@@ -78,7 +160,7 @@
       </reference>
       <name value="pt-allergy-prov-Provenance"/>
       <description value=""/>
-<groupingId value="allergy"/>
+      <groupingId value="group-6"/>
     </resource>
     <resource>
       <reference>
@@ -86,6 +168,7 @@
       </reference>
       <name value="pt-vitals-Observation"/>
       <description value=""/>
+      <groupingId value="group-33"/>
     </resource>
     <resource>
       <reference>
@@ -93,6 +176,7 @@
       </reference>
       <name value="pt-vitals-prov-Provenance"/>
       <description value=""/>
+      <groupingId value="group-33"/>
     </resource>
     <resource>
       <reference>
@@ -100,6 +184,7 @@
       </reference>
       <name value="pt-vitals-observation-Observation"/>
       <description value=""/>
+      <groupingId value="group-33"/>
     </resource>
     <resource>
       <reference>
@@ -107,6 +192,7 @@
       </reference>
       <name value="pt-document-DocumentReference"/>
       <description value=""/>
+      <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
@@ -114,6 +200,7 @@
       </reference>
       <name value="pt-document-prov-Provenance"/>
       <description value=""/>
+      <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
@@ -121,6 +208,7 @@
       </reference>
       <name value="pt-document-enc-Encounter"/>
       <description value=""/>
+      <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
@@ -128,6 +216,7 @@
       </reference>
       <name value="pt-document-encounter-Encounter"/>
       <description value=""/>
+      <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
@@ -135,6 +224,7 @@
       </reference>
       <name value="pt-document.context.related-request-ReferralRequest"/>
       <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -142,6 +232,7 @@
       </reference>
       <name value="pt-document.context.related-request.requester-Practitioner"/>
       <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -149,6 +240,7 @@
       </reference>
       <name value="pt-document.context.related-request-pract-Practitioner"/>
       <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -156,6 +248,7 @@
       </reference>
       <name value="pt-document.context.related-request-ext-ReferralRequest"/>
       <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -163,6 +256,15 @@
       </reference>
       <name value="pt-document.context.related-req-ReferralRequest"/>
       <description value=""/>
+      <groupingId value="group-10"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-document.context.related-request-prov-Provenance"/>
+      </reference>
+      <name value="pt-document.context.related-request-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -170,6 +272,7 @@
       </reference>
       <name value="pt-document-req-ReferralRequest"/>
       <description value=""/>
+      <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
@@ -177,6 +280,7 @@
       </reference>
       <name value="pt-immunization-Immunization"/>
       <description value=""/>
+      <groupingId value="group-14"/>
     </resource>
     <resource>
       <reference>
@@ -184,6 +288,7 @@
       </reference>
       <name value="pt-immunization-practitioner-Immunization"/>
       <description value=""/>
+      <groupingId value="group-14"/>
     </resource>
     <resource>
       <reference>
@@ -191,6 +296,7 @@
       </reference>
       <name value="pt-Patient"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -198,6 +304,7 @@
       </reference>
       <name value="pt-encounter-Encounter"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -205,6 +312,7 @@
       </reference>
       <name value="pt-observation-Observation"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -212,6 +320,7 @@
       </reference>
       <name value="pt-appt-Appointment"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <!--<resource>
       <reference>
@@ -219,6 +328,7 @@
       </reference>
       <name value="pt-careTeam-CarePlan"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -226,6 +336,7 @@
       </reference>
       <name value="pt-observation-observation"/>
       <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -233,27 +344,7 @@
       </reference>
       <name value="pt-Service-Observation"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-Service-episode-Observation"/>
-      </reference>
-      <name value="pt-Service-episode-Observation"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-coverage-Coverage"/>
-      </reference>
-      <name value="pt-coverage-Coverage"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-MedicationOrder"/>
-      </reference>
-      <name value="pat-medOrder-MedicationOrder"/>
-      <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -261,41 +352,15 @@
       </reference>
       <name value="pat-medOrder-ext-MedicationOrder"/>
       <description value=""/>
+      <groupingId value="group-15"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medOrder-MedicationDispense"/>
+        <reference value="StructureDefinition/pat-medOrder-MedicationOrder"/>
       </reference>
-      <name value="pat-medOrder-MedicationDispense"/>
+      <name value="pat-medOrder-MedicationOrder"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-medDisp-MedicationDispense"/>
-      </reference>
-      <name value="pat-medOrder-medDisp-MedicationDispense"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medicationOrder-MedicationDispense"/>
-      </reference>
-      <name value="pat-medicationOrder-MedicationDispense"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-medDisp-ext-Medication"/>
-      </reference>
-      <name value="pat-medOrder-medDisp-ext-Medication"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-medDisp-ext-MedicationDispense"/>
-      </reference>
-      <name value="pat-medOrder-medDisp-ext-MedicationDispense"/>
-      <description value=""/>
+      <groupingId value="group-15"/>
     </resource>
     <resource>
       <reference>
@@ -303,125 +368,7 @@
       </reference>
       <name value="pat-medOrder-ext-MedicationDispense"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-practitioner-Practitioner"/>
-      </reference>
-      <name value="pat-medOrder-practitioner-Practitioner"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdminisration"/>
-      </reference>
-      <name value="pat-MedAdmin-MedicationAdminisration"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-prov-Provenance"/>
-      </reference>
-      <name value="pat-MedAdmin-prov-Provenance"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-provenance-MedicationOrder"/>
-      </reference>
-      <name value="pat-medOrder-provenance-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-extension-MedicationOrder"/>
-      </reference>
-      <name value="pat-medOrder-extension-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medDispense-MedicationDispense"/>
-      </reference>
-      <name value="pat-medDispense-MedicationDispense"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-encounter-Encounter"/>
-      </reference>
-      <name value="pat-medOrder-encounter-Encounter"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/patient-condition-Condition"/>
-      </reference>
-      <name value="patient-condition-Condition"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-encounter-location-Location"/>
-      </reference>
-      <name value="pat-condition-encounter-location-Location"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-Condition"/>
-      </reference>
-      <name value="pat-condition-Condition"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-ext-AuditEvent"/>
-      </reference>
-      <name value="pat-condition-ext-AuditEvent"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-careTeam-organization-Organization"/>
-      </reference>
-      <name value="pat-careTeam-organization-Organization"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-careTeam-author-Organization"/>
-      </reference>
-      <name value="pat-careTeam-author-Organization"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-careTeam-CarePlan"/>
-      </reference>
-      <name value="pat-careTeam-CarePlan"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-appointment-Appointment"/>
-      </reference>
-      <name value="pat-appointment-Appointment"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-appt-location-Location"/>
-      </reference>
-      <name value="pat-appt-location-Location"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-appointment-location-Location"/>
-      </reference>
-      <name value="pat-appointment-location-Location"/>
-      <description value=""/>
+      <groupingId value="group-15"/>
     </resource>
     <resource>
       <reference>
@@ -429,132 +376,7 @@
       </reference>
       <name value="pat-medOrder-provenance-Provenance"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medDispense-MedicationOrder"/>
-      </reference>
-      <name value="pat-medDispense-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-extension-Provenance"/>
-      </reference>
-      <name value="pat-medOrder-extension-Provenance"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-Provenance"/>
-      </reference>
-      <name value="pat-medOrder-Provenance"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-encounter-location-MedicationOrder"/>
-      </reference>
-      <name value="pat-medOrder-encounter-location-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-prov-Provenance"/>
-      </reference>
-      <name value="pat-medOrder-prov-Provenance"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-audit-Provenance"/>
-      </reference>
-      <name value="pat-medOrder-audit-Provenance"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-prov-MedicationOrder"/>
-      </reference>
-      <name value="pat-medOrder-prov-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medDispense-ext-MedicationDispense"/>
-      </reference>
-      <name value="pat-medDispense-ext-MedicationDispense"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-med-Medication"/>
-      </reference>
-      <name value="pat-medOrder-med-Medication"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medicationOrder-MedicationOrder"/>
-      </reference>
-      <name value="pat-medicationOrder-MedicationOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medStatement-MedicationStatement"/>
-      </reference>
-      <name value="pat-medStatement-MedicationStatement"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medOrder-MedicationStatement"/>
-      </reference>
-      <name value="pat-medOrder-MedicationStatement"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medication-Medication"/>
-      </reference>
-      <name value="pat-medication-Medication"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medication-medication-Medication"/>
-      </reference>
-      <name value="pat-medication-medication-Medication"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-spec-Specimen"/>
-      </reference>
-      <name value="pat-rpt-obs-spec-Specimen"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-obs-DiagnosticReport"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-practitioner-DiagnosticOrder"/>
-      </reference>
-      <name value="pat-rpt-order-practitioner-DiagnosticOrder"/>
-      <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-Observation"/>
-      </reference>
-      <name value="pat-rpt-obs-Observation"/>
-      <description value=""/>
+      <groupingId value="group-17"/>
     </resource>
     <resource>
       <reference>
@@ -562,6 +384,7 @@
       </reference>
       <name value="pat-rpt-obs-specimen-Specimen"/>
       <description value=""/>
+      <groupingId value="group-31"/>
     </resource>
     <resource>
       <reference>
@@ -569,6 +392,7 @@
       </reference>
       <name value="pat-rpt-DiagnosticReport"/>
       <description value=""/>
+      <groupingId value="group-31"/>
     </resource>
     <resource>
       <reference>
@@ -576,13 +400,7 @@
       </reference>
       <name value="pat-rpt-order-DiagnosticOrder"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-enc-Encounter"/>
-      </reference>
-      <name value="pat-rpt-enc-Encounter"/>
-      <description value=""/>
+      <groupingId value="group-31"/>
     </resource>
     <resource>
       <reference>
@@ -590,13 +408,7 @@
       </reference>
       <name value="pat-rpt-order-spec-Specimen"/>
       <description value=""/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-encounter-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-encounter-DiagnosticReport"/>
-      <description value=""/>
+      <groupingId value="group-31"/>
     </resource>
     <resource>
       <reference>
@@ -604,13 +416,335 @@
       </reference>
       <name value="pat-Resource"/>
       <description value=""/>
+      <groupingId value="group-24"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-flag-Flag"/>
+        <reference value="StructureDefinition/pt-Service-episode-Observation"/>
       </reference>
-      <name value="pt-flag-Flag"/>
+      <name value="pt-Service-episode-Observation"/>
       <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-coverage-Coverage"/>
+      </reference>
+      <name value="pt-coverage-Coverage"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-med-Medication"/>
+      </reference>
+      <name value="pat-medOrder-med-Medication"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-encounter-Encounter"/>
+      </reference>
+      <name value="pat-medOrder-encounter-Encounter"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-prov-Provenance"/>
+      </reference>
+      <name value="pat-medOrder-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/patient-condition-Condition"/>
+      </reference>
+      <name value="patient-condition-Condition"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-condition-Condition"/>
+      </reference>
+      <name value="pat-condition-Condition"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-condition-encounter-location-Location"/>
+      </reference>
+      <name value="pat-condition-encounter-location-Location"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-condition-provenance-Provenance"/>
+      </reference>
+      <name value="pat-condition-provenance-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-condition-prov-Provenance"/>
+      </reference>
+      <name value="pat-condition-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-careTeam-organization-Organization"/>
+      </reference>
+      <name value="pat-careTeam-organization-Organization"/>
+      <description value=""/>
+      <groupingId value="group-28"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-careTeam-author-Organization"/>
+      </reference>
+      <name value="pat-careTeam-author-Organization"/>
+      <description value=""/>
+      <groupingId value="group-28"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-careTeam-CarePlan"/>
+      </reference>
+      <name value="pat-careTeam-CarePlan"/>
+      <description value=""/>
+      <groupingId value="group-28"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-appointment-Appointment"/>
+      </reference>
+      <name value="pat-appointment-Appointment"/>
+      <description value=""/>
+      <groupingId value="group-7"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-appt-location-Location"/>
+      </reference>
+      <name value="pat-appt-location-Location"/>
+      <description value=""/>
+      <groupingId value="group-7"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-appointment-location-Location"/>
+      </reference>
+      <name value="pat-appointment-location-Location"/>
+      <description value=""/>
+      <groupingId value="group-7"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-MedicationDispense"/>
+      </reference>
+      <name value="pat-medOrder-MedicationDispense"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-provenance-MedicationOrder"/>
+      </reference>
+      <name value="pat-medOrder-provenance-MedicationOrder"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-medDisp-MedicationDispense"/>
+      </reference>
+      <name value="pat-medOrder-medDisp-MedicationDispense"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medDispense-MedicationOrder"/>
+      </reference>
+      <name value="pat-medDispense-MedicationOrder"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-encounter-location-MedicationOrder"/>
+      </reference>
+      <name value="pat-medOrder-encounter-location-MedicationOrder"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-encounter-location-Encounter"/>
+      </reference>
+      <name value="pat-medOrder-encounter-location-Encounter"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-audit-Provenance"/>
+      </reference>
+      <name value="pat-medOrder-audit-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medDispense-MedicationDispense"/>
+      </reference>
+      <name value="pat-medDispense-MedicationDispense"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medDispense-med-MedicationDispense"/>
+      </reference>
+      <name value="pat-medDispense-med-MedicationDispense"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medicationOrder-MedicationOrder"/>
+      </reference>
+      <name value="pat-medicationOrder-MedicationOrder"/>
+      <description value=""/>
+      <groupingId value="group-22"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medStatement-MedicationStatement"/>
+      </reference>
+      <name value="pat-medStatement-MedicationStatement"/>
+      <description value=""/>
+      <groupingId value="group-22"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-MedicationStatement"/>
+      </reference>
+      <name value="pat-medOrder-MedicationStatement"/>
+      <description value=""/>
+      <groupingId value="group-22"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medicationOrder-MedicationDispense"/>
+      </reference>
+      <name value="pat-medicationOrder-MedicationDispense"/>
+      <description value=""/>
+      <groupingId value="group-27"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-medorder-MedicationOrder"/>
+      </reference>
+      <name value="pt-medorder-MedicationOrder"/>
+      <description value=""/>
+      <groupingId value="group-27"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-medDisp-Medication"/>
+      </reference>
+      <name value="pat-medOrder-medDisp-Medication"/>
+      <description value=""/>
+      <groupingId value="group-27"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-practitioner-Practitioner"/>
+      </reference>
+      <name value="pat-medOrder-practitioner-Practitioner"/>
+      <description value=""/>
+      <groupingId value="group-27"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdminisration"/>
+      </reference>
+      <name value="pat-MedAdmin-MedicationAdminisration"/>
+      <description value=""/>
+      <groupingId value="group-9"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-MedAdmin-prov-Provenance"/>
+      </reference>
+      <name value="pat-MedAdmin-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-9"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medication-Medication"/>
+      </reference>
+      <name value="pat-medication-Medication"/>
+      <description value=""/>
+      <groupingId value="group-12"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medication-medication-Medication"/>
+      </reference>
+      <name value="pat-medication-medication-Medication"/>
+      <description value=""/>
+      <groupingId value="group-12"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/user-User"/>
+      </reference>
+      <name value="user-User"/>
+      <description value=""/>
+      <groupingId value="group-32"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-obs-spec-Specimen"/>
+      </reference>
+      <name value="pat-rpt-obs-spec-Specimen"/>
+      <description value=""/>
+      <groupingId value="group-21"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-obs-DiagnosticReport"/>
+      </reference>
+      <name value="pat-rpt-obs-DiagnosticReport"/>
+      <description value=""/>
+      <groupingId value="group-21"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-order-practitioner-DiagnosticOrder"/>
+      </reference>
+      <name value="pat-rpt-order-practitioner-DiagnosticOrder"/>
+      <description value=""/>
+      <groupingId value="group-21"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-obs-Observation"/>
+      </reference>
+      <name value="pat-rpt-obs-Observation"/>
+      <description value=""/>
+      <groupingId value="group-21"/>
     </resource>
     <resource>
       <reference>
@@ -618,7 +752,48 @@
       </reference>
       <name value="pat-rpt-specimen-Specimen"/>
       <description value=""/>
-    </resource> -->
+      <groupingId value="group-11"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-enc-Encounter"/>
+      </reference>
+      <name value="pat-rpt-enc-Encounter"/>
+      <description value=""/>
+      <groupingId value="group-11"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-encounter-DiagnosticReport"/>
+      </reference>
+      <name value="pat-rpt-encounter-DiagnosticReport"/>
+      <description value=""/>
+      <groupingId value="group-31"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-flag-Flag"/>
+      </reference>
+      <name value="pt-flag-Flag"/>
+      <description value=""/>
+      <groupingId value="group-26"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-spec-Specimen"/>
+      </reference>
+      <name value="pat-rpt-spec-Specimen"/>
+      <description value=""/>
+      <groupingId value="group-13"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-rpt-ord-specimen-Specimen"/>
+      </reference>
+      <name value="pat-rpt-ord-specimen-Specimen"/>
+      <description value=""/>
+      <groupingId value="group-13"/>
+    </resource>-->
     <resource>
       <reference>
         <reference value="ValueSet/ChemotherapyOrderType"/>

@@ -3,9 +3,18 @@ const fs = require('fs');
 //
 // =========================== StructureDefinitions ===========================
 //
-let rawdata = fs.readFileSync('VistA_FHIR_Map_Full.json');
+let rawdata = fs.readFileSync('VistA_FHIR_Map.json');
 let vfm = JSON.parse(rawdata);
+
 let date = new Date().toISOString();
+
+// convert lookup table into an array
+let rawlookupdata = fs.readFileSync('lookup.json');
+let lookuptable = JSON.parse(rawlookupdata);
+let lookup = [];
+lookuptable.lookup.forEach(row => {
+    lookup[row.id] = row.label;
+});
 
 /*
    Make sure there is 1 SD per profiled Resource per group of VistA paths.
@@ -20,6 +29,7 @@ let date = new Date().toISOString();
 let elementsByPath = []; // paths per files/resource(=profileId)
 let sds = [];
 let profileIds = [];
+let groupings = [];
 
 vfm.VistA_FHIR_Map.forEach(row => {
     // Assertions that must be met
@@ -39,6 +49,15 @@ vfm.VistA_FHIR_Map.forEach(row => {
     if (row.FHIR_x0020_R2_x0020_property == undefined) {
         console.warn(`${row.ID1}: missing property name`);
         return;
+    }
+
+    // Display myig.xml groupings xml part once for each group
+    if (groupings[row.Coversheet_x0020_area] == undefined) {
+        groupings[row.Coversheet_x0020_area] = true;
+        console.log(`\
+        <grouping id="group-${row.Coversheet_x0020_area}">
+            <name value="Coversheet Area ${lookup[row.Coversheet_x0020_area]}"/>
+        </grouping>`);
     }
 
     // sometimes there are whitespaces in the resource name and path, remove them
@@ -65,6 +84,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         sd.constrainedType = resourceName;
         sd.date = date;
         sd.meta.lastUpdated = date;
+        sd.groupingId = `group-${row.Coversheet_x0020_area}`;
 
         sds[profileId] = sd;
         profileIds.push(profileId);
@@ -150,6 +170,7 @@ profileIds.forEach(profileId => {
       </reference>
       <name value="${profileId}"/>
       <description value=""/>
+      <groupingId value="${entry.groupingId}"/>
     </resource>`);
 });
 

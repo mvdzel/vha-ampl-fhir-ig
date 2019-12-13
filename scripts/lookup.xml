@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2019-12-13T12:48:55">
+<lookup>
+<id>1</id>
+<kind>mapStatus</kind>
+<label>1 - not yet prioritized</label>
+</lookup>
+<lookup>
+<id>2</id>
+<kind>mapStatus</kind>
+<label>0 - removed</label>
+</lookup>
+<lookup>
+<id>3</id>
+<kind>mapStatus</kind>
+<label>2 - inbox</label>
+</lookup>
+<lookup>
+<id>4</id>
+<kind>mapStatus</kind>
+<label>3 - working</label>
+</lookup>
+<lookup>
+<id>5</id>
+<kind>mapStatus</kind>
+<label>4 - FHIR drafted</label>
+</lookup>
+<lookup>
+<id>6</id>
+<kind>CoversheetArea</kind>
+<label>Allergies/Adverse Reactions</label>
+</lookup>
+<lookup>
+<id>7</id>
+<kind>CoversheetArea</kind>
+<label>Appointment Button</label>
+</lookup>
+<lookup>
+<id>8</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Autopsy</label>
+</lookup>
+<lookup>
+<id>9</id>
+<kind>CoversheetArea</kind>
+<label>BCMA Order</label>
+</lookup>
+<lookup>
+<id>10</id>
+<kind>CoversheetArea</kind>
+<label>Consults</label>
+</lookup>
+<lookup>
+<id>11</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Cytopathology</label>
+</lookup>
+<lookup>
+<id>12</id>
+<kind>CoversheetArea</kind>
+<label>Drug Info</label>
+</lookup>
+<lookup>
+<id>13</id>
+<kind>CoversheetArea</kind>
+<label>Electron Microscopy</label>
+</lookup>
+<lookup>
+<id>14</id>
+<kind>CoversheetArea</kind>
+<label>Immunizations</label>
+</lookup>
+<lookup>
+<id>15</id>
+<kind>CoversheetArea</kind>
+<label>Inpatient Orders - pending/non-verified</label>
+</lookup>
+<lookup>
+<id>16</id>
+<kind>CoversheetArea</kind>
+<label>Inpatient Orders IV/Clinic Infusions</label>
+</lookup>
+<lookup>
+<id>17</id>
+<kind>CoversheetArea</kind>
+<label>Inpatient Orders Unit Dose/Clinic Medications</label>
+</lookup>
+<lookup>
+<id>18</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Anatomic Pathology</label>
+</lookup>
+<lookup>
+<id>19</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Blood Bank</label>
+</lookup>
+<lookup>
+<id>20</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Microbiology</label>
+</lookup>
+<lookup>
+<id>21</id>
+<kind>CoversheetArea</kind>
+<label>Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay</label>
+</lookup>
+<lookup>
+<id>22</id>
+<kind>CoversheetArea</kind>
+<label>Non-VA Medications</label>
+</lookup>
+<lookup>
+<id>23</id>
+<kind>CoversheetArea</kind>
+<label>Outpatient Orders</label>
+</lookup>
+<lookup>
+<id>24</id>
+<kind>CoversheetArea</kind>
+<label>Patient Security</label>
+</lookup>
+<lookup>
+<id>25</id>
+<kind>CoversheetArea</kind>
+<label>Patient Demographics</label>
+</lookup>
+<lookup>
+<id>26</id>
+<kind>CoversheetArea</kind>
+<label>Patient Record Flags</label>
+</lookup>
+<lookup>
+<id>27</id>
+<kind>CoversheetArea</kind>
+<label>Outpatient Orders - pending</label>
+</lookup>
+<lookup>
+<id>28</id>
+<kind>CoversheetArea</kind>
+<label>Primary Care Management </label>
+</lookup>
+<lookup>
+<id>29</id>
+<kind>CoversheetArea</kind>
+<label>Problem List</label>
+</lookup>
+<lookup>
+<id>30</id>
+<kind>CoversheetArea</kind>
+<label>Progress Notes</label>
+</lookup>
+<lookup>
+<id>31</id>
+<kind>CoversheetArea</kind>
+<label>Surgical Pathology</label>
+</lookup>
+<lookup>
+<id>32</id>
+<kind>CoversheetArea</kind>
+<label>User Info</label>
+</lookup>
+<lookup>
+<id>33</id>
+<kind>CoversheetArea</kind>
+<label>Vitals</label>
+</lookup>
+<lookup>
+<id>34</id>
+<kind>ChangeType</kind>
+<label>Change reference</label>
+</lookup>
+<lookup>
+<id>35</id>
+<kind>ChangeType</kind>
+<label>Change target</label>
+</lookup>
+<lookup>
+<id>36</id>
+<kind>ChangeType</kind>
+<label>Other</label>
+</lookup>
+<lookup>
+<id>37</id>
+<kind>ChangeStatus</kind>
+<label>Proposed</label>
+</lookup>
+<lookup>
+<id>38</id>
+<kind>ChangeStatus</kind>
+<label>Accepted</label>
+</lookup>
+<lookup>
+<id>39</id>
+<kind>ChangeStatus</kind>
+<label>Applied</label>
+</lookup>
+<lookup>
+<id>40</id>
+<kind>ChangeStatus</kind>
+<label>Rejected</label>
+</lookup>
+<lookup>
+<id>41</id>
+<kind>ChangeStatus</kind>
+<label>Deferred</label>
+</lookup>
+<lookup>
+<id>42</id>
+<kind>ChangeType</kind>
+<label>Clarify requirement</label>
+</lookup>
+<lookup>
+<id>43</id>
+<kind>CoversheetArea</kind>
+<label>Order Check Instances</label>
+</lookup>
+<lookup>
+<id>44</id>
+<kind>QuestionStatus</kind>
+<label>open</label>
+</lookup>
+<lookup>
+<id>45</id>
+<kind>QuestionStatus</kind>
+<label>closed</label>
+</lookup>
+<lookup>
+<id>46</id>
+<kind>orders</kind>
+<label>Outpatient Pharmacy</label>
+</lookup>
+<lookup>
+<id>47</id>
+<kind>orders</kind>
+<label>Inpatient Medications - pending/non-verified orders</label>
+</lookup>
+<lookup>
+<id>48</id>
+<kind>orders</kind>
+<label>PENDING OUTPATIENT ORDERS</label>
+</lookup>
+<lookup>
+<id>49</id>
+<kind>orders</kind>
+<label>Inpatient Orders (IV)/Clinic Infusions</label>
+</lookup>
+<lookup>
+<id>50</id>
+<kind>orders</kind>
+<label>Inpatient Orders (UNIT Dose)/clinic Medications</label>
+</lookup>
+</dataroot>
