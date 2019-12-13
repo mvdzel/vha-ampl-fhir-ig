@@ -11565,7 +11565,7 @@
                 "related resource property"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "observation"
+                "Observation"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "value attachment"
@@ -11674,7 +11674,7 @@
                 "related resource property"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "observation"
+                "Observation"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "value"
@@ -32260,7 +32260,7 @@
                 "MedicationDispense"
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "medication.product.batch.expirationDate"
+                "medicationReference.product.batch.expirationDate"
             ],
             "map": [
                 "55"
@@ -35412,7 +35412,7 @@
                 "MedicationDispense"
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "medication.code"
+                "medicationCodeableConcept.code"
             ],
             "map": [
                 "128"
@@ -37981,7 +37981,7 @@
                 "MedicationOrder "
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "medication.code"
+                "medicationCodeableConcept.code"
             ],
             "map": [
                 "14"
@@ -40195,7 +40195,7 @@
                 "focal resource property"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "MedicationAdminisration"
+                "MedicationAdministration"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "effectiveTime"
@@ -40245,7 +40245,7 @@
                 "focal resource property"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "MedicationAdminisration"
+                "MedicationAdministration"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "status (lossy)"
@@ -40298,7 +40298,7 @@
                 "focal resource extension"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "MedicationAdminisration"
+                "MedicationAdministration"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "extension: ScheduledTime"
@@ -42167,7 +42167,7 @@
                 "Observation"
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "value.value"
+                "value[x].value"
             ],
             "map": [
                 "175"
@@ -47417,7 +47417,7 @@
                 "focal resource extension"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "MedicationAdminisration"
+                "MedicationAdministration"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "extension: MedicationAdministrationStatus"

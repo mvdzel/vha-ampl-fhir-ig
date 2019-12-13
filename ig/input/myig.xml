@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.5"/>
+  <version value="0.0.6"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -32,79 +32,79 @@
   <fhirVersion value="1.0.2"/>
   <definition>
         <grouping id="group-6">
-            <name value="Coversheet Area Allergies/Adverse Reactions"/>
+            <name value="Coversheet Area: Allergies/Adverse Reactions"/>
         </grouping>
         <grouping id="group-33">
-            <name value="Coversheet Area Vitals"/>
+            <name value="Coversheet Area: Vitals"/>
         </grouping>
         <grouping id="group-30">
-            <name value="Coversheet Area Progress Notes"/>
+            <name value="Coversheet Area: Progress Notes"/>
         </grouping>
         <grouping id="group-10">
-            <name value="Coversheet Area Consults"/>
+            <name value="Coversheet Area: Consults"/>
         </grouping>
         <grouping id="group-14">
-            <name value="Coversheet Area Immunizations"/>
+            <name value="Coversheet Area: Immunizations"/>
         </grouping>
         <grouping id="group-25">
-            <name value="Coversheet Area Patient Demographics"/>
+            <name value="Coversheet Area: Patient Demographics"/>
         </grouping>
         <grouping id="group-15">
-            <name value="Coversheet Area Inpatient Orders - pending/non-verified"/>
+            <name value="Coversheet Area: Inpatient Orders - pending/non-verified"/>
         </grouping>
         <grouping id="group-17">
-            <name value="Coversheet Area Inpatient Orders Unit Dose/Clinic Medications"/>
+            <name value="Coversheet Area: Inpatient Orders Unit Dose/Clinic Medications"/>
         </grouping>
         <grouping id="group-31">
-            <name value="Coversheet Area Surgical Pathology"/>
+            <name value="Coversheet Area: Surgical Pathology"/>
         </grouping>
         <grouping id="group-24">
-            <name value="Coversheet Area Patient Security"/>
+            <name value="Coversheet Area: Patient Security"/>
         </grouping>
         <grouping id="group-29">
-            <name value="Coversheet Area Problem List"/>
+            <name value="Coversheet Area: Problem List"/>
         </grouping>
         <grouping id="group-28">
-            <name value="Coversheet Area Primary Care Management "/>
+            <name value="Coversheet Area: Primary Care Management "/>
         </grouping>
         <grouping id="group-7">
-            <name value="Coversheet Area Appointment Button"/>
+            <name value="Coversheet Area: Appointment Button"/>
         </grouping>
         <grouping id="group-16">
-            <name value="Coversheet Area Inpatient Orders IV/Clinic Infusions"/>
+            <name value="Coversheet Area: Inpatient Orders IV/Clinic Infusions"/>
         </grouping>
         <grouping id="group-23">
-            <name value="Coversheet Area Outpatient Orders"/>
+            <name value="Coversheet Area: Outpatient Orders"/>
         </grouping>
         <grouping id="group-22">
-            <name value="Coversheet Area Non-VA Medications"/>
+            <name value="Coversheet Area: Non-VA Medications"/>
         </grouping>
         <grouping id="group-27">
-            <name value="Coversheet Area Outpatient Orders - pending"/>
+            <name value="Coversheet Area: Outpatient Orders - pending"/>
         </grouping>
         <grouping id="group-9">
-            <name value="Coversheet Area BCMA Order"/>
+            <name value="Coversheet Area: BCMA Order"/>
         </grouping>
         <grouping id="group-12">
-            <name value="Coversheet Area Drug Info"/>
+            <name value="Coversheet Area: Drug Info"/>
         </grouping>
         <grouping id="group-32">
-            <name value="Coversheet Area User Info"/>
+            <name value="Coversheet Area: User Info"/>
         </grouping>
         <grouping id="group-21">
-            <name value="Coversheet Area Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
+            <name value="Coversheet Area: Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
         </grouping>
         <grouping id="group-20">
-            <name value="Coversheet Area Lab - Microbiology"/>
+            <name value="Coversheet Area: Lab - Microbiology"/>
         </grouping>
         <grouping id="group-11">
-            <name value="Coversheet Area Lab - Cytopathology"/>
+            <name value="Coversheet Area: Lab - Cytopathology"/>
         </grouping>
         <grouping id="group-26">
-            <name value="Coversheet Area Patient Record Flags"/>
+            <name value="Coversheet Area: Patient Record Flags"/>
         </grouping>
         <grouping id="group-13">
-            <name value="Coversheet Area Electron Microscopy"/>
+            <name value="Coversheet Area: Electron Microscopy"/>
         </grouping>
     <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
@@ -146,19 +146,19 @@
         <generation value="html"/>
       </page>
     </page>
-<resource>
+    <resource>
       <reference>
-        <reference value="StructureDefinition/pt-allergy-AllergyIntolerance"/>
+        <reference value="StructureDefinition/VAAllergyIntolerance-AllergyIntolerance"/>
       </reference>
-      <name value="pt-allergy-AllergyIntolerance"/>
+      <name value="VAAllergyIntolerance-AllergyIntolerance"/>
       <description value=""/>
       <groupingId value="group-6"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-allergy-prov-Provenance"/>
+        <reference value="StructureDefinition/VAAllergyIntoleranceAssessment-Provenance"/>
       </reference>
-      <name value="pt-allergy-prov-Provenance"/>
+      <name value="VAAllergyIntoleranceAssessment-Provenance"/>
       <description value=""/>
       <groupingId value="group-6"/>
     </resource>
@@ -322,19 +322,11 @@
       <description value=""/>
       <groupingId value="group-25"/>
     </resource>
-    <!--<resource>
+    <resource>
       <reference>
         <reference value="StructureDefinition/pt-careTeam-CarePlan"/>
       </reference>
       <name value="pt-careTeam-CarePlan"/>
-      <description value=""/>
-      <groupingId value="group-25"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-observation-observation"/>
-      </reference>
-      <name value="pt-observation-observation"/>
       <description value=""/>
       <groupingId value="group-25"/>
     </resource>
@@ -612,14 +604,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medDispense-med-MedicationDispense"/>
-      </reference>
-      <name value="pat-medDispense-med-MedicationDispense"/>
-      <description value=""/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/pat-medicationOrder-MedicationOrder"/>
       </reference>
       <name value="pat-medicationOrder-MedicationOrder"/>
@@ -676,7 +660,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdminisration"/>
+        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdministration"/>
       </reference>
       <name value="pat-MedAdmin-MedicationAdminisration"/>
       <description value=""/>
@@ -706,14 +690,14 @@
       <description value=""/>
       <groupingId value="group-12"/>
     </resource>
-    <resource>
+    <!--<resource>
       <reference>
         <reference value="StructureDefinition/user-User"/>
       </reference>
       <name value="user-User"/>
       <description value=""/>
       <groupingId value="group-32"/>
-    </resource>
+    </resource>-->
     <resource>
       <reference>
         <reference value="StructureDefinition/pat-rpt-obs-spec-Specimen"/>
@@ -793,7 +777,7 @@
       <name value="pat-rpt-ord-specimen-Specimen"/>
       <description value=""/>
       <groupingId value="group-13"/>
-    </resource>-->
+    </resource>
     <resource>
       <reference>
         <reference value="ValueSet/ChemotherapyOrderType"/>

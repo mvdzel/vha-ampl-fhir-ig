@@ -1,5 +1,16 @@
 
+Adjusted in json version of table:
 
+- pt-observation-observation -> pt-observation-Observation
+- MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
+- MedicationDispense.medication -> MedicationDispense.medicationCodeableConcept
+- MedicationDispense.medication.product.+ -> MedicationDispense.medicationReference.product.+
+- Observation.value.value -> Observation.value[x].value
+- MedicationAdminisration -> MedicationAdministration
+
+- User resource doesnot exist for DSTU2!
+
+------------------------
 Q: 2. We also need a 'package' or a 'group' - one that says, put this VAAllergyIntolerance profile together with these Provenance profiles. We'd publish as one profile if we could but we can't.
 A: 2. There is ImplementationGuide.grouping and groupingId that is used for that.
 
@@ -25,9 +36,13 @@ Q: 0. figure out how the ig-publisher auto includes some resources and not every
 Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
 
 ???
-- (A) Unable to find profile '' at MedicationDispense.medication[x]
+- (A) Unable to find profile '' at MedicationDispense.medication or MedicationOrder.medication
+  Happens for all profiles that profile these resources and have a medication[x] thing.
+  Stating the type solves the issue.
+      {
+	    "path": "MedicationOrder.medicationCodeableConcept"
+    },
 
-There is something wrong with:
 - (A?) pat-medOrder-ext-MedicationOrder
 - (A?) pat-medOrder-MedicationDispense
 - (A?) pat-medDispense-MedicationDispense

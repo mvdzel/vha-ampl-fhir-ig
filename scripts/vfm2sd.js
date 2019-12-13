@@ -56,13 +56,16 @@ vfm.VistA_FHIR_Map.forEach(row => {
         groupings[row.Coversheet_x0020_area] = true;
         console.log(`\
         <grouping id="group-${row.Coversheet_x0020_area}">
-            <name value="Coversheet Area ${lookup[row.Coversheet_x0020_area]}"/>
+            <name value="Coversheet Area: ${lookup[row.Coversheet_x0020_area]}"/>
         </grouping>`);
     }
 
     // sometimes there are whitespaces in the resource name and path, remove them
     var resourceName = row.FHIR_x0020_R2_x0020_resource.join().replace(' ','');
     var profileId = (row.path + '-' + resourceName).replace(' ', '');
+    if (row.profile != undefined) {
+        profileId = (row.profile + '-' + resourceName).replace(' ', '');
+    }
 
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
@@ -90,22 +93,25 @@ vfm.VistA_FHIR_Map.forEach(row => {
         profileIds.push(profileId);
     }
 
-    // create empty element struct if not already defined and populate with mapping info
+    // create elementPath based on resource + property
     var elementPath = (resourceName + '.' + row.FHIR_x0020_R2_x0020_property).replace(' ', '');
 
+    // TODO: proces fixed values after path!
     // ASSERT if elementPath is valid
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
         console.warn(`${row.ID1}: elementPath "${elementPath}" not a valid path`);
         return;
     }
+
     // REPAIR missing [x]; N.B. do this after the ASSERT of the elementPath!
     if (elementPath == "Observation.effective") elementPath += "[x]";
     if (elementPath == "Observation.value") elementPath += "[x]";
     if (elementPath == "Observation.component.value") elementPath += "[x]";
     if (elementPath == "MedicationOrder.medication") elementPath += "[x]";
     if (elementPath == "MedicationOrder.dispenseRequest.medication") elementPath += "[x]";
-    if (elementPath == "MedicationDispense.medication") elementPath += "[x]";    
+    if (elementPath == "MedicationDispense.medication") elementPath += "[x]";
 
+    // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
     }
@@ -124,15 +130,21 @@ vfm.VistA_FHIR_Map.forEach(row => {
     element.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
     if (row.description != undefined) {
         element.definition = row.description[0].trim();
-    }    
+    }
 
-    /*
-     Somehow there shouldbe a path valueQuantity so that the SD "knows" about the Quantity type.
-     This is now not in the VistA_FHIR_Map table :-(
-     TODO: figure out how we can detect this and add the valueQuantity property!
-     */
-    if (row.FHIR_x0020_R2_x0020_property[0] == "valueQuantity") {
-        element.type = [ { code: "Quantity" } ]; 
+    // REPAIR: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
+    if (/^Observation\.value.+\..+$/.test(elementPath) ||
+        /^MedicationOrder\.medication.+\..+$/.test(elementPath) ||
+        /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
+        /^MedicationDispense\.medication.+\..+$/.test(elementPath)) {
+        var extraElementPath = resourceName + '.' + row.FHIR_x0020_R2_x0020_property[0].substring(0, row.FHIR_x0020_R2_x0020_property[0].indexOf('.'));
+        console.log("!!: " + extraElementPath);
+        if (elementsByPath[profileId][extraElementPath] == undefined) {
+            var extraElement = elementsByPath[profileId][extraElementPath] = {
+                path: extraElementPath
+            };
+            sd.differential.element.push(extraElement);
+        }
     }
 });
 
