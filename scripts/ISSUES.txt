@@ -70,3 +70,6 @@ or the "official" validator
 
 !! TODO: Turns out that the "Error in snapshot generation" is caused by the order of the elements. 
 !! Turns out the order of the element paths must be in the order it has in the base resource property and datatype attributes.
+------------------
+Get IG Publisher from:
+https://github.com/FHIR/latest-ig-publisher

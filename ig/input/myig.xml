@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.4"/>
+  <version value="0.0.5"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -20,16 +20,14 @@
   <jurisdiction>
     <!-- This will drive SNOMED release used -->
     <coding>
-      <!-- This is the code for universal -->
+      <!-- Change to this if the IG is country-specific -->
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-      <code value="001"/>
-      <!-- Change to this if the IG is country-specific
-      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-      <code value="001"/>
-      -->
+      <!-- This is the code for universal 
+      <code value="001"/>-->
+      <code value="840"/>
     </coding>
   </jurisdiction>
-  <packageId value="vha-ampl-fhir-ig"/>
+  <packageId value="vha-ampl-ig"/>
   <!-- This is whatever FHIR version the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
   <fhirVersion value="1.0.2"/>
   <definition>
@@ -54,16 +52,6 @@
         <nameUrl value="index.html"/>
         <title value="MyIG Home Page"/>
         <generation value="html"/>
-      </page>
-      <page>
-        <nameUrl value="background.html"/>
-        <title value="Background"/>
-        <generation value="html"/>
-      </page>
-      <page>
-        <nameUrl value="spec.html"/>
-        <title value="Detailed Specification"/>
-        <generation value="markdown"/>
       </page>
       <page>
         <nameUrl value="downloads.html"/>
@@ -218,14 +206,14 @@
       <name value="pt-observation-Observation"/>
       <description value=""/>
     </resource>
-    <!--<resource>
+    <resource>
       <reference>
         <reference value="StructureDefinition/pt-appt-Appointment"/>
       </reference>
       <name value="pt-appt-Appointment"/>
       <description value=""/>
     </resource>
-    <resource>
+    <!--<resource>
       <reference>
         <reference value="StructureDefinition/pt-careTeam-CarePlan"/>
       </reference>

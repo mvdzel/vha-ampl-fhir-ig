@@ -5,9 +5,9 @@
     "differential": {
     },
     "abstract": false,
-    "name": "MyObservation",
-    "id": "MyObservation",
-    "constrainedType": "Observation",
+    "name": "<profileid>",
+    "id": "<profileid>",
+    "constrainedType": "<resourcename>",
     "mapping": [
       {
         "identity": "vista",
@@ -15,11 +15,11 @@
         "uri": "http://va.gov/vista/"
       }
     ],
-    "base": "http://hl7.org/fhir/StructureDefinition/Observation",
-    "date": "2019-11-22T10:07:12.04+01:00",
-    "url": "StructureDefinition/MyObservation",
+    "base": "http://hl7.org/fhir/StructureDefinition/<resourcename>",
+    "date": "<date>",
+    "url": "StructureDefinition/<profileid>",
     "meta": {
-      "lastUpdated": "2019-11-22T10:21:36.3+01:00"
+      "lastUpdated": "<date>"
     },
     "kind": "resource"
   }

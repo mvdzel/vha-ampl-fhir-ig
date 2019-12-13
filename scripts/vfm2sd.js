@@ -5,6 +5,7 @@ const fs = require('fs');
 //
 let rawdata = fs.readFileSync('VistA_FHIR_Map_Full.json');
 let vfm = JSON.parse(rawdata);
+let date = new Date().toISOString();
 
 /*
    Make sure there is 1 SD per profiled Resource per group of VistA paths.
@@ -14,8 +15,6 @@ let vfm = JSON.parse(rawdata);
    For [x] types the path can be either [x] or datatype, e.g. value[x] or valueQuantity.
    Order of elements is significant for XML not for JSON!
    Order of element entries is significant for StructDef for both XML and JSON!
-
-   TODO: update date/meta/lastUpdated
 */
 
 let elementsByPath = []; // paths per files/resource(=profileId)
@@ -64,6 +63,9 @@ vfm.VistA_FHIR_Map.forEach(row => {
         sd.url = "http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/" + profileId;
         sd.base = "http://hl7.org/fhir/StructureDefinition/" + resourceName;
         sd.constrainedType = resourceName;
+        sd.date = date;
+        sd.meta.lastUpdated = date;
+
         sds[profileId] = sd;
         profileIds.push(profileId);
     }
@@ -101,7 +103,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
     element.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
     if (row.description != undefined) {
-        element.description = row.description[0].trim();
+        element.definition = row.description[0].trim();
     }    
 
     /*
