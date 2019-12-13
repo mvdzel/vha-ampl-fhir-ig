@@ -14,6 +14,8 @@ let vfm = JSON.parse(rawdata);
    For [x] types the path can be either [x] or datatype, e.g. value[x] or valueQuantity.
    Order of elements is significant for XML not for JSON!
    Order of element entries is significant for StructDef for both XML and JSON!
+
+   TODO: update date/meta/lastUpdated
 */
 
 let elementsByPath = []; // paths per files/resource(=profileId)
@@ -59,7 +61,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         sd.differential.element = [];
         sd.name = profileId;
         sd.id = profileId;
-        sd.url = "http://va.gov/vista/" + profileId;
+        sd.url = "http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/" + profileId;
         sd.base = "http://hl7.org/fhir/StructureDefinition/" + resourceName;
         sd.constrainedType = resourceName;
         sds[profileId] = sd;
@@ -168,13 +170,13 @@ vss.ValueSetMembership.forEach(row => {
         valueset = {
             resourceType: "ValueSet",
             id: name,
-            uri: `http://va.gov/vista/ValueSet/${name}`,
+            url: `http://va.gov/fhir/us/vha-ampl-ig/ValueSet/${name}`,
             name: name,
             status: "draft",
             compose: {
                 include: [
                     {
-                        system: "http://va.gov/vista/",
+                        system: "http://va.gov/Terminology/VistaDefinedTerms/",
                         concept: []
                     }
                 ]

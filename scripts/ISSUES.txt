@@ -24,7 +24,17 @@ Q: 0. figure out how the ig-publisher auto includes some resources and not every
 
 Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
 
+???
+- (A) Unable to find profile '' at MedicationDispense.medication[x]
+
+There is something wrong with:
+- (A?) pat-medOrder-ext-MedicationOrder
+- (A?) pat-medOrder-MedicationDispense
+- (A?) pat-medDispense-MedicationDispense
+- (A?) pat-medDispense-ext-MedicationDispense
+
 ---------------------------------
+Issues in the table
 - Data_x0020_Elements used as .short should not start or end with space
 - [x] must be in path when applicable, e.g. for Observation.value, effective, medication, etc.
 - whitespaces cannot be in paths
@@ -46,22 +56,9 @@ Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render
 	at org.hl7.fhir.r5.conformance.ProfileUtilities.processPaths(ProfileUtilities.java:675)
 	at org.hl7.fhir.r5.conformance.ProfileUtilities.generateSnapshot(ProfileUtilities.java:472)
 	at org.hl7.fhir.igtools.publisher.Publisher.generateSnapshot(Publisher.java:3779)
-
-
-???
-- (A) Unable to find profile '' at MedicationDispense.medication[x]
-
-There is something wrong with:
-- (A?) pat-medOrder-ext-MedicationOrder
-- (A?) pat-medOrder-MedicationDispense
-- (A?) pat-medDispense-MedicationDispense
-- (A?) pat-medDispense-ext-MedicationDispense
-
-
 - AllergyIntolerance.patient.reference.display and then a mapping is not valid
 -- should be a profile on Patient with a mapping added to patient.display: YES
 -- [] paths cannot go beyond reference?! Check with Grahame..
-
 
 -----------------
 Validate the profiles first through:
