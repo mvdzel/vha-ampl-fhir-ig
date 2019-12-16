@@ -158,16 +158,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
 // });
 // console.log(JSON.stringify(bundle, null, 2));
 
-// Write the profiles to separate files
-profileIds.forEach(profileId => {
-    var entry = sds[profileId];
-    if (entry.differential.element.length == 0) {
-        console.warn(`no mappings for ${profileId} so skipped`);
-        return;
-    } 
-    fs.writeFile("resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
-});
-
 // Display myig.xml resource xml part
 profileIds.forEach(profileId => {
     var entry = sds[profileId];
@@ -184,6 +174,17 @@ profileIds.forEach(profileId => {
       <description value=""/>
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
+});
+
+// Write the profiles to separate files
+profileIds.forEach(profileId => {
+    var entry = sds[profileId];
+    if (entry.differential.element.length == 0) {
+        console.warn(`no mappings for ${profileId} so skipped`);
+        return;
+    }
+    delete entry.groupingId;
+    fs.writeFile("resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
 
 //

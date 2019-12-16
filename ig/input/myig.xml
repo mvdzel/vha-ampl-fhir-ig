@@ -14,6 +14,7 @@
       <!-- Or whatever URL and/or email address(es) are appropriate -->
       <system value="other"/>
       <value value="https://jpsys.com"/>
+      <rank value="1"/> <!--workaround "rank" issue (IGpub<=v1.0.21): *.contact[0].telecom[0].rank	error	value is less than permitted minimum value of 1 -->
     </telecom>
   </contact>
   <description value="A brief description of what MyIG is about (probably the same text as in your readme)"/>

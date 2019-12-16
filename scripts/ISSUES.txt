@@ -7,7 +7,6 @@ Adjusted in json version of table:
 - MedicationDispense.medication.product.+ -> MedicationDispense.medicationReference.product.+
 - Observation.value.value -> Observation.value[x].value
 - MedicationAdminisration -> MedicationAdministration
-
 - User resource doesnot exist for DSTU2!
 
 ------------------------
