@@ -24797,7 +24797,7 @@
                 "focal resource property"
             ],
             "FHIR_x0020_R2_x0020_resource": [
-                "medicationOrder"
+                "MedicationOrder"
             ],
             "FHIR_x0020_R2_x0020_property": [
                 "identifier \nsystem = va.gov/identifiers/orders/55.06"

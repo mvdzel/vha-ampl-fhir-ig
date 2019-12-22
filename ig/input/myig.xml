@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.6"/>
+  <version value="0.0.8"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -14,7 +14,6 @@
       <!-- Or whatever URL and/or email address(es) are appropriate -->
       <system value="other"/>
       <value value="https://jpsys.com"/>
-      <rank value="1"/> <!--workaround "rank" issue (IGpub<=v1.0.21): *.contact[0].telecom[0].rank	error	value is less than permitted minimum value of 1 -->
     </telecom>
   </contact>
   <description value="A brief description of what MyIG is about (probably the same text as in your readme)"/>
@@ -157,6 +156,30 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAAllergyIntoleranceEntry-Provenance"/>
+      </reference>
+      <name value="VAAllergyIntoleranceEntry-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAAllergyIntoleranceEntryInError-Provenance"/>
+      </reference>
+      <name value="VAAllergyIntoleranceEntryInError-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAAllergyIntoleranceVerification-Provenance"/>
+      </reference>
+      <name value="VAAllergyIntoleranceVerification-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/VAAllergyIntoleranceAssessment-Provenance"/>
       </reference>
       <name value="VAAllergyIntoleranceAssessment-Provenance"/>
@@ -285,6 +308,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/pt-immunization-prov-Provenance"/>
+      </reference>
+      <name value="pt-immunization-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-14"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/pt-immunization-practitioner-Immunization"/>
       </reference>
       <name value="pt-immunization-practitioner-Immunization"/>
@@ -328,6 +359,14 @@
         <reference value="StructureDefinition/pt-careTeam-CarePlan"/>
       </reference>
       <name value="pt-careTeam-CarePlan"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-prov-Provenance"/>
+      </reference>
+      <name value="pt-prov-Provenance"/>
       <description value=""/>
       <groupingId value="group-25"/>
     </resource>
@@ -421,6 +460,30 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/pt-Service-risk-Observation"/>
+      </reference>
+      <name value="pt-Service-risk-Observation"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-Service-risk-prov-Provenance"/>
+      </reference>
+      <name value="pt-Service-risk-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pt-Service-risk-Provenance"/>
+      </reference>
+      <name value="pt-Service-risk-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/pt-coverage-Coverage"/>
       </reference>
       <name value="pt-coverage-Coverage"/>
@@ -448,6 +511,14 @@
         <reference value="StructureDefinition/pat-medOrder-prov-Provenance"/>
       </reference>
       <name value="pat-medOrder-prov-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medOrder-prov-ext-Provenance"/>
+      </reference>
+      <name value="pat-medOrder-prov-ext-Provenance"/>
       <description value=""/>
       <groupingId value="group-15"/>
     </resource>
@@ -589,6 +660,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/pat-medOrder-audit-ext-Provenance"/>
+      </reference>
+      <name value="pat-medOrder-audit-ext-Provenance"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/pat-medOrder-audit-Provenance"/>
       </reference>
       <name value="pat-medOrder-audit-Provenance"/>
@@ -616,6 +695,14 @@
         <reference value="StructureDefinition/pat-medStatement-MedicationStatement"/>
       </reference>
       <name value="pat-medStatement-MedicationStatement"/>
+      <description value=""/>
+      <groupingId value="group-22"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pat-medStatement-prov-Provenance"/>
+      </reference>
+      <name value="pat-medStatement-prov-Provenance"/>
       <description value=""/>
       <groupingId value="group-22"/>
     </resource>
@@ -663,7 +750,7 @@
       <reference>
         <reference value="StructureDefinition/pat-MedAdmin-MedicationAdministration"/>
       </reference>
-      <name value="pat-MedAdmin-MedicationAdminisration"/>
+      <name value="pat-MedAdmin-MedicationAdministration"/>
       <description value=""/>
       <groupingId value="group-9"/>
     </resource>

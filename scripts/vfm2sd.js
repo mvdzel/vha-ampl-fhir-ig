@@ -61,7 +61,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
 
     // sometimes there are whitespaces in the resource name and path, remove them
-    var resourceName = row.FHIR_x0020_R2_x0020_resource.join().replace(' ','');
+    var resourceName = row.FHIR_x0020_R2_x0020_resource[0].trim();
     var profileId = (row.path + '-' + resourceName).replace(' ', '');
     if (row.profile != undefined) {
         profileId = (row.profile + '-' + resourceName).replace(' ', '');
@@ -93,10 +93,49 @@ vfm.VistA_FHIR_Map.forEach(row => {
         profileIds.push(profileId);
     }
 
-    // create elementPath based on resource + property
-    var elementPath = (resourceName + '.' + row.FHIR_x0020_R2_x0020_property).replace(' ', '');
+    // create element path array for profile if not already created
+    if (elementsByPath[profileId] == undefined) {
+        elementsByPath[profileId] = [];
+    }
+    
+    // proces fixed values after property!
+    // format <propertyName>\n[<key>=<value>($|\n)]+
+    var proplines = row.FHIR_x0020_R2_x0020_property[0].trim().split("\n");
+    if (proplines.length > 1) {
+        proplines.forEach(propline => {
+            if(/^.+=.+$/.test(propline)) {
+                //console.warn(`${row.ID1}: ${profileId} KEY=VALUE: ${propline}`);
+                var parts = propline.split('=');
+                var fixedKey = parts[0].trim();
+                var fixedValue = parts[1].trim();
+                // create elementPath based on resource + property (first line only)
+                var fixedElementPath = resourceName + '.' + fixedKey;
 
-    // TODO: proces fixed values after path!
+                var fixedElement = elementsByPath[profileId][fixedElementPath];
+                if (fixedElement == undefined) {
+                    fixedElement = {
+                        path: fixedElementPath,
+                        "fixedString": fixedValue,
+                        mapping: []
+                    };
+                    elementsByPath[profileId][fixedElementPath] = fixedElement;
+                    sd.differential.element.push(fixedElement);
+                    console.warn(`${row.ID1}: ${profileId} ADDED fixed value ${fixedElementPath}` + JSON.stringify(fixedElement, null, 2));
+                }
+                else {
+                    console.warn(`${row.ID1}: ${profileId} DUPLICATE fixed value ${fixedElementPath}`);
+                }
+                fixedElement.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
+            }
+            else {
+                console.warn(`${row.ID1}: ${profileId} IGNORED invalid fixed value format: ${propline}`);
+            }
+        });
+    }
+    // create elementPath based on resource + property (first line only)
+    var elementPath = (resourceName + '.' + proplines[0]).replace(' ', '');
+    //var elementPath = (resourceName + '.' + row.FHIR_x0020_R2_x0020_property[0]).replace(' ', '');
+
     // ASSERT if elementPath is valid
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
         console.warn(`${row.ID1}: elementPath "${elementPath}" not a valid path`);
@@ -112,9 +151,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
     if (elementPath == "MedicationDispense.medication") elementPath += "[x]";
 
     // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
-    if (elementsByPath[profileId] == undefined) {
-        elementsByPath[profileId] = [];
-    }
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
         element = elementsByPath[profileId][elementPath] = {
@@ -138,7 +174,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
         /^MedicationDispense\.medication.+\..+$/.test(elementPath)) {
         var extraElementPath = resourceName + '.' + row.FHIR_x0020_R2_x0020_property[0].substring(0, row.FHIR_x0020_R2_x0020_property[0].indexOf('.'));
-        console.log("!!: " + extraElementPath);
+        console.warn(`${row.ID1}: ${profileId} AUTOTYPE ${extraElementPath}`);
         if (elementsByPath[profileId][extraElementPath] == undefined) {
             var extraElement = elementsByPath[profileId][extraElementPath] = {
                 path: extraElementPath
@@ -158,11 +194,11 @@ vfm.VistA_FHIR_Map.forEach(row => {
 // });
 // console.log(JSON.stringify(bundle, null, 2));
 
-// Display myig.xml resource xml part
+// Display myig.xml resource xml part and write profile to separate file
 profileIds.forEach(profileId => {
     var entry = sds[profileId];
     if (entry.differential.element.length == 0) {
-        console.warn(`no mappings for ${profileId} so skipped`);
+        console.warn(`IGNORED: no mappings found in ${profileId}`);
         return;
     } 
     console.log(`\
@@ -174,15 +210,6 @@ profileIds.forEach(profileId => {
       <description value=""/>
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
-});
-
-// Write the profiles to separate files
-profileIds.forEach(profileId => {
-    var entry = sds[profileId];
-    if (entry.differential.element.length == 0) {
-        console.warn(`no mappings for ${profileId} so skipped`);
-        return;
-    }
     delete entry.groupingId;
     fs.writeFile("resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });

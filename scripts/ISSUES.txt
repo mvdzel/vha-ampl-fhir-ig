@@ -1,6 +1,5 @@
 
-Adjusted in json version of table:
-
+Adjusted in json version of Access table:
 - pt-observation-observation -> pt-observation-Observation
 - MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
 - MedicationDispense.medication -> MedicationDispense.medicationCodeableConcept
@@ -8,6 +7,15 @@ Adjusted in json version of table:
 - Observation.value.value -> Observation.value[x].value
 - MedicationAdminisration -> MedicationAdministration
 - User resource doesnot exist for DSTU2!
+- 552: medicationOrder resourcename with capital!
+
+------------------------
+Mapping questions:
+- pat-medOrder-ext: indication* <- there is a reason attribute that is for "indication" so this is not an extension but rather a fixed value
+- 52.2-.08: requestDate -> MedicationOrder.dateWritten
+- VAServiceObservationProfile is prefixed in some paths, invalid and breaks IG Publisher
+
+- Choose: fixed values or constraint (xpath)
 
 ------------------------
 Q: 2. We also need a 'package' or a 'group' - one that says, put this VAAllergyIntolerance profile together with these Provenance profiles. We'd publish as one profile if we could but we can't.
