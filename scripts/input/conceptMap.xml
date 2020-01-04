@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-01-04T11:27:08">
+<conceptMap>
+<ID>1</ID>
+<conceptMapName>CLINICAL DANGER LEVEL</conceptMapName>
+<sourceCode>1</sourceCode>
+<sourceLabel>HIGH</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/100.05-6</sourceSystem>
+<targetCode>high</targetCode>
+<targetLabel>High</targetLabel>
+<targetSystem>http://hl7.org/fhir/detectedissue-severity</targetSystem>
+<match>equal</match>
+</conceptMap>
+<conceptMap>
+<ID>2</ID>
+<conceptMapName>CLINICAL DANGER LEVEL</conceptMapName>
+<sourceCode>2</sourceCode>
+<sourceLabel>MODERATE</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/100.05-6</sourceSystem>
+<targetCode>moderate</targetCode>
+<targetLabel>Moderate</targetLabel>
+<targetSystem>http://hl7.org/fhir/detectedissue-severity</targetSystem>
+<match>equal</match>
+</conceptMap>
+<conceptMap>
+<ID>3</ID>
+<conceptMapName>CLINICAL DANGER LEVEL</conceptMapName>
+<sourceCode>3</sourceCode>
+<sourceLabel>LOW</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/100.05-6</sourceSystem>
+<targetCode>low</targetCode>
+<targetLabel>Low</targetLabel>
+<targetSystem>http://hl7.org/fhir/detectedissue-severity</targetSystem>
+<match>equal</match>
+</conceptMap>
+<conceptMap>
+<ID>4</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>N</sourceCode>
+<sourceLabel>NO-SHOW</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>noshow</targetCode>
+<targetLabel>no show</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>equal</match>
+</conceptMap>
+<conceptMap>
+<ID>5</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>C</sourceCode>
+<sourceLabel>CANCELLED BY CLINC</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>cancelled</targetCode>
+<targetLabel>cancelled</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>lossy</match>
+</conceptMap>
+<conceptMap>
+<ID>6</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>NA</sourceCode>
+<sourceLabel>NO-SHOW &amp; AUTO RE-BOOK</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>noshow</targetCode>
+<targetLabel>no show</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>lossy</match>
+</conceptMap>
+<conceptMap>
+<ID>7</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>CA</sourceCode>
+<sourceLabel>CANCELLED BY CLINIC &amp; AUTO RE-BOOK</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>cancelled</targetCode>
+<targetLabel>cancelled</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>lossy</match>
+</conceptMap>
+<conceptMap>
+<ID>8</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>I</sourceCode>
+<sourceLabel>INPATIENT APPOINTMENT</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<note>rules may apply; is this worth effort?</note>
+</conceptMap>
+<conceptMap>
+<ID>9</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>PC</sourceCode>
+<sourceLabel>CANCELLED BY PATIENT</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>cancelled</targetCode>
+<targetLabel>cancelled</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>lossy</match>
+</conceptMap>
+<conceptMap>
+<ID>10</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>PCA</sourceCode>
+<sourceLabel>CANCELLED BY PATIENT &amp; AUTO-REBOOK</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<targetCode>cancelled</targetCode>
+<targetLabel>cancelled</targetLabel>
+<targetSystem>http://hl7.org/fhir/appointmentstatus</targetSystem>
+<match>lossy</match>
+</conceptMap>
+<conceptMap>
+<ID>11</ID>
+<conceptMapName>APPOINTMENT STATUS</conceptMapName>
+<sourceCode>NT</sourceCode>
+<sourceLabel>NO ACTION TAKEN</sourceLabel>
+<sourceSystem>http://va.gov/Terminology/VistaDefinedTerms/2.98-3</sourceSystem>
+<note>rules may apply; is this worth effort?</note>
+</conceptMap>
+</dataroot>

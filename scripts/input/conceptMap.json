@@ -1,0 +1,305 @@
+{
+    "conceptMap": [
+        {
+            "ID": [
+                "1"
+            ],
+            "conceptMapName": [
+                "CLINICAL DANGER LEVEL"
+            ],
+            "sourceCode": [
+                "1"
+            ],
+            "sourceLabel": [
+                "HIGH"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/100.05-6"
+            ],
+            "targetCode": [
+                "high"
+            ],
+            "targetLabel": [
+                "High"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/detectedissue-severity"
+            ],
+            "match": [
+                "equal"
+            ]
+        },
+        {
+            "ID": [
+                "2"
+            ],
+            "conceptMapName": [
+                "CLINICAL DANGER LEVEL"
+            ],
+            "sourceCode": [
+                "2"
+            ],
+            "sourceLabel": [
+                "MODERATE"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/100.05-6"
+            ],
+            "targetCode": [
+                "moderate"
+            ],
+            "targetLabel": [
+                "Moderate"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/detectedissue-severity"
+            ],
+            "match": [
+                "equal"
+            ]
+        },
+        {
+            "ID": [
+                "3"
+            ],
+            "conceptMapName": [
+                "CLINICAL DANGER LEVEL"
+            ],
+            "sourceCode": [
+                "3"
+            ],
+            "sourceLabel": [
+                "LOW"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/100.05-6"
+            ],
+            "targetCode": [
+                "low"
+            ],
+            "targetLabel": [
+                "Low"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/detectedissue-severity"
+            ],
+            "match": [
+                "equal"
+            ]
+        },
+        {
+            "ID": [
+                "4"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "N"
+            ],
+            "sourceLabel": [
+                "NO-SHOW"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "noshow"
+            ],
+            "targetLabel": [
+                "no show"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "equal"
+            ]
+        },
+        {
+            "ID": [
+                "5"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "C"
+            ],
+            "sourceLabel": [
+                "CANCELLED BY CLINC"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "cancelled"
+            ],
+            "targetLabel": [
+                "cancelled"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "lossy"
+            ]
+        },
+        {
+            "ID": [
+                "6"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "NA"
+            ],
+            "sourceLabel": [
+                "NO-SHOW & AUTO RE-BOOK"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "noshow"
+            ],
+            "targetLabel": [
+                "no show"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "lossy"
+            ]
+        },
+        {
+            "ID": [
+                "7"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "CA"
+            ],
+            "sourceLabel": [
+                "CANCELLED BY CLINIC & AUTO RE-BOOK"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "cancelled"
+            ],
+            "targetLabel": [
+                "cancelled"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "lossy"
+            ]
+        },
+        {
+            "ID": [
+                "8"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "I"
+            ],
+            "sourceLabel": [
+                "INPATIENT APPOINTMENT"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "note": [
+                "rules may apply; is this worth effort?"
+            ]
+        },
+        {
+            "ID": [
+                "9"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "PC"
+            ],
+            "sourceLabel": [
+                "CANCELLED BY PATIENT"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "cancelled"
+            ],
+            "targetLabel": [
+                "cancelled"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "lossy"
+            ]
+        },
+        {
+            "ID": [
+                "10"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "PCA"
+            ],
+            "sourceLabel": [
+                "CANCELLED BY PATIENT & AUTO-REBOOK"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "targetCode": [
+                "cancelled"
+            ],
+            "targetLabel": [
+                "cancelled"
+            ],
+            "targetSystem": [
+                "http://hl7.org/fhir/appointmentstatus"
+            ],
+            "match": [
+                "lossy"
+            ]
+        },
+        {
+            "ID": [
+                "11"
+            ],
+            "conceptMapName": [
+                "APPOINTMENT STATUS"
+            ],
+            "sourceCode": [
+                "NT"
+            ],
+            "sourceLabel": [
+                "NO ACTION TAKEN"
+            ],
+            "sourceSystem": [
+                "http://va.gov/Terminology/VistaDefinedTerms/2.98-3"
+            ],
+            "note": [
+                "rules may apply; is this worth effort?"
+            ]
+        }
+    ]
+}

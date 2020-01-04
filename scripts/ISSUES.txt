@@ -1,5 +1,5 @@
 
-Adjusted in json version of Access table:
+Manually adjusted in json version of Access table:
 - pt-observation-observation -> pt-observation-Observation
 - MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
 - MedicationDispense.medication -> MedicationDispense.medicationCodeableConcept
@@ -8,6 +8,8 @@ Adjusted in json version of Access table:
 - MedicationAdminisration -> MedicationAdministration
 - User resource doesnot exist for DSTU2!
 - 552: medicationOrder resourcename with capital!
+- 540: Location.managingOrganization.name -> .display, reference type has no name!
+- // AllergyIntolerance.patient.display <- @reference is the URI to the patient resource instance
 
 ------------------------
 Mapping questions:
@@ -27,33 +29,67 @@ A: 2. There is ImplementationGuide.grouping and groupingId that is used for that
 
   and then for each resource in that group add <groupingId value="allergy"/>
 
-Q: 3. Can we split up the Artifacts, a. specific profiles, b. extensions, c. value sets & maps
+Q: 3. Can we split up the Artifacts, a. specific profiles, b. extensions, c. value sets & maps?
 A: 3. Expect this to happen automatically based on constrainedType="StructureDefinition", constrainedType="Extension", constrainedType="ValueSet"
+
+!!!!
+Q: How to do Extensions?
+
+  In table now (up to version 4):
+   FHIR R2 resource	FHIR R2 property
+   "Patient" "extension: raceEthicityCollectionMethod"
+   
+  A: "Patient" "extension.raceEthicityCollectionMethod" <- if property startswith "extension." then this is an extension!
 
    @base: "<should match constrainedType>"
    @constrainedType: "Extension"
    @contextType: "resource(.property)"
    @context: [ "<ResourceName(s) where this Extension is applied on>" ]
    Use "special" paths in the mapping table and derive the above attributes.
+   !!?? kind: "datatype" or "resource" <-- how do I know from the current table?
 
-   !! kind: "datatype" or "resource" <-- how do I know from the current table?
+  For the "Patient" "extension.raceEthicityCollectionMethod" example:
+   @base: "http://hl7.org/fhir/StructureDefinition/Extension"
+   @constrainedType: "Extension"
+   @contextType: "resource(.property)"
+   @context: [ "Patient" ]
+   @fullUri: "http://va.gov/fhir/StructureDefinition/reactionDateEntered"
+
+   AND
+   > How to include the extension in a profile?? Like race in argonaut patient:
+   > http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-patient.xml.html
+
+        "path" : "Patient.extension",
+        "name" : "reactionDateEntered",
+        "short" : "Extension",
+        "definition" : "An Extension",
+        "base" : {
+          "path" : "Patient.extension"
+        },
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://va.gov/fhir/StructureDefinition/reactionDateEntered"
+            ]
+          }
+        ]
+!!!!
 
 Q: 0. figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
 
 Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
 
-???
-- (A) Unable to find profile '' at MedicationDispense.medication or MedicationOrder.medication
+Q: Unable to find profile '' at MedicationDispense.medication or MedicationOrder.medication
   Happens for all profiles that profile these resources and have a medication[x] thing.
-  Stating the type solves the issue.
+  A: Stating the type solves the issue.
       {
 	    "path": "MedicationOrder.medicationCodeableConcept"
     },
-
-- (A?) pat-medOrder-ext-MedicationOrder
-- (A?) pat-medOrder-MedicationDispense
-- (A?) pat-medDispense-MedicationDispense
-- (A?) pat-medDispense-ext-MedicationDispense
+  - pat-medOrder-ext-MedicationOrder
+  - pat-medOrder-MedicationDispense
+  - pat-medDispense-MedicationDispense
+  - pat-medDispense-ext-MedicationDispense
 
 ---------------------------------
 Issues in the table
@@ -93,5 +129,5 @@ or the "official" validator
 !! TODO: Turns out that the "Error in snapshot generation" is caused by the order of the elements. 
 !! Turns out the order of the element paths must be in the order it has in the base resource property and datatype attributes.
 ------------------
-Get IG Publisher from:
+Get IG Publisher (& Validator) from:
 https://github.com/FHIR/latest-ig-publisher

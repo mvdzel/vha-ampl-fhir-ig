@@ -3,13 +3,13 @@ const fs = require('fs');
 //
 // =========================== StructureDefinitions ===========================
 //
-let rawdata = fs.readFileSync('VistA_FHIR_Map.json');
+let rawdata = fs.readFileSync('input/VistA_FHIR_Map.json');
 let vfm = JSON.parse(rawdata);
 
 let date = new Date().toISOString();
 
 // convert lookup table into an array
-let rawlookupdata = fs.readFileSync('lookup.json');
+let rawlookupdata = fs.readFileSync('input/lookup.json');
 let lookuptable = JSON.parse(rawlookupdata);
 let lookup = [];
 lookuptable.lookup.forEach(row => {
@@ -134,7 +134,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
     // create elementPath based on resource + property (first line only)
     var elementPath = (resourceName + '.' + proplines[0]).replace(' ', '');
-    //var elementPath = (resourceName + '.' + row.FHIR_x0020_R2_x0020_property[0]).replace(' ', '');
 
     // ASSERT if elementPath is valid
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
@@ -217,7 +216,7 @@ profileIds.forEach(profileId => {
 //
 // =========================== ValueSets ===========================
 //
-let rawdata2 = fs.readFileSync('ValueSetMembership.json');
+let rawdata2 = fs.readFileSync('input/ValueSetMembership.json');
 let vss = JSON.parse(rawdata2);
 
 let valuesets = [];
@@ -266,6 +265,70 @@ valuesetNames.forEach(name => {
     <resource>
       <reference>
         <reference value="ValueSet/${name}"/>
+      </reference>
+      <name value="${name}"/>
+      <description value=""/>
+    </resource>`);
+});
+
+//
+// =========================== ConceptMaps ===========================
+//
+let rawdata3 = fs.readFileSync('input/conceptMap.json');
+let cms = JSON.parse(rawdata3);
+
+let conceptmaps = [];
+let conceptmapNames = [];
+
+cms.conceptMap.forEach(row => {
+    // First some assertions
+    if (row.targetSystem == undefined) return;
+
+    var name = row.conceptMapName[0];
+    var conceptmap = conceptmaps[name];
+    if (conceptmap == undefined) {
+        conceptmap = {
+            resourceType: "ConceptMap",
+            id: name,
+            url: `http://va.gov/fhir/us/vha-ampl-ig/ConceptMap/${name}`,
+            name: name,
+            status: "draft",
+            sourceReference: {
+                reference: row.sourceSystem[0]
+            },
+            targetReference: {
+                reference: row.targetSystem[0]
+            },
+            element: []
+        };
+        conceptmaps[name] = conceptmap;
+        conceptmapNames.push(name);
+    }
+    conceptmap.element.push({
+        codeSystem: row.sourceSystem[0],
+        code: row.sourceCode[0],
+        target: [ {
+                codeSystem: row.targetSystem[0],
+                code: row.targetCode[0],
+                equivalence: row.match[0],
+                comments: row.sourceLabel[0]
+            }
+        ]
+    });
+});
+
+// Write the conceptmaps to separate files
+conceptmapNames.forEach(name => {
+    var conceptmap = conceptmaps[name];
+    fs.writeFile("resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
+});
+
+// Display myig.xml resource xml part
+conceptmapNames.forEach(name => {
+    console.log(`\
+    <resource>
+      <reference>
+        <reference value="ConceptMap/${name}"/>
       </reference>
       <name value="${name}"/>
       <description value=""/>
