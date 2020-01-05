@@ -1,6 +1,6 @@
 
-Manually adjusted in json version of Access table:
-- pt-observation-observation -> pt-observation-Observation
+Manually adjusted in VistA_FHIR_Map_5.json:
+- // pt-observation-observation -> pt-observation-Observation
 - MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
 - MedicationDispense.medication -> MedicationDispense.medicationCodeableConcept
 - MedicationDispense.medication.product.+ -> MedicationDispense.medicationReference.product.+
@@ -8,8 +8,11 @@ Manually adjusted in json version of Access table:
 - MedicationAdminisration -> MedicationAdministration
 - User resource doesnot exist for DSTU2!
 - 552: medicationOrder resourcename with capital!
-- 540: Location.managingOrganization.name -> .display, reference type has no name!
+- 548: Location.managingOrganization.name -> .display, reference type has no name!
 - // AllergyIntolerance.patient.display <- @reference is the URI to the patient resource instance
+Manually adjusted in ConceptMap.json:
+- conceptMapName: APPOINTMENT STATUS -> AppointmentStatus
+- conceptMapName: CLINICAL DANGER LEVEL -> ClinicalDangerLevel
 
 ------------------------
 Mapping questions:
@@ -56,7 +59,7 @@ Q: How to do Extensions?
    @fullUri: "http://va.gov/fhir/StructureDefinition/reactionDateEntered"
 
    AND
-   > How to include the extension in a profile?? Like race in argonaut patient:
+   > How to include the extension in a profile. Like race in argonaut patient:
    > http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-patient.xml.html
 
         "path" : "Patient.extension",
@@ -75,6 +78,8 @@ Q: How to do Extensions?
           }
         ]
 !!!!
+
+Q: How to get the "extensions" page and format for the Extensions???
 
 Q: 0. figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
 

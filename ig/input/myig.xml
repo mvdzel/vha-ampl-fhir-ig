@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.8"/>
+  <version value="0.0.9"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -324,9 +324,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-Patient"/>
+        <reference value="StructureDefinition/VAPatient-Patient"/>
       </reference>
-      <name value="pt-Patient"/>
+      <name value="VAPatient-Patient"/>
       <description value=""/>
       <groupingId value="group-25"/>
     </resource>

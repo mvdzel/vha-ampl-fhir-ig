@@ -3,7 +3,7 @@ const fs = require('fs');
 //
 // =========================== StructureDefinitions ===========================
 //
-let rawdata = fs.readFileSync('input/VistA_FHIR_Map.json');
+let rawdata = fs.readFileSync('input/VistA_FHIR_Map_5.json');
 let vfm = JSON.parse(rawdata);
 
 let date = new Date().toISOString();
@@ -73,7 +73,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
-    // get new structuredefinition and create if we don't have it already
+    // get StructureDefinition and create if we don't have already
     var sd = sds[profileId];
     if (sd == undefined) {
         // create empty sd (TODO: per file/resource)
@@ -97,13 +97,13 @@ vfm.VistA_FHIR_Map.forEach(row => {
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
     }
-    
+
     // proces fixed values after property!
     // format <propertyName>\n[<key>=<value>($|\n)]+
     var proplines = row.FHIR_x0020_R2_x0020_property[0].trim().split("\n");
     if (proplines.length > 1) {
         proplines.forEach(propline => {
-            if(/^.+=.+$/.test(propline)) {
+            if (/^.+=.+$/.test(propline)) {
                 //console.warn(`${row.ID1}: ${profileId} KEY=VALUE: ${propline}`);
                 var parts = propline.split('=');
                 var fixedKey = parts[0].trim();
@@ -125,7 +125,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 else {
                     console.warn(`${row.ID1}: ${profileId} DUPLICATE fixed value ${fixedElementPath}`);
                 }
-                fixedElement.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
+                fixedElement.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
             }
             else {
                 console.warn(`${row.ID1}: ${profileId} IGNORED invalid fixed value format: ${propline}`);
@@ -152,22 +152,79 @@ vfm.VistA_FHIR_Map.forEach(row => {
     // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
-        element = elementsByPath[profileId][elementPath] = {
-            path: elementPath,
-            mapping: []
-        };
+        // special case for extensions
+        if (proplines.length > 0 && proplines[0].startsWith("extension.")) {
+            console.warn("EXTENSION: " + elementPath);
+            var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
+            element = elementsByPath[profileId][elementPath] = {
+                path: `${resourceName}.extension`,
+                name: extname,
+                type: [
+                    {
+                        code: "Extension",
+                        profile: [
+                            `http://va.gov/fhir/StructureDefinition/${extname}`
+                        ]
+                    }
+                ],
+                mapping: []
+            };
+
+            if (sds[extname] == undefined) {
+                console.warn("CREATE EXTENSION: " + extname);
+                sds[extname] = {
+                    resourceType: "StructureDefinition",
+                    id: extname,
+                    url: `http://va.gov/fhir/StructureDefinition/${extname}`,
+                    name: extname,
+                    fhirVersion: "1.0.2",
+                    status: "draft",
+                    date: date,
+                    base: "http://hl7.org/fhir/StructureDefinition/Extension",
+                    constrainedType: "Extension",
+                    kind: "resource",
+                    contextType: "resource",
+                    context: [],
+                    differential: {
+                        element: [
+                            {
+                                path: "Extension.url",
+                                type: [
+                                    {
+                                        code: "uri"
+                                    }
+                                ],
+                                fixedUri: `http://va.gov/fhir/StructureDefinition/${extname}`
+                            },
+                            {
+                                path: "Extension.valueString"
+                            }
+                        ]
+                    },
+                    groupingId: "group-extensions"
+                };
+                profileIds.push(extname);
+            }
+            sds[extname].context.push(resourceName);
+        }
+        else {
+            element = elementsByPath[profileId][elementPath] = {
+                path: elementPath,
+                mapping: []
+            };
+        }
         sd.differential.element.push(element);
     }
     element.label = row.Field_x0020_Name[0].trim();
-    if (row.Data_x0020_Elements != undefined) { 
+    if (row.Data_x0020_Elements != undefined) {
         element.short = row.Data_x0020_Elements[0].trim();
     }
-    element.mapping.push ({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
+    element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
     if (row.description != undefined) {
         element.definition = row.description[0].trim();
     }
 
-    // REPAIR: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
+    // AUTO REPAIR: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
     if (/^Observation\.value.+\..+$/.test(elementPath) ||
         /^MedicationOrder\.medication.+\..+$/.test(elementPath) ||
         /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
@@ -199,7 +256,7 @@ profileIds.forEach(profileId => {
     if (entry.differential.element.length == 0) {
         console.warn(`IGNORED: no mappings found in ${profileId}`);
         return;
-    } 
+    }
     console.log(`\
     <resource>
       <reference>
@@ -210,7 +267,7 @@ profileIds.forEach(profileId => {
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
     delete entry.groupingId;
-    fs.writeFile("resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
+    fs.writeFile("output/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
 
 //
@@ -235,6 +292,7 @@ vss.ValueSetMembership.forEach(row => {
             url: `http://va.gov/fhir/us/vha-ampl-ig/ValueSet/${name}`,
             name: name,
             status: "draft",
+            date: date,
             compose: {
                 include: [
                     {
@@ -256,7 +314,7 @@ vss.ValueSetMembership.forEach(row => {
 // Write the valuesets to separate files
 valuesetNames.forEach(name => {
     var valueset = valuesets[name];
-    fs.writeFile("resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
+    fs.writeFile("output/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
 });
 
 // Display myig.xml resource xml part
@@ -293,6 +351,7 @@ cms.conceptMap.forEach(row => {
             url: `http://va.gov/fhir/us/vha-ampl-ig/ConceptMap/${name}`,
             name: name,
             status: "draft",
+            date: date,
             sourceReference: {
                 reference: row.sourceSystem[0]
             },
@@ -307,12 +366,12 @@ cms.conceptMap.forEach(row => {
     conceptmap.element.push({
         codeSystem: row.sourceSystem[0],
         code: row.sourceCode[0],
-        target: [ {
-                codeSystem: row.targetSystem[0],
-                code: row.targetCode[0],
-                equivalence: row.match[0],
-                comments: row.sourceLabel[0]
-            }
+        target: [{
+            codeSystem: row.targetSystem[0],
+            code: row.targetCode[0],
+            equivalence: row.match[0],
+            comments: row.sourceLabel[0]
+        }
         ]
     });
 });
@@ -320,7 +379,7 @@ cms.conceptMap.forEach(row => {
 // Write the conceptmaps to separate files
 conceptmapNames.forEach(name => {
     var conceptmap = conceptmaps[name];
-    fs.writeFile("resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
+    fs.writeFile("output/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
 });
 
 // Display myig.xml resource xml part

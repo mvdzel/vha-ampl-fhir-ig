@@ -5,7 +5,7 @@
                 "1"
             ],
             "conceptMapName": [
-                "CLINICAL DANGER LEVEL"
+                "ClinicalDangerLevel"
             ],
             "sourceCode": [
                 "1"
@@ -34,7 +34,7 @@
                 "2"
             ],
             "conceptMapName": [
-                "CLINICAL DANGER LEVEL"
+                "ClinicalDangerLevel"
             ],
             "sourceCode": [
                 "2"
@@ -63,7 +63,7 @@
                 "3"
             ],
             "conceptMapName": [
-                "CLINICAL DANGER LEVEL"
+                "ClinicalDangerLevel"
             ],
             "sourceCode": [
                 "3"
@@ -92,7 +92,7 @@
                 "4"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "N"
@@ -121,7 +121,7 @@
                 "5"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "C"
@@ -150,7 +150,7 @@
                 "6"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "NA"
@@ -179,7 +179,7 @@
                 "7"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "CA"
@@ -208,7 +208,7 @@
                 "8"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "I"
@@ -228,7 +228,7 @@
                 "9"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "PC"
@@ -257,7 +257,7 @@
                 "10"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "PCA"
@@ -286,7 +286,7 @@
                 "11"
             ],
             "conceptMapName": [
-                "APPOINTMENT STATUS"
+                "AppointmentStatus"
             ],
             "sourceCode": [
                 "NT"
