@@ -1,4 +1,10 @@
 
+Manually added to generated jsons:
+  { "path": "Observation.valueQuantity" },
+- output/StructureDefinition-pat-rpt-obs-Observation.json:        "path": "Observation.value[x]",
+- output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.value[x]",
+- output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.component.value[x]",
+
 Manually adjusted in VistA_FHIR_Map_5.json:
 - // pt-observation-observation -> pt-observation-Observation
 - MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
@@ -6,21 +12,32 @@ Manually adjusted in VistA_FHIR_Map_5.json:
 - MedicationDispense.medication.product.+ -> MedicationDispense.medicationReference.product.+
 - Observation.value.value -> Observation.value[x].value
 - MedicationAdminisration -> MedicationAdministration
-- User resource doesnot exist for DSTU2!
 - 552: medicationOrder resourcename with capital!
 - 548: Location.managingOrganization.name -> .display, reference type has no name!
 - // AllergyIntolerance.patient.display <- @reference is the URI to the patient resource instance
+- Extension id cannot contain spaces: dispensed drug > dispensedDrug
+
 Manually adjusted in ConceptMap.json:
 - conceptMapName: APPOINTMENT STATUS -> AppointmentStatus
 - conceptMapName: CLINICAL DANGER LEVEL -> ClinicalDangerLevel
+- Concept equavalence lossy > inexact
+
+------------------------
+Now running on Java1.8 + Ruby2.3 + Jekyll3.8 (not install jekyll from apt!)
+-- gem install jekyll --version 3.8 ; seems to fix gsub issue
+
+Ask Grahame what canonical pattern is???
+ extension url doesn't follow canonical pattern: http://va.gov/fhir/StructureDefinition/argo-ethnicity, so omitted from extension summary
+ extension url doesn't follow canonical pattern: http://va.gov/fhir/StructureDefinition/createDate, so omitted from extension summary
+
 
 ------------------------
 Mapping questions:
+- User resource doesnot exist for DSTU2!
 - pat-medOrder-ext: indication* <- there is a reason attribute that is for "indication" so this is not an extension but rather a fixed value
 - 52.2-.08: requestDate -> MedicationOrder.dateWritten
 - VAServiceObservationProfile is prefixed in some paths, invalid and breaks IG Publisher
-
-- Choose: fixed values or constraint (xpath)
+- Choose: fixed values or constraint (xpath) -> look into slicing
 
 ------------------------
 Q: 2. We also need a 'package' or a 'group' - one that says, put this VAAllergyIntolerance profile together with these Provenance profiles. We'd publish as one profile if we could but we can't.
@@ -82,6 +99,7 @@ Q: How to do Extensions?
 Q: How to get the "extensions" page and format for the Extensions???
 
 Q: 0. figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
+A: 0. just not put the <resources> tag in there includes all resources in the resources directory. Downside is that you cannot do custom grouping then.
 
 Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
 

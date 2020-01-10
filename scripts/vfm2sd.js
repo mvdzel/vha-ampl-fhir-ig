@@ -51,6 +51,13 @@ vfm.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
+////// only process 1 Coversheet
+// 6 Works without changes
+    if (row.Coversheet_x0020_area != 6) {
+        return;
+    }
+//////
+
     // Display myig.xml groupings xml part once for each group
     if (groupings[row.Coversheet_x0020_area] == undefined) {
         groupings[row.Coversheet_x0020_area] = true;
@@ -100,11 +107,12 @@ vfm.VistA_FHIR_Map.forEach(row => {
 
     // proces fixed values after property!
     // format <propertyName>\n[<key>=<value>($|\n)]+
-    var proplines = row.FHIR_x0020_R2_x0020_property[0].trim().split("\n");
+    var proplines = row.FHIR_x0020_R2_x0020_property[0].trim().split(/\r?\n/);
+// TODO: figure out how to skip element 0
     if (proplines.length > 1) {
         proplines.forEach(propline => {
             if (/^.+=.+$/.test(propline)) {
-                //console.warn(`${row.ID1}: ${profileId} KEY=VALUE: ${propline}`);
+                //DEBUG console.warn(`${row.ID1}: ${profileId} KEY=VALUE: ${propline}`);
                 var parts = propline.split('=');
                 var fixedKey = parts[0].trim();
                 var fixedValue = parts[1].trim();
@@ -115,8 +123,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 if (fixedElement == undefined) {
                     fixedElement = {
                         path: fixedElementPath,
-                        "fixedString": fixedValue,
-                        mapping: []
+                        fixedString: fixedValue,
                     };
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
                     sd.differential.element.push(fixedElement);
@@ -125,7 +132,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 else {
                     console.warn(`${row.ID1}: ${profileId} DUPLICATE fixed value ${fixedElementPath}`);
                 }
-                fixedElement.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
             }
             else {
                 console.warn(`${row.ID1}: ${profileId} IGNORED invalid fixed value format: ${propline}`);
@@ -133,7 +139,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         });
     }
     // create elementPath based on resource + property (first line only)
-    var elementPath = (resourceName + '.' + proplines[0]).replace(' ', '');
+    var elementPath = (resourceName + '.' + proplines[0]).replace(' ', '').trim();
 
     // ASSERT if elementPath is valid
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
@@ -156,6 +162,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         if (proplines.length > 0 && proplines[0].startsWith("extension.")) {
             console.warn("EXTENSION: " + elementPath);
             var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
+// TODO: check extension name ; no spaces
             element = elementsByPath[profileId][elementPath] = {
                 path: `${resourceName}.extension`,
                 name: extname,
@@ -182,6 +189,13 @@ vfm.VistA_FHIR_Map.forEach(row => {
                     date: date,
                     base: "http://hl7.org/fhir/StructureDefinition/Extension",
                     constrainedType: "Extension",
+                    mapping: [
+                        {
+                          identity: "vista",
+                          name: "VistA",
+                          uri: "http://va.gov/vista/"
+                        }
+                      ],
                     kind: "resource",
                     contextType: "resource",
                     context: [],
@@ -197,12 +211,18 @@ vfm.VistA_FHIR_Map.forEach(row => {
                                 fixedUri: `http://va.gov/fhir/StructureDefinition/${extname}`
                             },
                             {
-                                path: "Extension.valueString"
+                                path: "Extension.valueString",
+                                mapping: [
+                                    { identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` }
+                                ]
                             }
                         ]
                     },
                     groupingId: "group-extensions"
                 };
+                if (row.description != undefined) {
+                    sds[extname].description = row.description[0].trim();
+                }
                 profileIds.push(extname);
             }
             sds[extname].context.push(resourceName);

@@ -1,0 +1,7 @@
+2020-jan-10
+- vfm2sd.js; fixed mappings in extensions
+- vfm2sd.js; fixed values have no mappings!
+- vfm2sd.js; fixed CRLF windows/unix newlines for fixed values
+- vfm2sd.js; added ConceptMap
+- vfm2sd.js; only process 1 coversheet area
+- ig/includes/menu.xml,ig/pagecontent/extensions.xml; added separate Extensions page

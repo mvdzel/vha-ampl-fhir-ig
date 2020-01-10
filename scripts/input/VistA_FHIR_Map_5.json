@@ -8125,7 +8125,7 @@
                 "Patient"
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "extension.selfIdentifiedGender\r\n\nAlso populate Patient.gender with map"
+                "extension.selfIdentifiedGender\n\nAlso populate Patient.gender with map"
             ],
             "map": [
                 "637"
@@ -38493,7 +38493,7 @@
                 "MedicationStatement"
             ],
             "FHIR_x0020_R2_x0020_property": [
-                "extension.dispensed drug"
+                "extension.dispensedDrug"
             ],
             "map": [
                 "296"

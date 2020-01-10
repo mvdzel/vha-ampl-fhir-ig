@@ -142,7 +142,7 @@
                 "http://hl7.org/fhir/appointmentstatus"
             ],
             "match": [
-                "lossy"
+                "inexact"
             ]
         },
         {
@@ -171,7 +171,7 @@
                 "http://hl7.org/fhir/appointmentstatus"
             ],
             "match": [
-                "lossy"
+                "inexact"
             ]
         },
         {
@@ -200,7 +200,7 @@
                 "http://hl7.org/fhir/appointmentstatus"
             ],
             "match": [
-                "lossy"
+                "inexact"
             ]
         },
         {
@@ -249,7 +249,7 @@
                 "http://hl7.org/fhir/appointmentstatus"
             ],
             "match": [
-                "lossy"
+                "inexact"
             ]
         },
         {
@@ -278,7 +278,7 @@
                 "http://hl7.org/fhir/appointmentstatus"
             ],
             "match": [
-                "lossy"
+                "inexact"
             ]
         },
         {
