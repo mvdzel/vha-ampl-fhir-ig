@@ -26,11 +26,6 @@ Manually adjusted in ConceptMap.json:
 Now running on Java1.8 + Ruby2.3 + Jekyll3.8 (not install jekyll from apt!)
 -- gem install jekyll --version 3.8 ; seems to fix gsub issue
 
-Ask Grahame what canonical pattern is???
- extension url doesn't follow canonical pattern: http://va.gov/fhir/StructureDefinition/argo-ethnicity, so omitted from extension summary
- extension url doesn't follow canonical pattern: http://va.gov/fhir/StructureDefinition/createDate, so omitted from extension summary
-
-
 ------------------------
 Mapping questions:
 - User resource doesnot exist for DSTU2!

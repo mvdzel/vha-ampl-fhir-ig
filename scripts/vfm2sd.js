@@ -170,7 +170,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                     {
                         code: "Extension",
                         profile: [
-                            `http://va.gov/fhir/StructureDefinition/${extname}`
+                            `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`
                         ]
                     }
                 ],
@@ -182,7 +182,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 sds[extname] = {
                     resourceType: "StructureDefinition",
                     id: extname,
-                    url: `http://va.gov/fhir/StructureDefinition/${extname}`,
+                    url: `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`,
                     name: extname,
                     fhirVersion: "1.0.2",
                     status: "draft",
@@ -208,7 +208,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                                         code: "uri"
                                     }
                                 ],
-                                fixedUri: `http://va.gov/fhir/StructureDefinition/${extname}`
+                                fixedUri: `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`
                             },
                             {
                                 path: "Extension.valueString",

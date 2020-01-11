@@ -1,4 +1,8 @@
 2020-jan-10
+- vfm2sd.js; fixed extension canonical pattern = http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/<extname|profileId>
+  missed "us/vha-ampl-ig"
+
+2020-jan-10
 - vfm2sd.js; fixed mappings in extensions
 - vfm2sd.js; fixed values have no mappings!
 - vfm2sd.js; fixed CRLF windows/unix newlines for fixed values
