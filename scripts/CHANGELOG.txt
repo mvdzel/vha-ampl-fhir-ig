@@ -1,3 +1,6 @@
+2020-jan-11
+- vfm2sd.js; more strict on profileId, elementpath etc, check against FHIR id type pattern
+
 2020-jan-10
 - vfm2sd.js; fixed extension canonical pattern = http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/<extname|profileId>
   missed "us/vha-ampl-ig"

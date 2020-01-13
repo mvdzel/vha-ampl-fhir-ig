@@ -22,11 +22,9 @@ lookuptable.lookup.forEach(row => {
    Make sure that there is only 1 element per path!
    So if there are 2+ mappings (rows) for 1 path, they should be in 1 element!
    For [x] types the path can be either [x] or datatype, e.g. value[x] or valueQuantity.
-   Order of elements is significant for XML not for JSON!
-   Order of element entries is significant for StructDef for both XML and JSON!
 */
 
-let elementsByPath = []; // paths per files/resource(=profileId)
+let elementsByPath = []; // paths per files/resource(=profileId/extensionId)
 let sds = [];
 let profileIds = [];
 let groupings = [];
@@ -53,7 +51,8 @@ vfm.VistA_FHIR_Map.forEach(row => {
 
 ////// only process 1 Coversheet
 // 6 Works without changes
-    if (row.Coversheet_x0020_area != 6) {
+    if (row.Coversheet_x0020_area != 25 &&
+        row.Coversheet_x0020_area != 6) {
         return;
     }
 //////
@@ -69,11 +68,11 @@ vfm.VistA_FHIR_Map.forEach(row => {
 
     // sometimes there are whitespaces in the resource name and path, remove them
     var resourceName = row.FHIR_x0020_R2_x0020_resource[0].trim();
-    var profileId = (row.path + '-' + resourceName).replace(' ', '');
+    var profileId = (row.path + '-' + resourceName);
+    // prefer profilename instead of path if defined
     if (row.profile != undefined) {
-        profileId = (row.profile + '-' + resourceName).replace(' ', '');
+        profileId = (row.profile + '-' + resourceName);
     }
-
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
         console.warn(`${row.ID1}: profileId "${profileId}" not a valid FHIR id type`);
@@ -118,12 +117,18 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 var fixedValue = parts[1].trim();
                 // create elementPath based on resource + property (first line only)
                 var fixedElementPath = resourceName + '.' + fixedKey;
+                // ASSERT if fixedElementPath is valid
+                if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(fixedElementPath)) {
+                    console.error(`${row.ID1}: fixedElementPath "${fixedElementPath}" not a valid path`);
+                    return;
+                }
 
                 var fixedElement = elementsByPath[profileId][fixedElementPath];
                 if (fixedElement == undefined) {
                     fixedElement = {
                         path: fixedElementPath,
                         fixedString: fixedValue,
+                        mapping: []
                     };
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
                     sd.differential.element.push(fixedElement);
@@ -139,11 +144,10 @@ vfm.VistA_FHIR_Map.forEach(row => {
         });
     }
     // create elementPath based on resource + property (first line only)
-    var elementPath = (resourceName + '.' + proplines[0]).replace(' ', '').trim();
-
+    var elementPath = (resourceName + '.' + proplines[0]).trim();
     // ASSERT if elementPath is valid
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
-        console.warn(`${row.ID1}: elementPath "${elementPath}" not a valid path`);
+        console.error(`${row.ID1}: elementPath "${elementPath}" not a valid path`);
         return;
     }
 
@@ -160,9 +164,14 @@ vfm.VistA_FHIR_Map.forEach(row => {
     if (element == undefined) {
         // special case for extensions
         if (proplines.length > 0 && proplines[0].startsWith("extension.")) {
-            console.warn("EXTENSION: " + elementPath);
+            console.warn(`${row.ID1}: add extension element in profile: ${elementPath}`);
             var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
-// TODO: check extension name ; no spaces
+            // ASSERT if extname is a valid FHIR id type!
+            if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(extname)) {
+                console.error(`${row.ID1}: extname "${extname}" not a valid FHIR id type`);
+                return;
+            }
+
             element = elementsByPath[profileId][elementPath] = {
                 path: `${resourceName}.extension`,
                 name: extname,
@@ -178,7 +187,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
             };
 
             if (sds[extname] == undefined) {
-                console.warn("CREATE EXTENSION: " + extname);
+                console.warn(`${row.ID1}: CREATE new EXTENSION: ${extname}`);
                 sds[extname] = {
                     resourceType: "StructureDefinition",
                     id: extname,

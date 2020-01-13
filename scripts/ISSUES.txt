@@ -1,6 +1,12 @@
 
+Coverpage =25 /home/michael/eclipse-workspace/vha-ampl-fhir-ig/scripts/output/StructureDefinition-VAPurpleHeartStatusProfile-Observation.json
+Makes IG publisher go full cpu load at "Terminology server: Check for supported code systems ..."
+Caused by the fixedvalues in there with double ..
+
+-------------
+
 Manually added to generated jsons:
-  { "path": "Observation.valueQuantity" },
+  { "path": "Observation.valueQuantity" }
 - output/StructureDefinition-pat-rpt-obs-Observation.json:        "path": "Observation.value[x]",
 - output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.value[x]",
 - output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.component.value[x]",
