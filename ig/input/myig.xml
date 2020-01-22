@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.11"/>
+  <version value="0.0.13"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -34,9 +34,11 @@
   <definition>
         <grouping id="group-6">
             <name value="Coversheet Area: Allergies/Adverse Reactions"/>
+            <description value="..."/>
         </grouping>
         <grouping id="group-extensions">
             <name value="Extensions"/>
+            <description value="..."/>
         </grouping>
     <!-- You don't need to define any groupings.  The IGPublisher will define them for you.  You only need to do so if your IG is 'special' and it's
       inappropriate to use the defaults.  Feel free to provide feedback about the defaults... -->
@@ -55,11 +57,6 @@
       <page>
         <nameUrl value="index.html"/>
         <title value="Home Page"/>
-        <generation value="html"/>
-      </page>
-      <page>
-        <nameUrl value="background.html"/>
-        <title value="Background"/>
         <generation value="html"/>
       </page>
       <page>

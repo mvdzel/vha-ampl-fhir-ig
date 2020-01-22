@@ -1,3 +1,11 @@
+2020-jan-22
+- vfm2sd.js; put extensions in the Coverpage group instead of in the extensions group
+- vfm2sd.js; made logging level clear; ERROR, WARM, INFO
+
+2020-jan-22
+- new mapping input (v6)
+- vfm2sd.js; added check existing resource in column resourceName
+
 2020-jan-11
 - vfm2sd.js; more strict on profileId, elementpath etc, check against FHIR id type pattern
 
