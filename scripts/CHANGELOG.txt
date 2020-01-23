@@ -1,3 +1,6 @@
+2020-jan-23
+- vfm2sd.js; path regexp improved
+
 2020-jan-22
 - vfm2sd.js; put extensions in the Coverpage group instead of in the extensions group
 - vfm2sd.js; made logging level clear; ERROR, WARM, INFO

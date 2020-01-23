@@ -147,15 +147,11 @@ vfm.VistA_FHIR_Map.forEach(row => {
             if (/^.+=.+$/.test(propline)) {
                 var parts = propline.split('=');
                 var fixedKey = parts[0].trim();
-                if (fixedKey.startsWith('.')) {
-                    console.error(`${row.ID1}: ERROR: fixedKey "${fixedKey}" not a valid path`);
-                    return;
-                }
                 var fixedValue = parts[1].trim();
                 // create elementPath based on resource + property (first line only)
                 var fixedElementPath = resourceName + '.' + fixedKey;
                 // ASSERT if fixedElementPath is valid
-                if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(fixedElementPath)) {
+                if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(fixedElementPath)) {
                     console.error(`${row.ID1}: ERROR: fixedElementPath "${fixedElementPath}" not a valid path`);
                     return;
                 }
@@ -182,8 +178,8 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
     // create elementPath based on resource + property (first line only)
     var elementPath = (resourceName + '.' + proplines[0]).trim();
-    // ASSERT if elementPath is valid
-    if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(elementPath)) {
+    // ASSERT if elementPath is valid (R4 eld-20 + ~eld-19)
+    if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(elementPath)) {
         console.error(`${row.ID1}: ERROR: elementPath "${elementPath}" not a valid path`);
         return;
     }
@@ -209,7 +205,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
             var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
             // ASSERT if extname is a valid FHIR id type!
             if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(extname)) {
-                console.error(`${row.ID1}: ERROR: extname "${extname}" not a valid FHIR id type`);
+                console.error(`${row.ID1}: ERROR: extname "${extname}" not a valid FHIR id value`);
                 return;
             }
 
