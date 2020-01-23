@@ -5,23 +5,11 @@ Caused by the fixedvalues in there with double ..
 
 -------------
 
-Manually added to generated jsons:
+Manually added type to generated jsons:
+> fgrep "value[x]" input/resources
+  { "path": "Observation.value[x]]" }
+  ..
   { "path": "Observation.valueQuantity" }
-- output/StructureDefinition-pat-rpt-obs-Observation.json:        "path": "Observation.value[x]",
-- output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.value[x]",
-- output/StructureDefinition-pt-vitals-observation-Observation.json:        "path": "Observation.component.value[x]",
-
-Manually adjusted in VistA_FHIR_Map_5.json:
-- // pt-observation-observation -> pt-observation-Observation
-- MedicationOrder.medication -> MedicationOrder.medicationCodeableConcept
-- MedicationDispense.medication -> MedicationDispense.medicationCodeableConcept
-- MedicationDispense.medication.product.+ -> MedicationDispense.medicationReference.product.+
-- Observation.value.value -> Observation.value[x].value
-- MedicationAdminisration -> MedicationAdministration
-- 552: medicationOrder resourcename with capital!
-- 548: Location.managingOrganization.name -> .display, reference type has no name!
-- // AllergyIntolerance.patient.display <- @reference is the URI to the patient resource instance
-- Extension id cannot contain spaces: dispensed drug > dispensedDrug
 
 Manually adjusted in ConceptMap.json:
 - conceptMapName: APPOINTMENT STATUS -> AppointmentStatus
@@ -34,10 +22,8 @@ Now running on Java1.8 + Ruby2.3 + Jekyll3.8 (not install jekyll from apt!)
 
 ------------------------
 Mapping questions:
-- User resource doesnot exist for DSTU2!
 - pat-medOrder-ext: indication* <- there is a reason attribute that is for "indication" so this is not an extension but rather a fixed value
 - 52.2-.08: requestDate -> MedicationOrder.dateWritten
-- VAServiceObservationProfile is prefixed in some paths, invalid and breaks IG Publisher
 - Choose: fixed values or constraint (xpath) -> look into slicing
 
 ------------------------

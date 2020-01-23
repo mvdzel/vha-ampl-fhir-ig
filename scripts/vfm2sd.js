@@ -77,9 +77,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
 
 ////// only process 1 Coversheet
-// 6 Works without manual changes
-    // if (row.area != 25 &&
-    //     row.area != 6) {
+    // if (row.area != 25) {
     //     return;
     // }
 //////
@@ -192,14 +190,14 @@ vfm.VistA_FHIR_Map.forEach(row => {
         elementPath == "MedicationOrder.medication" ||
         elementPath == "MedicationOrder.dispenseRequest.medication" ||
         elementPath == "MedicationDispense.medication") {
-            elementPath += "[x]";
-            console.warn(`${row.ID1}: WARN: ${profileId} REPAIR added [x] ${elementPath}`);
-        }
+        elementPath += "[x]";
+        console.warn(`${row.ID1}: WARN: ${profileId} REPAIR added [x] ${elementPath}`);
+    }
 
     // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
-        // special case for extensions
+        // new INTERNAL extension
         if (proplines.length > 0 && proplines[0].startsWith("extension.")) {
             console.warn(`${row.ID1}: INFO: add extension element in profile: ${elementPath}`);
             var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
@@ -215,9 +213,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 type: [
                     {
                         code: "Extension",
-                        profile: [
-                            `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`
-                        ]
+                        profile: [ `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}` ]
                     }
                 ],
                 mapping: []
