@@ -7,7 +7,7 @@ Caused by the fixedvalues in there with double ..
 
 Manually added type to generated jsons:
 > fgrep "value[x]" input/resources
-  { "path": "Observation.value[x]]" }
+  { "path": "Observation.value[x]" }
   ..
   { "path": "Observation.valueQuantity" }
 
@@ -84,11 +84,13 @@ Q: How to do Extensions?
 !!!!
 
 Q: How to get the "extensions" page and format for the Extensions???
+A: done created extensions.xml and using https://jekyllrb.com/docs/step-by-step/05-includes/
 
 Q: 0. figure out how the ig-publisher auto includes some resources and not everything; now have to explicitly put in myig.xml
 A: 0. just not put the <resources> tag in there includes all resources in the resources directory. Downside is that you cannot do custom grouping then.
 
 Q: Where to put the mappings of the VAValueSets? ConceptMap and will that render in the IG?
+A: Yes. Renders in IG and mappings go in ConceptMaps
 
 Q: Unable to find profile '' at MedicationDispense.medication or MedicationOrder.medication
   Happens for all profiles that profile these resources and have a medication[x] thing.

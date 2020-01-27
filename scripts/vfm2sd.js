@@ -1,16 +1,28 @@
-const fs = require('fs');
-
-//
-// =========================== StructureDefinitions ===========================
-//
-let rawdata = fs.readFileSync('input/VistA_FHIR_Map_6.json');
-let vfm = JSON.parse(rawdata);
-
+const fs = require('fs'),
+    xml2js = require('xml2js');
+var xml = new xml2js.Parser();
 let date = new Date().toISOString();
 
+//
+// =========================== Read Access Table Input ===========================
+//
+// These are XML Exports of the relevant Access Tables
+// - VistA_FHIR_Map
+// - lookup
+// - ValueSetMembership
+// - conceptMap
+//
+
+var vfm;
+xml.parseString(fs.readFileSync('input/VistA_FHIR_Map_6.xml'), function (err, result) {
+    vfm = result.dataroot;
+});
+
 // convert lookup table into an array
-let rawlookupdata = fs.readFileSync('input/lookup.json');
-let lookuptable = JSON.parse(rawlookupdata);
+let lookuptable;
+xml.parseString(fs.readFileSync('input/lookup.xml'), function (err, result) {
+    lookuptable = result.dataroot;
+});
 let lookup = [];
 lookuptable.lookup.forEach(row => {
     lookup[row.id] = row.label;
@@ -43,6 +55,10 @@ let resourceNames = [
     "ReferralRequest",
     "Specimen"
 ];
+
+//
+// =========================== StructureDefinitions ===========================
+//
 
 /*
    Make sure there is 1 SD per profiled Resource per group of VistA paths.
@@ -325,13 +341,15 @@ profileIds.forEach(profileId => {
 //
 // =========================== ValueSets ===========================
 //
-let rawdata2 = fs.readFileSync('input/ValueSetMembership.json');
-let vss = JSON.parse(rawdata2);
+var vss;
+xml.parseString(fs.readFileSync('input/ValueSetMembership.xml'), function (err, result) {
+    vss = result.dataroot;
+});
 
 let valuesets = [];
 let valuesetNames = [];
 
-vss.ValueSetMembership.forEach(row => {
+vss.ValueSetMembership_x0020_Query.forEach(row => {
     var name = row.valueSetName[0];
     var code = row.code[0];
     var display = row.display[0];
@@ -384,8 +402,10 @@ valuesetNames.forEach(name => {
 //
 // =========================== ConceptMaps ===========================
 //
-let rawdata3 = fs.readFileSync('input/conceptMap.json');
-let cms = JSON.parse(rawdata3);
+var cms;
+xml.parseString(fs.readFileSync('input/conceptMap.xml'), function (err, result) {
+    cms = result.dataroot;
+});
 
 let conceptmaps = [];
 let conceptmapNames = [];
