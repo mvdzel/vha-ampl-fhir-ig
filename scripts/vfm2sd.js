@@ -295,7 +295,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         element.short = row.Data_x0020_Elements[0].trim();
     }
     if(element.mapping == undefined) {
-        console.info(`${row.ID1}: INFO: mapping[] created for ${element.path}`);
+        console.warn(`${row.ID1}: INFO: mapping[] created for ${element.path}`);
         element.mapping = [];
     }
     element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
