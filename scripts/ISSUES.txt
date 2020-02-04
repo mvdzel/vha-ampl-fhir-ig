@@ -5,6 +5,20 @@ Caused by the fixedvalues in there with double ..
 
 -------------
 
+IG Publisher architecture:
+- templates in the sample-ig will automatically update
+- there might be more requirements to myig.xml e.g. parameters like (some are now in ig.ini)
+-- <parameter>
+  <code value="releaselabel"/>
+  <value value="CI Build"/>
+  </parameter>
+-- <parameter>
+  <code value="copyrightyear"/>
+  <value value="2020"/>
+  </parameter>
+
+-------------
+
 Manually added type to generated jsons:
 > fgrep "value[x]" input/resources
   { "path": "Observation.value[x]" }

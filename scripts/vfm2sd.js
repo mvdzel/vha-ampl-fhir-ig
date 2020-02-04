@@ -14,7 +14,7 @@ let date = new Date().toISOString();
 //
 
 var vfm;
-xml.parseString(fs.readFileSync('input/VistA_FHIR_Map_6.xml'), function (err, result) {
+xml.parseString(fs.readFileSync('input/VistA_FHIR_Map.xml'), function (err, result) {
     vfm = result.dataroot;
 });
 
@@ -174,8 +174,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 if (fixedElement == undefined) {
                     fixedElement = {
                         path: fixedElementPath,
-                        fixedString: fixedValue,
-                        mapping: []
+                        fixedString: fixedValue
                     };
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
                     sd.differential.element.push(fixedElement);
@@ -232,7 +231,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
                         profile: [ `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}` ]
                     }
                 ],
-                mapping: []
             };
 
             if (sds[extname] == undefined) {
@@ -267,7 +265,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
                                 ],
                                 fixedUri: `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`
                             },
-                            // TODO: get extension type from fhirProperties table!
+                            // TODO: get extension type from "fhirProperties" table!
                             {
                                 path: "Extension.valueString",
                                 mapping: [
@@ -287,8 +285,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         }
         else {
             element = elementsByPath[profileId][elementPath] = {
-                path: elementPath,
-                mapping: []
+                path: elementPath
             };
         }
         sd.differential.element.push(element);
@@ -296,6 +293,10 @@ vfm.VistA_FHIR_Map.forEach(row => {
     element.label = row.Field_x0020_Name[0].trim();
     if (row.Data_x0020_Elements != undefined) {
         element.short = row.Data_x0020_Elements[0].trim();
+    }
+    if(element.mapping == undefined) {
+        console.info(`${row.ID1}: INFO: mapping[] created for ${element.path}`);
+        element.mapping = [];
     }
     element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
     if (row.description != undefined) {
@@ -351,6 +352,11 @@ let valuesetNames = [];
 
 vss.ValueSetMembership_x0020_Query.forEach(row => {
     var name = row.valueSetName[0];
+    // ASSERT if profileId is a valid FHIR id type!
+    if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
+        console.error(`ERROR: ValueSet "${name}" not a valid FHIR id type`);
+        return;
+    }
     var code = row.code[0];
     var display = row.display[0];
 
@@ -411,10 +417,17 @@ let conceptmaps = [];
 let conceptmapNames = [];
 
 cms.conceptMap.forEach(row => {
-    // First some assertions
-    if (row.targetSystem == undefined) return;
-
     var name = row.conceptMapName[0];
+    // ASSERT if profileId is a valid FHIR id type!
+    if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
+        console.error(`${row.ID1}: ERROR: ConceptMap "${name}" not a valid FHIR id type`);
+        return;
+    }
+    // First some assertions
+    if (row.targetSystem == undefined) {
+        console.error(`${row.ID}: WARN: ConceptMap "${name}" row without target mapping ignored`);
+        return;
+    }
     var conceptmap = conceptmaps[name];
     if (conceptmap == undefined) {
         conceptmap = {

@@ -1,5 +1,9 @@
+2020-jan-28
+- vfm2sd.js; check id/name for ConceptMap and ValueSet
+
 2020-jan-27
 - vfm2sd.js; directly read the Acess XML Exports, no need for xml2json anymore
+- vfm2sd.js; fixed bug around mappings
 - xml2json.js; now deprecated, just for example
 
 2020-jan-23
