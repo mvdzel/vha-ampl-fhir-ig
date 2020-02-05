@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2019-12-13T12:48:55">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-02-05T11:37:55">
 <lookup>
 <id>1</id>
 <kind>mapStatus</kind>
@@ -29,11 +29,13 @@
 <id>6</id>
 <kind>CoversheetArea</kind>
 <label>Allergies/Adverse Reactions</label>
+<desc>An &quot;Allergies/Adverse Reactions&quot; record contains one VAAllergyIntolerance. This resource may contain Provenance resources documenting the origination, verification, and assessment, and, if applicable, circumstances under which it was judged to be in error. The originating Practitioner includes a title.</desc>
 </lookup>
 <lookup>
 <id>7</id>
 <kind>CoversheetArea</kind>
 <label>Appointment Button</label>
+<desc>This use case addresses upcoming appointments with locations and prior appointments with associated documents.</desc>
 </lookup>
 <lookup>
 <id>8</id>
@@ -74,16 +76,19 @@
 <id>15</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders - pending/non-verified</label>
+<desc>Inpatient orders from CPRS that have not been verified by Pharmacy</desc>
 </lookup>
 <lookup>
 <id>16</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders IV/Clinic Infusions</label>
+<desc>Verified inpatient or clinic IV orders</desc>
 </lookup>
 <lookup>
 <id>17</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders Unit Dose/Clinic Medications</label>
+<desc>Verified inpatient or clinic unit dose orders</desc>
 </lookup>
 <lookup>
 <id>18</id>
@@ -249,5 +254,251 @@
 <id>50</id>
 <kind>orders</kind>
 <label>Inpatient Orders (UNIT Dose)/clinic Medications</label>
+</lookup>
+<lookup>
+<id>51</id>
+<kind>serviceClass</kind>
+<label>FHIR supported</label>
+</lookup>
+<lookup>
+<id>52</id>
+<kind>serviceClass</kind>
+<label>Possibly FHIR supported</label>
+</lookup>
+<lookup>
+<id>53</id>
+<kind>serviceClass</kind>
+<label>Not FHIR supported</label>
+</lookup>
+<lookup>
+<id>54</id>
+<kind>semanticAlignment</kind>
+<label>0: match</label>
+</lookup>
+<lookup>
+<id>55</id>
+<kind>semanticAlignment</kind>
+<label>1: includes</label>
+</lookup>
+<lookup>
+<id>56</id>
+<kind>semanticAlignment</kind>
+<label>2: overlap</label>
+</lookup>
+<lookup>
+<id>57</id>
+<kind>Profile</kind>
+<label>VAAllergyIntolerance</label>
+<desc>An AllergyIntolerance resource with extensions supporting VA processes.</desc>
+</lookup>
+<lookup>
+<id>59</id>
+<kind>Profile</kind>
+<label>VAAllergyIntoleranceEntryInError</label>
+<desc>Provenance of the determination that the record is in error.</desc>
+</lookup>
+<lookup>
+<id>60</id>
+<kind>Profile</kind>
+<label>VAAllergyIntoleranceOrigination</label>
+<desc>Provenance of the AllergyIntolerance record.</desc>
+</lookup>
+<lookup>
+<id>61</id>
+<kind>Profile</kind>
+<label>VAAllergyIntoleranceVerification</label>
+<desc>Provenance of the AllergyIntolerance verification.</desc>
+</lookup>
+<lookup>
+<id>62</id>
+<kind>Profile</kind>
+<label>VAPractitioner</label>
+<desc>A VA practitioner, including title.</desc>
+</lookup>
+<lookup>
+<id>63</id>
+<kind>Profile</kind>
+<label>VAAppointment</label>
+<desc>An Appointment profiled to support VA requirements.</desc>
+</lookup>
+<lookup>
+<id>64</id>
+<kind>Profile</kind>
+<label>VAAppointmentPracitioner</label>
+<desc>A practitioner associated with a location.</desc>
+</lookup>
+<lookup>
+<id>65</id>
+<kind>Profile</kind>
+<label>VAAppointmentLocation</label>
+<desc>A location associated with an appointment, providing service information.</desc>
+</lookup>
+<lookup>
+<id>66</id>
+<kind>Profile</kind>
+<label>VAUnfinishedInpatientMedicationOrder</label>
+<desc>Inpatient orders from CPRS that have not been verified by Pharmacy</desc>
+</lookup>
+<lookup>
+<id>67</id>
+<kind>Profile</kind>
+<label>VAInpatientMedicationOrderChange</label>
+<desc>A record of changes made to an inpatient order</desc>
+</lookup>
+<lookup>
+<id>68</id>
+<kind>Profile</kind>
+<label>VAInpatientMedicationOrderEncounter</label>
+<desc>Encounter during which inpatient order was placed</desc>
+</lookup>
+<lookup>
+<id>69</id>
+<kind>Profile</kind>
+<label>VAInpatientMedicationOrderEntry</label>
+<desc>Provenance of the inpatient order</desc>
+</lookup>
+<lookup>
+<id>70</id>
+<kind>Profile</kind>
+<label>VAMedication</label>
+<desc>Medication with support for VA requirements</desc>
+</lookup>
+<lookup>
+<id>71</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationDispense</label>
+<desc>Medication dispense for VA unit dose orders</desc>
+</lookup>
+<lookup>
+<id>72</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationOrder</label>
+<desc>VA finished unit dose orders</desc>
+</lookup>
+<lookup>
+<id>73</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationOrderChange</label>
+<desc>Changes for VA unit dose orders</desc>
+</lookup>
+<lookup>
+<id>74</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationOrderEncounter</label>
+<desc>Encounter during which VA unit dose order was placed</desc>
+</lookup>
+<lookup>
+<id>75</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationOrderRenewal</label>
+<desc>Renewal provenance for VA unit dose orders</desc>
+</lookup>
+<lookup>
+<id>76</id>
+<kind>Profile</kind>
+<label>VAInpatientUDMedicationOrderVerification</label>
+<desc>Verification of VA unit dose orders</desc>
+</lookup>
+<lookup>
+<id>77</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationDispense</label>
+<desc>Medication dispense for VA IV orders</desc>
+</lookup>
+<lookup>
+<id>78</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrder</label>
+<desc>VA finished IV orders</desc>
+</lookup>
+<lookup>
+<id>79</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrderChange</label>
+<desc>Changes for VA IV orders</desc>
+</lookup>
+<lookup>
+<id>80</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrderEncounter</label>
+<desc>Encounter during which VA IV order was placed</desc>
+</lookup>
+<lookup>
+<id>81</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrderEntry</label>
+<desc>Provenance for entry of VA IV order</desc>
+</lookup>
+<lookup>
+<id>82</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrderRenewal</label>
+<desc>Renewal provenance for VA IV orders</desc>
+</lookup>
+<lookup>
+<id>83</id>
+<kind>Profile</kind>
+<label>VAInpatientIVMedicationOrderVerification</label>
+<desc>Verification of VA IV orders</desc>
+</lookup>
+<lookup>
+<id>84</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrder</label>
+<desc>VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>85</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderCancellation</label>
+<desc>Cancellation of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>86</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderChange</label>
+<desc>Change to VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>87</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderDiscontinuation</label>
+<desc>Discontinuation of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>88</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderEntry</label>
+<desc>Entry of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>89</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderSignature</label>
+<desc>Signature of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>90</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderVerification</label>
+<desc>Verification of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>91</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationDispense</label>
+<desc>Dispensation of VA finished outpatient medication order</desc>
+</lookup>
+<lookup>
+<id>92</id>
+<kind>Profile</kind>
+<label>VAFinishedOutpatientMedicationOrderEncounter</label>
+<desc>Encounter during which VA finished outpatient medication order is placed</desc>
+</lookup>
+<lookup>
+<id>58</id>
+<kind>Profile</kind>
+<label>VAAllergyIntoleranceAssessment</label>
+<desc>Provenance of the confirmation of a reaction.</desc>
 </lookup>
 </dataroot>

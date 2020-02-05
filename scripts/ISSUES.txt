@@ -1,4 +1,20 @@
 
+[] TODO: move sample-ig > vgh-ig ig folder and run publisher from there
+[] TODO: maybe check for extensions or profilenames with different casing! Should be the same.
+[] TODO: profileId variable is actually sdId!
+[] TODO: describe steps
+[] TODO: Make checklist for tool component installation
+[] TODO: @Jay: descriptions cannot contain double-quotes, there is 1 coversheet area
+[] TODO: @Jay: ValueSetMembership need query to split code and description, is now in 1 column
+[] TODO: @Jay: casing issue in iVprepRoom and iVlabelsPerDay
+[] LOW TODO: checkout Shorthand for generating StructDefs/Extensions/Examples!
+
+Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
+  description shows up in Artifact index but not in Artiface page... For Extension it does work.
+Q: How do I fix: "No value set found at Encounter.language (url = 'http://tools.ietf.org/html/bcp47')"?
+
+---------------
+
 Coverpage =25 /home/michael/eclipse-workspace/vha-ampl-fhir-ig/scripts/output/StructureDefinition-VAPurpleHeartStatusProfile-Observation.json
 Makes IG publisher go full cpu load at "Terminology server: Check for supported code systems ..."
 Caused by the fixedvalues in there with double ..
@@ -7,6 +23,7 @@ Caused by the fixedvalues in there with double ..
 
 IG Publisher architecture:
 - templates in the sample-ig will automatically update
+-- [] Unless you set a specific version in ig.ini. How????
 - there might be more requirements to myig.xml e.g. parameters like (some are now in ig.ini)
 -- <parameter>
   <code value="releaselabel"/>
@@ -31,8 +48,11 @@ Manually adjusted in ConceptMap.json:
 - Concept equavalence lossy > inexact
 
 ------------------------
-Now running on Java1.8 + Ruby2.3 + Jekyll3.8 (not install jekyll from apt!)
--- gem install jekyll --version 3.8 ; seems to fix gsub issue
+!! VERSIONS of components !!
+Now running on Java1.8.* + Ruby2.3 + Jekyll3.8 (not install jekyll from apt!)
+-- gem install jekyll --version 3.8 ; seems to fix gsub issue (cannot update to version 4 because of dependency with Mint ditro I use)
+IG Publisher 1.0.61!
+> java -Dfile.encoding=UTF-8 -jar org.hl7.fhir.publisher-1.0.61.jar -ig ig.ini
 
 ------------------------
 Mapping questions:

@@ -1,3 +1,8 @@
+2020-feb-05
+- vfm2sd.js; lookup description for profiles
+- vfm2sd.js; if a profilename is in Vista_FHIR_Map, dont add the ResourceName anymore
+- vfm2sd.js; lookup description for coversheet
+
 2020-jan-28
 - vfm2sd.js; check id/name for ConceptMap and ValueSet
 

@@ -23,9 +23,13 @@ let lookuptable;
 xml.parseString(fs.readFileSync('input/lookup.xml'), function (err, result) {
     lookuptable = result.dataroot;
 });
-let lookup = [];
+let lookup_labelById = [];
+let lookup_descByLabel = [];
+let lookup_descById = [];
 lookuptable.lookup.forEach(row => {
-    lookup[row.id] = row.label;
+    lookup_labelById[row.id] = row.label;
+    lookup_descByLabel[row.label] = row.desc;
+    lookup_descById[row.id] = row.desc;
 });
 let resourceNames = [
     "Address",
@@ -92,19 +96,15 @@ vfm.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
-////// only process 1 Coversheet
-    // if (row.area != 25) {
-    //     return;
-    // }
-//////
-
     // Display myig.xml groupings xml part once for each group
     if (groupings[row.area] == undefined) {
         groupings[row.area] = true;
+        var desc = lookup_descById[row.area];
+        if (desc == undefined) { desc = "" };
         console.log(`\
         <grouping id="group-${row.area}">
-            <name value="Coversheet Area: ${lookup[row.area]}"/>
-            <description value="These contain the artifacts from a VistA coversheet ares..."/>
+            <name value="Coversheet Area: ${lookup_labelById[row.area]}"/>
+            <description value="${desc}"/>
         </grouping>`);
     }
 
@@ -114,10 +114,10 @@ vfm.VistA_FHIR_Map.forEach(row => {
         console.error(`${row.ID1}: ERROR: resourceName "${resourceName}" not an existing resource`);
         return;
     }
-    var profileId = (row.path + '-' + resourceName);
+    var profileId = row.path + '-' + resourceName;
     // prefer profilename instead of path if defined
     if (row.profile != undefined) {
-        profileId = (row.profile + '-' + resourceName);
+        profileId = row.profile[0]; // + '-' + resourceName;
     }
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
@@ -133,8 +133,6 @@ vfm.VistA_FHIR_Map.forEach(row => {
         // create empty elements array
         sd.differential.element = [];
         sd.name = profileId;
-        // TODO: get description from lookup table @description column
-        sd.description = "";
         sd.id = profileId;
         sd.url = "http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/" + profileId;
         sd.base = "http://hl7.org/fhir/StructureDefinition/" + resourceName;
@@ -142,6 +140,9 @@ vfm.VistA_FHIR_Map.forEach(row => {
         sd.date = date;
         sd.meta.lastUpdated = date;
         sd.groupingId = `group-${row.area}`;
+        if(lookup_descByLabel[profileId] != undefined) {
+            sd.description = lookup_descByLabel[profileId][0];
+        }
 
         sds[profileId] = sd;
         profileIds.push(profileId);
@@ -197,7 +198,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
-    // REPAIR missing [x]; N.B. do this after the ASSERT of the elementPath!
+    // Check for missing [x]; N.B. do this after the ASSERT of the elementPath!
     // TODO: Ook als er iets achteraan komt!
     if (elementPath == "Observation.effective" ||
         elementPath == "Observation.value" ||
@@ -205,8 +206,8 @@ vfm.VistA_FHIR_Map.forEach(row => {
         elementPath == "MedicationOrder.medication" ||
         elementPath == "MedicationOrder.dispenseRequest.medication" ||
         elementPath == "MedicationDispense.medication") {
-        elementPath += "[x]";
-        console.warn(`${row.ID1}: WARN: ${profileId} REPAIR added [x] ${elementPath}`);
+        console.error(`${row.ID1}: ERROR: ${profileId} type[x] missing for ${elementPath}`);
+        return;
     }
 
     // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
@@ -295,7 +296,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         element.short = row.Data_x0020_Elements[0].trim();
     }
     if(element.mapping == undefined) {
-        console.warn(`${row.ID1}: INFO: mapping[] created for ${element.path}`);
+        //console.warn(`${row.ID1}: DEBUG: mapping[] created for ${element.path}`);
         element.mapping = [];
     }
     element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
@@ -326,13 +327,15 @@ profileIds.forEach(profileId => {
         console.warn(`WARN: no mappings found in ${profileId}; no profile written`);
         return;
     }
+    var desc = lookup_descByLabel[profileId];
+    if (desc == undefined) { desc = "" };
     console.log(`\
     <resource>
       <reference>
         <reference value="StructureDefinition/${profileId}"/>
       </reference>
       <name value="${profileId}"/>
-      <description value=""/>
+      <description value="${desc}"/>
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
     delete entry.groupingId;
@@ -401,7 +404,6 @@ valuesetNames.forEach(name => {
         <reference value="ValueSet/${name}"/>
       </reference>
       <name value="${name}"/>
-      <description value=""/>
     </resource>`);
 });
 
@@ -475,6 +477,5 @@ conceptmapNames.forEach(name => {
         <reference value="ConceptMap/${name}"/>
       </reference>
       <name value="${name}"/>
-      <description value=""/>
     </resource>`);
 });
