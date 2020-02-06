@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.14"/>
+  <version value="0.0.15"/>
   <name value="vha-ampl-ig"/>
   <title value="VHA AMPL FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -178,6 +178,22 @@
       </reference>
       <name value="VAAllergyIntolerance"/>
       <description value="An AllergyIntolerance resource with extensions supporting VA processes."/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/reactionDateEntered"/>
+      </reference>
+      <name value="reactionDateEntered"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/reactionObservationMode"/>
+      </reference>
+      <name value="reactionObservationMode"/>
+      <description value=""/>
       <groupingId value="group-6"/>
     </resource>
     <resource>
@@ -966,6 +982,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/unitsPerDose"/>
+      </reference>
+      <name value="unitsPerDose"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/providerRequestedStart"/>
       </reference>
       <name value="providerRequestedStart"/>
@@ -1390,9 +1414,25 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/teamAssignmentGrade"/>
+      </reference>
+      <name value="teamAssignmentGrade"/>
+      <description value=""/>
+      <groupingId value="group-28"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/pat-careTeam-CarePlan"/>
       </reference>
       <name value="pat-careTeam-CarePlan"/>
+      <description value=""/>
+      <groupingId value="group-28"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/teamAssignmentStatus"/>
+      </reference>
+      <name value="teamAssignmentStatus"/>
       <description value=""/>
       <groupingId value="group-28"/>
     </resource>
@@ -1849,6 +1889,14 @@
         <reference value="StructureDefinition/indication"/>
       </reference>
       <name value="indication"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/translation"/>
+      </reference>
+      <name value="translation"/>
       <description value=""/>
       <groupingId value="group-23"/>
     </resource>

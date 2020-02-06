@@ -1,3 +1,8 @@
+2020-feb-06
+- vfm2sd.js; set id for extension in profile to be unique to prevent "Duplicate Element id" ERROR from IG Publisher QA
+- vfm2sd.js; also process extensions on attribute level, e.g. reaction.extension.reactionDateEntered
+
+
 2020-feb-05
 - vfm2sd.js; lookup description for profiles
 - vfm2sd.js; if a profilename is in Vista_FHIR_Map, dont add the ResourceName anymore

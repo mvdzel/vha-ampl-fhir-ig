@@ -4,14 +4,14 @@
 [] TODO: profileId variable is actually sdId!
 [] TODO: describe steps
 [] TODO: Make checklist for tool component installation
-[] TODO: @Jay: descriptions cannot contain double-quotes, there is 1 coversheet area
+[] TODO: How to find type for fixed[x]...??
 [] TODO: @Jay: ValueSetMembership need query to split code and description, is now in 1 column
-[] TODO: @Jay: casing issue in iVprepRoom and iVlabelsPerDay
-[] LOW TODO: checkout Shorthand for generating StructDefs/Extensions/Examples!
 
+Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
   description shows up in Artifact index but not in Artiface page... For Extension it does work.
 Q: How do I fix: "No value set found at Encounter.language (url = 'http://tools.ietf.org/html/bcp47')"?
+Q: Why is ElementDefinition.name and ElementDefinition.id overwritten with the value of ElementDefinition.path? -> This will cause a duplicate id ERROR.
 
 ---------------
 
@@ -61,6 +61,11 @@ Mapping questions:
 - Choose: fixed values or constraint (xpath) -> look into slicing
 
 ------------------------
+Questions and Answers:
+
+Q: Checkout Shorthand for generating StructDefs/Extensions/Examples!
+A: Not for now. Shorthand only supports R4 today.
+
 Q: 2. We also need a 'package' or a 'group' - one that says, put this VAAllergyIntolerance profile together with these Provenance profiles. We'd publish as one profile if we could but we can't.
 A: 2. There is ImplementationGuide.grouping and groupingId that is used for that.
 
@@ -138,18 +143,15 @@ Q: Unable to find profile '' at MedicationDispense.medication or MedicationOrder
   - pat-medDispense-ext-MedicationDispense
 
 ---------------------------------
-Issues in the table
-- Data_x0020_Elements used as .short should not start or end with space
-- [x] must be in path when applicable, e.g. for Observation.value, effective, medication, etc.
+Restrictions in the table
+- Data_x0020_Elements used as element.short should not start or end with space
+- Type must be in path when applicable, e.g. for Observation.value, effective, medication, etc.
 - whitespaces cannot be in paths
-- resourcename must start with a capital
-- typo, missing 't' in "MedicationAdminisration"
+- resourcename must start with a capital and be an existing resource
 - a lot of "Error in snapshot generation: Differential for <profileId> has an element id: <path> that is not marked with a snapshot match - check validity of differential (including order)"
   Those are not existing paths!
   Not blocking for IG publication.
-- pt-observation-observation & pt-observation-Observation <- is in there twice cap and small typo!
-
-- when property is a [x] property you need a path with the type added, e.g. for pt-vitals-Observation!
+- when property is a [x] property you need a path (BEFORE THAT ONE) with the type added, e.g. for pt-vitals-Observation!
     {
 	    "path": "Observation.valueQuantity"
     },

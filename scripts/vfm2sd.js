@@ -179,14 +179,14 @@ vfm.VistA_FHIR_Map.forEach(row => {
                     };
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
                     sd.differential.element.push(fixedElement);
-                    console.warn(`${row.ID1}: INFO: ${profileId} ADDED fixed value ${fixedElementPath}`);
+                    console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value ${fixedElementPath}`);
                 }
                 else {
                     console.warn(`${row.ID1}: WARN: ${profileId} DUPLICATE fixed value ${fixedElementPath}`);
                 }
             }
             else {
-                console.error(`${row.ID1}: ERROR: ${profileId} IGNORED invalid fixed value format: ${propline}`);
+                console.error(`${row.ID1}: ERROR: ${profileId} IGNORE invalid fixed value format: ${propline}`);
             }
         });
     }
@@ -214,9 +214,11 @@ vfm.VistA_FHIR_Map.forEach(row => {
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
         // new INTERNAL extension
-        if (proplines.length > 0 && proplines[0].startsWith("extension.")) {
-            console.warn(`${row.ID1}: INFO: add extension element in profile: ${elementPath}`);
-            var extname = proplines[0].substring(proplines[0].indexOf('.') + 1);
+        if (proplines.length > 0 && 
+            elementPath.indexOf(".extension.") != -1) {
+            console.warn(`${row.ID1}: INFO: ${profileId} ADD extension element: ${elementPath}`);
+            var prefix = elementPath.substring(0,elementPath.indexOf(".extension."));
+            var extname = elementPath.substring(elementPath.indexOf(".extension.") + ".extension.".length);
             // ASSERT if extname is a valid FHIR id type!
             if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(extname)) {
                 console.error(`${row.ID1}: ERROR: extname "${extname}" not a valid FHIR id value`);
@@ -224,7 +226,8 @@ vfm.VistA_FHIR_Map.forEach(row => {
             }
 
             element = elementsByPath[profileId][elementPath] = {
-                path: `${resourceName}.extension`,
+                id: `${prefix}.${extname}`,
+                path: `${prefix}.extension`,
                 name: extname,
                 type: [
                     {
