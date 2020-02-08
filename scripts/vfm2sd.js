@@ -7,30 +7,40 @@ let date = new Date().toISOString();
 // =========================== Read Access Table Input ===========================
 //
 // These are XML Exports of the relevant Access Tables
-// - VistA_FHIR_Map
-// - lookup
-// - ValueSetMembership
+// - VistA_FHIR_Map - for mappings and extensions
+// - lookup - for groups and descriptions
+// - ValueSetMembership (Query version)
 // - conceptMap
+// - fhirProperties - for type of the extensions and for type and attributes of resources
 //
 
-var vfm;
+var input_mappings;
 xml.parseString(fs.readFileSync('input/VistA_FHIR_Map.xml'), function (err, result) {
-    vfm = result.dataroot;
+    input_mappings = result.dataroot;
 });
 
 // convert lookup table into an array
-let lookuptable;
+let input_lookup;
 xml.parseString(fs.readFileSync('input/lookup.xml'), function (err, result) {
-    lookuptable = result.dataroot;
+    input_lookup = result.dataroot;
 });
 let lookup_labelById = [];
 let lookup_descByLabel = [];
 let lookup_descById = [];
-lookuptable.lookup.forEach(row => {
+input_lookup.lookup.forEach(row => {
     lookup_labelById[row.id] = row.label;
     lookup_descByLabel[row.label] = row.desc;
     lookup_descById[row.id] = row.desc;
 });
+
+// process fhirProperties into different lookup tables
+let input_fhirProperties;
+xml.parseString(fs.readFileSync('input/fhirProperties.xml'), function (err, result) {
+    input_fhirProperties = result.dataroot;
+});
+let lookup_typeByExtName = [];
+let lookup_typeByPath = [];
+// accepted resourceNames
 let resourceNames = [
     "Address",
     "AllergyIntolerance",
@@ -59,6 +69,20 @@ let resourceNames = [
     "ReferralRequest",
     "Specimen"
 ];
+input_fhirProperties.fhirProperties.forEach(row => {
+    if (row.scope == "vaExtension" && row.type != undefined) {
+        var type = `${row.type}`; // convert to string?
+        lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
+    }
+    if (row.scope = "core" && row.type != undefined) {
+        var type = `${row.type}`; // convert to string?
+        lookup_typeByPath[row.resource + '.' + row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
+    }
+    // add resourceName if missing
+    if(!resourceNames.includes(row.resource[0])) {
+        resourceNames.push(row.resource[0]);
+    }
+});
 
 //
 // =========================== StructureDefinitions ===========================
@@ -77,7 +101,7 @@ let sds = [];
 let profileIds = [];
 let groupings = [];
 
-vfm.VistA_FHIR_Map.forEach(row => {
+input_mappings.VistA_FHIR_Map.forEach(row => {
     // Assertions that must be met
     if (row.path == undefined) {
         console.error(`${row.ID1}: ERROR: missing path`);
@@ -111,7 +135,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     // sometimes there are whitespaces in the resource name and path, remove them
     var resourceName = row.FHIR_x0020_R2_x0020_resource[0].trim();
     if (resourceNames.indexOf(resourceName) == -1) {
-        console.error(`${row.ID1}: ERROR: resourceName "${resourceName}" not an existing resource`);
+        console.error(`${row.ID1}: ERROR: resourceName '${resourceName}' not an existing resource`);
         return;
     }
     var profileId = row.path + '-' + resourceName;
@@ -121,14 +145,14 @@ vfm.VistA_FHIR_Map.forEach(row => {
     }
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
-        console.error(`${row.ID1}: ERROR: profileId "${profileId}" not a valid FHIR id type`);
+        console.error(`${row.ID1}: ERROR: profileId '${profileId}' not a valid FHIR id type`);
         return;
     }
 
     // get StructureDefinition and create if we don't have already
     var sd = sds[profileId];
     if (sd == undefined) {
-        // create empty sd (TODO: per file/resource)
+        // create empty sd based on template EmptyObsSD
         sd = JSON.parse(fs.readFileSync("EmptyObsSD.json"));
         // create empty elements array
         sd.differential.element = [];
@@ -143,14 +167,28 @@ vfm.VistA_FHIR_Map.forEach(row => {
         if(lookup_descByLabel[profileId] != undefined) {
             sd.description = lookup_descByLabel[profileId][0];
         }
-
         sds[profileId] = sd;
         profileIds.push(profileId);
+    }
+    else if (resourceName != sd.constrainedType) {
+        console.error(`${row.ID1}: ERROR resourceName '${resourceName}' is different from constrainedType '${sd.constrainedType}'?`);
+        return;
     }
 
     // create element path array for profile if not already created
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
+        // add slicing setup for extension
+        sd.differential.element.push({
+            path: `${resourceName}.extension`,
+            slicing: {
+                discriminator: [
+                    "url"
+                ],
+                ordered: false,
+                rules: "open"
+            }
+        });
     }
 
     // proces fixed values
@@ -167,26 +205,31 @@ vfm.VistA_FHIR_Map.forEach(row => {
                 var fixedElementPath = resourceName + '.' + fixedKey;
                 // ASSERT if fixedElementPath is valid
                 if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(fixedElementPath)) {
-                    console.error(`${row.ID1}: ERROR: fixedElementPath "${fixedElementPath}" not a valid path`);
+                    console.error(`${row.ID1}: ERROR: fixedElementPath '${fixedElementPath}' not a valid path`);
                     return;
                 }
 
                 var fixedElement = elementsByPath[profileId][fixedElementPath];
                 if (fixedElement == undefined) {
+                    var fixedType = lookup_typeByPath[fixedElementPath];
+                    if(fixedType == undefined) {
+                        console.error(`${row.ID1}: ERROR fixedElementPath '${fixedElementPath}' is a non existing path?`);
+                        fixedType = "String";
+                    }
                     fixedElement = {
-                        path: fixedElementPath,
-                        fixedString: fixedValue
+                        path: fixedElementPath
                     };
+                    fixedElement[`fixed${fixedType}`] = fixedValue;
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
                     sd.differential.element.push(fixedElement);
-                    console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value ${fixedElementPath}`);
+                    console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value '${fixedElementPath}'`);
                 }
                 else {
-                    console.warn(`${row.ID1}: WARN: ${profileId} DUPLICATE fixed value ${fixedElementPath}`);
+                    console.warn(`${row.ID1}: WARN: ${profileId} DUPLICATE fixed value '${fixedElementPath}'`);
                 }
             }
             else {
-                console.error(`${row.ID1}: ERROR: ${profileId} IGNORE invalid fixed value format: ${propline}`);
+                console.error(`${row.ID1}: ERROR: ${profileId} IGNORE invalid fixed value format: '${propline}'`);
             }
         });
     }
@@ -194,7 +237,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
     var elementPath = (resourceName + '.' + proplines[0]).trim();
     // ASSERT if elementPath is valid (R4 eld-20 + ~eld-19)
     if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(elementPath)) {
-        console.error(`${row.ID1}: ERROR: elementPath "${elementPath}" not a valid path`);
+        console.error(`${row.ID1}: ERROR: elementPath '${elementPath}' not a valid path`);
         return;
     }
 
@@ -206,7 +249,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
         elementPath == "MedicationOrder.medication" ||
         elementPath == "MedicationOrder.dispenseRequest.medication" ||
         elementPath == "MedicationDispense.medication") {
-        console.error(`${row.ID1}: ERROR: ${profileId} type[x] missing for ${elementPath}`);
+        console.error(`${row.ID1}: ERROR: ${profileId} type[x] missing for '${elementPath}'`);
         return;
     }
 
@@ -214,9 +257,8 @@ vfm.VistA_FHIR_Map.forEach(row => {
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
         // new INTERNAL extension
-        if (proplines.length > 0 && 
-            elementPath.indexOf(".extension.") != -1) {
-            console.warn(`${row.ID1}: INFO: ${profileId} ADD extension element: ${elementPath}`);
+        if (proplines.length > 0 && elementPath.indexOf(".extension.") != -1) {
+            console.warn(`${row.ID1}: INFO: ${profileId} ADD extension element '${elementPath}'`);
             var prefix = elementPath.substring(0,elementPath.indexOf(".extension."));
             var extname = elementPath.substring(elementPath.indexOf(".extension.") + ".extension.".length);
             // ASSERT if extname is a valid FHIR id type!
@@ -226,7 +268,7 @@ vfm.VistA_FHIR_Map.forEach(row => {
             }
 
             element = elementsByPath[profileId][elementPath] = {
-                id: `${prefix}.${extname}`,
+                // id: `${prefix}.${extname}`, // id will be automatically generated by the IG Publisher!
                 path: `${prefix}.extension`,
                 name: extname,
                 type: [
@@ -238,10 +280,14 @@ vfm.VistA_FHIR_Map.forEach(row => {
             };
 
             if (sds[extname] == undefined) {
-                console.warn(`${row.ID1}: INFO: create new extension: ${extname}`);
+                var exttype = lookup_typeByExtName[extname];
+                if(exttype == undefined) {
+                    exttype = "String";                    
+                }
+                console.warn(`${row.ID1}: INFO: create new extension '${extname}' type '${exttype}'`);
                 sds[extname] = {
                     resourceType: "StructureDefinition",
-                    id: extname,
+                    // id: extname, // id will be automatically generated by the IG Publisher!
                     url: `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`,
                     name: extname,
                     fhirVersion: "1.0.2",
@@ -264,14 +310,13 @@ vfm.VistA_FHIR_Map.forEach(row => {
                         element: [
                             {
                                 path: "Extension.url",
-                                type: [
-                                    { code: "uri" }
-                                ],
+                                // type: [
+                                //     { code: "uri" }
+                                // ],
                                 fixedUri: `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`
                             },
-                            // TODO: get extension type from "fhirProperties" table!
                             {
-                                path: "Extension.valueString",
+                                path: `Extension.value${exttype}`,
                                 mapping: [
                                     { identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` }
                                 ]
@@ -360,7 +405,7 @@ vss.ValueSetMembership_x0020_Query.forEach(row => {
     var name = row.valueSetName[0];
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
-        console.error(`ERROR: ValueSet "${name}" not a valid FHIR id type`);
+        console.error(`ERROR: ValueSet '${name}' not a valid FHIR id type`);
         return;
     }
     var code = row.code[0];
@@ -425,12 +470,12 @@ cms.conceptMap.forEach(row => {
     var name = row.conceptMapName[0];
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
-        console.error(`${row.ID1}: ERROR: ConceptMap "${name}" not a valid FHIR id type`);
+        console.error(`${row.ID1}: ERROR: ConceptMap '${name}' not a valid FHIR id type`);
         return;
     }
     // First some assertions
     if (row.targetSystem == undefined) {
-        console.error(`${row.ID}: WARN: ConceptMap "${name}" row without target mapping ignored`);
+        console.error(`${row.ID}: WARN: ConceptMap '${name}' row without target mapping ignored`);
         return;
     }
     var conceptmap = conceptmaps[name];

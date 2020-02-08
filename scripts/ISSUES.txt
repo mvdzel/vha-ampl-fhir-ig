@@ -1,11 +1,19 @@
 
-[] TODO: move sample-ig > vgh-ig ig folder and run publisher from there
-[] TODO: maybe check for extensions or profilenames with different casing! Should be the same.
-[] TODO: profileId variable is actually sdId!
-[] TODO: describe steps
-[] TODO: Make checklist for tool component installation
-[] TODO: How to find type for fixed[x]...??
-[] TODO: @Jay: ValueSetMembership need query to split code and description, is now in 1 column
+[/] TODO: HIGH: How to find type for fixed[x]...?? it is in fhirProperties (some are still missing)
+    checkout fhir download for IG publisher
+[] TODO: HIGH: Use correct types for Extensions
+[] TODO: ???: use order of attributes; is in fhirProperties
+[] TODO: MED: move sample-ig > vgh-ig ig folder and run publisher from there
+[] TODO: LOW: maybe check for extensions or profilenames with different casing! Should be the same.
+[] TODO: MED: describe steps
+[] TODO: MED: create checklist for tool component installation
+[] TODO: @Jay fhirProperties is missing some definitions, e.g. DocumentReference and MedicationDispense (has space in it), 
+    but also expansion of types like Patient.name is in there, but not Patient.address to address.use etc.
+[] TODO: LOW: provide example values so that IG Publisher can generate Examples
+    See https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation#IGPublisherDocumentation-ProcessingOptions
+    add to ig.in "gen-examples = true"
+    @Jay: add example values to tables
+[] VAPatient is Patient resource but there is a MedicationOrder in line 185; check initial Resource!
 
 Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
