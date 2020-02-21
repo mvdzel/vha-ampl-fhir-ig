@@ -1,25 +1,41 @@
 
+[] TODO: @Jay; use primitive types for fixed values, code is a CodeableConcept and cannot be set like this.
+  Or I could detect this and parse the full url.
+  e.g.  
+    Observation.code = "http://va.gov/terminology/vistaDefinedTerms/2-.302"
+      SHOULD BE
+    Observation.code.coding.system = "http://va.gov/terminology/vistaDefinedTerms/"
+    Observation.code.coding.code = "2-.302"
+
 [/] TODO: HIGH: How to find type for fixed[x]...?? it is in fhirProperties (some are still missing)
     checkout fhir download for IG publisher
-[] TODO: HIGH: Use correct types for Extensions
+    @Jay adds to fhirProperties table
+[/] TODO: @Jay fhirProperties is missing some definitions, e.g. DocumentReference and MedicationDispense (has space in it), 
+    but also expansion of types like Patient.name is in there, but not Patient.address to address.use etc.
+    @Jay will do.
+[/] TODO: HIGH: Use correct types for Extensions; Get them from fhirProperties
 [] TODO: ???: use order of attributes; is in fhirProperties
 [] TODO: MED: move sample-ig > vgh-ig ig folder and run publisher from there
 [] TODO: LOW: maybe check for extensions or profilenames with different casing! Should be the same.
 [] TODO: MED: describe steps
 [] TODO: MED: create checklist for tool component installation
-[] TODO: @Jay fhirProperties is missing some definitions, e.g. DocumentReference and MedicationDispense (has space in it), 
-    but also expansion of types like Patient.name is in there, but not Patient.address to address.use etc.
 [] TODO: LOW: provide example values so that IG Publisher can generate Examples
     See https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation#IGPublisherDocumentation-ProcessingOptions
     add to ig.in "gen-examples = true"
     @Jay: add example values to tables
-[] VAPatient is Patient resource but there is a MedicationOrder in line 185; check initial Resource!
+[] VAPatient is Patient resource but there is a MedicationOrder in line 185; @Jay what is meant here?
 
+10-feb-2020
+[] @Jay: ConceptMap, ValueSetMappings are really small
+[] @Jay: "path": Provenance.activity -> Provenance.activity.coding.code
+   "fixedCodeableConcept": "new" <- THIS IS NOT A CODABLECONCEPT but a CODE! -> "fixedCode":
+   Check for this in the script!
+[] fhirProperties types "Reference(Xyz)" <- (Xyz) gives problem now, Reference is the type and Xyz are the options
+[] pat-rpt.obs-Observation @value.unit -> missing <type> for value!
+      
 Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
   description shows up in Artifact index but not in Artiface page... For Extension it does work.
-Q: How do I fix: "No value set found at Encounter.language (url = 'http://tools.ietf.org/html/bcp47')"?
-Q: Why is ElementDefinition.name and ElementDefinition.id overwritten with the value of ElementDefinition.path? -> This will cause a duplicate id ERROR.
 
 ---------------
 
@@ -49,11 +65,6 @@ Manually added type to generated jsons:
   { "path": "Observation.value[x]" }
   ..
   { "path": "Observation.valueQuantity" }
-
-Manually adjusted in ConceptMap.json:
-- conceptMapName: APPOINTMENT STATUS -> AppointmentStatus
-- conceptMapName: CLINICAL DANGER LEVEL -> ClinicalDangerLevel
-- Concept equavalence lossy > inexact
 
 ------------------------
 !! VERSIONS of components !!
@@ -141,7 +152,7 @@ A: Yes. Renders in IG and mappings go in ConceptMaps
 
 Q: Unable to find profile '' at MedicationDispense.medication or MedicationOrder.medication
   Happens for all profiles that profile these resources and have a medication[x] thing.
-  A: Stating the type solves the issue.
+A: Stating the type solves the issue.
       {
 	    "path": "MedicationOrder.medicationCodeableConcept"
     },
@@ -149,6 +160,20 @@ Q: Unable to find profile '' at MedicationDispense.medication or MedicationOrder
   - pat-medOrder-MedicationDispense
   - pat-medDispense-MedicationDispense
   - pat-medDispense-ext-MedicationDispense
+
+Q: How do I fix: "No value set found at Encounter.language (url = 'http://tools.ietf.org/html/bcp47')"?
+A: I don't they just don't have computable valuesets... @Grahame
+
+Q: Why is ElementDefinition.name and ElementDefinition.id overwritten with the value of ElementDefinition.path? -> This will cause a duplicate id ERROR.
+A: Extensions need slicing setup, done.
+    path: `${resourceName}.extension`,
+    slicing: {
+        discriminator: [
+            "url"
+        ],
+        ordered: false,
+        rules: "open"
+    }
 
 ---------------------------------
 Restrictions in the table

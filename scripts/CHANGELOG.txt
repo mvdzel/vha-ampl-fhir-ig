@@ -1,10 +1,17 @@
+202-feb-21
+- vfm2sd.js; more checking if type is specified for [x] attributes
+- vfm2sd.js; remove options from Reference types in fhirProperties
+
+2020-feb-09-2
+- vfm2sd.js; AUTO add path element for value<Type>, forgot Observation.component.value[x]
+
 2020-feb-09
 - vfm2sd.js; check if resourceName in mapping line is same as the original constrainedType
 - vfm2sd.js; added slicing for extensions!
 - vfm2sd.js; get type info from fhirProperties for fixed values and extensions
 - vfm2sd.js; check if path exists in spec through fhirProperties
 
-2020-feb-06
+2020-feb-06-2
 - vfm2sd.js; set id for extension in profile to be unique to prevent "Duplicate Element id" ERROR from IG Publisher QA
 - vfm2sd.js; also process extensions on attribute level, e.g. reaction.extension.reactionDateEntered
 

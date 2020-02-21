@@ -70,12 +70,15 @@ let resourceNames = [
     "Specimen"
 ];
 input_fhirProperties.fhirProperties.forEach(row => {
+    var type = `${row.type}`; // convert to string?
+    // Remove type options for Reference type, e.g. Reference(Patient|Provider)
+    if(type.indexOf('(')!=-1) {
+        type = type.substring(0,type.indexOf('(')).trim();
+    }
     if (row.scope == "vaExtension" && row.type != undefined) {
-        var type = `${row.type}`; // convert to string?
         lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
     }
     if (row.scope = "core" && row.type != undefined) {
-        var type = `${row.type}`; // convert to string?
         lookup_typeByPath[row.resource + '.' + row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
     }
     // add resourceName if missing
@@ -119,6 +122,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         console.error(`${row.ID1}: ERROR: missing property name`);
         return;
     }
+
+//    if (row.area != 25) return;
 
     // Display myig.xml groupings xml part once for each group
     if (groupings[row.area] == undefined) {
@@ -178,7 +183,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     // create element path array for profile if not already created
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
-        // add slicing setup for extension
+        // AUTO add slicing setup for extension
         sd.differential.element.push({
             path: `${resourceName}.extension`,
             slicing: {
@@ -212,9 +217,13 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 var fixedElement = elementsByPath[profileId][fixedElementPath];
                 if (fixedElement == undefined) {
                     var fixedType = lookup_typeByPath[fixedElementPath];
-                    if(fixedType == undefined) {
-                        console.error(`${row.ID1}: ERROR fixedElementPath '${fixedElementPath}' is a non existing path?`);
+                    if (fixedType == undefined) {
+                        console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' is a non existing path? No info on type, default to String`);
                         fixedType = "String";
+                    }
+                    if (fixedType == "CodeableConcept") {
+                        console.error(`${row.ID1}: ERROR fixedElementPath '${fixedElementPath}' cannot set fixed value for non primitive type ${fixedType}`);
+                        return;
                     }
                     fixedElement = {
                         path: fixedElementPath
@@ -228,7 +237,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     console.warn(`${row.ID1}: WARN: ${profileId} DUPLICATE fixed value '${fixedElementPath}'`);
                 }
             }
-            else {
+            else if (propline.length > 0) {
                 console.error(`${row.ID1}: ERROR: ${profileId} IGNORE invalid fixed value format: '${propline}'`);
             }
         });
@@ -243,9 +252,11 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
 
     // Check for missing [x]; N.B. do this after the ASSERT of the elementPath!
     // TODO: Ook als er iets achteraan komt!
-    if (elementPath == "Observation.effective" ||
+    if (elementPath.indexOf("[x]") != -1 ||
+        elementPath == "Observation.effective" ||
         elementPath == "Observation.value" ||
         elementPath == "Observation.component.value" ||
+        elementPath == "MedicationStatement.effective" ||
         elementPath == "MedicationOrder.medication" ||
         elementPath == "MedicationOrder.dispenseRequest.medication" ||
         elementPath == "MedicationDispense.medication") {
@@ -295,6 +306,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     date: date,
                     base: "http://hl7.org/fhir/StructureDefinition/Extension",
                     constrainedType: "Extension",
+                    abstract: false,
                     mapping: [
                         {
                           identity: "vista",
@@ -352,13 +364,19 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         element.definition = row.description[0].trim();
     }
 
-    // REPAIR: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
+    if (/\[x\]/.test(elementPath)) {
+        console.error(`${row.ID1}: ERROR: expect type specified '${elementPath}'`);
+        return;
+    }
+
+    // AUTO: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
     if (/^Observation\.value.+\..+$/.test(elementPath) ||
+        /^Observation\.component\.value.+\..+$/.test(elementPath) ||
         /^MedicationOrder\.medication.+\..+$/.test(elementPath) ||
         /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
         /^MedicationDispense\.medication.+\..+$/.test(elementPath)) {
-        var extraElementPath = resourceName + '.' + row.FHIR_x0020_R2_x0020_property[0].substring(0, row.FHIR_x0020_R2_x0020_property[0].indexOf('.'));
-        console.warn(`${row.ID1}: WARN: ${profileId} REPAIR <type> ${extraElementPath}`);
+        var extraElementPath = elementPath.substring(0, elementPath.indexOf('.', elementPath.indexOf(".value")+1));
+        console.warn(`${row.ID1}: WARN: ${profileId} AUTO <type> '${extraElementPath}'`);
         if (elementsByPath[profileId][extraElementPath] == undefined) {
             var extraElement = elementsByPath[profileId][extraElementPath] = {
                 path: extraElementPath

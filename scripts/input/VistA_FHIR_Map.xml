@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-02-05T11:37:25">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-02-21T08:43:50">
 <VistA_FHIR_Map>
 <ID1>1</ID1>
 <ID>120.8-.01</ID>
@@ -2683,7 +2683,7 @@ extension: vaccinationState (B, C, P)</Extension>
 <FHIR_x0020_R2_x0020_resource>Immunization</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>reaction.manifestation.coding.code
 reaction.manifestation.coding.value
-system = http://www.va.gov/terminology/9000010.11-.06</FHIR_x0020_R2_x0020_property>
+reaction.manifestation.coding.system = http://www.va.gov/Terminology/VistADefinedTerms/9000010.11-.06</FHIR_x0020_R2_x0020_property>
 <FHIR_x0020_Map_x0020_Comment>1&apos; FOR FEVER;
 &apos;2&apos; FOR IRRITABILITY;
 &apos;3&apos; FOR LOCAL REACTION OR SWELLING;
@@ -4364,7 +4364,10 @@ type = bed</FHIR_x0020_R2_x0020_property>
 <profile>VAPatientServiceConnectionObservation</profile>
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code
+valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.301
+code.coding.code = 2-.301
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <map>176</map>
 <FHIR_x0020_Map_x0020_Comment>patient, not condition
 &apos;Y&apos; FOR YES;
@@ -4394,7 +4397,8 @@ type = bed</FHIR_x0020_R2_x0020_property>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>valueQuantity.value
 valueQuantity.unit = %
-code = http://va.gov/terminology/vistaDefinedTerms/2-.302</FHIR_x0020_R2_x0020_property>
+code.coding.code = 2-.302
+code.coding.system = http://va.gov/terminology/vistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <map>175</map>
 <FHIR_x0020_Map_x0020_Comment>patient, not condition</FHIR_x0020_Map_x0020_Comment>
 <Question_x0020_code>2-.302</Question_x0020_code>
@@ -4450,8 +4454,9 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-.01
 component.code.coding.value = 2.04-.01
-component.code.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-.01
+component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.value = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <map>205</map>
@@ -4480,8 +4485,9 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-2
 component.code.coding.value = 2.04-2
-component.code.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-2
+component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <map>175</map>
@@ -4508,8 +4514,9 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-3
 component.code.coding.value = 2.04-3
-component.code.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-3
+component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <map>176</map>
@@ -5337,9 +5344,9 @@ You may also answer with the 2- or 3-letter code assigned to the language or typ
 <R2_x0020_approach>related profile property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.03
 code.coding.code = 2.3216
 code.coding.system = http://va.gov/terminology/vistaDefinedElements
-component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.03
 component.code.coding.code = 2.3216-.03
 component.code.coding.display = Service Branch
 component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</FHIR_x0020_R2_x0020_property>
@@ -5369,9 +5376,9 @@ ODH: http://build.fhir.org/ig/HL7/us-odh/profiles.html</FHIR_x0020_Map_x0020_Com
 <R2_x0020_approach>related profile property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.04
 code.coding.code = 2.3216
 code.coding.system = http://va.gov/terminology/vistaDefinedElements
-component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.04
 component.code.coding.code = 2.3216-.04
 component.code.coding.display = Service Component
 component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</FHIR_x0020_R2_x0020_property>
@@ -5399,9 +5406,9 @@ component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</F
 <R2_x0020_approach>related profile property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.05
 code.coding.code = 2.3216
 code.coding.system = http://va.gov/terminology/vistaDefinedElements
-component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.05
 component.code.coding.code = 2.3216-.05
 component.code.coding.display = Service Number
 component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</FHIR_x0020_R2_x0020_property>
@@ -5483,9 +5490,9 @@ component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</F
 <R2_x0020_approach>related profile property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.06
 code.coding.code = 2.3216
 code.coding.system = http://va.gov/terminology/vistaDefinedElements
-component.valueCodeableConcept.coding.system = http://va.gov/terminology/vistaDefinedTerms/2.3216-.06
 component.code.coding.code = 2.3216-.06
 component.code.coding.display = Service Discharge Type
 component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</FHIR_x0020_R2_x0020_property>
@@ -5659,7 +5666,7 @@ code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x002
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = = 2-.322 
+code.coding.code = 2-.322 
 code.display = &quot;Grenada Service&quot;
 code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -5858,378 +5865,1065 @@ code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x002
 <priority>1.1</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>321</ID1>
-<ID>2-.322016</ID>
+<ID1>593</ID1>
+<ID>55.06-18</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Somalia Service Indicated?</Field_x0020_Name>
-<Field_x0020__x0023_>.322016</Field_x0020__x0023_>
-<description>If this patient served in the Somalia, enter yes here.  If the patient  did not serve in Somalia, enter no. Enter unknown if this information  could not be obtained from the patient. </description>
-<prompt>Did this patient serve in Somalia?</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[6]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code  
-valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = 2-.322016
-code.display = &quot;Somalia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
-<Answers>SO</Answers>
-<Extension>service extension</Extension>
-<May17Source>438</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>verifying RPH</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>VERIFYING PHARMACIST</Field_x0020_Name>
+<Field_x0020__x0023_>18</Field_x0020__x0023_>
+<description>  This is the pharmacist who verified the order. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderVerification</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>agent.actor
+activity = verify
+
+agent.role = Pharmacist</FHIR_x0020_R2_x0020_property>
+<map>110</map>
+<May17Source>737</May17Source>
+<priority>2</priority>
+<priorityNote></priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>322</ID1>
-<ID>2-.322017</ID>
+<ID1>594</ID1>
+<ID>55.06-19</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Somalia From Date</Field_x0020_Name>
-<Field_x0020__x0023_>.322017</Field_x0020__x0023_>
-<description>If this patient served in Somalia (SOMALIA SERVICE INDICATED? is  answered YES), enter the date this patient&apos;s service in Somalia began.  This date must be on or after September 28, 1992. </description>
-<prompt>Enter the date veteran&apos;s service in Somalia began.</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[6]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>effectivePeriod.start</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>439</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>Verification Date by Rph</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>DATE VERIFIED BY PHARMACIST</Field_x0020_Name>
+<Field_x0020__x0023_>19</Field_x0020__x0023_>
+<description>  This is the date the order was verified by the pharmacist. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderVerification</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>period
+activity = verify
+agent.role = Pharmacist</FHIR_x0020_R2_x0020_property>
+<map>104</map>
+<May17Source>738</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>323</ID1>
-<ID>2-.322018</ID>
+<ID1>595</ID1>
+<ID>55.06-50</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Somalia To Date</Field_x0020_Name>
-<Field_x0020__x0023_>.322018</Field_x0020__x0023_>
-<description>This is the last date of service in Somalia.  This date must be on or  after September 28, 1992. </description>
-<prompt>Enter the date veteran&apos;s service in Somalia ended.</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[6]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>effectivePeriod.end</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>440</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>PV Flag</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>PV FLAG</Field_x0020_Name>
+<Field_x0020__x0023_>50</Field_x0020__x0023_>
+<description>  This is an internal flag set whenever a pharmacist verifies the order. </description>
+<values>1:YES
+0:NO
+</values>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientUDMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.pharmacistVerificationFlag</FHIR_x0020_R2_x0020_property>
+<map>378</map>
+<FHIR_x0020_Map_x0020_Comment>might be redundant</FHIR_x0020_Map_x0020_Comment>
+<Extension>extension: PVFlag</Extension>
+<May17Source>739</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>324</ID1>
-<ID>2-.322019</ID>
+<ID1>596</ID1>
+<ID>55.06-51</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Yugoslavia Service Indicated? </Field_x0020_Name>
-<Field_x0020__x0023_>.322019</Field_x0020__x0023_>
-<description>Field stores code indicating if patient served in the Yugolslavia Conflict. </description>
-<prompt>Respond yes if patient served in the Kosovo Conflict (the airspace above and the adjacent waters of the Republic of Yugoslavia (Serbia/Montenegro), the Adriatic Sea &amp; Ionian Sea n. of 39th parallel).</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[7]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code  
-valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = 2-.322019
-code.display = &quot;= Yugoslavia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
-<Answers>YU</Answers>
-<Extension>service extension</Extension>
-<May17Source>441</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>NV Flag</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>NV FLAG</Field_x0020_Name>
+<Field_x0020__x0023_>51</Field_x0020__x0023_>
+<description>  This is an internal flag set whenever a nurse verifies the order. </description>
+<values>1:YES
+0:NO
+</values>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientUDMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.nurseVerificationFlag</FHIR_x0020_R2_x0020_property>
+<map>379</map>
+<FHIR_x0020_Map_x0020_Comment>might be redundant</FHIR_x0020_Map_x0020_Comment>
+<Extension>extension: NVFlag</Extension>
+<May17Source>740</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>325</ID1>
-<ID>2-.32202</ID>
+<ID1>598</ID1>
+<ID>55.06-130</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Yugoslavia From Date </Field_x0020_Name>
-<Field_x0020__x0023_>.32202</Field_x0020__x0023_>
-<description>Enter the date that service in the Yugoslavia Conflict began for this patient.  Earliest possible date is 6/22/1992. </description>
-<prompt>Type a date between June 22, 1992 and today indicating the date this patient began serving in the Yugoslavia Conflict.</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[7]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>effectivePeriod.start</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>442</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>Clinic</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>CLINIC</Field_x0020_Name>
+<Field_x0020__x0023_>130</Field_x0020__x0023_>
+<description>This is the clinic location if this order is for an Outpatient. </description>
+<prompt>Entry must be a clinic location and should be a clinic that allows administration of Inpatient Meds.</prompt>
+<path>pat-medOrder-encounter</path>
+<profile>VAInpatientUDMedicationOrderEncounter</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Encounter</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>location</FHIR_x0020_R2_x0020_property>
+<map>418</map>
+<FHIR_x0020_Map_x0020_Comment>[reference to location]</FHIR_x0020_Map_x0020_Comment>
+<May17Source>741</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>326</ID1>
-<ID>2-.322021</ID>
+<ID1>599</ID1>
+<ID>55.06-131</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Yugoslavia To Date</Field_x0020_Name>
-<Field_x0020__x0023_>.322021</Field_x0020__x0023_>
-<description>The date service in the Yugoslavia Conflict ended for this patient. </description>
-<prompt>Enter the date this patient&apos;s service in the Yugoslavia Conflict ended.  Date must be after June 22, 1992.</prompt>
-<path>pt-Service-episode</path>
-<profile>VAServiceEpisode[7]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>effectivePeriod.end</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>443</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>Appointment Date</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>APPOINTMENT DATE/TIME</Field_x0020_Name>
+<Field_x0020__x0023_>131</Field_x0020__x0023_>
+<description>Date and time of the appointment for this clinic location. </description>
+<prompt>This is the date and time of the appointment this order is being placed for.</prompt>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientUDMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.appointmentDate</FHIR_x0020_R2_x0020_property>
+<map>357</map>
+<Extension>extension: appointmentDate</Extension>
+<May17Source>742</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>327</ID1>
-<ID>2-.32102</ID>
+<ID1>601</ID1>
+<ID>55.06-72</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Agent Orange Expos. Indicated? </Field_x0020_Name>
-<Field_x0020__x0023_>.32102</Field_x0020__x0023_>
-<description>For this veteran applicant enter &apos;Y&apos; if s/he was exposed to the chemical agent orange, &apos;N&apos; if not, or &apos;U&apos; if unknown.  Exposure cannot be claimed unless the Period of Service (field .323) is answered VIETNAM ERA, which entails those serving in the Korean DMZ between January 1, 1968 and December 31, 1969 or Vietnam.   Once the service record has been verified only users who hold the designated security key may enter/edit this field. </description>
-<prompt>Enter &apos;Y&apos; if this patient claims exposure to agent orange, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[1]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code
-valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = 2-.32102
-code.coding.display = Agent Orange Expos. Indicated
-code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<FHIR_x0020_Map_x0020_Comment>Y: 410515003 |Known present (qualifier value)|
-N: 410516002 |Known absent (qualifier value)|
-U: 261665006 |Unknown (qualifier value)|</FHIR_x0020_Map_x0020_Comment>
-<Extension>service extension</Extension>
-<May17Source>444</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<Data_x0020_Elements>Provider Comments</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>PROVIDER COMMENTS </Field_x0020_Name>
+<Field_x0020__x0023_>72</Field_x0020__x0023_>
+<description>This is any instructions or comments entered by the provider for this order.</description>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientUDMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.medicationOrderProviderComment</FHIR_x0020_R2_x0020_property>
+<map>148</map>
+<Extension>extension: vaMedicationOrderProviderComment</Extension>
+<May17Source>744</May17Source>
+<priority>no priority assigned</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>328</ID1>
-<ID>2-.32107</ID>
+<ID1>603</ID1>
+<ID>55.09-.01</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Agent Orange Registration Date </Field_x0020_Name>
-<Field_x0020__x0023_>.32107</Field_x0020__x0023_>
-<description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date registered. Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
-<prompt>Enter the date on which this patient was registered as being exposed to agent orange.</prompt>
-<path>pt-Service-risk-prov</path>
-<profile>VARiskEpisodeProfile[1]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>445</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
+<File_x0020__x0023_>55.09</File_x0020__x0023_>
+<Field_x0020_Name>DATE</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>  This is the date (to the second) that the activity took place. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>recorded</FHIR_x0020_R2_x0020_property>
+<map>105</map>
+<May17Source>746</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>329</ID1>
-<ID>2-.32109</ID>
+<ID1>604</ID1>
+<ID>55.09-1</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Agent Orange Exam Date </Field_x0020_Name>
-<Field_x0020__x0023_>.32109</Field_x0020__x0023_>
-<description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date s/he was examined for this exposure, if any.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
-<prompt>Enter the date this patient was examined for the agent orange condition claimed.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[1]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>encounter.period</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>446</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
+<File_x0020__x0023_>55.09</File_x0020__x0023_>
+<Field_x0020_Name>USER</Field_x0020_Name>
+<Field_x0020__x0023_>1</Field_x0020__x0023_>
+<description>  This is the user who effected the activity. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>agent.who</FHIR_x0020_R2_x0020_property>
+<map>112</map>
+<May17Source>747</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>330</ID1>
-<ID>2-.32103</ID>
+<ID1>605</ID1>
+<ID>55.09-2</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Radiation Exposure Indicated?  </Field_x0020_Name>
-<Field_x0020__x0023_>.32103</Field_x0020__x0023_>
-<description>Enter &apos;Y&apos; if the veteran was exposed to ionizing radiation 1) at a nuclear device testing site (e.g. the Pacific Islands, NM or NV) or 2) as a POW or while serving in Hiroshima and/or Nagasaki, Japan from August 6, 1945 through July 1, 1946, or 3) served at Department of Energy plants at Paducah, KY, Portsmouth, OH or the K25 area at Oak Ridge, TN for at least 250 days before February 1, 1992 or 4) served at Longshot, Milrow, or Cannikin underground nuclear tests at Amchitka Island, AK prior to January 1, 1974.     Veterans exposed by method #3 or #4 are not eligible for  copay exemption or enrollment in priority 6 based on their IR exposure.   Enter &apos;N&apos; if not exposed or &apos;U&apos; if unknown.   Once the record has been verified only HEC users  may enter/edit this field. </description>
-<prompt>Enter the RADIATION EXPOSURE INDICATED associated with the enrollment priority determination</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[2]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code 
-valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = 2-.32103
-code.coding.display = &quot;Radiation Exposure Indicated&quot;
-code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<FHIR_x0020_Map_x0020_Comment>Y: 410515003 |Known present (qualifier value)|
-N: 410516002 |Known absent (qualifier value)|
-U: 261665006 |Unknown (qualifier value)|</FHIR_x0020_Map_x0020_Comment>
-<Extension>service extension</Extension>
-<May17Source>447</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
+<File_x0020__x0023_>55.09</File_x0020__x0023_>
+<Field_x0020_Name>ACTION</Field_x0020_Name>
+<Field_x0020__x0023_>2</Field_x0020__x0023_>
+<description>  This is the activity that has taken place on the order. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>activity</FHIR_x0020_R2_x0020_property>
+<map>107</map>
+<May17Source>748</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>331</ID1>
-<ID>2-.32111</ID>
+<ID1>606</ID1>
+<ID>55.09-3</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Radiation Registration Date </Field_x0020_Name>
-<Field_x0020__x0023_>.32111</Field_x0020__x0023_>
-<description>For this veteran applicant who was exposed to ionizing radiation (WERE YOU EXPOSED TO RADIATION prompt must be answered YES) enter the date registered.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as ionizing radiation exposure is indicated. </description>
-<prompt>Enter the date on which this patient was registered as claiming exposure to ionizing radiation.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[2]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>448</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
+<File_x0020__x0023_>55.09</File_x0020__x0023_>
+<Field_x0020_Name>FIELD</Field_x0020_Name>
+<Field_x0020__x0023_>3</Field_x0020__x0023_>
+<description>  This is field that was changed due to the activity. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderChange</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.targetElement</FHIR_x0020_R2_x0020_property>
+<map>433</map>
+<Extension>extension: changedField</Extension>
+<May17Source>749</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>332</ID1>
-<ID>2-.3212</ID>
+<ID1>607</ID1>
+<ID>55.09-4</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Radiation Exposure Method </Field_x0020_Name>
-<Field_x0020__x0023_>.3212</Field_x0020__x0023_>
-<description>This field represents the method by which the exposure to ionizing radiation occurred. </description>
-<prompt>Select from the listing available the method by which this patient was exposed to ionizing radiation.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[2]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code 
-component.valueCodeableConcept.coding.system =  http://va.gov/Terminology/VistaDefinedTerms/2-.3212
-component.code.coding.code = 2-.3212
-component.code.coding.display = &quot;Radiation Exposure Method&quot;
-component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<FHIR_x0020_Map_x0020_Comment>2&apos; FOR HIROSHIMA/NAGASAKI;
-&apos;3&apos; FOR ATMOSPHERIC NUCLEAR TESTING;
-&apos;4&apos; FOR H/N AND ATMOSPHERIC TESTING;
-&apos;5&apos; FOR UNDERGROUND NUCLEAR TESTING;
-&apos;6&apos; FOR EXPOSURE AT NUCLEAR FACILITY;
-&apos;7&apos; FOR OTHER;</FHIR_x0020_Map_x0020_Comment>
-<Question_x0020_code>2-.3212</Question_x0020_code>
-<Answers>codes</Answers>
-<Extension>service extension</Extension>
-<May17Source>449</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
+<File_x0020__x0023_>55.09</File_x0020__x0023_>
+<Field_x0020_Name>OLD DATA</Field_x0020_Name>
+<Field_x0020__x0023_>4</Field_x0020__x0023_>
+<description>  This is the previous data that was in the field that was changed. </description>
+<path>pat-medOrder-provenance</path>
+<profile>VAInpatientUDMedicationOrderChange</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.targetElement</FHIR_x0020_R2_x0020_property>
+<map>433</map>
+<Extension>extension </Extension>
+<May17Source>750</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>333</ID1>
-<ID>2-.322013</ID>
+<ID1>609</ID1>
+<ID>55.6114-.01</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>Southwest Asia Conditions? </Field_x0020_Name>
-<Field_x0020__x0023_>.322013</Field_x0020__x0023_>
-<description>Enter &quot;Y&quot; if veteran claims need for care of conditions related to service in SW Asia. Enter &quot;N&quot; if veteran did not serve in SW Asia or does not claim need for care of conditions related to service in SW Asia. Enter &quot;U&quot; when veteran served in SW Asia, but is unsure of whether conditions may be related to that service. SW Asia Theater of operations is defined as: Iraq, Kuwait, Saudi Arabia, the neutral zone between Iraq and Saudi Arabia, Bahrain, Qatar, the United Arab Emirates, Oman, the Gulf of Aden, the Gulf of Oman, the Persian Gulf, the Arabian Sea, the Red Sea, and the airspace above these locations. </description>
-<prompt>Enter &apos;Y&apos; if this patient claims exposure to Southwest Asia Conditions, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[3]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code 
-valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
-code.coding.code = 2-.322013
-code.coding.display = &quot;Southwest Asia Conditions&quot;
-code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
-<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
-<Answers>SouthwestAsia</Answers>
-<Extension>service extension</Extension>
-<May17Source>450</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<File_x0020__x0023_>55.6114</File_x0020__x0023_>
+<Field_x0020_Name>LAST RENEW</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>This is the date/time the order was renewed. </description>
+<prompt>Enter the date/time the order was renewed.</prompt>
+<path>pat-medOrder-prov</path>
+<profile>VAInpatientUDMedicationOrderRenewal</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>period</FHIR_x0020_R2_x0020_property>
+<map>104</map>
+<FHIR_x0020_Map_x0020_Comment>not order date written?</FHIR_x0020_Map_x0020_Comment>
+<May17Source>752</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>334</ID1>
-<ID>2-.322014</ID>
+<ID1>610</ID1>
+<ID>55.6114-1</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>SW Asia Cond Registration Date </Field_x0020_Name>
-<Field_x0020__x0023_>.322014</Field_x0020__x0023_>
-<description>This is the date on which the patient registered for being exposed to Conditions related to service in SW Asia. This date must be after 8/1/1990. </description>
-<prompt>Enter the date on which this patient was registered as being exposed to Southwest Asia conditions.  This must be after 8/1/1990.</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[3]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>451</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<File_x0020__x0023_>55.6114</File_x0020__x0023_>
+<Field_x0020_Name>RENEWED BY</Field_x0020_Name>
+<Field_x0020__x0023_>1</Field_x0020__x0023_>
+<description>This is the person who renewed the order. </description>
+<prompt>Enter the name of the person renewing this order.</prompt>
+<path>pat-medOrder-prov</path>
+<profile>VAInpatientUDMedicationOrderRenewal</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
+<map>112</map>
+<FHIR_x0020_Map_x0020_Comment>not prescriber?</FHIR_x0020_Map_x0020_Comment>
+<May17Source>753</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>335</ID1>
-<ID>2-.322015</ID>
+<ID1>611</ID1>
+<ID>55.6114-2</ID>
 <Status>5</Status>
 <RequirementSource>Coversheet</RequirementSource>
-<area>25</area>
-<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
-<File_x0020_Name>Patient</File_x0020_Name>
-<File_x0020__x0023_>2</File_x0020__x0023_>
-<Field_x0020_Name>SW Asia Cond Exam Date </Field_x0020_Name>
-<Field_x0020__x0023_>.322015</Field_x0020__x0023_>
-<description>This is the date on which an examination for exposure to Conditions  related to service in SW Asia was performed on the patient. </description>
-<prompt>Enter the date this patient was examined for the Southwest Asia conditions claimed (Must be after 8/1/1990).</prompt>
-<path>pt-Service-risk</path>
-<profile>VARiskEpisodeProfile[3]</profile>
-<R2_x0020_approach>related profile property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>encounter.period</FHIR_x0020_R2_x0020_property>
-<Extension>service extension</Extension>
-<May17Source>452</May17Source>
-<priority>1.1</priority>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<File_x0020__x0023_>55.6114</File_x0020__x0023_>
+<Field_x0020_Name>PREVIOUS PROVIDER</Field_x0020_Name>
+<Field_x0020__x0023_>2</Field_x0020__x0023_>
+<description>This is the name of the provider responsible for the prior order. </description>
+<prompt>Enter the name of the provider for the order you renewed.</prompt>
+<path>pat-medOrder-prov-extension</path>
+<profile>VAInpatientUDMedicationOrderRenewal</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.targetElement.change.oldValue
+element = 55.06-1</FHIR_x0020_R2_x0020_property>
+<map>433</map>
+<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
+<May17Source>754</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>612</ID1>
+<ID>55.6114-3</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<File_x0020__x0023_>55.6114</File_x0020__x0023_>
+<Field_x0020_Name>PREVIOUS STOP DATE/TIME</Field_x0020_Name>
+<Field_x0020__x0023_>3</Field_x0020__x0023_>
+<description>This is the stop date/time of the prior order. </description>
+<prompt>Enter the stop date/time of the previous order.</prompt>
+<path>pat-medOrder-prov-extension</path>
+<profile>VAInpatientUDMedicationOrderRenewal</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.targetElement.change.oldValue
+element = 55.06-34</FHIR_x0020_R2_x0020_property>
+<map>433</map>
+<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
+<May17Source>755</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>613</ID1>
+<ID>55.6114-4</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<File_x0020__x0023_>55.6114</File_x0020__x0023_>
+<Field_x0020_Name>PREVIOUS ORDERS FILE ENTRY</Field_x0020_Name>
+<Field_x0020__x0023_>4</Field_x0020__x0023_>
+<description>When an order is being renewed, this is the pointer value of the corresponding entry in the ORDERS file (100), prior to the renewal. </description>
+<prompt>Answer must be 1-30 characters in length.</prompt>
+<path>pat-medOrder</path>
+<profile>VAInpatientUDMedicationOrderRenewal</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>entity.reference
+value = 55.06-.001</FHIR_x0020_R2_x0020_property>
+<map>120</map>
+<FHIR_x0020_Map_x0020_Comment>to 100; cprs may create new order even if pharmacy doesn&apos;t</FHIR_x0020_Map_x0020_Comment>
+<May17Source>756</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>615</ID1>
+<ID>55.06-135</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>17</area>
+<File_x0020__x0023_>55.06</File_x0020__x0023_>
+<Field_x0020_Name>SPECIAL INSTRUCTIONS (LONG)</Field_x0020_Name>
+<Field_x0020__x0023_>135</Field_x0020__x0023_>
+<description>&lt;blank&gt;</description>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientUDMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.vaMediationOrderSpecialInstructionsLong</FHIR_x0020_R2_x0020_property>
+<map>262</map>
+<Extension>extension: vaMediationOrderSpecialInstructionsLong</Extension>
+<May17Source>758</May17Source>
+<priority>2</priority>
+<priorityNote></priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>616</ID1>
+<ID>55.01-100</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>STATUS</Field_x0020_Name>
+<Field_x0020__x0023_>100</Field_x0020__x0023_>
+<description>  Status of order. Enter one of following codes: A for active, H for hold, R for renewed, D for discontinued, E for expired, P for purge, O for on  call, N for nonverified. </description>
+<values>A:ACTIVE
+H:HOLD
+R:RENEWED
+D:DISCONTINUED
+E:EXPIRED
+P:PURGE
+O:ON CALL
+N:NON VERIFIED
+</values>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<R4_x0020_approach>align with status reason</R4_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.pharmacyOrderStatus</FHIR_x0020_R2_x0020_property>
+<map>369</map>
+<Extension>status (required), &amp;
+extension: VAMedicationOrderStatus</Extension>
+<May17Source>759</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>617</ID1>
+<ID>55-.01iv</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>Patient</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<File_x0020__x0023_>55</File_x0020__x0023_>
+<Field_x0020_Name>PATIENT</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>This is the name of a patient that has some type of pharmacy order.</description>
+<path>pat-medOrder</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
+<map>6</map>
+<FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
+<May17Source>760</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>618</ID1>
+<ID>55.01-.01</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>order number</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>ORDER NUMBER</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>Order Number for IV drugs administered to this patient. </description>
+<prompt>Type a whole number between 1 and 9999999.</prompt>
+<path>pat-medOrder</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>identifier 
+system = va.gov/identifiers/orders/55.01</FHIR_x0020_R2_x0020_property>
+<map>1</map>
+<May17Source>761</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>619</ID1>
+<ID>55.01-.02</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>start date</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>START DATE/TIME</Field_x0020_Name>
+<Field_x0020__x0023_>.02</Field_x0020__x0023_>
+<description> This is the date and time the order is to begin. This package initially assigns the START DATE/TIME to the closest administration time or next admin. time or NOW depends on the value of the DEFAULT START DATE CALCULATION field in the WARD PARAMETERS file. START DATE/TIME may not  be entered prior to 7 days from the order&apos;s LOGIN DATE.   </description>
+<prompt>Enter the start DATE and TIME for this order.</prompt>
+<path>pat-medOrder</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>dispenseRequest.validityPeriod (lower value)</FHIR_x0020_R2_x0020_property>
+<map>39</map>
+<May17Source>762</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>620</ID1>
+<ID>55.01-.03</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>stop date</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>STOP DATE/TIME</Field_x0020_Name>
+<Field_x0020__x0023_>.03</Field_x0020__x0023_>
+<description>  This is the date and time the order is to end. </description>
+<path>pat-medOrder</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>dispenseRequest.validityPeriod upper value)</FHIR_x0020_R2_x0020_property>
+<map>39</map>
+<May17Source>763</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>621</ID1>
+<ID>55.01-.04</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>type</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>TYPE</Field_x0020_Name>
+<Field_x0020__x0023_>.04</Field_x0020__x0023_>
+<description>  Type of IV - &apos;A&apos; for Admixture, &apos;C&apos; for chemotherapy, &apos;H&apos; for Hyperal, &apos;P&apos; for Piggyback, and &apos;S&apos; for Syringe. </description>
+<values>A:ADMIXTURE
+P:PIGGYBACK
+H:HYPERAL
+S:SYRINGE
+C:CHEMOTHERAPY
+</values>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.iVType</FHIR_x0020_R2_x0020_property>
+<map>363</map>
+<valueSet>2</valueSet>
+<FHIR_x0020_Map_x0020_Comment>&apos;A&apos; FOR ADMIXTURE;
+&apos;P&apos; FOR PIGGYBACK;
+&apos;H&apos; FOR HYPERAL;
+&apos;S&apos; FOR SYRINGE;
+&apos;C&apos; FOR CHEMOTHERAPY;</FHIR_x0020_Map_x0020_Comment>
+<Extension>extension: IVType</Extension>
+<May17Source>764</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>622</ID1>
+<ID>55.01-108</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>intermittent syringe</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>INTERMITTENT SYRING</Field_x0020_Name>
+<Field_x0020__x0023_>108</Field_x0020__x0023_>
+<description>  A syringe IV order may be continuous or intermittent.  If a syringe type is continuous (not intermittent), the same order entry procedure will be followed as if a hyperal or admixture is being entered.  If a syringe order is to be intermittent, the same order entry method as the piggback type will be followed. </description>
+<values>1:YES
+0:NO
+</values>
+<path>pat-medOrder-ext</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.intermittentSyringe</FHIR_x0020_R2_x0020_property>
+<map>377</map>
+<FHIR_x0020_Map_x0020_Comment>coding, &apos;1&apos; = yes; &apos;0&apos; = no</FHIR_x0020_Map_x0020_Comment>
+<Extension>extension: (syringeType?)</Extension>
+<May17Source>765</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>623</ID1>
+<ID>55.01-.06</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>16</area>
+<Data_x0020_Elements>provider</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<File_x0020__x0023_>55.01</File_x0020__x0023_>
+<Field_x0020_Name>PROVIDER</Field_x0020_Name>
+<Field_x0020__x0023_>.06</Field_x0020__x0023_>
+<description>  Person who authorized the prescription. </description>
+<prompt>(Entry required.)</prompt>
+<path>pat-medOrder</path>
+<profile>VAInpatientIVMedicationOrder</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>prescriber </FHIR_x0020_R2_x0020_property>
+<map>7</map>
+<FHIR_x0020_Map_x0020_Comment>File #200-field 1 - name</FHIR_x0020_Map_x0020_Comment>
+<May17Source>766</May17Source>
+<priority>2</priority>
+<priorityNote></priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>769</ID1>
+<ID>52-115</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<Data_x0020_Elements>Medication Instructions</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52</File_x0020__x0023_>
+<Field_x0020_Name>EXPANDED PATIENT INSTRUCTIONS</Field_x0020_Name>
+<Field_x0020__x0023_>115</Field_x0020__x0023_>
+<description>&lt;blank&gt;</description>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.medicationExpandedPatientInstructions</FHIR_x0020_R2_x0020_property>
+<map>151</map>
+<Extension>extension: VAMedicationExpandedPatientInstructions</Extension>
+<May17Source>592</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote></priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>771</ID1>
+<ID>52.2-.01</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>PARTIAL DATE</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>This is the date the partial was made. </description>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.medicationDispenseDate</FHIR_x0020_R2_x0020_property>
+<map>156</map>
+<May17Source>594</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>772</ID1>
+<ID>52.2-.02</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
+<Field_x0020__x0023_>.02</Field_x0020__x0023_>
+<description>This field tells whether the medication was picked up  or mailed to the patient. </description>
+<values>M:MAIL
+W:WINDOW
+</values>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.dispenseMode</FHIR_x0020_R2_x0020_property>
+<map>125</map>
+<Extension>extension: dispenseMode</Extension>
+<May17Source>595</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>773</ID1>
+<ID>52.2-.03</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>REMARKS</Field_x0020_Name>
+<Field_x0020__x0023_>.03</Field_x0020__x0023_>
+<description>These are any additional comments. </description>
+<prompt>ANSWER MUST BE 2-60 CHARACTERS IN LENGTH</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>note</FHIR_x0020_R2_x0020_property>
+<map>12</map>
+<May17Source>596</May17Source>
+<priority>no priority assigned</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>774</ID1>
+<ID>52.2-.04</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>QTY</Field_x0020_Name>
+<Field_x0020__x0023_>.04</Field_x0020__x0023_>
+<description>This field is used to show the amount of medication that was dispensed. </description>
+<prompt>Type a number between .01 and 99999999. Two fractional decimal places are allowed, with no alpha characters. The total length of the entry cannot exceed 11 characters.</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>quantity</FHIR_x0020_R2_x0020_property>
+<map>53</map>
+<May17Source>597</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>775</ID1>
+<ID>52.2-.041</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>DAYS SUPPLY </Field_x0020_Name>
+<Field_x0020__x0023_>.041</Field_x0020__x0023_>
+<description>This field is used to indicate the days of supply for partial RX fill. </description>
+<prompt>Type a Number between 1 and 999, 0 Decimal Digits</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>daysSupply</FHIR_x0020_R2_x0020_property>
+<map>54</map>
+<May17Source>598</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>776</ID1>
+<ID>52.2-.05</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>PHARMACIST NAME</Field_x0020_Name>
+<Field_x0020__x0023_>.05</Field_x0020__x0023_>
+<description>This is the name of the pharmacist. </description>
+<prompt>Enter name of the pharmacist entering the parital rx.</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>dispenser</FHIR_x0020_R2_x0020_property>
+<map>51</map>
+<FHIR_x0020_Map_x0020_Comment>Unless there is a Remote, in which case Pharmacist is originalPharmacist</FHIR_x0020_Map_x0020_Comment>
+<May17Source>599</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>777</ID1>
+<ID>52.2-.06</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>LOT#</Field_x0020_Name>
+<Field_x0020__x0023_>.06</Field_x0020__x0023_>
+<description>This field shows the vendor&apos;s lot number. </description>
+<prompt>Answer must be 1-20 characters in length.</prompt>
+<path>pat-medOrder&lt;-medDispense -&gt; med</path>
+<profile>VAMedication</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Medication</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>medicationReference.product.batch.lotNumber</FHIR_x0020_R2_x0020_property>
+<map>137</map>
+<May17Source>600</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>778</ID1>
+<ID>52.2-.08</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>LOGIN DATE</Field_x0020_Name>
+<Field_x0020__x0023_>.08</Field_x0020__x0023_>
+<description>This is the date that the prescription was entered. </description>
+<path>pat-medOrder-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.requestDate</FHIR_x0020_R2_x0020_property>
+<map>439</map>
+<May17Source>601</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>779</ID1>
+<ID>52.2-.09</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>DIVISION</Field_x0020_Name>
+<Field_x0020__x0023_>.09</Field_x0020__x0023_>
+<description>This field contains the Pharmacy Division associated with this RX. </description>
+<prompt>Enter division where partial rx is entered.</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>dispenser.practitionerRole.managingOrganization</FHIR_x0020_R2_x0020_property>
+<map>51</map>
+<May17Source>602</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>780</ID1>
+<ID>52.2-8</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>RELEASED DATE/TIME</Field_x0020_Name>
+<Field_x0020__x0023_>8</Field_x0020__x0023_>
+<description>This field is used to show the date the medication was released. </description>
+<prompt>Enter date/time the medication was released.</prompt>
+<path>pat-medOrder&lt;-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>whenPrepared</FHIR_x0020_R2_x0020_property>
+<map>58</map>
+<May17Source>603</May17Source>
+<priority>2</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>781</ID1>
+<ID>52.2-91</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
+<Field_x0020__x0023_>91</Field_x0020__x0023_>
+<description>This holds the site number for the facility requesting a remote partial fill.</description>
+<prompt>Enter the site number that is requesting this partial fill.</prompt>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<R4_x0020_approach>location</R4_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.prescriptionFillLocation</FHIR_x0020_R2_x0020_property>
+<map>431</map>
+<May17Source>604</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>782</ID1>
+<ID>52.2-92</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
+<Field_x0020__x0023_>92</Field_x0020__x0023_>
+<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
+<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.remotePharmacist.name</FHIR_x0020_R2_x0020_property>
+<map>441</map>
+<May17Source>605</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>783</ID1>
+<ID>52.2-93</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.2</File_x0020__x0023_>
+<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
+<Field_x0020__x0023_>93</Field_x0020__x0023_>
+<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
+<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
+<path>pat-medOrder&lt;-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.remotePharmacist.phone</FHIR_x0020_R2_x0020_property>
+<map>441</map>
+<May17Source>606</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>784</ID1>
+<ID>52.3-.01</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<Data_x0020_Elements>ACTIVITY LOG</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.3</File_x0020__x0023_>
+<Field_x0020_Name>ACTIVITY LOG</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>Date when activity occured. </description>
+<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
+<profile>VAFinishedOutpatientMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>period</FHIR_x0020_R2_x0020_property>
+<map>104</map>
+<May17Source>607</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>785</ID1>
+<ID>52.3-.02</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.3</File_x0020__x0023_>
+<Field_x0020_Name>REASON</Field_x0020_Name>
+<Field_x0020__x0023_>.02</Field_x0020__x0023_>
+<description>What was done that caused activity to happen. </description>
+<prompt>Enter code to indicate the activity taking place for this prescription.</prompt>
+<values>H:HOLD
+U:UNHOLD
+C:DISCONTINUED
+E:EDIT
+L:RENEWED
+P:PARTIAL
+R:REINSTATE
+W:REPRINT
+S:SUSPENDED
+I:RETURNED
+V:INTERVENTION
+D:DELETED
+A:DRUG INTERACTION
+B:PROCESSED
+X:INTERFACE
+G:PATIENT INST
+K:PKI/DEA
+N:DISPENSE COMPLETION
+M:ECME
+</values>
+<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
+<profile>VAFinishedOutpatientMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>activity.coding.code
+activity.coding.system = http://www.va.gov/Terminology/VistADefinedTerms/52.3-.02</FHIR_x0020_R2_x0020_property>
+<map>107</map>
+<FHIR_x0020_Map_x0020_Comment>&apos;H&apos; FOR HOLD;
+&apos;U&apos; FOR UNHOLD;
+&apos;C&apos; FOR DISCONTINUED;
+&apos;E&apos; FOR EDIT;
+&apos;L&apos; FOR RENEWED;
+&apos;P&apos; FOR PARTIAL;
+&apos;R&apos; FOR REINSTATE;
+&apos;W&apos; FOR REPRINT;
+&apos;S&apos; FOR SUSPENDED;
+&apos;I&apos; FOR RETURNED;
+&apos;V&apos; FOR INTERVENTION;
+&apos;D&apos; FOR DELETED;
+&apos;A&apos; FOR DRUG INTERACT;
+&apos;B&apos; FOR PROCESSED;
+&apos;X&apos; FOR INTERFACE;
+&apos;G&apos; FOR PATIENT INST;
+&apos;K&apos; FOR PKI/DEA;
+&apos;N&apos; FOR DISPENSE COMPLETION;
+&apos;M&apos; FOR ECME;
+&apos;O&apos; FOR IERX;</FHIR_x0020_Map_x0020_Comment>
+<May17Source>608</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>786</ID1>
+<ID>52.3-.03</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.3</File_x0020__x0023_>
+<Field_x0020_Name>INITIATOR OF ACTIVITY</Field_x0020_Name>
+<Field_x0020__x0023_>.03</Field_x0020__x0023_>
+<description>The name of the person entering an activity is entered. </description>
+<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
+<profile>VAFinishedOutpatientMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
+<map>112</map>
+<May17Source>609</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>787</ID1>
+<ID>52.3-.04</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.3</File_x0020__x0023_>
+<Field_x0020_Name>RX REFERENCE</Field_x0020_Name>
+<Field_x0020__x0023_>.04</Field_x0020__x0023_>
+<description>This field is used to indicate which fill the activity took place. </description>
+<prompt>Type a Number between 0 and 12, 0 Decimal Digits</prompt>
+<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
+<profile>VAFinishedOutpatientMedicationOrderChange</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>entity.reference</FHIR_x0020_R2_x0020_property>
+<map>120</map>
+<May17Source>610</May17Source>
+<priority>no priority assigned</priority>
+<priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>788</ID1>
@@ -6643,6 +7337,380 @@ system = va.gov/identifiers/orders/100</FHIR_x0020_R2_x0020_property>
 <priority>1.2</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
+<ID1>321</ID1>
+<ID>2-.322016</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Somalia Service Indicated?</Field_x0020_Name>
+<Field_x0020__x0023_>.322016</Field_x0020__x0023_>
+<description>If this patient served in the Somalia, enter yes here.  If the patient  did not serve in Somalia, enter no. Enter unknown if this information  could not be obtained from the patient. </description>
+<prompt>Did this patient serve in Somalia?</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[6]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code  
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
+code.coding.code = 2-.322016
+code.display = &quot;Somalia Service&quot;
+code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
+<Answers>SO</Answers>
+<Extension>service extension</Extension>
+<May17Source>438</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>322</ID1>
+<ID>2-.322017</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Somalia From Date</Field_x0020_Name>
+<Field_x0020__x0023_>.322017</Field_x0020__x0023_>
+<description>If this patient served in Somalia (SOMALIA SERVICE INDICATED? is  answered YES), enter the date this patient&apos;s service in Somalia began.  This date must be on or after September 28, 1992. </description>
+<prompt>Enter the date veteran&apos;s service in Somalia began.</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[6]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>effectivePeriod.start</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>439</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>323</ID1>
+<ID>2-.322018</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Somalia To Date</Field_x0020_Name>
+<Field_x0020__x0023_>.322018</Field_x0020__x0023_>
+<description>This is the last date of service in Somalia.  This date must be on or  after September 28, 1992. </description>
+<prompt>Enter the date veteran&apos;s service in Somalia ended.</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[6]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>effectivePeriod.end</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>440</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>324</ID1>
+<ID>2-.322019</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Yugoslavia Service Indicated? </Field_x0020_Name>
+<Field_x0020__x0023_>.322019</Field_x0020__x0023_>
+<description>Field stores code indicating if patient served in the Yugolslavia Conflict. </description>
+<prompt>Respond yes if patient served in the Kosovo Conflict (the airspace above and the adjacent waters of the Republic of Yugoslavia (Serbia/Montenegro), the Adriatic Sea &amp; Ionian Sea n. of 39th parallel).</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[7]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code  
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
+code.coding.code = 2-.322019
+code.display = &quot;= Yugoslavia Service&quot;
+code.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
+<Answers>YU</Answers>
+<Extension>service extension</Extension>
+<May17Source>441</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>325</ID1>
+<ID>2-.32202</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Yugoslavia From Date </Field_x0020_Name>
+<Field_x0020__x0023_>.32202</Field_x0020__x0023_>
+<description>Enter the date that service in the Yugoslavia Conflict began for this patient.  Earliest possible date is 6/22/1992. </description>
+<prompt>Type a date between June 22, 1992 and today indicating the date this patient began serving in the Yugoslavia Conflict.</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[7]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>effectivePeriod.start</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>442</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>326</ID1>
+<ID>2-.322021</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Conflict Location information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Yugoslavia To Date</Field_x0020_Name>
+<Field_x0020__x0023_>.322021</Field_x0020__x0023_>
+<description>The date service in the Yugoslavia Conflict ended for this patient. </description>
+<prompt>Enter the date this patient&apos;s service in the Yugoslavia Conflict ended.  Date must be after June 22, 1992.</prompt>
+<path>pt-Service-episode</path>
+<profile>VAServiceEpisode[7]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>effectivePeriod.end</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>443</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>327</ID1>
+<ID>2-.32102</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Agent Orange Expos. Indicated? </Field_x0020_Name>
+<Field_x0020__x0023_>.32102</Field_x0020__x0023_>
+<description>For this veteran applicant enter &apos;Y&apos; if s/he was exposed to the chemical agent orange, &apos;N&apos; if not, or &apos;U&apos; if unknown.  Exposure cannot be claimed unless the Period of Service (field .323) is answered VIETNAM ERA, which entails those serving in the Korean DMZ between January 1, 1968 and December 31, 1969 or Vietnam.   Once the service record has been verified only users who hold the designated security key may enter/edit this field. </description>
+<prompt>Enter &apos;Y&apos; if this patient claims exposure to agent orange, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[1]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
+code.coding.code = 2-.32102
+code.coding.display = Agent Orange Expos. Indicated
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_Map_x0020_Comment>Y: 410515003 |Known present (qualifier value)|
+N: 410516002 |Known absent (qualifier value)|
+U: 261665006 |Unknown (qualifier value)|</FHIR_x0020_Map_x0020_Comment>
+<Extension>service extension</Extension>
+<May17Source>444</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>328</ID1>
+<ID>2-.32107</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Agent Orange Registration Date </Field_x0020_Name>
+<Field_x0020__x0023_>.32107</Field_x0020__x0023_>
+<description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date registered. Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
+<prompt>Enter the date on which this patient was registered as being exposed to agent orange.</prompt>
+<path>pt-Service-risk-prov</path>
+<profile>VARiskEpisodeProfile[1]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>445</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>329</ID1>
+<ID>2-.32109</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Agent Orange Exam Date </Field_x0020_Name>
+<Field_x0020__x0023_>.32109</Field_x0020__x0023_>
+<description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date s/he was examined for this exposure, if any.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
+<prompt>Enter the date this patient was examined for the agent orange condition claimed.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[1]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>encounter.period</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>446</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>330</ID1>
+<ID>2-.32103</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Radiation Exposure Indicated?  </Field_x0020_Name>
+<Field_x0020__x0023_>.32103</Field_x0020__x0023_>
+<description>Enter &apos;Y&apos; if the veteran was exposed to ionizing radiation 1) at a nuclear device testing site (e.g. the Pacific Islands, NM or NV) or 2) as a POW or while serving in Hiroshima and/or Nagasaki, Japan from August 6, 1945 through July 1, 1946, or 3) served at Department of Energy plants at Paducah, KY, Portsmouth, OH or the K25 area at Oak Ridge, TN for at least 250 days before February 1, 1992 or 4) served at Longshot, Milrow, or Cannikin underground nuclear tests at Amchitka Island, AK prior to January 1, 1974.     Veterans exposed by method #3 or #4 are not eligible for  copay exemption or enrollment in priority 6 based on their IR exposure.   Enter &apos;N&apos; if not exposed or &apos;U&apos; if unknown.   Once the record has been verified only HEC users  may enter/edit this field. </description>
+<prompt>Enter the RADIATION EXPOSURE INDICATED associated with the enrollment priority determination</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[2]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code 
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
+code.coding.code = 2-.32103
+code.coding.display = &quot;Radiation Exposure Indicated&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_Map_x0020_Comment>Y: 410515003 |Known present (qualifier value)|
+N: 410516002 |Known absent (qualifier value)|
+U: 261665006 |Unknown (qualifier value)|</FHIR_x0020_Map_x0020_Comment>
+<Extension>service extension</Extension>
+<May17Source>447</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>331</ID1>
+<ID>2-.32111</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Radiation Registration Date </Field_x0020_Name>
+<Field_x0020__x0023_>.32111</Field_x0020__x0023_>
+<description>For this veteran applicant who was exposed to ionizing radiation (WERE YOU EXPOSED TO RADIATION prompt must be answered YES) enter the date registered.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as ionizing radiation exposure is indicated. </description>
+<prompt>Enter the date on which this patient was registered as claiming exposure to ionizing radiation.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[2]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>448</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>332</ID1>
+<ID>2-.3212</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Radiation Exposure Method </Field_x0020_Name>
+<Field_x0020__x0023_>.3212</Field_x0020__x0023_>
+<description>This field represents the method by which the exposure to ionizing radiation occurred. </description>
+<prompt>Select from the listing available the method by which this patient was exposed to ionizing radiation.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[2]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code 
+component.valueCodeableConcept.coding.system =  http://va.gov/Terminology/VistaDefinedTerms/2-.3212
+component.code.coding.code = 2-.3212
+component.code.coding.display = &quot;Radiation Exposure Method&quot;
+component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_Map_x0020_Comment>2&apos; FOR HIROSHIMA/NAGASAKI;
+&apos;3&apos; FOR ATMOSPHERIC NUCLEAR TESTING;
+&apos;4&apos; FOR H/N AND ATMOSPHERIC TESTING;
+&apos;5&apos; FOR UNDERGROUND NUCLEAR TESTING;
+&apos;6&apos; FOR EXPOSURE AT NUCLEAR FACILITY;
+&apos;7&apos; FOR OTHER;</FHIR_x0020_Map_x0020_Comment>
+<Question_x0020_code>2-.3212</Question_x0020_code>
+<Answers>codes</Answers>
+<Extension>service extension</Extension>
+<May17Source>449</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>333</ID1>
+<ID>2-.322013</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>Southwest Asia Conditions? </Field_x0020_Name>
+<Field_x0020__x0023_>.322013</Field_x0020__x0023_>
+<description>Enter &quot;Y&quot; if veteran claims need for care of conditions related to service in SW Asia. Enter &quot;N&quot; if veteran did not serve in SW Asia or does not claim need for care of conditions related to service in SW Asia. Enter &quot;U&quot; when veteran served in SW Asia, but is unsure of whether conditions may be related to that service. SW Asia Theater of operations is defined as: Iraq, Kuwait, Saudi Arabia, the neutral zone between Iraq and Saudi Arabia, Bahrain, Qatar, the United Arab Emirates, Oman, the Gulf of Aden, the Gulf of Oman, the Persian Gulf, the Arabian Sea, the Red Sea, and the airspace above these locations. </description>
+<prompt>Enter &apos;Y&apos; if this patient claims exposure to Southwest Asia Conditions, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[3]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>valueCodeableConcept.coding.code 
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
+code.coding.code = 2-.322013
+code.coding.display = &quot;Southwest Asia Conditions&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
+<Answers>SouthwestAsia</Answers>
+<Extension>service extension</Extension>
+<May17Source>450</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>334</ID1>
+<ID>2-.322014</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>SW Asia Cond Registration Date </Field_x0020_Name>
+<Field_x0020__x0023_>.322014</Field_x0020__x0023_>
+<description>This is the date on which the patient registered for being exposed to Conditions related to service in SW Asia. This date must be after 8/1/1990. </description>
+<prompt>Enter the date on which this patient was registered as being exposed to Southwest Asia conditions.  This must be after 8/1/1990.</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[3]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>issued</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>451</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>335</ID1>
+<ID>2-.322015</ID>
+<Status>5</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>25</area>
+<Data_x0020_Elements>Environment Factors information</Data_x0020_Elements>
+<File_x0020_Name>Patient</File_x0020_Name>
+<File_x0020__x0023_>2</File_x0020__x0023_>
+<Field_x0020_Name>SW Asia Cond Exam Date </Field_x0020_Name>
+<Field_x0020__x0023_>.322015</Field_x0020__x0023_>
+<description>This is the date on which an examination for exposure to Conditions  related to service in SW Asia was performed on the patient. </description>
+<prompt>Enter the date this patient was examined for the Southwest Asia conditions claimed (Must be after 8/1/1990).</prompt>
+<path>pt-Service-risk</path>
+<profile>VARiskEpisodeProfile[3]</profile>
+<R2_x0020_approach>related profile property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>encounter.period</FHIR_x0020_R2_x0020_property>
+<Extension>service extension</Extension>
+<May17Source>452</May17Source>
+<priority>1.1</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
 <ID1>337</ID1>
 <ID>28.11-.02</ID>
 <Status>5</Status>
@@ -6885,12 +7953,11 @@ code.coding.system = http://snomed.info/sct</FHIR_x0020_R2_x0020_property>
 <profile>VARiskEpisodeProfile[6]</profile>
 <R2_x0020_approach>related profile property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>VARiskEpisodeProfile.component.valueCodeableConcept
-with system = urn:iso:std:iso:3166
-where 
-	observation.component.code.coding.code = 2-.5292
-	display = &quot;Combat Service Location &quot;
-	system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>component.valueCodeableConcept.coding.code
+valueCodeableConcept.coding.system = urn:iso:std:iso:3166
+component.code.coding.code = 2-.5292
+component.code.coding.	display = &quot;Combat Service Location &quot;
+component.code.coding.	system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <Extension>service extension</Extension>
 <May17Source>463</May17Source>
 <priority>1.1</priority>
@@ -8487,7 +9554,7 @@ also/otherwise, extension: infusion</Extension>
 <profile>VAUnfinishedInpatientMedicationOrder</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.iVlabelsPerDay</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>extension.iVLabelsPerDay</FHIR_x0020_R2_x0020_property>
 <map>361</map>
 <FHIR_x0020_Map_x0020_Comment>  
 The number of IV labels needed each day. If populated, this value will override the system-calculated number of labels.</FHIR_x0020_Map_x0020_Comment>
@@ -11097,632 +12164,6 @@ eg aspirin 1000 mg: 1 625 + 1 375</FHIR_x0020_Map_x0020_Comment>
 <priority>no priority assigned</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>593</ID1>
-<ID>55.06-18</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>verifying RPH</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>VERIFYING PHARMACIST</Field_x0020_Name>
-<Field_x0020__x0023_>18</Field_x0020__x0023_>
-<description>  This is the pharmacist who verified the order. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderVerification</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>agent.actor
-activity = verify
-
-agent.role = Pharmacist</FHIR_x0020_R2_x0020_property>
-<map>110</map>
-<May17Source>737</May17Source>
-<priority>2</priority>
-<priorityNote></priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>594</ID1>
-<ID>55.06-19</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>Verification Date by Rph</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>DATE VERIFIED BY PHARMACIST</Field_x0020_Name>
-<Field_x0020__x0023_>19</Field_x0020__x0023_>
-<description>  This is the date the order was verified by the pharmacist. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderVerification</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>period
-activity = verify
-agent.role = Pharmacist</FHIR_x0020_R2_x0020_property>
-<map>104</map>
-<May17Source>738</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>595</ID1>
-<ID>55.06-50</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>PV Flag</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>PV FLAG</Field_x0020_Name>
-<Field_x0020__x0023_>50</Field_x0020__x0023_>
-<description>  This is an internal flag set whenever a pharmacist verifies the order. </description>
-<values>1:YES
-0:NO
-</values>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientUDMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.pharmacistVerificationFlag</FHIR_x0020_R2_x0020_property>
-<map>378</map>
-<FHIR_x0020_Map_x0020_Comment>might be redundant</FHIR_x0020_Map_x0020_Comment>
-<Extension>extension: PVFlag</Extension>
-<May17Source>739</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>596</ID1>
-<ID>55.06-51</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>NV Flag</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>NV FLAG</Field_x0020_Name>
-<Field_x0020__x0023_>51</Field_x0020__x0023_>
-<description>  This is an internal flag set whenever a nurse verifies the order. </description>
-<values>1:YES
-0:NO
-</values>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientUDMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.nurseVerificationFlag</FHIR_x0020_R2_x0020_property>
-<map>379</map>
-<FHIR_x0020_Map_x0020_Comment>might be redundant</FHIR_x0020_Map_x0020_Comment>
-<Extension>extension: NVFlag</Extension>
-<May17Source>740</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>598</ID1>
-<ID>55.06-130</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>Clinic</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>CLINIC</Field_x0020_Name>
-<Field_x0020__x0023_>130</Field_x0020__x0023_>
-<description>This is the clinic location if this order is for an Outpatient. </description>
-<prompt>Entry must be a clinic location and should be a clinic that allows administration of Inpatient Meds.</prompt>
-<path>pat-medOrder-encounter</path>
-<profile>VAInpatientUDMedicationOrderEncounter</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Encounter</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>location</FHIR_x0020_R2_x0020_property>
-<map>418</map>
-<FHIR_x0020_Map_x0020_Comment>[reference to location]</FHIR_x0020_Map_x0020_Comment>
-<May17Source>741</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>599</ID1>
-<ID>55.06-131</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>Appointment Date</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>APPOINTMENT DATE/TIME</Field_x0020_Name>
-<Field_x0020__x0023_>131</Field_x0020__x0023_>
-<description>Date and time of the appointment for this clinic location. </description>
-<prompt>This is the date and time of the appointment this order is being placed for.</prompt>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientUDMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.appointmentDate</FHIR_x0020_R2_x0020_property>
-<map>357</map>
-<Extension>extension: appointmentDate</Extension>
-<May17Source>742</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>601</ID1>
-<ID>55.06-72</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<Data_x0020_Elements>Provider Comments</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>PROVIDER COMMENTS </Field_x0020_Name>
-<Field_x0020__x0023_>72</Field_x0020__x0023_>
-<description>This is any instructions or comments entered by the provider for this order.</description>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientUDMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.medicationOrderProviderComment</FHIR_x0020_R2_x0020_property>
-<map>148</map>
-<Extension>extension: vaMedicationOrderProviderComment</Extension>
-<May17Source>744</May17Source>
-<priority>no priority assigned</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>603</ID1>
-<ID>55.09-.01</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
-<File_x0020__x0023_>55.09</File_x0020__x0023_>
-<Field_x0020_Name>DATE</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>  This is the date (to the second) that the activity took place. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>recorded</FHIR_x0020_R2_x0020_property>
-<map>105</map>
-<May17Source>746</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>604</ID1>
-<ID>55.09-1</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
-<File_x0020__x0023_>55.09</File_x0020__x0023_>
-<Field_x0020_Name>USER</Field_x0020_Name>
-<Field_x0020__x0023_>1</Field_x0020__x0023_>
-<description>  This is the user who effected the activity. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>agent.who</FHIR_x0020_R2_x0020_property>
-<map>112</map>
-<May17Source>747</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>605</ID1>
-<ID>55.09-2</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
-<File_x0020__x0023_>55.09</File_x0020__x0023_>
-<Field_x0020_Name>ACTION</Field_x0020_Name>
-<Field_x0020__x0023_>2</Field_x0020__x0023_>
-<description>  This is the activity that has taken place on the order. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>activity</FHIR_x0020_R2_x0020_property>
-<map>107</map>
-<May17Source>748</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>606</ID1>
-<ID>55.09-3</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
-<File_x0020__x0023_>55.09</File_x0020__x0023_>
-<Field_x0020_Name>FIELD</Field_x0020_Name>
-<Field_x0020__x0023_>3</Field_x0020__x0023_>
-<description>  This is field that was changed due to the activity. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderChange</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.targetElement</FHIR_x0020_R2_x0020_property>
-<map>433</map>
-<Extension>extension: changedField</Extension>
-<May17Source>749</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>607</ID1>
-<ID>55.09-4</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>ACTIVITY LOG</File_x0020_Name>
-<File_x0020__x0023_>55.09</File_x0020__x0023_>
-<Field_x0020_Name>OLD DATA</Field_x0020_Name>
-<Field_x0020__x0023_>4</Field_x0020__x0023_>
-<description>  This is the previous data that was in the field that was changed. </description>
-<path>pat-medOrder-provenance</path>
-<profile>VAInpatientUDMedicationOrderChange</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.targetElement</FHIR_x0020_R2_x0020_property>
-<map>433</map>
-<Extension>extension </Extension>
-<May17Source>750</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>609</ID1>
-<ID>55.6114-.01</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<File_x0020__x0023_>55.6114</File_x0020__x0023_>
-<Field_x0020_Name>LAST RENEW</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>This is the date/time the order was renewed. </description>
-<prompt>Enter the date/time the order was renewed.</prompt>
-<path>pat-medOrder-prov</path>
-<profile>VAInpatientUDMedicationOrderRenewal</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>period</FHIR_x0020_R2_x0020_property>
-<map>104</map>
-<FHIR_x0020_Map_x0020_Comment>not order date written?</FHIR_x0020_Map_x0020_Comment>
-<May17Source>752</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>610</ID1>
-<ID>55.6114-1</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<File_x0020__x0023_>55.6114</File_x0020__x0023_>
-<Field_x0020_Name>RENEWED BY</Field_x0020_Name>
-<Field_x0020__x0023_>1</Field_x0020__x0023_>
-<description>This is the person who renewed the order. </description>
-<prompt>Enter the name of the person renewing this order.</prompt>
-<path>pat-medOrder-prov</path>
-<profile>VAInpatientUDMedicationOrderRenewal</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
-<map>112</map>
-<FHIR_x0020_Map_x0020_Comment>not prescriber?</FHIR_x0020_Map_x0020_Comment>
-<May17Source>753</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>611</ID1>
-<ID>55.6114-2</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<File_x0020__x0023_>55.6114</File_x0020__x0023_>
-<Field_x0020_Name>PREVIOUS PROVIDER</Field_x0020_Name>
-<Field_x0020__x0023_>2</Field_x0020__x0023_>
-<description>This is the name of the provider responsible for the prior order. </description>
-<prompt>Enter the name of the provider for the order you renewed.</prompt>
-<path>pat-medOrder-prov-extension</path>
-<profile>VAInpatientUDMedicationOrderRenewal</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.targetElement.change.oldValue
-element = 55.06-1</FHIR_x0020_R2_x0020_property>
-<map>433</map>
-<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
-<May17Source>754</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>612</ID1>
-<ID>55.6114-3</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<File_x0020__x0023_>55.6114</File_x0020__x0023_>
-<Field_x0020_Name>PREVIOUS STOP DATE/TIME</Field_x0020_Name>
-<Field_x0020__x0023_>3</Field_x0020__x0023_>
-<description>This is the stop date/time of the prior order. </description>
-<prompt>Enter the stop date/time of the previous order.</prompt>
-<path>pat-medOrder-prov-extension</path>
-<profile>VAInpatientUDMedicationOrderRenewal</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.targetElement.change.oldValue
-element = 55.06-34</FHIR_x0020_R2_x0020_property>
-<map>433</map>
-<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
-<May17Source>755</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>613</ID1>
-<ID>55.6114-4</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<File_x0020__x0023_>55.6114</File_x0020__x0023_>
-<Field_x0020_Name>PREVIOUS ORDERS FILE ENTRY</Field_x0020_Name>
-<Field_x0020__x0023_>4</Field_x0020__x0023_>
-<description>When an order is being renewed, this is the pointer value of the corresponding entry in the ORDERS file (100), prior to the renewal. </description>
-<prompt>Answer must be 1-30 characters in length.</prompt>
-<path>pat-medOrder</path>
-<profile>VAInpatientUDMedicationOrderRenewal</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>entity.reference
-value = 55.06-.001</FHIR_x0020_R2_x0020_property>
-<map>120</map>
-<FHIR_x0020_Map_x0020_Comment>to 100; cprs may create new order even if pharmacy doesn&apos;t</FHIR_x0020_Map_x0020_Comment>
-<May17Source>756</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>615</ID1>
-<ID>55.06-135</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>17</area>
-<File_x0020__x0023_>55.06</File_x0020__x0023_>
-<Field_x0020_Name>SPECIAL INSTRUCTIONS (LONG)</Field_x0020_Name>
-<Field_x0020__x0023_>135</Field_x0020__x0023_>
-<description>&lt;blank&gt;</description>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientUDMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.vaMediationOrderSpecialInstructionsLong</FHIR_x0020_R2_x0020_property>
-<map>262</map>
-<Extension>extension: vaMediationOrderSpecialInstructionsLong</Extension>
-<May17Source>758</May17Source>
-<priority>2</priority>
-<priorityNote></priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>616</ID1>
-<ID>55.01-100</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>STATUS</Field_x0020_Name>
-<Field_x0020__x0023_>100</Field_x0020__x0023_>
-<description>  Status of order. Enter one of following codes: A for active, H for hold, R for renewed, D for discontinued, E for expired, P for purge, O for on  call, N for nonverified. </description>
-<values>A:ACTIVE
-H:HOLD
-R:RENEWED
-D:DISCONTINUED
-E:EXPIRED
-P:PURGE
-O:ON CALL
-N:NON VERIFIED
-</values>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<R4_x0020_approach>align with status reason</R4_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.pharmacyOrderStatus</FHIR_x0020_R2_x0020_property>
-<map>369</map>
-<Extension>status (required), &amp;
-extension: VAMedicationOrderStatus</Extension>
-<May17Source>759</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>617</ID1>
-<ID>55-.01iv</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>Patient</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<File_x0020__x0023_>55</File_x0020__x0023_>
-<Field_x0020_Name>PATIENT</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>This is the name of a patient that has some type of pharmacy order.</description>
-<path>pat-medOrder</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
-<map>6</map>
-<FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
-<May17Source>760</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>618</ID1>
-<ID>55.01-.01</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>order number</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>ORDER NUMBER</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>Order Number for IV drugs administered to this patient. </description>
-<prompt>Type a whole number between 1 and 9999999.</prompt>
-<path>pat-medOrder</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>identifier 
-system = va.gov/identifiers/orders/55.01</FHIR_x0020_R2_x0020_property>
-<map>1</map>
-<May17Source>761</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>619</ID1>
-<ID>55.01-.02</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>start date</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>START DATE/TIME</Field_x0020_Name>
-<Field_x0020__x0023_>.02</Field_x0020__x0023_>
-<description> This is the date and time the order is to begin. This package initially assigns the START DATE/TIME to the closest administration time or next admin. time or NOW depends on the value of the DEFAULT START DATE CALCULATION field in the WARD PARAMETERS file. START DATE/TIME may not  be entered prior to 7 days from the order&apos;s LOGIN DATE.   </description>
-<prompt>Enter the start DATE and TIME for this order.</prompt>
-<path>pat-medOrder</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>dispenseRequest.validityPeriod (lower value)</FHIR_x0020_R2_x0020_property>
-<map>39</map>
-<May17Source>762</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>620</ID1>
-<ID>55.01-.03</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>stop date</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>STOP DATE/TIME</Field_x0020_Name>
-<Field_x0020__x0023_>.03</Field_x0020__x0023_>
-<description>  This is the date and time the order is to end. </description>
-<path>pat-medOrder</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>dispenseRequest.validityPeriod upper value)</FHIR_x0020_R2_x0020_property>
-<map>39</map>
-<May17Source>763</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>621</ID1>
-<ID>55.01-.04</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>type</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>TYPE</Field_x0020_Name>
-<Field_x0020__x0023_>.04</Field_x0020__x0023_>
-<description>  Type of IV - &apos;A&apos; for Admixture, &apos;C&apos; for chemotherapy, &apos;H&apos; for Hyperal, &apos;P&apos; for Piggyback, and &apos;S&apos; for Syringe. </description>
-<values>A:ADMIXTURE
-P:PIGGYBACK
-H:HYPERAL
-S:SYRINGE
-C:CHEMOTHERAPY
-</values>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.iVType</FHIR_x0020_R2_x0020_property>
-<map>363</map>
-<valueSet>2</valueSet>
-<FHIR_x0020_Map_x0020_Comment>&apos;A&apos; FOR ADMIXTURE;
-&apos;P&apos; FOR PIGGYBACK;
-&apos;H&apos; FOR HYPERAL;
-&apos;S&apos; FOR SYRINGE;
-&apos;C&apos; FOR CHEMOTHERAPY;</FHIR_x0020_Map_x0020_Comment>
-<Extension>extension: IVType</Extension>
-<May17Source>764</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>622</ID1>
-<ID>55.01-108</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>intermittent syringe</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>INTERMITTENT SYRING</Field_x0020_Name>
-<Field_x0020__x0023_>108</Field_x0020__x0023_>
-<description>  A syringe IV order may be continuous or intermittent.  If a syringe type is continuous (not intermittent), the same order entry procedure will be followed as if a hyperal or admixture is being entered.  If a syringe order is to be intermittent, the same order entry method as the piggback type will be followed. </description>
-<values>1:YES
-0:NO
-</values>
-<path>pat-medOrder-ext</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.intermittentSyringe</FHIR_x0020_R2_x0020_property>
-<map>377</map>
-<FHIR_x0020_Map_x0020_Comment>coding, &apos;1&apos; = yes; &apos;0&apos; = no</FHIR_x0020_Map_x0020_Comment>
-<Extension>extension: (syringeType?)</Extension>
-<May17Source>765</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>623</ID1>
-<ID>55.01-.06</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>16</area>
-<Data_x0020_Elements>provider</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<File_x0020__x0023_>55.01</File_x0020__x0023_>
-<Field_x0020_Name>PROVIDER</Field_x0020_Name>
-<Field_x0020__x0023_>.06</Field_x0020__x0023_>
-<description>  Person who authorized the prescription. </description>
-<prompt>(Entry required.)</prompt>
-<path>pat-medOrder</path>
-<profile>VAInpatientIVMedicationOrder</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>prescriber </FHIR_x0020_R2_x0020_property>
-<map>7</map>
-<FHIR_x0020_Map_x0020_Comment>File #200-field 1 - name</FHIR_x0020_Map_x0020_Comment>
-<May17Source>766</May17Source>
-<priority>2</priority>
-<priorityNote></priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
 <ID1>624</ID1>
 <ID>55.01-.08</ID>
 <Status>5</Status>
@@ -12243,7 +12684,7 @@ extension: holdFlag</Extension>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.iVPrepRoom</FHIR_x0020_R2_x0020_property>
 <map>362</map>
-<Extension>extension: IVPrepRoom</Extension>
+<Extension>extension: IVprepRoom</Extension>
 <May17Source>788</May17Source>
 <priority>no priority assigned</priority>
 <priorityNote>X</priorityNote>
@@ -12511,7 +12952,7 @@ agent.role = Pharmacist</FHIR_x0020_R2_x0020_property>
 <profile>VAInpatientIVMedicationOrder</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.iVlabelsPerDay</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>extension.iVLabelsPerDay</FHIR_x0020_R2_x0020_property>
 <map>361</map>
 <Extension>extension: IVlabelsPerDay</Extension>
 <May17Source>799</May17Source>
@@ -13101,7 +13542,7 @@ system = va.gov/identifiers/orders/52</FHIR_x0020_R2_x0020_property>
 <path>pat-medOrder-ext</path>
 <profile>VAFinishedOutpatientMedicationOrder</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.patientPrescriptionStatus</FHIR_x0020_R2_x0020_property>
 <map>153</map>
 <Extension>context Extension: patientPrescriptionStatus</Extension>
@@ -14829,441 +15270,6 @@ NOTE: QTY values that were on file prior to patch PSO*7*29 (released 2/17/00) ma
 <map>441</map>
 <Extension>extension: prescriptionRemotePhone</Extension>
 <May17Source>589</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>769</ID1>
-<ID>52-115</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<Data_x0020_Elements>Medication Instructions</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52</File_x0020__x0023_>
-<Field_x0020_Name>EXPANDED PATIENT INSTRUCTIONS</Field_x0020_Name>
-<Field_x0020__x0023_>115</Field_x0020__x0023_>
-<description>&lt;blank&gt;</description>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.medicationExpandedPatientInstructions</FHIR_x0020_R2_x0020_property>
-<map>151</map>
-<Extension>extension: VAMedicationExpandedPatientInstructions</Extension>
-<May17Source>592</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote></priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>771</ID1>
-<ID>52.2-.01</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>PARTIAL DATE</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>This is the date the partial was made. </description>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.medicationDispenseDate</FHIR_x0020_R2_x0020_property>
-<map>156</map>
-<May17Source>594</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>772</ID1>
-<ID>52.2-.02</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
-<Field_x0020__x0023_>.02</Field_x0020__x0023_>
-<description>This field tells whether the medication was picked up  or mailed to the patient. </description>
-<values>M:MAIL
-W:WINDOW
-</values>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.dispenseMode</FHIR_x0020_R2_x0020_property>
-<map>125</map>
-<Extension>extension: dispenseMode</Extension>
-<May17Source>595</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>773</ID1>
-<ID>52.2-.03</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>REMARKS</Field_x0020_Name>
-<Field_x0020__x0023_>.03</Field_x0020__x0023_>
-<description>These are any additional comments. </description>
-<prompt>ANSWER MUST BE 2-60 CHARACTERS IN LENGTH</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>note</FHIR_x0020_R2_x0020_property>
-<map>12</map>
-<May17Source>596</May17Source>
-<priority>no priority assigned</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>774</ID1>
-<ID>52.2-.04</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>QTY</Field_x0020_Name>
-<Field_x0020__x0023_>.04</Field_x0020__x0023_>
-<description>This field is used to show the amount of medication that was dispensed. </description>
-<prompt>Type a number between .01 and 99999999. Two fractional decimal places are allowed, with no alpha characters. The total length of the entry cannot exceed 11 characters.</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>quantity</FHIR_x0020_R2_x0020_property>
-<map>53</map>
-<May17Source>597</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>775</ID1>
-<ID>52.2-.041</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>DAYS SUPPLY </Field_x0020_Name>
-<Field_x0020__x0023_>.041</Field_x0020__x0023_>
-<description>This field is used to indicate the days of supply for partial RX fill. </description>
-<prompt>Type a Number between 1 and 999, 0 Decimal Digits</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>daysSupply</FHIR_x0020_R2_x0020_property>
-<map>54</map>
-<May17Source>598</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>776</ID1>
-<ID>52.2-.05</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>PHARMACIST NAME</Field_x0020_Name>
-<Field_x0020__x0023_>.05</Field_x0020__x0023_>
-<description>This is the name of the pharmacist. </description>
-<prompt>Enter name of the pharmacist entering the parital rx.</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>dispenser</FHIR_x0020_R2_x0020_property>
-<map>51</map>
-<FHIR_x0020_Map_x0020_Comment>Unless there is a Remote, in which case Pharmacist is originalPharmacist</FHIR_x0020_Map_x0020_Comment>
-<May17Source>599</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>777</ID1>
-<ID>52.2-.06</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>LOT#</Field_x0020_Name>
-<Field_x0020__x0023_>.06</Field_x0020__x0023_>
-<description>This field shows the vendor&apos;s lot number. </description>
-<prompt>Answer must be 1-20 characters in length.</prompt>
-<path>pat-medOrder&lt;-medDispense -&gt; med</path>
-<profile>VAMedication</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Medication</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>medicationReference.product.batch.lotNumber</FHIR_x0020_R2_x0020_property>
-<map>137</map>
-<May17Source>600</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>778</ID1>
-<ID>52.2-.08</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>LOGIN DATE</Field_x0020_Name>
-<Field_x0020__x0023_>.08</Field_x0020__x0023_>
-<description>This is the date that the prescription was entered. </description>
-<path>pat-medOrder-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.requestDate</FHIR_x0020_R2_x0020_property>
-<map>439</map>
-<May17Source>601</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>779</ID1>
-<ID>52.2-.09</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>DIVISION</Field_x0020_Name>
-<Field_x0020__x0023_>.09</Field_x0020__x0023_>
-<description>This field contains the Pharmacy Division associated with this RX. </description>
-<prompt>Enter division where partial rx is entered.</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>dispenser.practitionerRole.managingOrganization</FHIR_x0020_R2_x0020_property>
-<map>51</map>
-<May17Source>602</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>780</ID1>
-<ID>52.2-8</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>RELEASED DATE/TIME</Field_x0020_Name>
-<Field_x0020__x0023_>8</Field_x0020__x0023_>
-<description>This field is used to show the date the medication was released. </description>
-<prompt>Enter date/time the medication was released.</prompt>
-<path>pat-medOrder&lt;-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>whenPrepared</FHIR_x0020_R2_x0020_property>
-<map>58</map>
-<May17Source>603</May17Source>
-<priority>2</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>781</ID1>
-<ID>52.2-91</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
-<Field_x0020__x0023_>91</Field_x0020__x0023_>
-<description>This holds the site number for the facility requesting a remote partial fill.</description>
-<prompt>Enter the site number that is requesting this partial fill.</prompt>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<R4_x0020_approach>location</R4_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.prescriptionFillLocation</FHIR_x0020_R2_x0020_property>
-<map>431</map>
-<May17Source>604</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>782</ID1>
-<ID>52.2-92</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
-<Field_x0020__x0023_>92</Field_x0020__x0023_>
-<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
-<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.remotePharmacist.name</FHIR_x0020_R2_x0020_property>
-<map>441</map>
-<May17Source>605</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>783</ID1>
-<ID>52.2-93</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.2</File_x0020__x0023_>
-<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
-<Field_x0020__x0023_>93</Field_x0020__x0023_>
-<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
-<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
-<path>pat-medOrder&lt;-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.remotePharmacist.phone</FHIR_x0020_R2_x0020_property>
-<map>441</map>
-<May17Source>606</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>784</ID1>
-<ID>52.3-.01</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<Data_x0020_Elements>ACTIVITY LOG</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.3</File_x0020__x0023_>
-<Field_x0020_Name>ACTIVITY LOG</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>Date when activity occured. </description>
-<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
-<profile>VAFinishedOutpatientMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>period</FHIR_x0020_R2_x0020_property>
-<map>104</map>
-<May17Source>607</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>785</ID1>
-<ID>52.3-.02</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.3</File_x0020__x0023_>
-<Field_x0020_Name>REASON</Field_x0020_Name>
-<Field_x0020__x0023_>.02</Field_x0020__x0023_>
-<description>What was done that caused activity to happen. </description>
-<prompt>Enter code to indicate the activity taking place for this prescription.</prompt>
-<values>H:HOLD
-U:UNHOLD
-C:DISCONTINUED
-E:EDIT
-L:RENEWED
-P:PARTIAL
-R:REINSTATE
-W:REPRINT
-S:SUSPENDED
-I:RETURNED
-V:INTERVENTION
-D:DELETED
-A:DRUG INTERACTION
-B:PROCESSED
-X:INTERFACE
-G:PATIENT INST
-K:PKI/DEA
-N:DISPENSE COMPLETION
-M:ECME
-</values>
-<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
-<profile>VAFinishedOutpatientMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>activity: 
-Use Vista code &amp; label, system = http://www.va.gov/Terminology/VistADefinedTerms/52.3-.02</FHIR_x0020_R2_x0020_property>
-<map>107</map>
-<FHIR_x0020_Map_x0020_Comment>&apos;H&apos; FOR HOLD;
-&apos;U&apos; FOR UNHOLD;
-&apos;C&apos; FOR DISCONTINUED;
-&apos;E&apos; FOR EDIT;
-&apos;L&apos; FOR RENEWED;
-&apos;P&apos; FOR PARTIAL;
-&apos;R&apos; FOR REINSTATE;
-&apos;W&apos; FOR REPRINT;
-&apos;S&apos; FOR SUSPENDED;
-&apos;I&apos; FOR RETURNED;
-&apos;V&apos; FOR INTERVENTION;
-&apos;D&apos; FOR DELETED;
-&apos;A&apos; FOR DRUG INTERACT;
-&apos;B&apos; FOR PROCESSED;
-&apos;X&apos; FOR INTERFACE;
-&apos;G&apos; FOR PATIENT INST;
-&apos;K&apos; FOR PKI/DEA;
-&apos;N&apos; FOR DISPENSE COMPLETION;
-&apos;M&apos; FOR ECME;
-&apos;O&apos; FOR IERX;</FHIR_x0020_Map_x0020_Comment>
-<May17Source>608</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>786</ID1>
-<ID>52.3-.03</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.3</File_x0020__x0023_>
-<Field_x0020_Name>INITIATOR OF ACTIVITY</Field_x0020_Name>
-<Field_x0020__x0023_>.03</Field_x0020__x0023_>
-<description>The name of the person entering an activity is entered. </description>
-<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
-<profile>VAFinishedOutpatientMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
-<map>112</map>
-<May17Source>609</May17Source>
-<priority>no priority assigned</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>787</ID1>
-<ID>52.3-.04</ID>
-<Status>5</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.3</File_x0020__x0023_>
-<Field_x0020_Name>RX REFERENCE</Field_x0020_Name>
-<Field_x0020__x0023_>.04</Field_x0020__x0023_>
-<description>This field is used to indicate which fill the activity took place. </description>
-<prompt>Type a Number between 0 and 12, 0 Decimal Digits</prompt>
-<path>pat-medOrder&lt;-medDispense&lt;-Prov</path>
-<profile>VAFinishedOutpatientMedicationOrderChange</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>entity.reference</FHIR_x0020_R2_x0020_property>
-<map>120</map>
-<May17Source>610</May17Source>
 <priority>no priority assigned</priority>
 <priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
@@ -18214,8 +18220,8 @@ activity = securityLabelAssigned</FHIR_x0020_R2_x0020_property>
 <path>pt-flag</path>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Flag</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>code
-system = http://va.gov/Terminology/VistaDefinedTerms/26.13-.02</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>code.coding.code
+code.coding.system = http://va.gov/Terminology/VistaDefinedTerms/26.13-.02</FHIR_x0020_R2_x0020_property>
 <map>290</map>
 <May17Source>1035</May17Source>
 <priority>2</priority>
@@ -18256,8 +18262,8 @@ system = http://va.gov/Terminology/VistaDefinedTerms/26.13-.02</FHIR_x0020_R2_x0
 <path>pt-flag</path>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Flag</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>code
-system = http://va.gov/Terminology/VistaDefinedTerms/26.11-.03</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>code.coding.code
+code.coding.system = http://va.gov/Terminology/VistaDefinedTerms/26.11-.03</FHIR_x0020_R2_x0020_property>
 <map>290</map>
 <FHIR_x0020_Map_x0020_Comment>BEHAVIORAL, CLINICAL, OTHER, RESEARCH</FHIR_x0020_Map_x0020_Comment>
 <May17Source>1037</May17Source>
