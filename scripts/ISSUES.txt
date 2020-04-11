@@ -4,6 +4,7 @@
 -- Change manual! After running the script -> commit to git repo and wait for auto-build to complete
 [] TODO: If extension name is full URL then use that! See fhirProperties e.g. scope=NOExtension 
 [] TODO: Create Project and put issues in; extra Backlog one!
+[X] sort the extensions on the extensions page; workaround with javascript
 ---
 [] TODO: @Jay; use primitive types for fixed values, code is a CodeableConcept and cannot be set like this.
   Or I could detect this and parse the full url.
