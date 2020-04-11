@@ -43,13 +43,6 @@ Note that elements modeled as ancillary (e.g., Provenance) cannot be modeled in 
   </p>
   <ul>
     <li>
-      <a href="background.html">Background</a> - provides business context for the implementation guide and information that implementers should be
-      familiar with before reading the remainder of the IG.  There could be multiple pages for this.
-    </li>
-    <li>
-      <a href="spec.html">Detailed Specification</a> - The actual stuff implementers are expected to do.  (Could be multiple pages for this.)
-    </li>
-    <li>
       <a href="downloads.html">Downloads</a> - Allows downloading a copy of this implementation guide and other useful information
     </li>
   </ul>

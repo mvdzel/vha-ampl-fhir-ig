@@ -150,7 +150,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     }
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
-        console.error(`${row.ID1}: ERROR: profileId '${profileId}' not a valid FHIR id type`);
+        console.error(`${row.ID1}: ERROR: profileId '${profileId}' not a valid FHIR id`);
         return;
     }
 
@@ -238,7 +238,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 }
             }
             else if (propline.length > 0) {
-                console.error(`${row.ID1}: ERROR: ${profileId} IGNORE invalid fixed value format: '${propline}'`);
+                console.warn(`${row.ID1}: WARN: ${profileId} IGNORE invalid fixed value format: '${propline}'`);
             }
         });
     }
@@ -274,7 +274,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
             var extname = elementPath.substring(elementPath.indexOf(".extension.") + ".extension.".length);
             // ASSERT if extname is a valid FHIR id type!
             if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(extname)) {
-                console.error(`${row.ID1}: ERROR: extname "${extname}" not a valid FHIR id value`);
+                console.error(`${row.ID1}: ERROR: extname "${extname}" not a valid FHIR id`);
                 return;
             }
 
@@ -405,7 +405,7 @@ profileIds.forEach(profileId => {
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
     delete entry.groupingId;
-    fs.writeFile("output/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
+    fs.writeFile("../input/resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
 
 //
@@ -423,7 +423,7 @@ vss.ValueSetMembership_x0020_Query.forEach(row => {
     var name = row.valueSetName[0];
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
-        console.error(`ERROR: ValueSet '${name}' not a valid FHIR id type`);
+        console.error(`ERROR: ValueSet '${name}' not a valid FHIR id`);
         return;
     }
     var code = row.code[0];
@@ -459,7 +459,7 @@ vss.ValueSetMembership_x0020_Query.forEach(row => {
 // Write the valuesets to separate files
 valuesetNames.forEach(name => {
     var valueset = valuesets[name];
-    fs.writeFile("output/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
+    fs.writeFile("../input/resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
 });
 
 // Display myig.xml resource xml part
@@ -488,7 +488,7 @@ cms.conceptMap.forEach(row => {
     var name = row.conceptMapName[0];
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
-        console.error(`${row.ID1}: ERROR: ConceptMap '${name}' not a valid FHIR id type`);
+        console.error(`${row.ID1}: ERROR: ConceptMap '${name}' not a valid FHIR id`);
         return;
     }
     // First some assertions
@@ -532,7 +532,7 @@ cms.conceptMap.forEach(row => {
 // Write the conceptmaps to separate files
 conceptmapNames.forEach(name => {
     var conceptmap = conceptmaps[name];
-    fs.writeFile("output/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
+    fs.writeFile("../input/resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
 });
 
 // Display myig.xml resource xml part

@@ -1,2 +1,7 @@
 scripts/output
 scripts/node_modules
+input/resources/
+output/
+temp/
+template/
+input-cache/

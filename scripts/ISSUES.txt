@@ -1,4 +1,10 @@
 
+[] TODO: Follow https://github.com/FHIR/auto-ig-builder to make IG available via build.fhir.org!
+-- TODO: Look into putting generated profiles in a profile bundle!
+-- Change manual! After running the script -> commit to git repo and wait for auto-build to complete
+[] TODO: If extension name is full URL then use that! See fhirProperties e.g. scope=NOExtension 
+[] TODO: Create Project and put issues in; extra Backlog one!
+---
 [] TODO: @Jay; use primitive types for fixed values, code is a CodeableConcept and cannot be set like this.
   Or I could detect this and parse the full url.
   e.g.  
@@ -22,10 +28,10 @@
 [] TODO: LOW: provide example values so that IG Publisher can generate Examples
     See https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation#IGPublisherDocumentation-ProcessingOptions
     add to ig.in "gen-examples = true"
-    @Jay: add example values to tables
+    @Jay: add example values to tables; we don't know what /how /if yet
 [] VAPatient is Patient resource but there is a MedicationOrder in line 185; @Jay what is meant here?
 
-10-feb-2020
+20-feb-2020 (10-feb db)
 [] @Jay: ConceptMap, ValueSetMappings are really small
 [] @Jay: "path": Provenance.activity -> Provenance.activity.coding.code
    "fixedCodeableConcept": "new" <- THIS IS NOT A CODABLECONCEPT but a CODE! -> "fixedCode":
@@ -35,7 +41,7 @@
       
 Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
-  description shows up in Artifact index but not in Artiface page... For Extension it does work.
+  description shows up in Artifact index but not in Artifacts page... For Extension it does work.
 
 ---------------
 
