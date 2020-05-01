@@ -2,16 +2,29 @@ Issues now on https://github.com/mvdzel/vha-ampl-fhir-ig/projects/1
 
 ---
 
-- scripts/input folder delete from git; make sure to create scripts/input when not exists in manual access export steps
-- make sure to create input/resources when not exists
-- write down steps to generate input folder files
-- fix ValueSetMemberships.xml
+- [] scripts/input folder delete from git
+- [] fix ValueSetMemberships.xml
+- [] how to include <script> in extensions.xml, now disabled because Jekyll choaks
 
-Q: Principle: Use specs as much as possible. Were to put guidance on selecting only what you need.
-   Query with ?_elements to filter out unwanted elements for e.g. Provider.
+
+StructureDefinition-VAUnfinishedInpatientMedicationOrder
+      {
+        "path": "MedicationOrder.dosageInstruction.timing.repeat.boundsPeriod"
+      },
+
+fhirProperties & VistA_FHIR_Map issues
+- Timing.bounds[x] options are missing
+- MedicationOrder.doseInstructions.dose[x].doseQuantity -> should be doseQuantity
+- Observation.value[x].valueQuantity -> should be valueQuantity
+- Fix casing: targetElement.elementUri or targetElement.elementURI not both!
 
 ---
+
+IG Content Questions
      
+Q: Principle: Use FHIR specs as much as possible (even STU3 and R4 as extensions). Were to document this in the IG!?
+   Query with ?_elements to filter out unwanted elements for e.g. Provider.
+
 Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
   description shows up in Artifact index but not in Artifacts page... For Extension it does work.
@@ -36,14 +49,6 @@ IG Publisher info architecture:
   <code value="copyrightyear"/>
   <value value="2020"/>
   </parameter>
-
--------------
-
-Manually added type to generated jsons:
-> fgrep "value[x]" input/resources
-  { "path": "Observation.value[x]" }
-  ..
-  { "path": "Observation.valueQuantity" }
 
 ------------------------
 Mapping questions:

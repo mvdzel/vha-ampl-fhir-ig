@@ -1954,7 +1954,7 @@ extension: vaReferralRequestStatus</Extension>
 <path>pat-condition-prov-ext</path>
 <R2_x0020_approach>related resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.targetElement.elementURI</FHIR_x0020_R2_x0020_property>
+<FHIR_x0020_R2_x0020_property>extension.targetElement.elementUri</FHIR_x0020_R2_x0020_property>
 <map>433</map>
 <May17Source>976</May17Source>
 <priority>no priority assigned</priority>

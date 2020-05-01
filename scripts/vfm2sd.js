@@ -51,7 +51,8 @@ xml.parseString(fs.readFileSync('input/fhirProperties.xml'), function (err, resu
 });
 let lookup_typeByExtName = [];
 let lookup_typeByPath = [];
-// accepted resourceNames
+let lookup_needsExtraTypedPath = [];
+// accepted resourceNames; should be all in fhirProperties
 let resourceNames = [
     "Address",
     "AllergyIntolerance",
@@ -81,16 +82,25 @@ let resourceNames = [
     "Specimen"
 ];
 input_fhirProperties.fhirProperties.forEach(row => {
-    var type = `${row.type}`; // convert to string?
+    var type = `${row.type}`; // convert to string
     // Remove type options for Reference type, e.g. Reference(Patient|Provider)
+    // TODO: split type options
     if(type.indexOf('(')!=-1) {
         type = type.substring(0,type.indexOf('(')).trim();
     }
     if (row.scope == "vaExtension" && row.type != undefined) {
         lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
     }
-    if (row.scope = "core" && row.type != undefined) {
+    if (row.scope == "core" && row.type != undefined) {
         lookup_typeByPath[row.resource + '.' + row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
+    }
+    var textkey = `${row.textkey}`;
+    if (textkey.endsWith("[x]")) {
+        var extraPath = textkey.substring(0, textkey.indexOf('['));
+        if (!lookup_needsExtraTypedPath.includes(extraPath)) {
+            lookup_needsExtraTypedPath.push(extraPath);
+            console.log(extraPath);
+        }
     }
     // add resourceName if missing
     if(!resourceNames.includes(row.resource[0])) {
@@ -133,8 +143,6 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         console.error(`${row.ID1}: ERROR: missing property name`);
         return;
     }
-
-//    if (row.area != 25) return;
 
     // Display myig.xml groupings xml part once for each group
     if (groupings[row.area] == undefined) {
@@ -262,23 +270,53 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     }
 
     // Check for missing [x]; N.B. do this after the ASSERT of the elementPath!
-    // TODO: Ook als er iets achteraan komt!
-    if (elementPath.indexOf("[x]") != -1 ||
-        elementPath == "Observation.effective" ||
-        elementPath == "Observation.value" ||
-        elementPath == "Observation.component.value" ||
-        elementPath == "MedicationStatement.effective" ||
-        elementPath == "MedicationOrder.medication" ||
-        elementPath == "MedicationOrder.dispenseRequest.medication" ||
-        elementPath == "MedicationDispense.medication") {
-        console.error(`${row.ID1}: ERROR: ${profileId} type[x] missing for '${elementPath}'`);
+    // TODO: Ook als er iets achteraan komt !
+    // if (lookup_needsExtraTypedPath.includes(elementPath)) {
+    //     console.error(`${row.ID1}: ERROR: ${profileId} needsExtraTypedPath type[x] missing for '${elementPath}'`);
+    //     return;
+    // }
+    var passed_needsExtraTypedPath = true;
+    lookup_needsExtraTypedPath.forEach(extraPath => {
+        if (elementPath == extraPath) {
+            console.error(`${row.ID1}: ERROR: type missing for '${elementPath}'`);
+            passed_needsExtraTypedPath = false;
+        }
+        else if (elementPath.startsWith(extraPath)) {
+            if (/\[x\]/.test(elementPath)) {
+                console.error(`${row.ID1}: ERROR: type missing for '${elementPath}'`);
+                passed_needsExtraTypedPath = false;
+            }
+            else if (elementPath.indexOf('.', extraPath.length) == -1) {
+                // This is the extra types path; so nothing to fix here
+            }
+            else {
+                var extraTypedPath = elementPath.substring(0, elementPath.indexOf('.', extraPath.length));
+                if (extraTypedPath == extraPath) {
+                    console.error(`${row.ID1}: ERROR: type missing for '${extraTypedPath}'`);
+                    passed_needsExtraTypedPath = false;
+                }
+                else {
+                    // AUTO: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
+                    console.warn(`${row.ID1}: WARN: ${profileId} AUTO add type path '${extraTypedPath}'`);
+                    if (elementsByPath[profileId][extraTypedPath] == undefined) {
+                        var extraElement = elementsByPath[profileId][extraTypedPath] = {
+                            path: extraTypedPath
+                        };
+                        sd.differential.element.push(extraElement);
+                    }
+                }
+            }
+        }
+    });
+    if (!passed_needsExtraTypedPath) {
+        // This element did not pass the needsExtraType check; because the type was not specified in the input
         return;
     }
 
     // create empty element struct (based on elementPath) if not already defined and populate with mappings and other info
     var element = elementsByPath[profileId][elementPath];
     if (element == undefined) {
-        // new INTERNAL extension
+        // new INTERNAL extension?
         if (proplines.length > 0 && elementPath.indexOf(".extension.") != -1) {
             console.warn(`${row.ID1}: INFO: ${profileId} ADD extension element '${elementPath}'`);
             var prefix = elementPath.substring(0,elementPath.indexOf(".extension."));
@@ -376,29 +414,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     }
 
     if (/\[x\]/.test(elementPath)) {
-        console.error(`${row.ID1}: ERROR: expect type specified '${elementPath}'`);
+        console.error(`${row.ID1}: ERROR: type missing for '${elementPath}'`);
         return;
-    }
-
-    // AUTO: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
-    if (/^Observation\.value.+\..+$/.test(elementPath) ||
-        /^Observation\.component\.value.+\..+$/.test(elementPath) ||
-        /^MedicationOrder\.medication.+\..+$/.test(elementPath) ||
-        /^MedicationOrder\.dosageInstruction\.dose.+\..+$/.test(elementPath) ||
-        /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
-        /^MedicationDispense\.medication.+\..+$/.test(elementPath)) {
-
-    // XXX Figure out how to determine the "extraElementPath" up to the type !!! Is not always value!
-
-        var extraElementPath2 = elementPath.substring (0, elementPath.lastIndexOf('.'));
-        var extraElementPath = elementPath.substring(0, elementPath.indexOf('.', elementPath.indexOf(".value")+1));
-        console.warn(`${row.ID1}: WARN: ${profileId} AUTO <type> '${extraElementPath}' ${extraElementPath2}`);
-        if (elementsByPath[profileId][extraElementPath] == undefined) {
-            var extraElement = elementsByPath[profileId][extraElementPath] = {
-                path: extraElementPath
-            };
-            sd.differential.element.push(extraElement);
-        }
     }
 });
 

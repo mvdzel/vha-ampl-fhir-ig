@@ -450,14 +450,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/targetElement.elementURI"/>
-      </reference>
-      <name value="targetElement.elementURI"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/pat-condition-prov-Provenance"/>
       </reference>
       <name value="pat-condition-prov-Provenance"/>
