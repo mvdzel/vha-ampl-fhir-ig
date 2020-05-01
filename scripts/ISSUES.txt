@@ -2,7 +2,8 @@ Issues now on https://github.com/mvdzel/vha-ampl-fhir-ig/projects/1
 
 ---
 
-- scripts/input folder delete from git
+- scripts/input folder delete from git; make sure to create scripts/input when not exists in manual access export steps
+- make sure to create input/resources when not exists
 - write down steps to generate input folder files
 - fix ValueSetMemberships.xml
 

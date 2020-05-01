@@ -4,6 +4,17 @@ var xml = new xml2js.Parser();
 let date = new Date().toISOString();
 
 //
+// Make sure input and output folders exist
+//
+if (!fs.existsSync("input/")) {
+    console.error("Expecting xml files in the script/input folder");
+    return;
+}
+if (!fs.existsSync("../input/resources/")) {
+    fs.mkdirSync('../input/resources/');
+}
+
+//
 // =========================== Read Access Table Input ===========================
 //
 // These are XML Exports of the relevant Access Tables

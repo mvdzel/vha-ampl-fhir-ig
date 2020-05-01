@@ -1,6 +1,6 @@
 scripts/output
 scripts/node_modules
-input/resources/*
+input/resources
 output/
 temp/
 template/
