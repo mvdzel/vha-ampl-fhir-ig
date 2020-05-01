@@ -205,7 +205,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
             if (/^.+=.+$/.test(propline)) {
                 var parts = propline.split('=');
                 var fixedKey = parts[0].trim();
-                var fixedValue = parts[1].trim();
+                var fixedValue = parts[1].trim().replace(/"/g, ''); // also remove quotes
                 // create elementPath based on resource + property (first line only)
                 var fixedElementPath = resourceName + '.' + fixedKey;
                 // ASSERT if fixedElementPath is valid
@@ -373,10 +373,15 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     if (/^Observation\.value.+\..+$/.test(elementPath) ||
         /^Observation\.component\.value.+\..+$/.test(elementPath) ||
         /^MedicationOrder\.medication.+\..+$/.test(elementPath) ||
+        /^MedicationOrder\.dosageInstruction\.dose.+\..+$/.test(elementPath) ||
         /^MedicationStatement\.effective.+\..+$/.test(elementPath) ||
         /^MedicationDispense\.medication.+\..+$/.test(elementPath)) {
+
+    // XXX Figure out how to determine the "extraElementPath" up to the type !!! Is not always value!
+
+        var extraElementPath2 = elementPath.substring (0, elementPath.lastIndexOf('.'));
         var extraElementPath = elementPath.substring(0, elementPath.indexOf('.', elementPath.indexOf(".value")+1));
-        console.warn(`${row.ID1}: WARN: ${profileId} AUTO <type> '${extraElementPath}'`);
+        console.warn(`${row.ID1}: WARN: ${profileId} AUTO <type> '${extraElementPath}' ${extraElementPath2}`);
         if (elementsByPath[profileId][extraElementPath] == undefined) {
             var extraElement = elementsByPath[profileId][extraElementPath] = {
                 path: extraElementPath

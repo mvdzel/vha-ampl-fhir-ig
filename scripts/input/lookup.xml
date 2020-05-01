@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-02-21T08:44:42">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-05-01T09:30:39">
 <lookup>
 <id>1</id>
 <kind>mapStatus</kind>
@@ -30,145 +30,173 @@
 <kind>CoversheetArea</kind>
 <label>Allergies/Adverse Reactions</label>
 <desc>An Allergies/Adverse Reactions record contains one VAAllergyIntolerance. This resource may contain Provenance resources documenting the origination, verification, and assessment, and, if applicable, circumstances under which it was judged to be in error. The originating Practitioner includes a title.</desc>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>7</id>
 <kind>CoversheetArea</kind>
 <label>Appointment Button</label>
 <desc>This use case addresses upcoming appointments with locations and prior appointments with associated documents.</desc>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>8</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Autopsy</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>9</id>
 <kind>CoversheetArea</kind>
 <label>BCMA Order</label>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>10</id>
 <kind>CoversheetArea</kind>
 <label>Consults</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>11</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Cytopathology</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>12</id>
 <kind>CoversheetArea</kind>
 <label>Drug Info</label>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>13</id>
 <kind>CoversheetArea</kind>
 <label>Electron Microscopy</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>14</id>
 <kind>CoversheetArea</kind>
 <label>Immunizations</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>15</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders - pending/non-verified</label>
 <desc>Inpatient orders from CPRS that have not been verified by Pharmacy</desc>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>16</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders IV/Clinic Infusions</label>
 <desc>Verified inpatient or clinic IV orders</desc>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>17</id>
 <kind>CoversheetArea</kind>
 <label>Inpatient Orders Unit Dose/Clinic Medications</label>
 <desc>Verified inpatient or clinic unit dose orders</desc>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>18</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Anatomic Pathology</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>19</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Blood Bank</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>20</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Microbiology</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>21</id>
 <kind>CoversheetArea</kind>
 <label>Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>22</id>
 <kind>CoversheetArea</kind>
 <label>Non-VA Medications</label>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>23</id>
 <kind>CoversheetArea</kind>
 <label>Outpatient Orders</label>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>24</id>
 <kind>CoversheetArea</kind>
 <label>Patient Security</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>25</id>
 <kind>CoversheetArea</kind>
 <label>Patient Demographics</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>26</id>
 <kind>CoversheetArea</kind>
 <label>Patient Record Flags</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>27</id>
 <kind>CoversheetArea</kind>
 <label>Outpatient Orders - pending</label>
+<domain>pharma</domain>
 </lookup>
 <lookup>
 <id>28</id>
 <kind>CoversheetArea</kind>
 <label>Primary Care Management </label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>29</id>
 <kind>CoversheetArea</kind>
 <label>Problem List</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>30</id>
 <kind>CoversheetArea</kind>
 <label>Progress Notes</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>31</id>
 <kind>CoversheetArea</kind>
 <label>Surgical Pathology</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>32</id>
 <kind>CoversheetArea</kind>
 <label>User Info</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>33</id>
 <kind>CoversheetArea</kind>
 <label>Vitals</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>34</id>
@@ -219,6 +247,7 @@
 <id>43</id>
 <kind>CoversheetArea</kind>
 <label>Order Check Instances</label>
+<domain>general</domain>
 </lookup>
 <lookup>
 <id>44</id>
@@ -500,5 +529,11 @@
 <kind>Profile</kind>
 <label>VAAllergyIntoleranceAssessment</label>
 <desc>Provenance of the confirmation of a reaction.</desc>
+</lookup>
+<lookup>
+<id>93</id>
+<kind>CoversheetArea</kind>
+<label>Outpatient Orders - pending: CSR</label>
+<domain>pharma</domain>
 </lookup>
 </dataroot>

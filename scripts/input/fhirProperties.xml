@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-02-21T08:44:25">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-05-01T09:30:24">
 <fhirProperties>
 <id>1</id>
 <resource>MedicationOrder</resource>
@@ -1049,7 +1049,7 @@
 <note>0&apos; FOR NO;
 &apos;1&apos; FOR YES;
 &apos;patient can administer own meds - used for inpatient</note>
-<textkey>MedicationOrder.PatientSelfMedication</textkey>
+<textkey>MedicationOrder.patientSelfMedication</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>89</id>
@@ -1060,7 +1060,7 @@
 <scope>vaExtension</scope>
 <note>0&apos; FOR NO;
 &apos;1&apos; FOR YES;</note>
-<textkey>MedicationOrder.HospitalSupplyPatientSelfMedication</textkey>
+<textkey>MedicationOrder.hospitalSupplyPatientSelfMedication</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>90</id>
@@ -1074,7 +1074,7 @@
 &apos;C&apos; FOR CONTINUOUS;
 &apos;R&apos; FOR FILL on REQUEST;
 &apos;OC&apos; FOR ON CALL;</note>
-<textkey>MedicationOrder.MedicationScheduleType</textkey>
+<textkey>MedicationOrder.medicationScheduleType</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>92</id>
@@ -1084,7 +1084,7 @@
 <version>DSTU2</version>
 <scope>vaExtension</scope>
 <note>Enter a 1 if the user should be prompted to finish this order as IV or Unit Dose.</note>
-<textkey>MedicationOrder.UnverifiedMedicationOrderFinishPrompt</textkey>
+<textkey>MedicationOrder.unverifiedMedicationOrderFinishPrompt</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>93</id>
@@ -1099,7 +1099,7 @@
 This is used to show the method used to create this order.
 TECHNICAL DESCR:  
 This shows if the order was entered through new order entry, or was created as a result of an edit or renewal of an existing ord</note>
-<textkey>MedicationOrder.OrderCreationMode</textkey>
+<textkey>MedicationOrder.orderCreationMode</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>94</id>
@@ -1115,14 +1115,13 @@ This is the method the provider used to communicate the order to the user who en
 &apos;E&apos; FOR ELECTRONICALLY ENTERED;
 &apos;I&apos; FOR POLICY;
 &apos;S&apos; FOR SERVICE COR</note>
-<textkey>MedicationOrder.OrderPlacementMode</textkey>
+<textkey>MedicationOrder.orderPlacementMode</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>95</id>
 <resource>MedicationOrder</resource>
-<field>orderPriority</field>
+<field>orderExtendedPriority</field>
 <type>code</type>
-<version>DSTU2</version>
 <scope>vaExtension</scope>
 <note>  
 This field contains the priority of the order that was received from OERR.
@@ -1132,7 +1131,7 @@ This field contains the priority of the order that was received from OERR.
 &apos;P&apos; FOR PREOP;
 &apos;T&apos; FOR TIMING CRITICAL;
 &apos;D&apos; FOR DONE;</note>
-<textkey>MedicationOrder.OrderPriority</textkey>
+<textkey>MedicationOrder.orderExtendedPriority</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>96</id>
@@ -1142,7 +1141,7 @@ This field contains the priority of the order that was received from OERR.
 <version>DSTU2</version>
 <scope>vaExtension</scope>
 <note>Parsed by VistA into 120, ,121</note>
-<textkey>MedicationOrder.DoseOrderedText</textkey>
+<textkey>MedicationOrder.doseOrderedText</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>97</id>
@@ -1151,7 +1150,7 @@ This field contains the priority of the order that was received from OERR.
 <type>quantity</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.IVmaxDeliveryTime</textkey>
+<textkey>MedicationOrder.iVmaxDeliveryTime</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>98</id>
@@ -1715,6 +1714,7 @@ INSTRUCTIONS  file are utilized.</note>
 <id>147</id>
 <resource>MedicationOrder</resource>
 <field>unitsPerDose</field>
+<parent>31</parent>
 <type>integer</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
@@ -1752,11 +1752,11 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>151</id>
 <resource>MedicationOrder</resource>
-<field>medicationOrderExpandedPatientInstructions</field>
+<field>medicationExpandedPatientInstructions</field>
 <type>text</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.medicationOrderExpandedPatientInstructions</textkey>
+<textkey>MedicationOrder.medicationExpandedPatientInstructions</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>152</id>
@@ -1769,13 +1769,13 @@ INSTRUCTIONS  file are utilized.</note>
 </fhirProperties>
 <fhirProperties>
 <id>153</id>
-<resource>MedicationOrder</resource>
-<field>orderPatientStatus</field>
+<resource>MedicationDispense</resource>
+<field>dispensePatientStatus</field>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
 <note>This field is used to show the status of the patient at the time the medication was filled.</note>
-<textkey>MedicationOrder.orderPatientStatus</textkey>
+<textkey>MedicationDispensee.dispensePatientStatus</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>154</id>
@@ -1826,18 +1826,18 @@ INSTRUCTIONS  file are utilized.</note>
 <scope>vaExtension</scope>
 <note>&apos;1&apos; FOR YES;
 &apos;0&apos; FOR NO;</note>
-<textkey>Medication Dispense.patientCounseled</textkey>
+<textkey>MedicationDispense.patientCounseled</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>159</id>
-<resource>Medication Dispense</resource>
+<resource>MedicationOrder</resource>
 <field>patientCounselingUnderstood</field>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
 <note>&apos;1&apos; FOR YES;
 &apos;0&apos; FOR NO;</note>
-<textkey>Medication Dispense.patientCounselingUnderstood</textkey>
+<textkey>MedicationDispense.patientCounselingUnderstood</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>160</id>
@@ -1852,22 +1852,21 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>161</id>
 <resource>Medication Dispense</resource>
-<field>lastDispensedDate</field>
+<field>dispensedDate</field>
 <type>date</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<note>Enter date that he presciption was last filled.</note>
-<textkey>Medication Dispense.lastDispensedDate</textkey>
+<textkey>Medication Dispense.dispensedDate</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>162</id>
 <resource>Medication Dispense</resource>
-<field>medicationPatientInstructions</field>
+<field>doseageInstruction.patientInstruction</field>
 <type>text</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
+<scope>R4</scope>
 <note>The text in this field shall be used for the Patient Instructions in the Outpatient Pharmacy package when entering orders, if the Dispense Drug selected is matched to a Pharmacy Orderable Item with patient instructions.</note>
-<textkey>Medication Dispense.medicationPatientInstructions</textkey>
+<textkey>MedicationDispense.doseageInstruction.PatientInstruction</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-Dosage.patientInstruction</extensionUrl>
 </fhirProperties>
 <fhirProperties>
 <id>163</id>
@@ -2722,11 +2721,11 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>237</id>
 <resource>Any</resource>
-<field>richComment</field>
+<field>annotationWithType</field>
 <type>structured</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>Any.richComment</textkey>
+<textkey>Any.annotationWithType</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>238</id>
@@ -3023,16 +3022,8 @@ INSTRUCTIONS  file are utilized.</note>
 <type>date</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
+<note>Enter date that he presciption was last filled.</note>
 <textkey>MedicationOrder.LastDispensedDate</textkey>
-</fhirProperties>
-<fhirProperties>
-<id>264</id>
-<resource>MedicationOrder</resource>
-<field>medicationPatientInstructions</field>
-<type>text</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
-<textkey>MedicationOrder.MedicationPatientInstructions</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>265</id>
@@ -3041,7 +3032,7 @@ INSTRUCTIONS  file are utilized.</note>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.MethodOfOrderPickup</textkey>
+<textkey>MedicationDispense.MethodOfOrderPickup</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>266</id>
@@ -3056,6 +3047,7 @@ INSTRUCTIONS  file are utilized.</note>
 <id>267</id>
 <resource>MedicationDispense</resource>
 <field>doseConjunction</field>
+<order>31</order>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
@@ -3065,6 +3057,7 @@ INSTRUCTIONS  file are utilized.</note>
 <id>268</id>
 <resource>MedicationDispense</resource>
 <field>doseVerb</field>
+<order>31</order>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
@@ -3074,6 +3067,7 @@ INSTRUCTIONS  file are utilized.</note>
 <id>269</id>
 <resource>MedicationDispense</resource>
 <field>unitsPerDose</field>
+<order>31</order>
 <type>integer</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
@@ -3110,12 +3104,12 @@ INSTRUCTIONS  file are utilized.</note>
 </fhirProperties>
 <fhirProperties>
 <id>273</id>
-<resource>MedicationOrder</resource>
+<resource>MedicationDispense</resource>
 <field>copayTransactionType</field>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.CopayTransactionType</textkey>
+<textkey>MedicationDispense.CopayTransactionType</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>274</id>
@@ -3769,12 +3763,12 @@ INSTRUCTIONS  file are utilized.</note>
 </fhirProperties>
 <fhirProperties>
 <id>358</id>
-<resource>MedicationOrder</resource>
+<resource>MedicationDispense</resource>
 <field>iVAdditive.BottleNumber</field>
 <type>text</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.IVAdditive.BottleNumber</textkey>
+<textkey>MedicationDispense.IVAdditive.BottleNumber</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>359</id>
@@ -3796,21 +3790,21 @@ INSTRUCTIONS  file are utilized.</note>
 </fhirProperties>
 <fhirProperties>
 <id>361</id>
-<resource>MedicationOrder</resource>
+<resource>MedicationDispense</resource>
 <field>iVLabelsPerDay</field>
 <type>number</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.IVLabelsPerDay</textkey>
+<textkey>MedicationDispense.IVLabelsPerDay</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>362</id>
-<resource>MedicationOrder</resource>
+<resource>MedicationDispense</resource>
 <field>iVPrepRoom</field>
 <type>text</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.IVPrepRoom</textkey>
+<textkey>MedicationDispense.IVPrepRoom</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>363</id>
@@ -3838,16 +3832,6 @@ INSTRUCTIONS  file are utilized.</note>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
 <textkey>MedicationOrder.ProviderRequestedStart</textkey>
-</fhirProperties>
-<fhirProperties>
-<id>366</id>
-<resource>MedicationOrder</resource>
-<field>unitsPerDose</field>
-<parent>16</parent>
-<type>number</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
-<textkey>MedicationOrder.reasonReference.UnitsPerDose</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>367</id>
@@ -3905,15 +3889,6 @@ INSTRUCTIONS  file are utilized.</note>
 <textkey>MedicationOrder.cumulativeDoses</textkey>
 </fhirProperties>
 <fhirProperties>
-<id>373</id>
-<resource>MedicationOrder</resource>
-<field>discontinueMode</field>
-<type>code</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
-<textkey>MedicationOrder.discontinueMode</textkey>
-</fhirProperties>
-<fhirProperties>
 <id>374</id>
 <resource>MedicationOrder</resource>
 <field>originalWard</field>
@@ -3954,20 +3929,20 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>378</id>
 <resource>MedicationOrder</resource>
-<field>pVFlag</field>
+<field>pharmacistOrderVerificationFlag</field>
 <type>coding</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.PVFlag</textkey>
+<textkey>MedicationOrder.pharmacistOrderVerificationFlag</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>379</id>
 <resource>MedicationOrder</resource>
-<field>nVFlag</field>
+<field>nurseOrderVerificationFlag</field>
 <type>coding</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.NVFlag</textkey>
+<textkey>MedicationOrder.nurseOrderVerificationFlag</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>380</id>
@@ -3981,7 +3956,7 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>381</id>
 <resource>MedicationOrder</resource>
-<field>lastFillQty</field>
+<field>lastFillQuantity</field>
 <type>quantity</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
@@ -4241,9 +4216,10 @@ INSTRUCTIONS  file are utilized.</note>
 <field>indication</field>
 <order>20</order>
 <card>0..*</card>
-<type>Reference(Condition | Procedure)</type>
+<type>complex</type>
 <version>DSTU2</version>
 <scope>core</scope>
+<note>Presence code (Y/N) and Type code (Vista question)</note>
 <textkey>Encounter.indication</textkey>
 </fhirProperties>
 <fhirProperties>
@@ -4447,11 +4423,11 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>423</id>
 <resource>MedicationOrder</resource>
-<field>orderFlagged</field>
+<field>orderFlaggedForClarification</field>
 <type>code</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationOrder.orderFlagged</textkey>
+<textkey>MedicationOrder.orderFlaggedForClarification</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>424</id>
@@ -4484,20 +4460,21 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>428</id>
 <resource>MedicationDispense</resource>
-<field>prescriptionFinisher</field>
+<field>performer</field>
 <type>reference (provider)</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
-<textkey>MedicationDispense.prescriptionFinisher</textkey>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationDispense.performer</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer</extensionUrl>
 </fhirProperties>
 <fhirProperties>
 <id>429</id>
-<resource>MedicationDispense</resource>
+<resource>MedicationOrder</resource>
 <field>prescriptionFinishDateTime</field>
 <type>datetime</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationDispense.prescriptionFinishDateTime</textkey>
+<textkey>MedicationOrder.prescriptionFinishDateTime</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>430</id>
@@ -4513,11 +4490,12 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>431</id>
 <resource>MedicationDispense</resource>
-<field>prescriptionFillLocation</field>
+<field>location</field>
 <type>Reference (Location)</type>
-<version>DSTU2</version>
-<scope>vaExtension</scope>
-<textkey>MedicationDispense.prescriptionFillLocation</textkey>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationDispense.location</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.location</extensionUrl>
 </fhirProperties>
 <fhirProperties>
 <id>432</id>
@@ -4534,8 +4512,8 @@ INSTRUCTIONS  file are utilized.</note>
 <field>targetElement</field>
 <type>complex</type>
 <version>R4</version>
-<scope>vaExtension</scope>
-<note>Follow pattern in NO extension, but don&apos;t use it; incorrect FHIR version.</note>
+<scope>NOExtension</scope>
+<note>existing</note>
 <textkey>Provenance.targetElement</textkey>
 <extensionUrl>http://hl7.no/fhir/StructureDefinition/reference-targetElement</extensionUrl>
 </fhirProperties>
@@ -4552,12 +4530,12 @@ INSTRUCTIONS  file are utilized.</note>
 </fhirProperties>
 <fhirProperties>
 <id>435</id>
-<resource>MedicationDispense</resource>
-<field>dispensedAsWritten</field>
+<resource>MedicationOrder</resource>
+<field>dispenseAsWritten</field>
 <type>Boolean</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>MedicationDispense.dispensedAsWritten</textkey>
+<textkey>MedicationOrder.dispenseAsWritten</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>436</id>
@@ -5678,38 +5656,38 @@ INSTRUCTIONS  file are utilized.</note>
 <fhirProperties>
 <id>538</id>
 <resource>Any</resource>
-<field>richComment.annotation</field>
+<field>annotationWithType.annotation</field>
 <type>annotation</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>Any.richComment.annotation</textkey>
+<textkey>Any.annotationWithType.annotation</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>539</id>
 <resource>Any</resource>
-<field>richComment.type</field>
+<field>annotationWithType.type</field>
 <type>codeableConcept</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>Any.richComment.type</textkey>
+<textkey>Any.annotationWithType.type</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>540</id>
 <resource>Any</resource>
-<field>richComment.title</field>
+<field>annotationWithType.title</field>
 <type>string</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>Any.richComment.title</textkey>
+<textkey>Any.annotationWithType.title</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>541</id>
 <resource>Any</resource>
-<field>richComment.number</field>
+<field>annotationWithType.sequencNumber</field>
 <type>integer</type>
 <version>DSTU2</version>
 <scope>vaExtension</scope>
-<textkey>Any.richComment.number</textkey>
+<textkey>Any.annotationWithType.sequencNumber</textkey>
 </fhirProperties>
 <fhirProperties>
 <id>563</id>
@@ -6706,8 +6684,8 @@ INSTRUCTIONS  file are utilized.</note>
 <version>R4</version>
 <scope>coreExtension</scope>
 <note>existing</note>
-<textkey>Observation event-statusReason</textkey>
-<extensionUrl>http://hl7.org/fhir/StructureDefinition/event-statusReason</extensionUrl>
+<textkey>Observation event-processState</textkey>
+<extensionUrl>http://va.gov/fhir/StructureDefinition/event-processState</extensionUrl>
 </fhirProperties>
 <fhirProperties>
 <id>647</id>
@@ -6852,5 +6830,243 @@ INSTRUCTIONS  file are utilized.</note>
 <order>6.5</order>
 <parent>6</parent>
 <textkey>Observation.valueCodeableConcept.coding.userSelected</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>665</id>
+<resource>MedicationOrder</resource>
+<field>patientDateOfBirth</field>
+<parent>0</parent>
+<type>dateTime</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.patientDateOfBirth</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>666</id>
+<resource>MedicationOrder</resource>
+<field>patientSSN</field>
+<parent>0</parent>
+<type>string</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.patientSSN</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>667</id>
+<resource>MedicationDispense</resource>
+<field>performer</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>R4</scope>
+<textkey>MedicationDispense.performer.actor.display</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.actor.display</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>668</id>
+<resource>MedicationOrder</resource>
+<field>doseageInstruction.patientInstruction</field>
+<parent>0</parent>
+<type>text</type>
+<scope>R4</scope>
+<textkey>MedicationOrder.doseageInstruction.patientInstruction</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-Dosage.patientInstruction</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>669</id>
+<resource>MedicationOrder</resource>
+<field>recorder</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>R4</scope>
+<textkey>MedicationOrder.recorder</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationOrder.recorder</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>670</id>
+<resource>MedicationOrder</resource>
+<field>forServiceConnectedCondition</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forServiceConnectedCondition</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>671</id>
+<resource>MedicationDispense</resource>
+<field>performer.time</field>
+<parent>0</parent>
+<type>datetime</type>
+<scope>vaExtension</scope>
+<textkey>MedicationDispense.performer.time</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>672</id>
+<resource>MedicationOrder</resource>
+<field>forMilitarySexualTrauma</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forMilitarySexualTrauma</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>673</id>
+<resource>MedicationOrder</resource>
+<field>forAgentOrangeExposure</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forAgentOrangeExposure</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>674</id>
+<resource>MedicationOrder</resource>
+<field>forExposureToIonizingRadiation</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forExposureToIonizingRadiation</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>675</id>
+<resource>MedicationOrder</resource>
+<field>forSouthwestAsiaConditions</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forSouthwestAsiaConditions</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>676</id>
+<resource>MedicationOrder</resource>
+<field>forHeadOrNeckCancer</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forHeadOrNeckCancer</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>677</id>
+<resource>MedicationOrder</resource>
+<field>forCombatService</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forCombatService</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>678</id>
+<resource>MedicationOrder</resource>
+<field>forShipboardHazard</field>
+<parent>0</parent>
+<type>code</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.forShipboardHazard</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>679</id>
+<resource>MedicationOrder</resource>
+<field>note</field>
+<card>0..1</card>
+<type>Annotation</type>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationOrder.R4note</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationRequest.note</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>680</id>
+<resource>MedicationOrder</resource>
+<field>note.category</field>
+<parent>0</parent>
+<type>codeableConcdept</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.note.category</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>681</id>
+<resource>MedicationOrder</resource>
+<field>orderingInstitution</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.orderingInstitution</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>682</id>
+<resource>MedicationOrder</resource>
+<field>category</field>
+<parent>0</parent>
+<type>codeableConcdept</type>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationOrder.category</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationRequest.category</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>683</id>
+<resource>MedicationOrder</resource>
+<field>dosageInstructions.timing.repeat.timeOfDay</field>
+<parent>0</parent>
+<type>time</type>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationOrder.dosageInstructions.timing.repeat.timeOfDay</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationOrder.dosageInstructions.timing.repeat.timeOfDay</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>685</id>
+<resource>MedicationDispense</resource>
+<field>context</field>
+<parent>0</parent>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationDispense.context</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.context</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>686</id>
+<resource>MedicationOrder</resource>
+<field>basedOn</field>
+<parent>0</parent>
+<type>reference</type>
+<version>R4</version>
+<scope>R4</scope>
+<textkey>MedicationOrder.basedOn</textkey>
+<extensionUrl>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationOrder.basedOn</extensionUrl>
+</fhirProperties>
+<fhirProperties>
+<id>687</id>
+<resource>MedicationOrder</resource>
+<field>cosigningProvider</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.cosigningProvider</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>688</id>
+<resource>MedicationOrder</resource>
+<field>verifyingPharmacist</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.verifyingPharmacist</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>689</id>
+<resource>MedicationOrder</resource>
+<field>enteringPerson</field>
+<parent>0</parent>
+<type>reference</type>
+<scope>vaExtension</scope>
+<textkey>MedicationOrder.enteringPerson</textkey>
+</fhirProperties>
+<fhirProperties>
+<id>690</id>
+<resource>Appointment</resource>
+<field>start</field>
+<parent>0</parent>
+<type>dateTime</type>
+<version>DSTU2</version>
+<scope>core</scope>
+<textkey>Appointment.start</textkey>
 </fhirProperties>
 </dataroot>

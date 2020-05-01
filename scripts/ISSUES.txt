@@ -1,6 +1,15 @@
 Issues now on https://github.com/mvdzel/vha-ampl-fhir-ig/projects/1
 
 ---
+
+- scripts/input folder delete from git
+- write down steps to generate input folder files
+- fix ValueSetMemberships.xml
+
+Q: Principle: Use specs as much as possible. Were to put guidance on selecting only what you need.
+   Query with ?_elements to filter out unwanted elements for e.g. Provider.
+
+---
      
 Questions to chat.fhir.org:
 Q: Why is description for a Resource not taken from the StructureDefinition as it does for Extensions?
