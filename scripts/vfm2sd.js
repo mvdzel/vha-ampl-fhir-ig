@@ -99,7 +99,6 @@ input_fhirProperties.fhirProperties.forEach(row => {
         var extraPath = textkey.substring(0, textkey.indexOf('['));
         if (!lookup_needsExtraTypedPath.includes(extraPath)) {
             lookup_needsExtraTypedPath.push(extraPath);
-            console.log(extraPath);
         }
     }
     // add resourceName if missing
@@ -107,6 +106,8 @@ input_fhirProperties.fhirProperties.forEach(row => {
         resourceNames.push(row.resource[0]);
     }
 });
+// missing from fhirProperties so added manually
+lookup_needsExtraTypedPath.push("MedicationOrder.dosageInstruction.timing.repeat.bounds");
 
 //
 // =========================== StructureDefinitions ===========================
@@ -167,6 +168,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     if (row.profile != undefined) {
         profileId = row.profile[0]; // + '-' + resourceName;
     }
+    // remove [] from profileId
+    profileId = profileId.replace('[', '').replace(']', '');
     // ASSERT if profileId is a valid FHIR id type!
     if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(profileId)) {
         console.error(`${row.ID1}: ERROR: profileId '${profileId}' not a valid FHIR id`);
@@ -235,12 +238,22 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
 
                 var fixedElement = elementsByPath[profileId][fixedElementPath];
                 if (fixedElement == undefined) {
-                    var fixedType = lookup_typeByPath[fixedElementPath];
+                    var fixedType = lookup_typeByPath[fixedElementPath];// !!! TODO: default to "code" if the fixedElementPath ends with .code
                     if (fixedType == undefined) {
-                        console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' is a non existing path? No info on type, default to String`);
-                        fixedType = "String";
+                        if (fixedElementPath.endsWith(".code")) {
+                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknow path. Assume type Code`);
+                            fixedType = "Code";
+                        }
+                        else if (fixedElementPath.endsWith(".system")) {
+                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknow path. Assume type Uri`);
+                            fixedType = "Uri";
+                        }
+                        else {
+                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknown path. Assume type String`);
+                            fixedType = "String";
+                        }
                     }
-                    if (fixedType == "CodeableConcept") {
+                    else if (fixedType == "CodeableConcept") {
                         console.error(`${row.ID1}: ERROR fixedElementPath '${fixedElementPath}' cannot set fixed value for non primitive type ${fixedType}`);
                         return;
                     }
@@ -253,7 +266,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value '${fixedElementPath}'`);
                 }
                 else {
-                    console.warn(`${row.ID1}: WARN: ${profileId} DUPLICATE fixed value '${fixedElementPath}'`);
+                    console.warn(`${row.ID1}: WARN: ${profileId} MULTIPLE fixed values for '${fixedElementPath}'?`);
                 }
             }
             else if (propline.length > 0) {

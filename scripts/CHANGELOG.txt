@@ -1,4 +1,8 @@
-202-feb-21
+2020-mar-15
+- vfm2sd.js; assume Code type for fixed values with paths end with ".code"
+- vfm2sd.js; remove '[]' from Profilename
+
+2020-feb-21
 - vfm2sd.js; more checking if type is specified for [x] attributes
 - vfm2sd.js; remove options from Reference types in fhirProperties
 

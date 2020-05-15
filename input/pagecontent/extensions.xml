@@ -5,7 +5,7 @@
 </table>
 </p>
 <script>
-<!--
+<![CDATA[
 sortTable();
 function sortTable() {
   var table, rows, switching, i, x, y, shouldSwitch;
@@ -18,7 +18,7 @@ function sortTable() {
     rows = table.rows;
     /*Loop through all table rows (except the
     first, which contains table headers):*/
-    for (i = 0; i &lt; (rows.length - 1); i++) {
+    for (i = 0; i < (rows.length - 1); i++) {
       //start by saying there should be no switching:
       shouldSwitch = false;
       /*Get the two elements you want to compare,
@@ -26,7 +26,7 @@ function sortTable() {
       x = rows[i].getElementsByTagName("TD")[0];
       y = rows[i + 1].getElementsByTagName("TD")[0];
       //check if the two rows should switch place:
-      if (x.innerHTML.toLowerCase() &gt; y.innerHTML.toLowerCase()) {
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
         //if so, mark as a switch and break the loop:
         shouldSwitch = true;
         break;
@@ -39,6 +39,5 @@ function sortTable() {
     }
   }
 }
--->
-</script>
+]]></script>
 </div>

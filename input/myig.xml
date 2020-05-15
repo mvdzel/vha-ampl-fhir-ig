@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.17"/>
+  <version value="0.0.18"/>
   <name value="vha-ampl-ig"/>
   <title value="Draft VA Pharmacy FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -73,7 +73,7 @@
             <description value=""/>
         </grouping>
         <grouping id="group-28">
-            <name value="Coversheet Area: Primary Care Management "/>
+            <name value="Coversheet Area: Primary Care Management"/>
             <description value=""/>
         </grouping>
         <grouping id="group-12">
@@ -450,6 +450,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/targetElement.elementUri"/>
+      </reference>
+      <name value="targetElement.elementUri"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/pat-condition-prov-Provenance"/>
       </reference>
       <name value="pat-condition-prov-Provenance"/>
@@ -570,6 +578,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAEligibilityObservation2"/>
+      </reference>
+      <name value="VAEligibilityObservation2"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/emergencyResponseCohort"/>
       </reference>
       <name value="emergencyResponseCohort"/>
@@ -602,6 +618,30 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAServiceEpisode1"/>
+      </reference>
+      <name value="VAServiceEpisode1"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile1"/>
+      </reference>
+      <name value="VARiskEpisodeProfile1"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile2"/>
+      </reference>
+      <name value="VARiskEpisodeProfile2"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/VAServiceHistoryObservation"/>
       </reference>
       <name value="VAServiceHistoryObservation"/>
@@ -610,9 +650,97 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAServiceEpisode5"/>
+      </reference>
+      <name value="VAServiceEpisode5"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile3"/>
+      </reference>
+      <name value="VARiskEpisodeProfile3"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAServiceEpisode6"/>
+      </reference>
+      <name value="VAServiceEpisode6"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAServiceEpisode7"/>
+      </reference>
+      <name value="VAServiceEpisode7"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAServiceEpisode2"/>
+      </reference>
+      <name value="VAServiceEpisode2"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAServiceEpisode3"/>
+      </reference>
+      <name value="VAServiceEpisode3"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAServiceEpisode4"/>
+      </reference>
+      <name value="VAServiceEpisode4"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/VAPatientPrimaryEligibilityObservation"/>
       </reference>
       <name value="VAPatientPrimaryEligibilityObservation"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAEligibilityObservation4"/>
+      </reference>
+      <name value="VAEligibilityObservation4"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile5"/>
+      </reference>
+      <name value="VARiskEpisodeProfile5"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile6"/>
+      </reference>
+      <name value="VARiskEpisodeProfile6"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAEligibilityObservation1"/>
+      </reference>
+      <name value="VAEligibilityObservation1"/>
       <description value=""/>
       <groupingId value="group-25"/>
     </resource>
@@ -743,6 +871,30 @@
       <name value="flagType"/>
       <description value=""/>
       <groupingId value="group-26"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VARiskEpisodeProfile4"/>
+      </reference>
+      <name value="VARiskEpisodeProfile4"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/statusReason"/>
+      </reference>
+      <name value="statusReason"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAEligibilityObservation3"/>
+      </reference>
+      <name value="VAEligibilityObservation3"/>
+      <description value=""/>
+      <groupingId value="group-25"/>
     </resource>
     <resource>
       <reference>
@@ -1462,14 +1614,6 @@
       </reference>
       <name value="VAInpatientMedicationOrderChange"/>
       <description value="A record of changes made to an inpatient order"/>
-      <groupingId value="group-15"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/targetElement.elementUri"/>
-      </reference>
-      <name value="targetElement.elementUri"/>
-      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>

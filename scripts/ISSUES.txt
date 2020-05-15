@@ -4,19 +4,15 @@ Issues now on https://github.com/mvdzel/vha-ampl-fhir-ig/projects/1
 
 - [] scripts/input folder delete from git
 - [] fix ValueSetMemberships.xml
-- [] how to include <script> in extensions.xml, now disabled because Jekyll choaks
-
 
 StructureDefinition-VAUnfinishedInpatientMedicationOrder
       {
         "path": "MedicationOrder.dosageInstruction.timing.repeat.boundsPeriod"
       },
 
-fhirProperties & VistA_FHIR_Map issues
-- Timing.bounds[x] options are missing
-- MedicationOrder.doseInstructions.dose[x].doseQuantity -> should be doseQuantity
-- Observation.value[x].valueQuantity -> should be valueQuantity
-- Fix casing: targetElement.elementUri or targetElement.elementURI not both!
+Fix manually until issue done
+- https://github.com/mvdzel/vha-ampl-fhir-ig/issues/15
+- https://github.com/mvdzel/vha-ampl-fhir-ig/issues/11
 
 ---
 
