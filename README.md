@@ -1,5 +1,8 @@
 # vha-ampl-fhir-ig
 
+-------------------------------
+Local installation
+
 Prepare:
 1. install git
 1. install java (tested on java 1.8)
@@ -30,3 +33,19 @@ Run IG Publisher locally:
 1. > git commit -a
 1. wait for auto-ig-builder
 1. check https://build.fhir.org/ig/mvdzel/vha-ampl-ig
+
+-------------------------------
+Docker installation
+
+Build the image
+> docker build -t vha-ampl-fhir-ig .
+
+Run
+> docker run -it -p 8080:8080 vha-ampl-fhir-ig
+
+@> cd vha-ampl-fhir-ig/script
+@> node vfm2sd.js > part.xml 2> log.txt
+@> cd ..
+@> java -jar org.hl7.fhir.publisher.jar -ig ig.ini
+@> http-server output
+Point you local browser to http://localhost:8080/ to see output!
