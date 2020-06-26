@@ -451,7 +451,7 @@ profileIds.forEach(profileId => {
       <groupingId value="${entry.groupingId}"/>
     </resource>`);
     delete entry.groupingId;
-    fs.writeFile("../input/resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
+    fs.writeFileSync("../input/resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
 
 //
@@ -505,7 +505,7 @@ vss.ValueSetMembership_x0020_Query.forEach(row => {
 // Write the valuesets to separate files
 valuesetNames.forEach(name => {
     var valueset = valuesets[name];
-    fs.writeFile("../input/resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
+    fs.writeFileSync("../input/resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
 });
 
 // Display myig.xml resource xml part
@@ -578,7 +578,7 @@ cms.conceptMap.forEach(row => {
 // Write the conceptmaps to separate files
 conceptmapNames.forEach(name => {
     var conceptmap = conceptmaps[name];
-    fs.writeFile("../input/resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
+    fs.writeFileSync("../input/resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
 });
 
 // Display myig.xml resource xml part
