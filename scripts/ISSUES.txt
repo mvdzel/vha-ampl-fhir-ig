@@ -1,6 +1,7 @@
 Issues now on https://github.com/mvdzel/vha-ampl-fhir-ig/projects/1
 
----
+- !!! use pattern[x] for Code and CodeableConcept!
+- !!! a lot of MedicationOrder.type where type should be extension.note.type
 
 - [] scripts/input folder delete from git
 - [] fix ValueSetMemberships.xml
@@ -13,6 +14,10 @@ StructureDefinition-VAUnfinishedInpatientMedicationOrder
 Fix manually until issue done
 - https://github.com/mvdzel/vha-ampl-fhir-ig/issues/15
 - https://github.com/mvdzel/vha-ampl-fhir-ig/issues/11
+
+DSTS2 > STU3 issues
+- MedicationOrder is now MedicationRequest
+- also change in fhirProperties
 
 ---
 

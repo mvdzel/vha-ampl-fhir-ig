@@ -16,8 +16,9 @@ RUN gem install jekyll --version 3.8
 RUN npm install --global http-server
 
 # VHA AMPL FHIR IG
+USER node
 RUN git clone https://github.com/mvdzel/vha-ampl-fhir-ig.git
-RUN cd vha-ampl-fhir-ig ; curl https://storage.googleapis.com/ig-build/org.hl7.fhir.publisher.jar -o org.hl7.fhir.publisher.jar
+RUN curl https://storage.googleapis.com/ig-build/org.hl7.fhir.publisher.jar -o org.hl7.fhir.publisher.jar
 RUN cd vha-ampl-fhir-ig/scripts ; npm update
 
 CMD /bin/bash

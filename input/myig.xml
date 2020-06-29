@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.18"/>
+  <version value="0.0.19"/>
   <name value="vha-ampl-ig"/>
   <title value="Draft VA Pharmacy FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -29,8 +29,7 @@
   </jurisdiction>
   <packageId value="vha-ampl-ig"/>
   <!-- This is whatever FHIR version the IG artifacts are targeting (not the version of this file, which should always be 'current release') -->
-  <!--<fhirVersion value="1.0.2"/>-->
-  <fhirVersion value="1.0.2"/>
+  <fhirVersion value="3.0.2"/>
   <definition>
         <grouping id="group-43">
             <name value="Coversheet Area: Order Check Instances"/>
@@ -522,9 +521,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderWithDemo"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationRequestWithDemo"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderWithDemo"/>
+      <name value="VAUnfinishedOutpatientMedicationRequestWithDemo"/>
       <description value=""/>
       <groupingId value="group-93"/>
     </resource>
@@ -1074,10 +1073,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrder"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequest"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrder"/>
-      <description value="VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1178,10 +1177,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestChange"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderChange"/>
-      <description value="Change to VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestChange"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1194,17 +1193,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrder"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationRequest"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrder"/>
+      <name value="VAUnfinishedOutpatientMedicationRequest"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationRequestEncounter"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderEncounter"/>
+      <name value="VAUnfinishedOutpatientMedicationRequestEncounter"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
@@ -1218,9 +1217,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderOrigination"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationRequestOrigination"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderOrigination"/>
+      <name value="VAUnfinishedOutpatientMedicationRequestOrigination"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
@@ -1322,9 +1321,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderEntry"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationRequestEntry"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderEntry"/>
+      <name value="VAUnfinishedOutpatientMedicationRequestEntry"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
@@ -1370,10 +1369,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderDiscontinuation"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestDiscontinuation"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderDiscontinuation"/>
-      <description value="Discontinuation of VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestDiscontinuation"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1394,18 +1393,18 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderVerification"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestVerification"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderVerification"/>
-      <description value="Verification of VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestVerification"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderSignature"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestSignature"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderSignature"/>
-      <description value="Signature of VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestSignature"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1490,10 +1489,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderEntry"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestEntry"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderEntry"/>
-      <description value="Entry of VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestEntry"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1506,10 +1505,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderCancellation"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestCancellation"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderCancellation"/>
-      <description value="Cancellation of VA finished outpatient medication order"/>
+      <name value="VAFinishedOutpatientMedicationRequestCancellation"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1554,18 +1553,18 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequestEncounter"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderEncounter"/>
-      <description value="Encounter during which VA finished outpatient medication order is placed"/>
+      <name value="VAFinishedOutpatientMedicationRequestEncounter"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationOrder"/>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationRequest"/>
       </reference>
-      <name value="VAUnfinishedInpatientMedicationOrder"/>
-      <description value="Inpatient orders from CPRS that have not been verified by Pharmacy"/>
+      <name value="VAUnfinishedInpatientMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
@@ -1586,34 +1585,34 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAInpatientMedicationRequestEncounter"/>
       </reference>
-      <name value="VAInpatientMedicationOrderEncounter"/>
-      <description value="Encounter during which inpatient order was placed"/>
-      <groupingId value="group-15"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderRenewal"/>
-      </reference>
-      <name value="VAInpatientIVMedicationOrderRenewal"/>
-      <description value="Renewal provenance for VA IV orders"/>
-      <groupingId value="group-15"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/unverifiedMedicationOrderFinishPrompt"/>
-      </reference>
-      <name value="unverifiedMedicationOrderFinishPrompt"/>
+      <name value="VAInpatientMedicationRequestEncounter"/>
       <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestRenewal"/>
       </reference>
-      <name value="VAInpatientMedicationOrderChange"/>
-      <description value="A record of changes made to an inpatient order"/>
+      <name value="VAInpatientIVMedicationRequestRenewal"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/unverifiedMedicationRequestFinishPrompt"/>
+      </reference>
+      <name value="unverifiedMedicationRequestFinishPrompt"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAInpatientMedicationRequestChange"/>
+      </reference>
+      <name value="VAInpatientMedicationRequestChange"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
@@ -1650,10 +1649,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderEntry"/>
+        <reference value="StructureDefinition/VAInpatientMedicationRequestEntry"/>
       </reference>
-      <name value="VAInpatientMedicationOrderEntry"/>
-      <description value="Provenance of the inpatient order"/>
+      <name value="VAInpatientMedicationRequestEntry"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
@@ -1690,38 +1689,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdministration"/>
-      </reference>
-      <name value="pat-MedAdmin-MedicationAdministration"/>
-      <description value=""/>
-      <groupingId value="group-9"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-ext-MedicationAdministration"/>
-      </reference>
-      <name value="pat-MedAdmin-ext-MedicationAdministration"/>
-      <description value=""/>
-      <groupingId value="group-9"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/medicationAdministrationStatus"/>
-      </reference>
-      <name value="medicationAdministrationStatus"/>
-      <description value=""/>
-      <groupingId value="group-9"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/scheduledTime"/>
-      </reference>
-      <name value="scheduledTime"/>
-      <description value=""/>
-      <groupingId value="group-9"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/pat-MedAdmin-prov-Provenance"/>
       </reference>
       <name value="pat-MedAdmin-prov-Provenance"/>
@@ -1730,10 +1697,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrder"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequest"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrder"/>
-      <description value="VA finished IV orders"/>
+      <name value="VAInpatientIVMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
@@ -1762,26 +1729,26 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestEncounter"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderEncounter"/>
-      <description value="Encounter during which VA IV order was placed"/>
+      <name value="VAInpatientIVMedicationRequestEncounter"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderEntry"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestEntry"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderEntry"/>
-      <description value="Provenance for entry of VA IV order"/>
+      <name value="VAInpatientIVMedicationRequestEntry"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderVerification"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestVerification"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderVerification"/>
-      <description value="Verification of VA IV orders"/>
+      <name value="VAInpatientIVMedicationRequestVerification"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
@@ -1826,26 +1793,26 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medicationOrder-MedicationOrder"/>
+        <reference value="StructureDefinition/pat-medicationOrder-MedicationRequest"/>
       </reference>
-      <name value="pat-medicationOrder-MedicationOrder"/>
+      <name value="pat-medicationOrder-MedicationRequest"/>
       <description value=""/>
       <groupingId value="group-22"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrder"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequest"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrder"/>
-      <description value="VA finished unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestChange"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderChange"/>
-      <description value="Changes for VA IV orders"/>
+      <name value="VAInpatientIVMedicationRequestChange"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
@@ -1938,18 +1905,18 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestEncounter"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderEncounter"/>
-      <description value="Encounter during which VA unit dose order was placed"/>
+      <name value="VAInpatientUDMedicationRequestEncounter"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderVerification"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestVerification"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderVerification"/>
-      <description value="Verification of VA unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequestVerification"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
@@ -1962,10 +1929,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestChange"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderChange"/>
-      <description value="Changes for VA unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequestChange"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
@@ -1978,10 +1945,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderRenewal"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestRenewal"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderRenewal"/>
-      <description value="Renewal provenance for VA unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequestRenewal"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
@@ -2013,14 +1980,6 @@
         <reference value="StructureDefinition/pat-rpt-DiagnosticReport"/>
       </reference>
       <name value="pat-rpt-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-13"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-practitioner-DiagnosticOrder"/>
-      </reference>
-      <name value="pat-rpt-order-practitioner-DiagnosticOrder"/>
       <description value=""/>
       <groupingId value="group-13"/>
     </resource>
@@ -2125,30 +2084,6 @@
         <reference value="StructureDefinition/associatedDocument"/>
       </reference>
       <name value="associatedDocument"/>
-      <description value=""/>
-      <groupingId value="group-11"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-DiagnosticOrder"/>
-      </reference>
-      <name value="pat-rpt-order-DiagnosticOrder"/>
-      <description value=""/>
-      <groupingId value="group-11"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-ext-DiagnosticOrder"/>
-      </reference>
-      <name value="pat-rpt-order-ext-DiagnosticOrder"/>
-      <description value=""/>
-      <groupingId value="group-11"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/remoteOrderer"/>
-      </reference>
-      <name value="remoteOrderer"/>
       <description value=""/>
       <groupingId value="group-11"/>
     </resource>

@@ -1,13 +1,14 @@
 {
-    "fhirVersion": "1.0.2",
+    "fhirVersion": "3.0.2",
     "status": "draft",
     "resourceType": "StructureDefinition",
-    "differential": {
-    },
+    "differential": { },
     "abstract": false,
     "name": "<profileid>",
     "id": "<profileid>",
-    "constrainedType": "<resourcename>",
+    "type": "<resourcename>",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/<resourcename>",
+    "derivation": "specialization",
     "mapping": [
       {
         "identity": "vista",
@@ -15,7 +16,6 @@
         "uri": "http://va.gov/vista/"
       }
     ],
-    "base": "http://hl7.org/fhir/StructureDefinition/<resourcename>",
     "date": "<date>",
     "url": "StructureDefinition/<profileid>",
     "meta": {

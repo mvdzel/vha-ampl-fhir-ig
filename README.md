@@ -41,11 +41,11 @@ Build the image
 > docker build -t vha-ampl-fhir-ig .
 
 Run
-> docker run -it -p 8080:8080 vha-ampl-fhir-ig
+> docker run -it -v /home/michael/eclipse-workspace/vha-ampl-fhir-ig:/home/node/vha-ampl-fhir-ig-local -p 8080:8080 vha-ampl-fhir-ig
 
 @> cd vha-ampl-fhir-ig/script
 @> node vfm2sd.js > part.xml 2> log.txt
 @> cd ..
-@> java -jar org.hl7.fhir.publisher.jar -ig ig.ini
+@> java -jar ../org.hl7.fhir.publisher.jar -ig ig.ini
 @> http-server output
 Point you local browser to http://localhost:8080/ to see output!
