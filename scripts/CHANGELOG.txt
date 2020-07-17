@@ -1,3 +1,12 @@
+2020-jul-17
+- vfm2sd.js; upgrade to STU3 StructureDefinitions / ConceptMap
+-- StructureDefinition.element.type.profile now simple value not array
+-- StructureDefinition.element.sliceName instead of name
+-- ConceptMap.group added
+
+...
+- Dockerfile
+
 2020-mar-15
 - vfm2sd.js; assume Code type for fixed values with paths end with ".code"
 - vfm2sd.js; remove '[]' from Profilename

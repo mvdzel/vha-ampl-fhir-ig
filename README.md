@@ -8,7 +8,8 @@ Prepare:
 1. install java (tested on java 1.8)
 1. install node
 1. > git clone vha-ampl-ig
-1. download Publisher (org.hl7.fhir.publisher.jar) from: https://fhir.github.io/latest-ig-publisher/
+1. download Publisher (org.hl7.fhir.publisher.jar) from: https://github.com/HL7/fhir-ig-publisher/releases
+1. optional download Validator (org.hl7.fhir.validator-cli.jar) from: https://github.com/hapifhir/org.hl7.fhir.core/releases
 1. > cd scripts
 1. > npm init
 
@@ -38,9 +39,12 @@ Run IG Publisher locally:
 Docker installation
 
 Build the image
+```
 > docker build -t vha-ampl-fhir-ig .
+```
 
 Run
+```
 > docker run -it -v /home/michael/eclipse-workspace/vha-ampl-fhir-ig:/home/node/vha-ampl-fhir-ig-local -p 8080:8080 vha-ampl-fhir-ig
 
 @> cd vha-ampl-fhir-ig/script
@@ -48,4 +52,6 @@ Run
 @> cd ..
 @> java -jar ../org.hl7.fhir.publisher.jar -ig ig.ini
 @> http-server output
+```
+
 Point you local browser to http://localhost:8080/ to see output!
