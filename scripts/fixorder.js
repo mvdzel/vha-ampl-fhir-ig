@@ -4,9 +4,9 @@ var FhirVersions = require('fhir').Versions;
 var fs = require('fs');
 
 // // Get the data
-var newValueSets = JSON.parse(fs.readFileSync('/home/michael/eclipse-workspace/zib-compliance-fhir/definitions/valuesets.json').toString());
-var newTypes = JSON.parse(fs.readFileSync('/home/michael/eclipse-workspace/zib-compliance-fhir/definitions/profiles-types.json').toString());
-var newResources = JSON.parse(fs.readFileSync('/home/michael/eclipse-workspace/zib-compliance-fhir/definitions/profiles-resources.json').toString());
+var newValueSets = JSON.parse(fs.readFileSync('definitions/valuesets.json').toString());
+var newTypes = JSON.parse(fs.readFileSync('definitions/profiles-types.json').toString());
+var newResources = JSON.parse(fs.readFileSync('definitions/profiles-resources.json').toString());
 
 // // Create a parser and parse it using the parser
 var parser = new ParseConformance(false, FhirVersions.STU3);           // don't load pre-parsed data

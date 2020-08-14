@@ -18,6 +18,10 @@ Fix manually until issue done
 DSTS2 > STU3 issues
 - MedicationOrder is now MedicationRequest
 - also change in fhirProperties
+- Immunization.coding - Immunization.vaccinationCode
+
+
+- [] !!! use fhir definitions to generate the "core" part of fhirProperties and send to Jay
 
 ---
 

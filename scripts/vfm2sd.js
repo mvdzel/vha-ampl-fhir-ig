@@ -52,35 +52,18 @@ xml.parseString(fs.readFileSync('input/fhirProperties.xml'), function (err, resu
 let lookup_typeByExtName = [];
 let lookup_typeByPath = [];
 let lookup_needsExtraTypedPath = [];
-// accepted resourceNames; should be all in fhirProperties
-let resourceNames = [
-    "Address",
-    "AllergyIntolerance",
-    "Appointment",
-    "CarePlan",
-    "Condition",
-    "Coverage",
-    "DetectedIssue",
-//    "DiagnosticOrder", // DSTU2 only
-    "DiagnosticReport",
-    "DocumentReference",
-    "Encounter",
-    "Flag",
-    "Immunization",
-    "Location",
-    "Medication",
-//    "MedicationAdministration",
-    "MedicationDispense",
-    "MedicationRequest", // DSTU2 "MedicationOrder"
-    "MedicationStatement",
-    "Observation",
-    "Organization",
-    "Patient",
-    "Practitioner",
-    "Provenance",
-    "ReferralRequest",
-    "Specimen"
-];
+var resourceNames = [];
+
+// expand resourceNames and paths from fhir definition
+let fhirResources = JSON.parse(fs.readFileSync('definitions/profiles-resources.json'));
+var resourceEntries = fhirResources.entry.filter(entry => entry.resource.kind === "resource" && entry.resource.abstract === false);
+let fhirTypes = JSON.parse(fs.readFileSync('definitions/profiles-types.json'));
+var typeEntries = fhirTypes.entry.filter(entry => (entry.resource.kind === "complex-type" || entry.resource.kind === "primitive-type") && entry.resource.abstract === false);
+resourceEntries.forEach(entry => {
+    // resourceNames
+    resourceNames.push(entry.resource.type);
+});
+
 input_fhirProperties.fhirProperties.forEach(row => {
     var type = `${row.type}`; // convert to string
     // Remove type options for Reference type, e.g. Reference(Patient|Provider)
@@ -101,15 +84,9 @@ input_fhirProperties.fhirProperties.forEach(row => {
             lookup_needsExtraTypedPath.push(extraPath);
         }
     }
-    // add resourceName if missing
-    if(!resourceNames.includes(row.resource[0])) {
-        resourceNames.push(row.resource[0]);
-    }
 });
 // missing from fhirProperties so added manually
 lookup_needsExtraTypedPath.push("MedicationRequest.dosageInstruction.timing.repeat.bounds");
-resourceNames = resourceNames.filter(item => item !== "DiagnosticOrder");
-resourceNames = resourceNames.filter(item => item !== "MedicationAdministration");
 
 //
 // =========================== StructureDefinitions ===========================

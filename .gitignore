@@ -1,5 +1,6 @@
 scripts/output
 scripts/node_modules
+scripts/definitions
 input/resources
 output/
 temp/

@@ -11,7 +11,7 @@ Prepare:
 1. download Publisher (org.hl7.fhir.publisher.jar) from: https://github.com/HL7/fhir-ig-publisher/releases
 1. optional download Validator (org.hl7.fhir.validator-cli.jar) from: https://github.com/hapifhir/org.hl7.fhir.core/releases
 1. > cd scripts
-1. > npm init
+1. > npm update
 
 Run the script to gerenate the IG publisher input from the Access db:
 1. export the tables (lookup, fhirProperties, conceptMap, ValueSetMembership, VistA_FHIR_Map) to xml from MS Access to scripts/input (n.b. create directory if it doesnot exist)
@@ -45,7 +45,7 @@ Build the image
 
 Run
 ```
-> docker run -it -v /home/michael/eclipse-workspace/vha-ampl-fhir-ig:/home/node/vha-ampl-fhir-ig-local -p 8080:8080 vha-ampl-fhir-ig
+> docker run -it -v /home/michael/eclipse-workspace/vha-ampl-fhir-ig:/home/node/vha-ampl-fhir-ig -p 8080:8080 vha-ampl-fhir-ig
 
 @> cd vha-ampl-fhir-ig/script
 @> node vfm2sd.js > part.xml 2> log.txt
@@ -55,3 +55,8 @@ Run
 ```
 
 Point you local browser to http://localhost:8080/ to see output!
+
+Generate fhirProps.xml from fhir definitions
+```
+@> node fhirprops.js > fhirProps.xml 2> log3.txt
+```

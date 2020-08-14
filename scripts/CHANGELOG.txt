@@ -3,6 +3,7 @@
 -- StructureDefinition.element.type.profile now simple value not array
 -- StructureDefinition.element.sliceName instead of name
 -- ConceptMap.group added
+- vfm2sd.js; read resourceNames from officiel fhir definitions
 
 ...
 - Dockerfile

@@ -1,32 +1,41 @@
 var fs = require('fs');
 
+const MAX_DEPTH = 2;
+
 let fhirResources = JSON.parse(fs.readFileSync('definitions/profiles-resources.json'));
 var resourceEntries = fhirResources.entry.filter(entry => entry.resource.kind === "resource" && entry.resource.abstract === false);
 let fhirTypes = JSON.parse(fs.readFileSync('definitions/profiles-types.json'));
 var typeEntries = fhirTypes.entry.filter(entry => (entry.resource.kind === "complex-type" || entry.resource.kind === "primitive-type") && entry.resource.abstract === false);
+
+console.log('<?xml version="1.0" encoding="UTF-8"?><dataroot>');
 resourceEntries.forEach(entry => {
     // resourceNames
-    console.log (entry.resource.type);
+    console.error (entry.resource.type);
     // textKey
     entry.resource.snapshot.element.forEach(element => {
         if (element.type) {
+            var card = element.min + ".." + element.max;
+            if (element.path.endsWith("[x]")) {
+                fhirProperties(element.path, undefined, card, 'multi-type');
+            }
             var typesDone = [];
             element.type.forEach(type => {
                 // Account for Reference to different profiles
                 if (typesDone.indexOf(type.code) == -1) {
                     typesDone.push(type.code);
-                    recurseType(element.path, type.code, 0);
+                    recurseType(element.path, card, type.code, 0);
                 }
             });
         }
     });
 });
+console.log("</dataroot>");
 
-function recurseType(elementPath, typeCode, depth)
+function recurseType(elementPath, card, typeCode, depth)
 {
-    // never mapped to parts of these types
+    // never mapped to parts of these types; stop here
     if (typeCode == "Meta" || typeCode == "Extension" || typeCode == "Narrative" || typeCode == "BackboneElement" || typeCode == "Element" || typeCode == "Resource") { 
-        console.log(elementPath + " = " + typeCode + " (X)");
+        fhirProperties(elementPath, typeCode, card, 'X');
         return; 
     }
 
@@ -38,25 +47,30 @@ function recurseType(elementPath, typeCode, depth)
     var typeEntry = typeEntries.find(entry => entry.resource.type === typeCode);
     if (typeEntry) {
         if (typeEntry.resource.kind == "primitive-type") {
-            console.log(elementPath + " = " + typeCode + " (P)");
+            fhirProperties(elementPath, typeCode, card, 'primitive-type');
         }
         else {
-            if (depth == 2) {
-                console.log (elementPath + " = " + typeCode + " (∞)");
+            if (depth > MAX_DEPTH) {
+                // to deep; stop here
+                fhirProperties(elementPath, typeCode, card, '∞');
                 return;
             }
-            console.log (elementPath + " = " + typeCode);
+            fhirProperties(elementPath, typeCode, card, 'complex-type');
             typeEntry.resource.snapshot.element.forEach(typeElement => {
                 // chop off type
                 var typePath = typeElement.path.substring(typeCode.length);
                 var elementPathWithTypePath = elementPath + typePath;
-                if (typeElement.type) {
+                if (elementPathWithTypePath.endsWith("[x]")) {
+                    fhirProperties(elementPathWithTypePath, undefined, card, 'multi-type');
+                }
+                if (typeElement.type) { 
                     var typesDone = [];
                     typeElement.type.forEach(type => {
                         // Account for Reference to different profiles
                         if (typesDone.indexOf(type.code) == -1) {
                             typesDone.push(type.code);
-                            recurseType (elementPathWithTypePath, type.code, depth+1);
+                            var typeCard = typeElement.min + ".." + typeElement.max;
+                            recurseType (elementPathWithTypePath, typeCard, type.code, depth+1);
                         }
                     });
                 }
@@ -64,6 +78,29 @@ function recurseType(elementPath, typeCode, depth)
         }
     }
     else {
-        console.log (elementPath + " = " + typeCode + " NOT FOUND");
+        console.error (elementPath + "[" + card + "] = " + typeCode + " NOT FOUND");
     }
+}
+
+/*
+<fhirProperties>
+<id>174</id>
+<resource>Observation</resource>
+<field>value[x]</field>
+<flag>Σ</flag>
+<order>15</order>
+<card>0..1</card>
+<version>DSTU2</version>
+<scope>core</scope>
+<textkey>Observation.value[x]</textkey>
+</fhirProperties>
+*/
+function fhirProperties(elementPath, typeCode, card, flag) {
+    var firstDot = elementPath.indexOf('.');
+    var resource = elementPath.substring(0, firstDot);
+    var field = elementPath.substring(firstDot + 1);
+    var output = `<fhirProperties><resource>${resource}</resource><field>${field}</field><card>${card}</card>`;
+    if (typeCode) output += `<type>${typeCode}</type>`;
+    output += `<version>STU3</version><scope>core</scope><textkey>${elementPath}</textkey></fhirProperties>`;
+    console.log(output);
 }
