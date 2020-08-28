@@ -1,3 +1,7 @@
+2020-jul-24
+- vfm2sd.js; use new fhirprops.xml
+- fhirprops.js; generate fhirprops.xml from definitions
+
 2020-jul-17
 - vfm2sd.js; upgrade to STU3 StructureDefinitions / ConceptMap
 -- StructureDefinition.element.type.profile now simple value not array

@@ -17,8 +17,8 @@ RUN npm install --global http-server
 
 # VHA AMPL FHIR IG
 USER node
-#RUN git clone https://github.com/mvdzel/vha-ampl-fhir-ig.git
-RUN curl https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o org.hl7.fhir.publisher.jar
+RUN curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o org.hl7.fhir.publisher.jar
+RUN curl -L https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar -o org.hl7.fhir.validator.jar
 RUN cd vha-ampl-fhir-ig/scripts ; npm update
 
 CMD /bin/bash
