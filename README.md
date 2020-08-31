@@ -31,7 +31,7 @@ Run the script and IG publisher
 @> cd vha-ampl-fhir-ig/script
 @> node vfm2sd.js > part.xml 2> log.txt
 @> cd ..
-@> java -jar ../org.hl7.fhir.publisher.jar -ig ig.ini
+@> java -jar org.hl7.fhir.publisher.jar -ig ig.ini
 @> http-server output
 ```
 Point you local browser to http://localhost:8080/ to see output!
