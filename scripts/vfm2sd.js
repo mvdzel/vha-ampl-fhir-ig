@@ -44,26 +44,36 @@ input_lookup.lookup.forEach(row => {
     lookup_descById[row.id] = row.desc;
 });
 
-// process fhirProperties into different lookup tables
-let input_fhirProperties;
-xml.parseString(fs.readFileSync('input/fhirProperties.xml'), function (err, result) {
-    input_fhirProperties = result.dataroot;
-});
 let lookup_typeByExtName = [];
 let lookup_typeByPath = [];
 let lookup_needsExtraTypedPath = [];
 var resourceNames = [];
 
-// expand resourceNames and paths from fhir definition
-let fhirResources = JSON.parse(fs.readFileSync('definitions/profiles-resources.json'));
-var resourceEntries = fhirResources.entry.filter(entry => entry.resource.kind === "resource" && entry.resource.abstract === false);
-let fhirTypes = JSON.parse(fs.readFileSync('definitions/profiles-types.json'));
-var typeEntries = fhirTypes.entry.filter(entry => (entry.resource.kind === "complex-type" || entry.resource.kind === "primitive-type") && entry.resource.abstract === false);
-resourceEntries.forEach(entry => {
-    // resourceNames
-    resourceNames.push(entry.resource.type);
+// process fhirProperties (STU3 core) into lookup tables
+let input_fhirProperties_core;
+xml.parseString(fs.readFileSync('input/fhirProperties-core.xml'), function (err, result) {
+    input_fhirProperties_core = result.dataroot;
+});
+input_fhirProperties_core.fhirProperties.forEach(row => {
+    var type = `${row.type}`; // convert to string
+    // Remove type options for Reference type, e.g. Reference(Patient|Provider)
+    // TODO: split type options
+    if(type.indexOf('(')!=-1) {
+        type = type.substring(0,type.indexOf('(')).trim();
+    }
+    if (row.scope == "core" && row.type != undefined) {
+        lookup_typeByPath[row.resource[0] + '.' + row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
+    }
+    if (resourceNames.indexOf(row.resource[0]) == -1) {
+        resourceNames.push(row.resource[0]);
+    }
 });
 
+// process fhirProperties (not core) into different lookup tables
+let input_fhirProperties;
+xml.parseString(fs.readFileSync('input/fhirProperties.xml'), function (err, result) {
+    input_fhirProperties = result.dataroot;
+});
 input_fhirProperties.fhirProperties.forEach(row => {
     var type = `${row.type}`; // convert to string
     // Remove type options for Reference type, e.g. Reference(Patient|Provider)
@@ -73,9 +83,6 @@ input_fhirProperties.fhirProperties.forEach(row => {
     }
     if (row.scope == "vaExtension" && row.type != undefined) {
         lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
-    }
-    if (row.scope == "core" && row.type != undefined) {
-        lookup_typeByPath[row.resource + '.' + row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
     }
     var textkey = `${row.textkey}`;
     if (textkey.endsWith("[x]")) {
@@ -115,11 +122,11 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         console.error(`${row.ID1}: ERROR: missing field name`);
         return;
     }
-    if (row.FHIR_x0020_R2_x0020_resource == undefined) {
+    if (row.STU3Resource == undefined) {
         console.error(`${row.ID1}: ERROR: missing resource name`);
         return;
     }
-    if (row.FHIR_x0020_R2_x0020_property == undefined) {
+    if (row.STU3Map == undefined) {
         console.error(`${row.ID1}: ERROR: missing property name`);
         return;
     }
@@ -137,7 +144,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     }
 
     // sometimes there are whitespaces in the resource name and path, remove them
-    var resourceName = row.FHIR_x0020_R2_x0020_resource[0].trim();
+    var resourceName = row.STU3Resource[0].trim();
     if (resourceNames.indexOf(resourceName) == -1) {
         console.error(`${row.ID1}: ERROR: resourceName '${resourceName}' not an existing resource`);
         return;
@@ -203,7 +210,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     // proces fixed values
     // format: <propertyName>\n[<key>=<value>($|\n)]+
     // first line is property and next are fixed values; ignore empty lines
-    var proplines = row.FHIR_x0020_R2_x0020_property[0].trim().split(/\r?\n+/);
+    var proplines = row.STU3Map[0].trim().split(/\r?\n+/);
     if (proplines.length > 1) {
         proplines.slice(1).forEach(propline => {
             if (/^.+=.+$/.test(propline)) {

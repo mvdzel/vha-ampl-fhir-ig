@@ -23,7 +23,10 @@ Initial setup (get the publisher and optionally the validator and init the node 
 > cd vha-ampl-fhir-ig
 > curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o org.hl7.fhir.publisher.jar
 > curl -L https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar -o org.hl7.fhir.validator.jar
-> cd scripts ; npm update
+> cd scripts
+> curl -L http://hl7.org/fhir/STU3/definitions.json.zip -o definitions.json.zip
+> unzip definitions.json.zip -d definitions
+> npm update
 ```
 
 Run the script and IG publisher
