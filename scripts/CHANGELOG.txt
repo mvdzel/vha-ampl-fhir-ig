@@ -1,3 +1,6 @@
+2020-oct-02
+- vfm2sd.js; Extension.id used to be automatically populated by the IG-publisher, not anymore so generate it
+
 2020-sep-18
 - vfm2sd.js; Use extensionUrl from fhirProperties to support existing external extensions
 
