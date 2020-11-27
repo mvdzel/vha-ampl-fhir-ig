@@ -7,7 +7,7 @@ let date = new Date().toISOString();
 // Make sure input and output folders exist
 //
 if (!fs.existsSync("input/")) {
-    console.error("Expecting xml files in the script/input folder");
+    console.error("Expecting xml files (Access xml exports) in the script/input folder");
     return;
 }
 if (!fs.existsSync("../input/resources/")) {
@@ -85,10 +85,10 @@ input_fhirProperties.fhirProperties.forEach(row => {
     if (row.scope != "core" && row.type != undefined) {
         lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
         if(row.extensionUrl != undefined) {
-            lookup_uriByExtName[row.field] = row.extensionUrl;
+            lookup_uriByExtName[row.field] = row.extensionUrl[0];
         }
     }
-    var textkey = `${row.textkey}`;
+    var textkey = row.textkey[0];
     if (textkey.endsWith("[x]")) {
         var extraPath = textkey.substring(0, textkey.indexOf('['));
         if (!lookup_needsExtraTypedPath.includes(extraPath)) {
@@ -197,7 +197,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
         // AUTO add slicing setup for extension
-        sd.differential.element.push({
+        addDifferentialElement(sd, {
             path: `${resourceName}.extension`,
             slicing: {
                 discriminator: [ {
@@ -208,7 +208,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 ordered: false,
                 rules: "open"
             }
-        });
+        }, row.ID1);
     }
 
     // proces fixed values
@@ -231,8 +231,9 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
 
                 var fixedElement = elementsByPath[profileId][fixedElementPath];
                 if (fixedElement == undefined) {
-                    var fixedType = lookup_typeByPath[fixedElementPath];// !!! TODO: default to "code" if the fixedElementPath ends with .code
+                    var fixedType = lookup_typeByPath[fixedElementPath];
                     if (fixedType == undefined) {
+                        // Try some guessing based on the element name
                         if (fixedElementPath.endsWith(".code")) {
                             console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknow path. Assume type Code`);
                             fixedType = "Code";
@@ -246,7 +247,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                             fixedType = "String";
                         }
                     }
-                    else if (fixedType == "CodeableConcept") {
+                    else if (fixedType == "CodeableConcept" ||
+                        fixedType == "Period") {
                         console.error(`${row.ID1}: ERROR fixedElementPath '${fixedElementPath}' cannot set fixed value for non primitive type ${fixedType}`);
                         return;
                     }
@@ -254,8 +256,9 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                         path: fixedElementPath
                     };
                     fixedElement[`fixed${fixedType}`] = fixedValue;
+                    fixedElement.mustSupport = true;
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
-                    sd.differential.element.push(fixedElement);
+                    addDifferentialElement(sd, fixedElement, row.ID1);
                     console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value '${fixedElementPath}'`);
                 }
                 else {
@@ -275,12 +278,6 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
-    // Check for missing [x]; N.B. do this after the ASSERT of the elementPath!
-    // TODO: Ook als er iets achteraan komt !
-    // if (lookup_needsExtraTypedPath.includes(elementPath)) {
-    //     console.error(`${row.ID1}: ERROR: ${profileId} needsExtraTypedPath type[x] missing for '${elementPath}'`);
-    //     return;
-    // }
     var passed_needsExtraTypedPath = true;
     lookup_needsExtraTypedPath.forEach(extraPath => {
         if (elementPath == extraPath) {
@@ -414,14 +411,14 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 path: elementPath
             };
         }
-        sd.differential.element.push(element);
+        addDifferentialElement(sd, element, row.ID1);
     }
     element.label = row.Field_x0020_Name[0].trim();
     if (row.Data_x0020_Elements != undefined) {
         element.short = row.Data_x0020_Elements[0].trim();
     }
-    if(element.mapping == undefined) {
-        //console.warn(`${row.ID1}: DEBUG: mapping[] created for ${element.path}`);
+    element.mustSupport = true;
+    if (element.mapping == undefined) {
         element.mapping = [];
     }
     element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
@@ -590,3 +587,24 @@ conceptmapNames.forEach(name => {
       <name value="${name}"/>
     </resource>`);
 });
+
+//
+// Helper function to check and add differential element and
+// try to take order of the element in the profiled resource into account
+//
+function addDifferentialElement(sd, element, row_ID1) {
+    var elementPath = element.path;
+    // if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(elementPath)) {
+    //     console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not a valid path`);
+    //     return;
+    // }
+    var index = input_fhirProperties_core.fhirProperties.filter(row => row.textkey == elementPath);
+    if (index[0]) {
+        console.error(`${row_ID1}: DEBUG: ${sd.name} ${elementPath} ` + index[0].order);
+    }
+    else {
+        console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not an existing path`);
+        return;
+    }
+    sd.differential.element.push(element);
+}

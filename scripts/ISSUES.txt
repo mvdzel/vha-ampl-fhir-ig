@@ -191,3 +191,16 @@ or the "official" validator
 
 !! TODO: Turns out that the "Error in snapshot generation" is caused by the order of the elements. 
 !! Turns out the order of the element paths must be in the order it has in the base resource property and datatype attributes.
+
+---
+
+9-oct-2020
+
+1) There are mappings defined to external Extensions, e.g. StructureDefinition-us-core-birthsex.json
+   So if we want to add the mapping to it we need to profile that Extension!
+   We want the mapping to be in the Profile that uses the Extension.
+2) Fixed values for extensions need slice for that!
+3) Xxx.extension.provider
+4) extension.provider <- does nothing now??
+
+I need to refactor the Extension use / generate part.

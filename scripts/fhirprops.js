@@ -7,10 +7,12 @@ var resourceEntries = fhirResources.entry.filter(entry => entry.resource.kind ==
 let fhirTypes = JSON.parse(fs.readFileSync('definitions/profiles-types.json'));
 var typeEntries = fhirTypes.entry.filter(entry => (entry.resource.kind === "complex-type" || entry.resource.kind === "primitive-type") && entry.resource.abstract === false);
 
+var _order = 0;
 console.log('<?xml version="1.0" encoding="UTF-8"?><dataroot>');
 resourceEntries.forEach(entry => {
     // resourceNames
     console.error (entry.resource.type);
+    _order = 0;
     // textKey
     entry.resource.snapshot.element.forEach(element => {
         if (element.type) {
@@ -99,8 +101,9 @@ function fhirProperties(elementPath, typeCode, card, flag) {
     var firstDot = elementPath.indexOf('.');
     var resource = elementPath.substring(0, firstDot);
     var field = elementPath.substring(firstDot + 1);
-    var output = `<fhirProperties><resource>${resource}</resource><field>${field}</field><card>${card}</card>`;
+    var output = `<fhirProperties><resource>${resource}</resource><field>${field}</field><order>${_order}</order><card>${card}</card>`;
     if (typeCode) output += `<type>${typeCode}</type>`;
     output += `<version>STU3</version><scope>core</scope><textkey>${elementPath}</textkey></fhirProperties>`;
     console.log(output);
+    _order++;
 }

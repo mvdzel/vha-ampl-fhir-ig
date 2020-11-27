@@ -1,5 +1,13 @@
+2020-nov-26
+- fhirprops.js; added order per resource
+- vfm2sd.js; check if the elementPath is an existing path and also prevent complex-type on fixed values
+             lookup_uriByExtName entries were array should be single
+             mustSupport = true for all elements and extensions
+- ignoreWarnings.txt: ignore "Validate resource" information warning
+
 2020-oct-02
-- vfm2sd.js; Extension.id used to be automatically populated by the IG-publisher, not anymore so generate it
+- vfm2sd.js; Extension.id used to be automatically populated by the IG-publisher, not anymore, so generate it. 
+             N.B. element.id is not required.
 
 2020-sep-18
 - vfm2sd.js; Use extensionUrl from fhirProperties to support existing external extensions
