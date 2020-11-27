@@ -4,6 +4,8 @@
              lookup_uriByExtName entries were array should be single
              mustSupport = true for all elements and extensions
 - ignoreWarnings.txt: ignore "Validate resource" information warning
+- vfm2sd.js; added checks on fhirProperties; exturi should end with extname; 
+             extension types were misspelled (IG 1.1.42 depends on this or -dict.xhtml files not generated)
 
 2020-oct-02
 - vfm2sd.js; Extension.id used to be automatically populated by the IG-publisher, not anymore, so generate it. 

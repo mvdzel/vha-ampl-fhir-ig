@@ -1,7 +1,12 @@
 const fs = require('fs'),
     xml2js = require('xml2js');
 var xml = new xml2js.Parser();
+
 let date = new Date().toISOString();
+
+const URI_STRUCTUREDEFINITION = "http://va.gov/fhir/StructureDefinition/"; // for Profiles and Extensions
+const URI_CONCEPTGMAP = "http://va.gov/fhir/ConceptMap/";
+const URI_VALUESET = "http://va.gov/fhir/ValueSet/";
 
 //
 // Make sure input and output folders exist
@@ -83,9 +88,50 @@ input_fhirProperties.fhirProperties.forEach(row => {
         type = type.substring(0,type.indexOf('(')).trim();
     }
     if (row.scope != "core" && row.type != undefined) {
-        lookup_typeByExtName[row.field] = type.substring(0,1).toUpperCase() + type.substring(1);
+        // CamelCase type
+        type = type.substring(0,1).toUpperCase() + type.substring(1);
+        // Check valid type
+        switch(type) {
+            case "Boolean":
+            case "Period":
+            case "Timing":
+            case "Quantity":
+            case "Number":
+            case "SimpleQuantity":
+            case "Text":
+            case "Coding":
+            case "Address":
+            case "HumanName":
+            case "ContactPoint":
+            case "Uri":
+            case "Attachment":
+            case "Integer":
+            case "Range":
+            case "Ratio":
+            case "BackboneElement":
+            case "Code":
+            case "Date":
+            case "Annotation":
+            case "Reference":
+            case "Time":
+            case "String":
+            case "DateTime":
+            case "Identifier":
+            case "CodeableConcept":
+                break;
+            default:
+                console.error (`ERROR: fhirProperties: invalid type '${type}' for extension ${row.field}`);
+                break;
+        }
+
+        lookup_typeByExtName[row.field] = type;
         if(row.extensionUrl != undefined) {
             lookup_uriByExtName[row.field] = row.extensionUrl[0];
+
+            // exturi should end with extname in fhirProperties 
+            if (!row.extensionUrl[0].endsWith(row.field)) {
+                console.error (`WARN: fhirProperties: extension url should end with extension name ${row.extensionUrl[0]} ${row.field}`);
+            }
         }
     }
     var textkey = row.textkey[0];
@@ -175,7 +221,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         sd.differential.element = [];
         sd.name = profileId;
         sd.id = profileId;
-        sd.url = `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${profileId}`;
+        sd.url = `${URI_STRUCTUREDEFINITION}${profileId}`;
         sd.type = resourceName;
         sd.baseDefinition = `http://hl7.org/fhir/StructureDefinition/${resourceName}`;
         sd.derivation = "constraint";
@@ -333,7 +379,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
             // get url from fhirProperties field = extension.<name>, if there is no URL prefix with va.gov uri
             var exturi = lookup_uriByExtName[extname];
             if (exturi == undefined) {
-                exturi = `http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/${extname}`;
+                exturi = `${URI_STRUCTUREDEFINITION}${extname}`;
             }
 
             element = elementsByPath[profileId][elementPath] = {
@@ -480,7 +526,7 @@ vss.ValueSetMembership_x0020_Query.forEach(row => {
         valueset = {
             resourceType: "ValueSet",
             id: name,
-            url: `http://va.gov/fhir/us/vha-ampl-ig/ValueSet/${name}`,
+            url: `${URI_VALUESET}${name}`,
             name: name,
             status: "draft",
             date: date,
@@ -547,7 +593,7 @@ cms.conceptMap.forEach(row => {
         conceptmap = {
             resourceType: "ConceptMap",
             id: name,
-            url: `http://va.gov/fhir/us/vha-ampl-ig/ConceptMap/${name}`,
+            url: `${URI_CONCEPTGMAP}${name}`,
             name: name,
             status: "draft",
             date: date,

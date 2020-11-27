@@ -6680,7 +6680,7 @@ INSTRUCTIONS  file are utilized.</note>
 <id>646</id>
 <resource>Observation</resource>
 <field>event-statusReason</field>
-<type>codeablelConcept</type>
+<type>codeableConcept</type>
 <version>R4</version>
 <scope>coreExtension</scope>
 <note>existing</note>
