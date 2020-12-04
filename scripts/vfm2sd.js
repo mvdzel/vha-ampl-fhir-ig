@@ -4,9 +4,14 @@ var xml = new xml2js.Parser();
 
 let date = new Date().toISOString();
 
-const URI_STRUCTUREDEFINITION = "http://va.gov/fhir/StructureDefinition/"; // for Profiles and Extensions
-const URI_CONCEPTGMAP = "http://va.gov/fhir/ConceptMap/";
-const URI_VALUESET = "http://va.gov/fhir/ValueSet/";
+//
+// URI Constants
+// - Current IG Publisher up to 1.1.42 requires prefix http://va.gov/fhir/us/vha-ampl-ig/
+// - We want http://va.gov/fhir/ -> but that currently gives 2 RESOURCE_CANONICAL_MISMATCH per file :-(
+//
+const URI_STRUCTUREDEFINITION = "http://va.gov/fhir/us/vha-ampl-ig/StructureDefinition/"; // for Profiles and Extensions
+const URI_CONCEPTGMAP = "http://va.gov/fhir/us/vha-ampl-ig/ConceptMap/";
+const URI_VALUESET = "http://va.gov/fhir/us/vha-ampl-ig/ValueSet/";
 
 //
 // Make sure input and output folders exist

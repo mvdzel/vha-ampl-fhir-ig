@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas-r5/fhir-single.xsd">
   <id value="vha-ampl-ig"/>
   <url value="http://va.gov/fhir/us/vha-ampl-ig/ImplementationGuide/vha-ampl-ig"/>
-  <version value="0.0.20"/>
+  <version value="0.0.23"/>
   <name value="vha-ampl-ig"/>
   <title value="Draft VA Pharmacy FHIR Implementation Guide"/>
   <status value="draft"/>
@@ -51,24 +51,16 @@
             <name value="Coversheet Area: Immunizations"/>
             <description value=""/>
         </grouping>
+        <grouping id="group-23">
+            <name value="Coversheet Area: Outpatient Orders"/>
+            <description value=""/>
+        </grouping>
         <grouping id="group-95">
             <name value="Coversheet Area: undefined"/>
             <description value=""/>
         </grouping>
         <grouping id="group-96">
             <name value="Coversheet Area: undefined"/>
-            <description value=""/>
-        </grouping>
-        <grouping id="group-29">
-            <name value="Coversheet Area: Problem List"/>
-            <description value=""/>
-        </grouping>
-        <grouping id="group-16">
-            <name value="Coversheet Area: Inpatient Orders IV/Clinic Infusions"/>
-            <description value="Verified inpatient or clinic IV orders"/>
-        </grouping>
-        <grouping id="group-20">
-            <name value="Coversheet Area: Lab - Microbiology"/>
             <description value=""/>
         </grouping>
         <grouping id="group-98">
@@ -83,6 +75,10 @@
             <name value="Coversheet Area: Inpatient Orders - pending/non-verified"/>
             <description value="Inpatient orders from CPRS that have not been verified by Pharmacy"/>
         </grouping>
+        <grouping id="group-29">
+            <name value="Coversheet Area: Problem List"/>
+            <description value=""/>
+        </grouping>
         <grouping id="group-28">
             <name value="Coversheet Area: Primary Care Management "/>
             <description value=""/>
@@ -95,9 +91,9 @@
             <name value="Coversheet Area: Inpatient Orders Unit Dose/Clinic Medications"/>
             <description value="Verified inpatient or clinic unit dose orders"/>
         </grouping>
-        <grouping id="group-23">
-            <name value="Coversheet Area: Outpatient Orders"/>
-            <description value=""/>
+        <grouping id="group-16">
+            <name value="Coversheet Area: Inpatient Orders IV/Clinic Infusions"/>
+            <description value="Verified inpatient or clinic IV orders"/>
         </grouping>
         <grouping id="group-22">
             <name value="Coversheet Area: Non-VA Medications"/>
@@ -117,6 +113,10 @@
         </grouping>
         <grouping id="group-21">
             <name value="Coversheet Area: Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
+            <description value=""/>
+        </grouping>
+        <grouping id="group-20">
+            <name value="Coversheet Area: Lab - Microbiology"/>
             <description value=""/>
         </grouping>
         <grouping id="group-11">
@@ -196,6 +196,14 @@
         <reference value="StructureDefinition/allergyintolerance-reactionDateEntered"/>
       </reference>
       <name value="allergyintolerance-reactionDateEntered"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/allergyintolerance-reactionObservationMode"/>
+      </reference>
+      <name value="allergyintolerance-reactionObservationMode"/>
       <description value=""/>
       <groupingId value="group-6"/>
     </resource>
@@ -289,9 +297,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/practitioner-title"/>
+        <reference value="StructureDefinition/signatureBlockTitle"/>
       </reference>
-      <name value="practitioner-title"/>
+      <name value="signatureBlockTitle"/>
       <description value=""/>
       <groupingId value="group-6"/>
     </resource>
@@ -305,137 +313,73 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-vitals-Observation"/>
+        <reference value="StructureDefinition/VAVitals"/>
       </reference>
-      <name value="pt-vitals-Observation"/>
+      <name value="VAVitals"/>
       <description value=""/>
       <groupingId value="group-33"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-vitals-prov-Provenance"/>
+        <reference value="StructureDefinition/VAVitalsEntry"/>
       </reference>
-      <name value="pt-vitals-prov-Provenance"/>
+      <name value="VAVitalsEntry"/>
       <description value=""/>
       <groupingId value="group-33"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-vitals-observation-Observation"/>
+        <reference value="StructureDefinition/VAProgressNote"/>
       </reference>
-      <name value="pt-vitals-observation-Observation"/>
-      <description value=""/>
-      <groupingId value="group-33"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document-DocumentReference"/>
-      </reference>
-      <name value="pt-document-DocumentReference"/>
+      <name value="VAProgressNote"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-prov-DocumentReference"/>
+        <reference value="StructureDefinition/VAProgressNoteSignature"/>
       </reference>
-      <name value="pt-document-prov-DocumentReference"/>
+      <name value="VAProgressNoteSignature"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-prov-Provenance"/>
+        <reference value="StructureDefinition/signatureBlockName"/>
       </reference>
-      <name value="pt-document-prov-Provenance"/>
+      <name value="signatureBlockName"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-Provenance"/>
+        <reference value="StructureDefinition/VAProgressNoteCosignature"/>
       </reference>
-      <name value="pt-document-Provenance"/>
+      <name value="VAProgressNoteCosignature"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/signatureBlock.name"/>
+        <reference value="StructureDefinition/signatureMode.coding.code"/>
       </reference>
-      <name value="signatureBlock.name"/>
+      <name value="signatureMode.coding.code"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/signatureBlock.title"/>
+        <reference value="StructureDefinition/cosignatureNeed"/>
       </reference>
-      <name value="signatureBlock.title"/>
+      <name value="cosignatureNeed"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-enc-DocumentReference"/>
+        <reference value="StructureDefinition/VAProgressNoteDictation"/>
       </reference>
-      <name value="pt-document-enc-DocumentReference"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document-encounter-DocumentReference"/>
-      </reference>
-      <name value="pt-document-encounter-DocumentReference"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document-ext-DocumentReference"/>
-      </reference>
-      <name value="pt-document-ext-DocumentReference"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/patientMovementDate"/>
-      </reference>
-      <name value="patientMovementDate"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document-ext-Provenance"/>
-      </reference>
-      <name value="pt-document-ext-Provenance"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/signature.mode"/>
-      </reference>
-      <name value="signature.mode"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/signature.need"/>
-      </reference>
-      <name value="signature.need"/>
-      <description value=""/>
-      <groupingId value="group-30"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/requestingPackage"/>
-      </reference>
-      <name value="requestingPackage"/>
+      <name value="VAProgressNoteDictation"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>
@@ -457,33 +401,25 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document.context.related-request-ReferralRequest"/>
+        <reference value="StructureDefinition/VAReferral"/>
       </reference>
-      <name value="pt-document.context.related-request-ReferralRequest"/>
+      <name value="VAReferral"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document.context.related-request.requester-ReferralRequest"/>
+        <reference value="StructureDefinition/VAReferralEncounter"/>
       </reference>
-      <name value="pt-document.context.related-request.requester-ReferralRequest"/>
+      <name value="VAReferralEncounter"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-enc-ReferralRequest"/>
+        <reference value="StructureDefinition/VAReferralOrganization"/>
       </reference>
-      <name value="pt-document-enc-ReferralRequest"/>
-      <description value=""/>
-      <groupingId value="group-10"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document.context.related-request-pract-ReferralRequest"/>
-      </reference>
-      <name value="pt-document.context.related-request-pract-ReferralRequest"/>
+      <name value="VAReferralOrganization"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
@@ -505,14 +441,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document.context.related-request-ext-ReferralRequest"/>
-      </reference>
-      <name value="pt-document.context.related-request-ext-ReferralRequest"/>
-      <description value=""/>
-      <groupingId value="group-10"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/diagnosisDate"/>
       </reference>
       <name value="diagnosisDate"/>
@@ -521,25 +449,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document.context.related-req-ReferralRequest"/>
+        <reference value="StructureDefinition/lastAction"/>
       </reference>
-      <name value="pt-document.context.related-req-ReferralRequest"/>
-      <description value=""/>
-      <groupingId value="group-10"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document.context.related-request-prov-ReferralRequest"/>
-      </reference>
-      <name value="pt-document.context.related-request-prov-ReferralRequest"/>
-      <description value=""/>
-      <groupingId value="group-10"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-document-ext-ReferralRequest"/>
-      </reference>
-      <name value="pt-document-ext-ReferralRequest"/>
+      <name value="lastAction"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
@@ -553,33 +465,33 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-document-req-ReferralRequest"/>
+        <reference value="StructureDefinition/VAReferralEncounterReport"/>
       </reference>
-      <name value="pt-document-req-ReferralRequest"/>
+      <name value="VAReferralEncounterReport"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-immunization-Immunization"/>
+        <reference value="StructureDefinition/VAReferralProvenance"/>
       </reference>
-      <name value="pt-immunization-Immunization"/>
+      <name value="VAReferralProvenance"/>
+      <description value=""/>
+      <groupingId value="group-10"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAImmunization"/>
+      </reference>
+      <name value="VAImmunization"/>
       <description value=""/>
       <groupingId value="group-14"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-immunization-ext-Immunization"/>
+        <reference value="StructureDefinition/doseNumberString"/>
       </reference>
-      <name value="pt-immunization-ext-Immunization"/>
-      <description value=""/>
-      <groupingId value="group-14"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/immunization-vaccinationSeriesElement"/>
-      </reference>
-      <name value="immunization-vaccinationSeriesElement"/>
+      <name value="doseNumberString"/>
       <description value=""/>
       <groupingId value="group-14"/>
     </resource>
@@ -593,11 +505,67 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-immunization-prov-Immunization"/>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrder"/>
       </reference>
-      <name value="pt-immunization-prov-Immunization"/>
+      <name value="VAFinishedOutpatientMedicationOrder"/>
+      <description value="VA finished outpatient medication order"/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationrequest-forHeadOrNeckCancer"/>
+      </reference>
+      <name value="medicationrequest-forHeadOrNeckCancer"/>
       <description value=""/>
-      <groupingId value="group-14"/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationrequest-forCombatService"/>
+      </reference>
+      <name value="medicationrequest-forCombatService"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationrequest-forShipboardHazard"/>
+      </reference>
+      <name value="medicationrequest-forShipboardHazard"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationDispense"/>
+      </reference>
+      <name value="VAFinishedOutpatientMedicationDispense"/>
+      <description value="Dispensation of VA finished outpatient medication order"/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/whenPerformed"/>
+      </reference>
+      <name value="whenPerformed"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationdispense-dispenseChannel"/>
+      </reference>
+      <name value="medicationdispense-dispenseChannel"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationDispenseEncounter"/>
+      </reference>
+      <name value="VAFinishedOutpatientMedicationDispenseEncounter"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
     </resource>
     <resource>
       <reference>
@@ -628,14 +596,6 @@
         <reference value="StructureDefinition/immunization.education.publication.language"/>
       </reference>
       <name value="immunization.education.publication.language"/>
-      <description value=""/>
-      <groupingId value="group-14"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pt-immunization-practitioner-Immunization"/>
-      </reference>
-      <name value="pt-immunization-practitioner-Immunization"/>
       <description value=""/>
       <groupingId value="group-14"/>
     </resource>
@@ -694,150 +654,6 @@
       <name value="address-validity"/>
       <description value=""/>
       <groupingId value="group-96"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-Provenance"/>
-      </reference>
-      <name value="pat-condition-Provenance"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-provenance-Provenance"/>
-      </reference>
-      <name value="pat-condition-provenance-Provenance"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-ext-Condition"/>
-      </reference>
-      <name value="pat-condition-ext-Condition"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/condition-lastModified"/>
-      </reference>
-      <name value="condition-lastModified"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/richAnnotation.author"/>
-      </reference>
-      <name value="richAnnotation.author"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/richAnnotation.text"/>
-      </reference>
-      <name value="richAnnotation.text"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/richAnnotation.commentNumber"/>
-      </reference>
-      <name value="richAnnotation.commentNumber"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-prov-Provenance"/>
-      </reference>
-      <name value="pat-condition-prov-Provenance"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-condition-prov-ext-Provenance"/>
-      </reference>
-      <name value="pat-condition-prov-ext-Provenance"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/reference-targetElement.extension.elementUri"/>
-      </reference>
-      <name value="reference-targetElement.extension.elementUri"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrder"/>
-      </reference>
-      <name value="VAInpatientIVMedicationOrder"/>
-      <description value="VA finished IV orders"/>
-      <groupingId value="group-16"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/medicationrequest-orderPlacementChannel"/>
-      </reference>
-      <name value="medicationrequest-orderPlacementChannel"/>
-      <description value=""/>
-      <groupingId value="group-16"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-practitioner-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-order-practitioner-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-specimen-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-obs-specimen-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-specimen-ext-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-specimen-ext-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-order-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-ext-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-order-ext-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-20"/>
     </resource>
     <resource>
       <reference>
@@ -910,14 +726,6 @@
       <name value="patient-lastDischargeDate"/>
       <description value=""/>
       <groupingId value="group-98"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAPatientLanguageProvenance"/>
-      </reference>
-      <name value="VAPatientLanguageProvenance"/>
-      <description value=""/>
-      <groupingId value="group-95"/>
     </resource>
     <resource>
       <reference>
@@ -1047,14 +855,14 @@
       <description value=""/>
       <groupingId value="group-97"/>
     </resource>
-    <resource>
+    <!--<resource>
       <reference>
         <reference value="StructureDefinition/event-statusReason"/>
       </reference>
       <name value="event-statusReason"/>
       <description value=""/>
       <groupingId value="group-97"/>
-    </resource>
+    </resource>-->
     <resource>
       <reference>
         <reference value="StructureDefinition/VAEligibilityObservation1"/>
@@ -1153,18 +961,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationOrder"/>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationRequest"/>
       </reference>
-      <name value="VAUnfinishedInpatientMedicationOrder"/>
-      <description value="Inpatient orders from CPRS that have not been verified by Pharmacy"/>
-      <groupingId value="group-15"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAMedication"/>
-      </reference>
-      <name value="VAMedication"/>
-      <description value="Medication with support for VA requirements"/>
+      <name value="VAUnfinishedInpatientMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
@@ -1241,6 +1041,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/medicationrequest-orderPlacementChannel"/>
+      </reference>
+      <name value="medicationrequest-orderPlacementChannel"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/richAnnotation.comment.text"/>
       </reference>
       <name value="richAnnotation.comment.text"/>
@@ -1265,14 +1073,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderEntry"/>
-      </reference>
-      <name value="VAInpatientMedicationOrderEntry"/>
-      <description value="Provenance of the inpatient order"/>
-      <groupingId value="group-15"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/medicationrequest-ivType"/>
       </reference>
       <name value="medicationrequest-ivType"/>
@@ -1281,10 +1081,50 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/medicationdispense-ivPrepRoom"/>
       </reference>
-      <name value="VAInpatientMedicationOrderEncounter"/>
-      <description value="Encounter during which inpatient order was placed"/>
+      <name value="medicationdispense-ivPrepRoom"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationRequestEncounter"/>
+      </reference>
+      <name value="VAUnfinishedInpatientMedicationRequestEncounter"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationdispense-ivLabelsPerDay"/>
+      </reference>
+      <name value="medicationdispense-ivLabelsPerDay"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedication"/>
+      </reference>
+      <name value="VAUnfinishedInpatientMedication"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/dosageInstruction-ivBottleNumber"/>
+      </reference>
+      <name value="dosageInstruction-ivBottleNumber"/>
+      <description value=""/>
+      <groupingId value="group-15"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationRequestAppointment"/>
+      </reference>
+      <name value="VAUnfinishedInpatientMedicationRequestAppointment"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
@@ -1297,9 +1137,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderRenewal"/>
+        <reference value="StructureDefinition/VAUnfinishedInpatientMedicationRequestActivity"/>
       </reference>
-      <name value="VAInpatientMedicationOrderRenewal"/>
+      <name value="VAUnfinishedInpatientMedicationRequestActivity"/>
       <description value=""/>
       <groupingId value="group-15"/>
     </resource>
@@ -1313,25 +1153,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientMedicationOrderChange"/>
+        <reference value="StructureDefinition/reference-targetElement.extension.elementUri"/>
       </reference>
-      <name value="VAInpatientMedicationOrderChange"/>
-      <description value="A record of changes made to an inpatient order"/>
+      <name value="reference-targetElement.extension.elementUri"/>
+      <description value=""/>
       <groupingId value="group-15"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/patient-condition-Condition"/>
+        <reference value="StructureDefinition/VAProblem"/>
       </reference>
-      <name value="patient-condition-Condition"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/patient-condition-extension-Condition"/>
-      </reference>
-      <name value="patient-condition-extension-Condition"/>
+      <name value="VAProblem"/>
       <description value=""/>
       <groupingId value="group-29"/>
     </resource>
@@ -1340,14 +1172,6 @@
         <reference value="StructureDefinition/condition-priority"/>
       </reference>
       <name value="condition-priority"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/patient-condition-ext-Condition"/>
-      </reference>
-      <name value="patient-condition-ext-Condition"/>
       <description value=""/>
       <groupingId value="group-29"/>
     </resource>
@@ -1409,14 +1233,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-condition-extension-Condition"/>
-      </reference>
-      <name value="pat-condition-extension-Condition"/>
-      <description value=""/>
-      <groupingId value="group-29"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/condition-treatingService"/>
       </reference>
       <name value="condition-treatingService"/>
@@ -1433,9 +1249,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-condition-encounter-location-Provenance"/>
+        <reference value="StructureDefinition/VAProblemAuthorship"/>
       </reference>
-      <name value="pat-condition-encounter-location-Provenance"/>
+      <name value="VAProblemAuthorship"/>
       <description value=""/>
       <groupingId value="group-29"/>
     </resource>
@@ -1449,6 +1265,46 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/condition-lastModified"/>
+      </reference>
+      <name value="condition-lastModified"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/richAnnotation.author"/>
+      </reference>
+      <name value="richAnnotation.author"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/richAnnotation.text"/>
+      </reference>
+      <name value="richAnnotation.text"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/richAnnotation.commentNumber"/>
+      </reference>
+      <name value="richAnnotation.commentNumber"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/ProblemListChange"/>
+      </reference>
+      <name value="ProblemListChange"/>
+      <description value=""/>
+      <groupingId value="group-29"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/reference-targetElement.extension.change.extension.newValue"/>
       </reference>
       <name value="reference-targetElement.extension.change.extension.newValue"/>
@@ -1457,9 +1313,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-careTeam-organization-CareTeam"/>
+        <reference value="StructureDefinition/VAPrimaryCareTeam"/>
       </reference>
-      <name value="pat-careTeam-organization-CareTeam"/>
+      <name value="VAPrimaryCareTeam"/>
       <description value=""/>
       <groupingId value="group-28"/>
     </resource>
@@ -1473,33 +1329,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-careTeam-author-CareTeam"/>
-      </reference>
-      <name value="pat-careTeam-author-CareTeam"/>
-      <description value=""/>
-      <groupingId value="group-28"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-careTeam-ext-CareTeam"/>
-      </reference>
-      <name value="pat-careTeam-ext-CareTeam"/>
-      <description value=""/>
-      <groupingId value="group-28"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/participant-primaryCareRole"/>
       </reference>
       <name value="participant-primaryCareRole"/>
-      <description value=""/>
-      <groupingId value="group-28"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-careTeam-CareTeam"/>
-      </reference>
-      <name value="pat-careTeam-CareTeam"/>
       <description value=""/>
       <groupingId value="group-28"/>
     </resource>
@@ -1537,18 +1369,10 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrder"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequest"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrder"/>
-      <description value="VA finished unit dose orders"/>
-      <groupingId value="group-17"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationDispense"/>
-      </reference>
-      <name value="VAInpatientUDMedicationDispense"/>
-      <description value="Medication dispense for VA unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
@@ -1557,14 +1381,6 @@
       </reference>
       <name value="VAInpatientUDMedicationOrderVerification"/>
       <description value="Verification of VA unit dose orders"/>
-      <groupingId value="group-17"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/whenPerformed"/>
-      </reference>
-      <name value="whenPerformed"/>
-      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
@@ -1593,6 +1409,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/medicationrequest-flaggedForClarification"/>
+      </reference>
+      <name value="medicationrequest-flaggedForClarification"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/medicationrequest-pharmacistVerified"/>
       </reference>
       <name value="medicationrequest-pharmacistVerified"/>
@@ -1609,50 +1433,66 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestEncounter"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderEncounter"/>
-      <description value="Encounter during which VA unit dose order was placed"/>
+      <name value="VAInpatientUDMedicationRequestEncounter"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientUDMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestChange"/>
       </reference>
-      <name value="VAInpatientUDMedicationOrderChange"/>
-      <description value="Changes for VA unit dose orders"/>
+      <name value="VAInpatientUDMedicationRequestChange"/>
+      <description value=""/>
       <groupingId value="group-17"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderVerification"/>
+        <reference value="StructureDefinition/VAInpatientUDMedicationRequestRenewal"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderVerification"/>
-      <description value="Verification of VA IV orders"/>
+      <name value="VAInpatientUDMedicationRequestRenewal"/>
+      <description value=""/>
+      <groupingId value="group-17"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequest"/>
+      </reference>
+      <name value="VAInpatientIVMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderEncounter"/>
+        <reference value="StructureDefinition/medicationdispense-cumulativeDoses"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderEncounter"/>
-      <description value="Encounter during which VA IV order was placed"/>
+      <name value="medicationdispense-cumulativeDoses"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderEntry"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestVerification"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderEntry"/>
-      <description value="Provenance for entry of VA IV order"/>
+      <name value="VAInpatientIVMedicationRequestVerification"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationDispense"/>
+        <reference value="StructureDefinition/medicationdispense-holdFlag"/>
       </reference>
-      <name value="VAInpatientIVMedicationDispense"/>
-      <description value="Medication dispense for VA IV orders"/>
+      <name value="medicationdispense-holdFlag"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestEncounter"/>
+      </reference>
+      <name value="VAInpatientIVMedicationRequestEncounter"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
@@ -1673,26 +1513,34 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAInpatientIVMedicationOrderChange"/>
+        <reference value="StructureDefinition/VAInpatientIVMedication"/>
       </reference>
-      <name value="VAInpatientIVMedicationOrderChange"/>
-      <description value="Changes for VA IV orders"/>
+      <name value="VAInpatientIVMedication"/>
+      <description value=""/>
       <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrder"/>
+        <reference value="StructureDefinition/VAInpatientMedicationRequestRenewal"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrder"/>
-      <description value="VA finished outpatient medication order"/>
-      <groupingId value="group-23"/>
+      <name value="VAInpatientMedicationRequestRenewal"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationDispense"/>
+        <reference value="StructureDefinition/VAInpatientIVMedicationRequestChange"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationDispense"/>
-      <description value="Dispensation of VA finished outpatient medication order"/>
+      <name value="VAInpatientIVMedicationRequestChange"/>
+      <description value=""/>
+      <groupingId value="group-16"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationRequest"/>
+      </reference>
+      <name value="VAFinishedOutpatientMedicationRequest"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1713,22 +1561,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/medicationdispense-dispenseChannel"/>
-      </reference>
-      <name value="medicationdispense-dispenseChannel"/>
-      <description value=""/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderEntry"/>
-      </reference>
-      <name value="VAFinishedOutpatientMedicationOrderEntry"/>
-      <description value="Entry of VA finished outpatient medication order"/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/medicationrequest-orderIssueDate"/>
       </reference>
       <name value="medicationrequest-orderIssueDate"/>
@@ -1745,18 +1577,18 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/medicationdispense-medicationReturnedToStock"/>
+        <reference value="StructureDefinition/VAMedication"/>
       </reference>
-      <name value="medicationdispense-medicationReturnedToStock"/>
-      <description value=""/>
+      <name value="VAMedication"/>
+      <description value="Medication with support for VA requirements"/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderSignature"/>
+        <reference value="StructureDefinition/medicationdispense-medicationReturnedToStock"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderSignature"/>
-      <description value="Signature of VA finished outpatient medication order"/>
+      <name value="medicationdispense-medicationReturnedToStock"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1777,18 +1609,34 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderVerification"/>
+        <reference value="StructureDefinition/medicationrequest-forServiceConnectedCondition"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderVerification"/>
-      <description value="Verification of VA finished outpatient medication order"/>
+      <name value="medicationrequest-forServiceConnectedCondition"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAFinishedOutpatientMedicationOrderDiscontinuation"/>
+        <reference value="StructureDefinition/conjunction"/>
       </reference>
-      <name value="VAFinishedOutpatientMedicationOrderDiscontinuation"/>
-      <description value="Discontinuation of VA finished outpatient medication order"/>
+      <name value="conjunction"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/pharmacy-sigVerb"/>
+      </reference>
+      <name value="pharmacy-sigVerb"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/medicationdispense-copayTransactionType"/>
+      </reference>
+      <name value="medicationdispense-copayTransactionType"/>
+      <description value=""/>
       <groupingId value="group-23"/>
     </resource>
     <resource>
@@ -1865,33 +1713,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/medicationrequest-forHeadOrNeckCancer"/>
-      </reference>
-      <name value="medicationrequest-forHeadOrNeckCancer"/>
-      <description value=""/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/medicationrequest-forCombatService"/>
-      </reference>
-      <name value="medicationrequest-forCombatService"/>
-      <description value=""/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/medicationrequest-forShipboardHazard"/>
-      </reference>
-      <name value="medicationrequest-forShipboardHazard"/>
-      <description value=""/>
-      <groupingId value="group-23"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/medicationdispense-fillRequestDate"/>
       </reference>
       <name value="medicationdispense-fillRequestDate"/>
+      <description value=""/>
+      <groupingId value="group-23"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAFinishedOutpatientMedicationPartial"/>
+      </reference>
+      <name value="VAFinishedOutpatientMedicationPartial"/>
       <description value=""/>
       <groupingId value="group-23"/>
     </resource>
@@ -1913,25 +1745,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medicationOrder-MedicationStatement"/>
+        <reference value="StructureDefinition/NonVAMedicationStatement"/>
       </reference>
-      <name value="pat-medicationOrder-MedicationStatement"/>
-      <description value=""/>
-      <groupingId value="group-22"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medStatement-MedicationStatement"/>
-      </reference>
-      <name value="pat-medStatement-MedicationStatement"/>
-      <description value=""/>
-      <groupingId value="group-22"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medStatement-prov-MedicationStatement"/>
-      </reference>
-      <name value="pat-medStatement-prov-MedicationStatement"/>
+      <name value="NonVAMedicationStatement"/>
       <description value=""/>
       <groupingId value="group-22"/>
     </resource>
@@ -1945,14 +1761,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medOrder-MedicationStatement"/>
-      </reference>
-      <name value="pat-medOrder-MedicationStatement"/>
-      <description value=""/>
-      <groupingId value="group-22"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/medicationstatement-orderLocation"/>
       </reference>
       <name value="medicationstatement-orderLocation"/>
@@ -1961,17 +1769,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medStatement-DetectedIssue"/>
+        <reference value="StructureDefinition/NonVAMedicationIssue"/>
       </reference>
-      <name value="pat-medStatement-DetectedIssue"/>
-      <description value=""/>
-      <groupingId value="group-22"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-medStatement-ext-MedicationStatement"/>
-      </reference>
-      <name value="pat-medStatement-ext-MedicationStatement"/>
+      <name value="NonVAMedicationIssue"/>
       <description value=""/>
       <groupingId value="group-22"/>
     </resource>
@@ -1985,14 +1785,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medStatement-ext-DetectedIssue"/>
-      </reference>
-      <name value="pat-medStatement-ext-DetectedIssue"/>
-      <description value=""/>
-      <groupingId value="group-22"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrder"/>
       </reference>
       <name value="VAUnfinishedOutpatientMedicationOrder"/>
@@ -2001,9 +1793,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderEntry"/>
+        <reference value="StructureDefinition/pharmacy-dispenseProduct"/>
       </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderEntry"/>
+      <name value="pharmacy-dispenseProduct"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
@@ -2017,6 +1809,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/pharmacy-dispenseChannel"/>
+      </reference>
+      <name value="pharmacy-dispenseChannel"/>
+      <description value=""/>
+      <groupingId value="group-27"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/medicationrequest-permittedFillDate"/>
       </reference>
       <name value="medicationrequest-permittedFillDate"/>
@@ -2025,65 +1825,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/medicationrequest-forServiceConnectedCondition"/>
+        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderIssue"/>
       </reference>
-      <name value="medicationrequest-forServiceConnectedCondition"/>
+      <name value="VAUnfinishedOutpatientMedicationOrderIssue"/>
       <description value=""/>
       <groupingId value="group-27"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/medicationrequest-flaggedForClarification"/>
+        <reference value="StructureDefinition/VAMedicationAdministration"/>
       </reference>
-      <name value="medicationrequest-flaggedForClarification"/>
-      <description value=""/>
-      <groupingId value="group-27"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationDispense"/>
-      </reference>
-      <name value="VAUnfinishedOutpatientMedicationDispense"/>
-      <description value=""/>
-      <groupingId value="group-27"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/conjunction"/>
-      </reference>
-      <name value="conjunction"/>
-      <description value=""/>
-      <groupingId value="group-27"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pharmacy-sigVerb"/>
-      </reference>
-      <name value="pharmacy-sigVerb"/>
-      <description value=""/>
-      <groupingId value="group-27"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/VAUnfinishedOutpatientMedicationOrderOrigination"/>
-      </reference>
-      <name value="VAUnfinishedOutpatientMedicationOrderOrigination"/>
-      <description value=""/>
-      <groupingId value="group-27"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-MedicationAdministration"/>
-      </reference>
-      <name value="pat-MedAdmin-MedicationAdministration"/>
-      <description value=""/>
-      <groupingId value="group-9"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-ext-MedicationAdministration"/>
-      </reference>
-      <name value="pat-MedAdmin-ext-MedicationAdministration"/>
+      <name value="VAMedicationAdministration"/>
       <description value=""/>
       <groupingId value="group-9"/>
     </resource>
@@ -2097,9 +1849,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-MedAdmin-prov-Provenance"/>
+        <reference value="StructureDefinition/VAMedicationAdministrationEvent"/>
       </reference>
-      <name value="pat-MedAdmin-prov-Provenance"/>
+      <name value="VAMedicationAdministrationEvent"/>
       <description value=""/>
       <groupingId value="group-9"/>
     </resource>
@@ -2113,9 +1865,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medication-ext-Medication"/>
+        <reference value="StructureDefinition/VADrug"/>
       </reference>
-      <name value="pat-medication-ext-Medication"/>
+      <name value="VADrug"/>
       <description value=""/>
       <groupingId value="group-12"/>
     </resource>
@@ -2153,14 +1905,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medication-Medication"/>
-      </reference>
-      <name value="pat-medication-Medication"/>
-      <description value=""/>
-      <groupingId value="group-12"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/medication-cmopDispense"/>
       </reference>
       <name value="medication-cmopDispense"/>
@@ -2169,9 +1913,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-medication-medication-Medication"/>
+        <reference value="StructureDefinition/VADrugIngredient"/>
       </reference>
-      <name value="pat-medication-medication-Medication"/>
+      <name value="VADrugIngredient"/>
       <description value=""/>
       <groupingId value="group-12"/>
     </resource>
@@ -2201,73 +1945,89 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-spec-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAChemLabReportSpecimen"/>
       </reference>
-      <name value="pat-rpt-obs-spec-DiagnosticReport"/>
+      <name value="VAChemLabReportSpecimen"/>
       <description value=""/>
       <groupingId value="group-21"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAChemLabReport"/>
       </reference>
-      <name value="pat-rpt-obs-DiagnosticReport"/>
+      <name value="VAChemLabReport"/>
       <description value=""/>
       <groupingId value="group-21"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-ext-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAChemLabReportOrder"/>
       </reference>
-      <name value="pat-rpt-obs-ext-DiagnosticReport"/>
+      <name value="VAChemLabReportOrder"/>
       <description value=""/>
       <groupingId value="group-21"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/extension-Observation.note.text"/>
+        <reference value="StructureDefinition/VAChemLabReportResult"/>
       </reference>
-      <name value="extension-Observation.note.text"/>
+      <name value="VAChemLabReportResult"/>
       <description value=""/>
       <groupingId value="group-21"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/extension-Observation.note.authorString"/>
+        <reference value="StructureDefinition/VAMicroLabReportSpecimen"/>
       </reference>
-      <name value="extension-Observation.note.authorString"/>
-      <description value=""/>
-      <groupingId value="group-21"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-obs-specimen-ext-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-obs-specimen-ext-DiagnosticReport"/>
+      <name value="VAMicroLabReportSpecimen"/>
       <description value=""/>
       <groupingId value="group-20"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-specimen-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAMicroLabReport"/>
       </reference>
-      <name value="pat-rpt-specimen-DiagnosticReport"/>
+      <name value="VAMicroLabReport"/>
+      <description value=""/>
+      <groupingId value="group-20"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAMicroLabReportOrder"/>
+      </reference>
+      <name value="VAMicroLabReportOrder"/>
+      <description value=""/>
+      <groupingId value="group-20"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAMicroLabReportOrderSpecimen"/>
+      </reference>
+      <name value="VAMicroLabReportOrderSpecimen"/>
+      <description value=""/>
+      <groupingId value="group-20"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VACytopathologyLabSpecimen"/>
+      </reference>
+      <name value="VACytopathologyLabSpecimen"/>
       <description value=""/>
       <groupingId value="group-11"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-enc-DiagnosticReport"/>
+        <reference value="StructureDefinition/VACytopathologyLabReport"/>
       </reference>
-      <name value="pat-rpt-enc-DiagnosticReport"/>
+      <name value="VACytopathologyLabReport"/>
       <description value=""/>
       <groupingId value="group-11"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-ext-DiagnosticReport"/>
+        <reference value="StructureDefinition/VACytopathologyLabOrder"/>
       </reference>
-      <name value="pat-rpt-ext-DiagnosticReport"/>
+      <name value="VACytopathologyLabOrder"/>
       <description value=""/>
       <groupingId value="group-11"/>
     </resource>
@@ -2289,43 +2049,19 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-encounter-DiagnosticReport"/>
+        <reference value="StructureDefinition/VACytopathologyLabOrderSpecimen"/>
       </reference>
-      <name value="pat-rpt-encounter-DiagnosticReport"/>
+      <name value="VACytopathologyLabOrderSpecimen"/>
+      <description value=""/>
+      <groupingId value="group-11"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VASurgicalPathologyReport"/>
+      </reference>
+      <name value="VASurgicalPathologyReport"/>
       <description value=""/>
       <groupingId value="group-31"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-spec-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-order-spec-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-31"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-rpt-order-spec-ext-DiagnosticReport"/>
-      </reference>
-      <name value="pat-rpt-order-spec-ext-DiagnosticReport"/>
-      <description value=""/>
-      <groupingId value="group-31"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-Patient"/>
-      </reference>
-      <name value="pat-Patient"/>
-      <description value=""/>
-      <groupingId value="group-24"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/pat-prov-Patient"/>
-      </reference>
-      <name value="pat-prov-Patient"/>
-      <description value=""/>
-      <groupingId value="group-24"/>
     </resource>
     <resource>
       <reference>
@@ -2337,9 +2073,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/PatientRecordFlag"/>
+        <reference value="StructureDefinition/VAPatientRecordFlag"/>
       </reference>
-      <name value="PatientRecordFlag"/>
+      <name value="VAPatientRecordFlag"/>
       <description value=""/>
       <groupingId value="group-26"/>
     </resource>
@@ -2353,9 +2089,9 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pt-flag-prov-Provenance"/>
+        <reference value="StructureDefinition/VAPatientFlagAssignment"/>
       </reference>
-      <name value="pt-flag-prov-Provenance"/>
+      <name value="VAPatientFlagAssignment"/>
       <description value=""/>
       <groupingId value="group-26"/>
     </resource>
@@ -2401,27 +2137,51 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-spec-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAEMLabReportSpecimen"/>
       </reference>
-      <name value="pat-rpt-spec-DiagnosticReport"/>
+      <name value="VAEMLabReportSpecimen"/>
       <description value=""/>
       <groupingId value="group-13"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-report-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAEMLabReport"/>
       </reference>
-      <name value="pat-report-DiagnosticReport"/>
+      <name value="VAEMLabReport"/>
       <description value=""/>
       <groupingId value="group-13"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/pat-rpt-ord-specimen-DiagnosticReport"/>
+        <reference value="StructureDefinition/VAEMLabReportOrder"/>
       </reference>
-      <name value="pat-rpt-ord-specimen-DiagnosticReport"/>
+      <name value="VAEMLabReportOrder"/>
       <description value=""/>
       <groupingId value="group-13"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAEMLabReportEncounter"/>
+      </reference>
+      <name value="VAEMLabReportEncounter"/>
+      <description value=""/>
+      <groupingId value="group-13"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAEMLabReportOrderSpecimen"/>
+      </reference>
+      <name value="VAEMLabReportOrderSpecimen"/>
+      <description value=""/>
+      <groupingId value="group-13"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/practitioner-title"/>
+      </reference>
+      <name value="practitioner-title"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
     </resource>
     <resource>
       <reference>
@@ -2449,9 +2209,33 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/documentreference-statusDetail"/>
+        <reference value="StructureDefinition/servicerequest-vaStatus"/>
       </reference>
-      <name value="documentreference-statusDetail"/>
+      <name value="servicerequest-vaStatus"/>
+      <description value=""/>
+      <groupingId value="group-10"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/request-extendedPriority"/>
+      </reference>
+      <name value="request-extendedPriority"/>
+      <description value=""/>
+      <groupingId value="group-13"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAMicroLabReportResult"/>
+      </reference>
+      <name value="VAMicroLabReportResult"/>
+      <description value=""/>
+      <groupingId value="group-20"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/documentreference-statusDetail.coding.code"/>
+      </reference>
+      <name value="documentreference-statusDetail.coding.code"/>
       <description value=""/>
       <groupingId value="group-30"/>
     </resource>

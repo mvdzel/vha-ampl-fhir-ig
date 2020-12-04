@@ -1,3 +1,6 @@
+2020-dec-04
+- script/input/fhirProperties.xml,Vista_FHIR_Map.xml Updated based on accdb dd 27-nov-2020 from Jay
+
 2020-nov-26
 - fhirprops.js; added order per resource
 - vfm2sd.js; check if the elementPath is an existing path and also prevent complex-type on fixed values
