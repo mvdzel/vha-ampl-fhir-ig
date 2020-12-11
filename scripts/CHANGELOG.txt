@@ -1,3 +1,6 @@
+2020-dec-11
+- vfm2sd.js; message on whitespace in elementPath
+
 2020-dec-04
 - script/input/fhirProperties.xml,Vista_FHIR_Map.xml Updated based on accdb dd 27-nov-2020 from Jay
 

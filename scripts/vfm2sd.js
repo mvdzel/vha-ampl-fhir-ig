@@ -276,7 +276,12 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 var fixedElementPath = resourceName + '.' + fixedKey;
                 // ASSERT if fixedElementPath is valid
                 if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(fixedElementPath)) {
-                    console.error(`${row.ID1}: ERROR: fixedElementPath '${fixedElementPath}' not a valid path`);
+                    if (/\s/.test(fixedElementPath)) {
+                        console.error(`${row.ID1}: ERROR: fixedElementPath '${fixedElementPath}' not a valid path, contains whitespace!`);
+                    }
+                    else {
+                        console.error(`${row.ID1}: ERROR: fixedElementPath '${fixedElementPath}' not a valid path`);
+                    }
                     return;
                 }
 
@@ -651,7 +656,7 @@ function addDifferentialElement(sd, element, row_ID1) {
     // }
     var index = input_fhirProperties_core.fhirProperties.filter(row => row.textkey == elementPath);
     if (index[0]) {
-        console.error(`${row_ID1}: DEBUG: ${sd.name} ${elementPath} ` + index[0].order);
+        //console.error(`${row_ID1}: DEBUG: ${sd.name} ${elementPath} ` + index[0].order);
     }
     else {
         console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not an existing path`);

@@ -33,6 +33,9 @@ Run the script and IG publisher
 ```
 @> cd vha-ampl-fhir-ig/scripts
 @> node vfm2sd.js > part.xml 2> log.txt
+```
+Manually copy the groupings and resources from script/part.xml to input/myig.xml
+```
 @> cd ..
 @> java -jar org.hl7.fhir.publisher.jar -ig ig.ini
 @> http-server output
