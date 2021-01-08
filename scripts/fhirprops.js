@@ -36,7 +36,7 @@ console.log("</dataroot>");
 function recurseType(elementPath, card, typeCode, depth)
 {
     // never mapped to parts of these types; stop here
-    if (typeCode == "Meta" || typeCode == "Extension" || typeCode == "Narrative" || typeCode == "BackboneElement" || typeCode == "Element" || typeCode == "Resource") { 
+    if (typeCode == "Extension" || typeCode == "Narrative" || typeCode == "BackboneElement" || typeCode == "Element" || typeCode == "Resource") { 
         fhirProperties(elementPath, typeCode, card, 'X');
         return; 
     }
