@@ -125,7 +125,9 @@ input_fhirProperties.fhirProperties.forEach(row => {
             case "CodeableConcept":
                 break;
             default:
+                // Default to "String" so IG publisher narrative generator doesnot fail
                 console.error (`ERROR: fhirProperties: invalid type '${type}' for extension ${row.field}`);
+                type = "String";
                 break;
         }
 
@@ -149,6 +151,16 @@ input_fhirProperties.fhirProperties.forEach(row => {
 });
 // missing from fhirProperties so added manually
 lookup_needsExtraTypedPath.push("MedicationRequest.dosageInstruction.timing.repeat.bounds");
+
+//
+// =========================== prepare myig-empty.xml ===========================
+//
+let output_myig;
+xml.parseString(fs.readFileSync('input/myig-empty.xml'), function (err, result) {
+    output_myig = result;
+});
+output_myig.ImplementationGuide.definition[0].grouping = [];
+output_myig.ImplementationGuide.definition[0].resource = [];
 
 //
 // =========================== StructureDefinitions ===========================
@@ -191,11 +203,10 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         groupings[row.area] = true;
         var desc = lookup_descById[row.area];
         if (desc == undefined) { desc = "" };
-        console.log(`\
-        <grouping id="group-${row.area}">
-            <name value="Coversheet Area: ${lookup_labelById[row.area]}"/>
-            <description value="${desc}"/>
-        </grouping>`);
+        output_myig.ImplementationGuide.definition[0].grouping.push ( {
+            $: { id: `group-${row.area}` },
+            name: { $: { value: `Coversheet Area: ${lookup_labelById[row.area]}` } },
+            description: { $: { value: desc } } });
     }
 
     // sometimes there are whitespaces in the resource name and path, remove them
@@ -497,15 +508,14 @@ profileIds.forEach(profileId => {
     }
     var desc = lookup_descByLabel[profileId];
     if (desc == undefined) { desc = "" };
-    console.log(`\
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/${profileId}"/>
-      </reference>
-      <name value="${profileId}"/>
-      <description value="${desc}"/>
-      <groupingId value="${entry.groupingId}"/>
-    </resource>`);
+    output_myig.ImplementationGuide.definition[0].resource.push ( {
+        reference: {
+            reference: { $: { value: `StructureDefinition/${profileId}` }}
+        }, 
+        name: { $: { value: profileId }},
+        description: { $: { value: desc }},
+        groupingId: { $: { value: entry.groupingId }},
+    });
     delete entry.groupingId;
     fs.writeFileSync("../input/resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
 });
@@ -566,13 +576,10 @@ valuesetNames.forEach(name => {
 
 // Display myig.xml resource xml part
 valuesetNames.forEach(name => {
-    console.log(`\
-    <resource>
-      <reference>
-        <reference value="ValueSet/${name}"/>
-      </reference>
-      <name value="${name}"/>
-    </resource>`);
+    output_myig.ImplementationGuide.definition[0].resource.push ( {
+        reference: {
+            reference: { $: { value: `ValueSet/${name}` }}
+        }, name: { $: { value: name }}});
 });
 
 //
@@ -635,14 +642,15 @@ conceptmapNames.forEach(name => {
 
 // Display myig.xml resource xml part
 conceptmapNames.forEach(name => {
-    console.log(`\
-    <resource>
-      <reference>
-        <reference value="ConceptMap/${name}"/>
-      </reference>
-      <name value="${name}"/>
-    </resource>`);
+    output_myig.ImplementationGuide.definition[0].resource.push ( {
+        reference: {
+            reference: { $: { value: `ConceptMap/${name}` }}
+        }, name: { $: { value: name }}});
 });
+
+// Write output myig.xml with resources and groupings inserted
+var builder = new xml2js.Builder();
+fs.writeFileSync("../input/myig.xml", builder.buildObject(output_myig));
 
 //
 // Helper function to check and add differential element and

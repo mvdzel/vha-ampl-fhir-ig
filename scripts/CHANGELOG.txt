@@ -1,3 +1,7 @@
+2021-jan-14
+- vfm2sd.js; generate myig.xml from myig-empty.xml; manual step to copy from part.xml is now obsolete
+- vfm2sd.js; when extension has invalid datatype default to String so ig-publiser doesnot crash on narrative generation
+
 2021-jan-08
 - fhirprops.js; added Meta because is it used
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2020-12-04T11:56:39">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2021-01-08T14:58:07">
 <VistA_FHIR_Map>
 <ID1>1</ID1>
 <ID>120.8-.01</ID>
@@ -568,9 +568,9 @@ recorded = AllergyIntolerance.recordedDate
 activity.coding.code = new</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>108</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who.reference.name
+<STU3Map>agent.whoReference.name
 agent.role.text=location
-activity.coding.code=new</STU3Map>
+activity.code=new</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>location.name
 activity.coding.code=new</R4Map>
@@ -602,10 +602,10 @@ location.identifier.system = http://va.gov/fhir/identifiers/Locations
 activity.coding.code = new</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>108</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who.reference.identifier.value
+<STU3Map>agent.whoReference.identifier.value
 agent.role.text=location
 location.identifier.system = http://va.gov/fhir/identifiers/Locations
-activity.coding.code=new</STU3Map>
+activity.code=new</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>location.identifier.value
 
@@ -681,10 +681,10 @@ activity.text = &quot;marked as entered in error&quot;</FHIR_x0020_R2_x0020_prop
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
 
-activity.text = &quot;marked as entered in error&quot;</STU3Map>
+activity.code = nullified</STU3Map>
 <R4Resource>AllergyIntolerance</R4Resource>
 <R4Map>recorded
-activity.text = &quot;marked as entered in erorr&quot;</R4Map>
+activity.code = nullified</R4Map>
 <ExtensionIdentifier>Entry</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>98</May17Source>
@@ -712,10 +712,11 @@ activity.text = &quot;marked as entered in error&quot;</FHIR_x0020_R2_x0020_prop
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.actor
 
-activity.text = &quot;marked as entered in error&quot;</STU3Map>
+activity.code = nullified</STU3Map>
 <R4Resource>AllergyIntolerance</R4Resource>
 <R4Map>agent.actor
-activity.text = &quot;marked as entered in erorr&quot;</R4Map>
+
+activity.code = nullified</R4Map>
 <ExtensionIdentifier>Entry</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>99</May17Source>
@@ -890,9 +891,10 @@ activity.coding.code = &quot;verify&quot;</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
 
-activity.coding.code = verify</STU3Map>
+activity.code = verify</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
+
 activity.coding.code = verify</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -920,11 +922,12 @@ activity.coding.code = verify</R4Map>
 activity.coding.code = &quot;verify&quot;</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.actor
+<STU3Map>agent.whoReference
 
-activity.coding.code = verify</STU3Map>
+activity.code = verify</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.actor
+<R4Map>agent.who
+
 activity.coding.code = verify</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -952,11 +955,11 @@ activity.coding.code = verify</R4Map>
 activity.coding.code = &quot;verify&quot;</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.extension.signatureBlockTitle
+<STU3Map>agent.whoReference.extension.signatureBlockTitle
 
-activity.coding.code = verify</STU3Map>
+activity.code = verify</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.whoReference.extension.signatureBlockTitle
+<R4Map>agent.who.extension.signatureBlockTitle
 
 activity.coding.code = verify</R4Map>
 <ExtensionExample>&lt;Provenance xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -1017,9 +1020,10 @@ activity.coding.code = &quot;assess&quot;</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>104</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
-activity.coding.code = assess</STU3Map>
+activity.code = assess</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
+
 activity.coding.code = assess</R4Map>
 <ExtensionIdentifier>extension: ReactionAssessement.date</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1046,14 +1050,16 @@ activity.coding.code = assess</R4Map>
 role = informant</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.actor
+<STU3Map>agent.whoReference
 
-role.text = informant
+agent.role.text = informant
 
-activity.coding.code = assess</STU3Map>
+activity.code = assess</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.actor
-role.text = informant
+<R4Map>agent.who
+
+agent.role.text = informant
+
 activity.coding.code = assess</R4Map>
 <ExtensionIdentifier>Adverse reaction assessment extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1081,14 +1087,16 @@ activity.coding.code = assess</R4Map>
 role = recorder</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.actor
+<STU3Map>agent.whoReference
 
-role.text = recorder
+agent.role.text = recorder
 
-activity.coding.code = assess</STU3Map>
+activity.code = assess</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.actor
-role.text = recorder
+<R4Map>agent.who
+
+agent.role.text = recorder
+
 activity.coding.code = assess</R4Map>
 <ExtensionIdentifier>extension: ReactionAssessement.assessor</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1221,7 +1229,8 @@ code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.03</R4
 activity.code=entered</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
-activity=entered</R4Map>
+
+activity.code=entered</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>120</May17Source>
@@ -1245,10 +1254,11 @@ activity=entered</R4Map>
 <FHIR_x0020_R2_x0020_resource>Provenance</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.actor
+<STU3Map>agent.whoReference
 activity.code=entered</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.actor
+<R4Map>agent.who
+
 activity=entered</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1276,7 +1286,8 @@ activity=entered</R4Map>
 activity.code=entered</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>location.display
-activity=entered</R4Map>
+
+activity.code=entered</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -1303,7 +1314,8 @@ activity=entered</R4Map>
 activity.code=entered</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>location.display
-activity=entered</R4Map>
+
+activity.code=entered</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -1412,12 +1424,12 @@ class.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/8925-.04</ST
 <Field_x0020__x0023_>1301</Field_x0020__x0023_>
 <description>This is the Date (and time) by which the clinician will reference the  document.  For Progress Notes, this will likely be the date of the  provider&apos;s encounter with the patient.  For Discharge Summaries, it will  correspond to the Discharge Date of the Admission referenced in the  document.  (If there is no Discharge Date when dictated, it will  correspond to the dictation date of the record instead.) In all cases, this is the date by which the document will be referenced and sorted. </description>
 <prompt>This is the date (and time) by which the document will be referenced.</prompt>
-<path>pt-document</path>
+<path>pt-document-ext</path>
 <profile>VAProgressNote</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>DocumentReference</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>created</FHIR_x0020_R2_x0020_property>
-<STU3Resource>DocumentReference-ext</STU3Resource>
+<STU3Resource>DocumentReference</STU3Resource>
 <STU3Map>context.extension.referenceDate</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>context.period</R4Map>
@@ -1544,13 +1556,14 @@ activity.coding.code = sign</FHIR_x0020_R2_x0020_property>
 <STU3Map>recorded
 
 
-activity.coding.code = AU
+activity.code = AU
 
-activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
+activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
 activity.coding.code = AU
+
 activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1578,13 +1591,14 @@ activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <STU3Map>agent.whoReference
 
 
-activity.coding.code = AU
+activity.code = AU
 
-activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
+activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>agent.who
 
 activity.coding.code = AU
+
 activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1613,9 +1627,9 @@ activity.coding.code = sign</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockName
 
-activity.coding.code = AU
+activity.code = AU
 
-activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
+activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlock.name
 activity.coding.code = AU
@@ -1662,9 +1676,9 @@ activity.coding.code = sign</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockTitle
 
-activity.coding.code = AU
+activity.code = AU
 
-activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
+activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlock.title
 activity.coding.code = AU
@@ -1699,13 +1713,14 @@ activity.coding.code = co-sign</FHIR_x0020_R2_x0020_property>
 <STU3Map>recorded
 
 
-activity.coding.code = cosign
+activity.code = cosign
 
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
 activity.coding.code = cosign
+
 activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
@@ -1735,9 +1750,9 @@ activity.coding.code = co-sign</FHIR_x0020_R2_x0020_property>
 <STU3Map>agent.whoReference
 
 
-activity.coding.code = cosign
+activity.code = cosign
 
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>agent.who
 
@@ -1770,9 +1785,9 @@ activity.coding.code = co-sign</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockName
 
-activity.coding.code = cosign
+activity.code = cosign
 
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlock.name
 activity.coding.code = cosign
@@ -1805,9 +1820,9 @@ activity.coding.code = co-sign</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockTitle
 
-activity.coding.code = cosign
+activity.code = cosign
 
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlock.title
 activity.coding.code = cosign
@@ -1946,10 +1961,8 @@ A&apos; FOR ambulatory; -&gt; class = AMB ambulatory
 &apos;H&apos; FOR hospitalization;  -&gt; class = IMP inpatient
 &apos;T&apos; FOR telecommunications; -&gt; class = VR virtual
 
-system=http://va.gov/terminology/vistaDefinedTerms/8925-.13
-&apos;I&apos; FOR in hospital; -&gt; class = &gt; use VA code
-&apos;E&apos; FOR event (historical);  -&gt; class =&gt; use VA code
-</FHIR_x0020_Map_x0020_Comment>
+system=http://va.gov/terminology
+Add Encounter profile for Class</FHIR_x0020_Map_x0020_Comment>
 <May17Source>210</May17Source>
 <priority>180</priority>
 </VistA_FHIR_Map>
@@ -2079,7 +2092,7 @@ participant.type = ATND</R4Map>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>DocumentReference</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.patientMovementDate</FHIR_x0020_R2_x0020_property>
-<STU3Resource>DocumentReference-ext</STU3Resource>
+<STU3Resource>DocumentReference</STU3Resource>
 <STU3Map>extension.patientMovementDate</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>extension.patientMovementDate</R4Map>
@@ -2114,9 +2127,9 @@ C:chart
 <STU3Map>agent.whoReference.extension.signatureMode.coding.code
 agent.whoReference.extension.signatureMode.coding.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/8925-1505
 
-activity.coding.code = AU
+activity.code = AU
 
-activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
+activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>extension.signature.mode
 activity.coding.code = AU
@@ -2182,10 +2195,10 @@ activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 code = appends</FHIR_x0020_R2_x0020_property>
 <STU3Resource>DocumentReference</STU3Resource>
 <STU3Map>relatesTo.target.identifier
-code = appends</STU3Map>
+relatesTo.code = appends</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>relatesTo.target.identifier
-code = appends</R4Map>
+relatesTo.code = appends</R4Map>
 <termMap>0</termMap>
 <May17Source>218</May17Source>
 <priority>180</priority>
@@ -2261,7 +2274,7 @@ activity.coding.code = dictation</FHIR_x0020_R2_x0020_property>
 <STU3Map>recorded
 
 
-activity.coding.code = DI</STU3Map>
+activity.code = DI</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
@@ -3237,11 +3250,14 @@ U:unknown
 <FHIR_x0020_R2_x0020_property>agent 
 
 agent.role = performer</FHIR_x0020_R2_x0020_property>
-<STU3Resource>ReferralRequest</STU3Resource>
-<STU3Map>recipient</STU3Map>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>agent.whoReference
+agent.role.coding.code = aut
+agent.role.coding.system=http://hl7.org/fhir/v3/ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent 
-agent.role.coding.code = performer</R4Map>
+<R4Map>agent.who
+agent.role.coding.code = aut
+agent.role.coding.system=http://hl7.org/fhir/v3/ParticipationType</R4Map>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
 <May17Source>261</May17Source>
@@ -3266,11 +3282,13 @@ agent.role.coding.code = performer</R4Map>
 
 agent.role = enterer</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent 
-agent.role.coding.code = enterer</STU3Map>
+<STU3Map>agent.whoReference
+agent.role.coding.code = trans
+agent.role.coding.system= http://www.hl7.org/fhir/contractsignertypecodes</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent 
-agent.role.coding.code = enterer</R4Map>
+<R4Map>agent.who
+agent.role.coding.code = trans
+agent.role.coding.system= http://www.hl7.org/fhir/contractsignertypecodes</R4Map>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
 <May17Source>262</May17Source>
@@ -3600,216 +3618,6 @@ performer.function.coding.code = OP</R4Map>
 <priority>220</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>749</ID1>
-<ID>52-121</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52</File_x0020__x0023_>
-<Field_x0020_Name>HEAD AND/OR NECK CANCER</Field_x0020_Name>
-<Field_x0020__x0023_>121</Field_x0020__x0023_>
-<description>During Outpatient Pharmacy order entry, if a veteran has been identified as having been treated for Head and/or Neck Cancer due to nose or throat radium treatments while in the military, the pharmacist may be asked to identify whether or not the medication prescribed is being used to treat this condition. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription when a prescription fill is being released, or as the default for the question upon renewal of the prescription through CPRS or Outpatient Pharmacy. </description>
-<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat Head and/or Neck Cancer due to nose or throat radium treatments while in the military.</prompt>
-<values>0:NO
-1:YES
-</values>
-<path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.forHeadOrNeckCancer</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>676</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-forHeadOrNeckCancer</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-forHeadOrNeckCancer</R4Map>
-<valueSet>16</valueSet>
-<termMap>0</termMap>
-<May17Source>570</May17Source>
-<priority>90</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>750</ID1>
-<ID>52-122</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52</File_x0020__x0023_>
-<Field_x0020_Name>COMBAT VETERAN</Field_x0020_Name>
-<Field_x0020__x0023_>122</Field_x0020__x0023_>
-<description>During Outpatient Pharmacy order entry, a pharmacist may be asked if the  medication being prescribed is for a condition related to Combat Services  while in the military. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription. </description>
-<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat a condition related to Combat Services.</prompt>
-<values>0:NO
-1:YES
-</values>
-<path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.forCombatService</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>677</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-forCombatService</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-forCombatService</R4Map>
-<valueSet>16</valueSet>
-<termMap>0</termMap>
-<May17Source>571</May17Source>
-<priority>90</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>751</ID1>
-<ID>52-122.01</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52</File_x0020__x0023_>
-<Field_x0020_Name>PROJ 112/SHAD</Field_x0020_Name>
-<Field_x0020__x0023_>122.01</Field_x0020__x0023_>
-<description>During Outpatient Pharmacy order entry, a pharmacist may be asked if the medication being prescribed is for a condition related to PROJ 112/SHAD while in the military. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription. </description>
-<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat a condition related to PROJ 112/SHAD</prompt>
-<values>0:NO
-1:YES
-</values>
-<path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.forShipboardHazard</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>678</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-forShipboardHazard</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-forShipboardHazard</R4Map>
-<valueSet>16</valueSet>
-<termMap>0</termMap>
-<May17Source>572</May17Source>
-<priority>90</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>754</ID1>
-<ID>52.1-.01</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<Data_x0020_Elements>refill date</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.1</File_x0020__x0023_>
-<Field_x0020_Name>REFILL DATE</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<description>This is the date the prescription is refilled. </description>
-<prompt>Enter Date of refill</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.performer.time
-
-function = filler</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>671</DSTU2Map>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.extension.whenPerformed
-performer.function=refill</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.whenPerformed
-performer.function=refill</R4Map>
-<termMap>0</termMap>
-<May17Source>575</May17Source>
-<priority>90</priority>
-<semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>755</ID1>
-<ID>52.1-2</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<Data_x0020_Elements>Refill mail/Window</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.1</File_x0020__x0023_>
-<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
-<Field_x0020__x0023_>2</Field_x0020__x0023_>
-<description>This field contains &apos;M&apos; if the refill is to be mailed to the patient and &apos;W&apos; if the refill is to be picked up at the pharmacy window. </description>
-<values>M:MAIL
-W:WINDOW
-</values>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.dispenseMode</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>125</DSTU2Map>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.medicationdispense-dispenseChannel</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.medicationdispense-dispenseChannel</R4Map>
-<ExtensionIdentifier>extension: prescriptionDeliveryMode</ExtensionIdentifier>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>M&apos; FOR MAIL;
-&apos;W&apos; FOR WINDOW;</FHIR_x0020_Map_x0020_Comment>
-<May17Source>576</May17Source>
-<priority>90</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>756</ID1>
-<ID>52.1-8</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<Data_x0020_Elements>Refill Division</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.1</File_x0020__x0023_>
-<Field_x0020_Name>DIVISION</Field_x0020_Name>
-<Field_x0020__x0023_>8</Field_x0020__x0023_>
-<description>This field contains the Pharmacy Division associated with this Rx. </description>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispenseEncounter</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension:location</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>431</DSTU2Map>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor</R4Map>
-<termMap>0</termMap>
-<May17Source>578</May17Source>
-<priority>90</priority>
-<priorityNote>X</priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>757</ID1>
-<ID>52.1-1</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<File_x0020__x0023_>52.1</File_x0020__x0023_>
-<Field_x0020_Name>QTY</Field_x0020_Name>
-<Field_x0020__x0023_>1</Field_x0020__x0023_>
-<description>TECHNICAL DESCR:  This field allows numeric entries only, both for CMOP prescriptions and non-CMOP prescriptions. It requires a number between .01 and 99999999, with a maximum of 2 fractional decimal places.
-NOTE: QTY values that were on file prior to patch PSO*7*29 (released 2/17/00) may contain alpha characters.</description>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationDispense</profile>
-<R2_x0020_approach>related resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>quantity</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>53</DSTU2Map>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>quantity</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>quantity</R4Map>
-<termMap>0</termMap>
-<May17Source>579</May17Source>
-<priority>90</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
 <ID1>158</ID1>
 <ID>9000010.11-1206</ID>
 <Status>101</Status>
@@ -4007,11 +3815,11 @@ coding.code = CVX code</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Immunization</STU3Resource>
 <STU3Map>vaccineCode.coding.display
 
-coding.system = http://hl7.org/fhir/sid/cvx</STU3Map>
+vaccineCode.coding.system = http://hl7.org/fhir/sid/cvx</STU3Map>
 <R4Resource>Immunization</R4Resource>
 <R4Map>vaccineCode.coding.code
 
-coding.system = http://hl7.org/fhir/sid/cvx</R4Map>
+vaccineCode.coding.system = http://hl7.org/fhir/sid/cvx</R4Map>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
 <May17Source>283</May17Source>
@@ -4166,9 +3974,9 @@ coding.system = http://hl7.org/fhir/sid/cvx</R4Map>
 <FHIR_x0020_R2_x0020_resource>Immunization</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>doseQuantity.value</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Immunization</STU3Resource>
-<STU3Map>doseQuantity.quantity.value</STU3Map>
+<STU3Map>doseQuantity.value</STU3Map>
 <R4Resource>Immunization</R4Resource>
-<R4Map>doseQuantity.quantity.value</R4Map>
+<R4Map>doseQuantity.value</R4Map>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -4192,9 +4000,9 @@ coding.system = http://hl7.org/fhir/sid/cvx</R4Map>
 <FHIR_x0020_R2_x0020_resource>Immunization</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>doseQuantity.code</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Immunization</STU3Resource>
-<STU3Map>doseQuantity.quantity.unit</STU3Map>
+<STU3Map>doseQuantity.unit</STU3Map>
 <R4Resource>Immunization</R4Resource>
-<R4Map>doseQuantity.quantity.unit</R4Map>
+<R4Map>doseQuantity.unit</R4Map>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -4444,10 +4252,10 @@ Future: unclear whether we can support http://hl7.org/fhir/us/core/StructureDefi
 <DSTU2Map>637</DSTU2Map>
 <STU3Resource>Patient</STU3Resource>
 <STU3Map>extension.selfIdentifiedGender
-system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</STU3Map>
+extension.selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</STU3Map>
 <R4Resource>Patient</R4Resource>
 <R4Map>extension.selfIdentifiedGender
-system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</R4Map>
+extension.selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</R4Map>
 <ExtensionIdentifier>http://va.gov/fhir/StructureDefinition/patient-selfIdentifiedGender</ExtensionIdentifier>
 <ExtensionExample>&lt;extension url=&quot;http://va.gov/fhir/StructureDefinition/patient-selfIdentifiedGender&quot;&gt;
     &lt;valueCoding&gt;
@@ -5351,9 +5159,10 @@ address.use = temp</R4Map>
 <DSTU2Map>640</DSTU2Map>
 <STU3Resource>Patient</STU3Resource>
 <STU3Map>extension.emergencyResponseCohort
-coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</STU3Map>
+extension.emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</STU3Map>
 <R4Resource>Patient</R4Resource>
-<R4Map>extension.emergencyResponseCohort</R4Map>
+<R4Map>extension.emergencyResponseCohort
+extension.emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <ExtensionExample></ExtensionExample>
 <termMap>0</termMap>
@@ -5666,15 +5475,23 @@ system=phone
 relationship = emergency</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Patient</STU3Resource>
 <STU3Map>contact.telecom.value
+
 contact.telecom.system=phone
-contact.telecome.use=home
+
+contact.telecom.use=home
+
 contact.relationship.coding.code=C
+
 contact.relationship.coding.system=http://hl7.org/fhir/v2/0131</STU3Map>
 <R4Resource>Patient</R4Resource>
 <R4Map>contact.telecom.value
+
 contact.telecom.system=phone
-contact.telecome.use=home
+
+contact.telecom.use=home
+
 contact.relationship.coding.code=C
+
 contact.relationship.coding.system=http://hl7.org/fhir/v2/0131</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <ExtensionExample></ExtensionExample>
@@ -6324,16 +6141,16 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-.01
-component.code.coding.value = 2.04-.01
+component.code.coding.code = 2.04-.01
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
-code.coding.value = 2-.3721
+code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-.01
-component.code.coding.value = 2.04-.01
+component.code.coding.code = 2.04-.01
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
-code.coding.value = 2-.3721
+code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>2.04-.01</Question_x0020_code>
@@ -6415,14 +6232,14 @@ component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDe
 component.code.coding.value = 2.04-3
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
-code.coding.code.system = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-3
 component.code.coding.value = 2.04-3
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
-code.coding.code.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>0&apos; FOR NO;
 &apos;1&apos; FOR YES</FHIR_x0020_Map_x0020_Comment>
@@ -7856,15 +7673,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.32101 
-code.display = &quot;Vietnam Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Vietnam Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.32101 
-code.display = &quot;Vietnam Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Vietnam Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -7957,15 +7774,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.3221 
-code.display = &quot;Lebanon Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Lebanon Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.3221 
-code.display = &quot;Lebanon Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Lebanon Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -8058,15 +7875,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322 
-code.display = &quot;Grenada Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Grenada Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322 
-code.display = &quot;Grenada Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Grenada Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -8159,15 +7976,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.3227
-code.display = &quot;Panama Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Panama Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.3227
-code.display = &quot;Panama Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Panama Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -8260,15 +8077,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.32201
-code.display = &quot;Persian Gulf Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Persian Gulf Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.32201
-code.display = &quot;Persian Gulf Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Persian Gulf Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -8362,15 +8179,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322016
-code.display = &quot;Somalia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Somalia Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322016
-code.display = &quot;Somalia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;Somalia Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -8463,15 +8280,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322019
-code.display = &quot;= Yugoslavia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;= Yugoslavia Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 2-.322019
-code.display = &quot;= Yugoslavia Service&quot;
-code.system = http://va.gov/Terminology/VistaDefinedElements
+code.coding.display = &quot;= Yugoslavia Service&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 status = final</R4Map>
 <termMap>0</termMap>
 <Question_x0020_code>276058004 |Employment circumstances (observable entity)|</Question_x0020_code>
@@ -9144,10 +8961,10 @@ status = final</R4Map>
 <FHIR_x0020_R2_x0020_property>effective.start
 code.coding.code = 2-.5291</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>effective.start
+<STU3Map>effectivePeriod.start
 code.coding.code = 2-.5291</STU3Map>
 <R4Resource>Observation</R4Resource>
-<R4Map>effective.start
+<R4Map>effectivePeriod.start
 code.coding.code = 2-.5291</R4Map>
 <termMap>0</termMap>
 <May17Source>461</May17Source>
@@ -9173,10 +8990,10 @@ code.coding.code = 2-.5291</R4Map>
 <FHIR_x0020_R2_x0020_property>effective.end
 code.coding.code = 2-.5291</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>effective.end
+<STU3Map>effectivePeriod.end
 code.coding.code = 2-.5291</STU3Map>
 <R4Resource>Observation</R4Resource>
-<R4Map>effective.end
+<R4Map>effectivePeriod.end
 code.coding.code = 2-.5291</R4Map>
 <termMap>0</termMap>
 <May17Source>462</May17Source>
@@ -9206,16 +9023,16 @@ component.code.coding.	display = &quot;Combat Service Location &quot;
 component.code.coding.	system = http://va.gov/Terminology/VistaDefinedElements</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
-http://va.gov/Terminology/VistaDefinedTerms/2-.5292 
+component.valueCodeableConcept.coding.system =http://va.gov/Terminology/VistaDefinedTerms/2-.5292 
 component.code.coding.code = 2-.5292
 component.code.coding.	Display = &quot;Combat Service Location &quot;
 component.code.coding.	System = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>component.valueCodeableConcept.coding.code
-valueCodeableConcept.coding.system = urn:iso:std:iso:3166
+component.valueCodeableConcept.coding.system =http://va.gov/Terminology/VistaDefinedTerms/2-.5292 
 component.code.coding.code = 2-.5292
-component.code.coding.	display = &quot;Combat Service Location &quot;
-component.code.coding.	system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
+component.code.coding.	Display = &quot;Combat Service Location &quot;
+component.code.coding.	System = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <termMap>0</termMap>
 <May17Source>463</May17Source>
 <priority>30</priority>
@@ -9321,8 +9138,8 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueDateTime
 code.coding.code = 2-.5295
-code.coding.	display = &quot;Combat Veteran End Date&quot;
-code.coding.	system = http://va.gov/Terminology/VistaDefinedElements/
+code.coding.display = &quot;Combat Veteran End Date&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueDateTime
@@ -9404,15 +9221,15 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/354-.04
 code.coding.code = 354-.04
-code.coding.	Display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
-code.coding.	System = http://va.gov/Terminology/VistaDefinedElements/
+code.coding.display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/354-.04
 code.coding.code = 354-.04
-code.coding.	Display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
-code.coding.	System = http://va.gov/Terminology/VistaDefinedElements/
+code.coding.display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
 status = final</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>1&apos; FOR EXEMPT;
@@ -9449,8 +9266,8 @@ status = final</FHIR_x0020_R2_x0020_property>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.3611
 code.coding.code = 2-.3611
-code.coding.	Display = &quot;ELIGIBILITY STATUS&quot;
-code.coding.	System = http://va.gov/Terminology/VistaDefinedElements/
+code.coding.display = &quot;ELIGIBILITY STATUS&quot;
+code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
 status = final</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
@@ -9917,12 +9734,12 @@ system = 	http://va.gov/terminology/vistaDefinedTerms/2.02-.02</R4Map>
 relationship=enrollmentClinic</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Patient</STU3Resource>
 <STU3Map>contact.organization
-relationship.coding.code=enrollmentClinic
-relationship.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.3311</STU3Map>
+contact.relationship.coding.code=enrollmentClinic
+contact.relationship.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.3311</STU3Map>
 <R4Resource>Patient</R4Resource>
 <R4Map>contact.organization
-relationship.coding.code=enrollmentClinic
-relationship.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.3311</R4Map>
+contact.relationship.coding.code=enrollmentClinic
+contact.relationship.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.3311</R4Map>
 <termMap>0</termMap>
 <May17Source>489</May17Source>
 <priority>40</priority>
@@ -10406,9 +10223,9 @@ DE:DISCONTINUED (EDIT)
 <FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>6</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <May17Source>841</May17Source>
 <priority>130</priority>
@@ -10682,9 +10499,9 @@ D:DONE
 <FHIR_x0020_R2_x0020_property>doseageInstruction.dose.doseQuantity.value</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>30</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstructions.doseQuantity.value</STU3Map>
+<STU3Map>dosageInstruction.doseQuantity.value</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>dosageInstructions.doseQuantity.value</R4Map>
+<R4Map>dosageInstruction.doseQuantity.value</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>  
 This is the numeric dosage for the order. It will be combined with the UNIT field to show the dosage ordered.  For a dosage of 325MG, 325 would be stored here.</FHIR_x0020_Map_x0020_Comment>
@@ -10712,9 +10529,9 @@ This is the numeric dosage for the order. It will be combined with the UNIT fiel
 <FHIR_x0020_R2_x0020_property>doseageInstruction.dose.doseQuantity.unit</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>30</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstructions.doseQuantity.unit</STU3Map>
+<STU3Map>dosageInstruction.doseQuantity.unit</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>dosageInstructions.doseQuantity.unit</R4Map>
+<R4Map>dosageInstruction.doseQuantity.unit</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Use UCUM where possible. Get values; leverage KBS UCUM map.</FHIR_x0020_Map_x0020_Comment>
 <May17Source>851</May17Source>
@@ -10859,10 +10676,10 @@ dosageInstruction.timing.repeat.durationUnits = d</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dosageInstruction.timing.repeat.duration
-dosageInstruction.timing.repeat.durationUnits = d</STU3Map>
+dosageInstruction.timing.repeat.durationUnit = d</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>dosageInstruction.timing.repeat.duration
-dosageInstruction.timing.repeat.durationUnits = d</R4Map>
+dosageInstruction.timing.repeat.durationUnit = d</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Don&apos;t use the MedicationOrder.dispenseRequest.validityPeriod: this is the wrong data type.</FHIR_x0020_Map_x0020_Comment>
 <May17Source>856</May17Source>
@@ -11100,15 +10917,15 @@ dosageInstruction.timing.code</FHIR_x0020_R2_x0020_property>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dosageInstruction.timing.code.text
 or
-dosageInstruction.timing.period
-dosageInstruction.timing.periodUnit = min
-dosageInstruction.timing.frequency = 1</STU3Map>
+dosageInstruction.timing.repeat.period
+dosageInstruction.timing.repeat.periodUnit = min
+dosageInstruction.timing.repeat.frequency = 1</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>dosageInstruction.timing.code.text
 or
-dosageInstruction.timing.period
-dosageInstruction.timing.periodUnit = min
-dosageInstruction.timing.frequency = 1</R4Map>
+dosageInstruction.timing.repeat.period
+dosageInstruction.timing.repeat.periodUnit = min
+dosageInstruction.timing.repeat.frequency = 1</R4Map>
 <termMap>0</termMap>
 <May17Source>867</May17Source>
 <priority>130</priority>
@@ -11167,10 +10984,10 @@ C:CONTINUOUS
 <DSTU2Map>682</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>extension.medicationrequest-medicationScheduleType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/53.1-128</STU3Map>
+extension.medicationrequest-medicationScheduleType.coding.system=http://va.gov/terminology/vistaDefinedTerms/53.1-128</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>extension.medicationrequest-medicationScheduleType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/53.1-128</R4Map>
+extension.medicationrequest-medicationScheduleType.coding.system=http://va.gov/terminology/vistaDefinedTerms/53.1-128</R4Map>
 <valueSet>4</valueSet>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>bind to IVMedicationScheduleCategory</FHIR_x0020_Map_x0020_Comment>
@@ -11971,10 +11788,10 @@ activity.coding.code = &apos;change&apos;</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>107</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/53.1119-2</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/53.1119-2</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/53.1119-2</R4Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/53.1119-2</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>CREATE, DELETE, UPDATE, NULLIFY are reasons in Argonaut</FHIR_x0020_Map_x0020_Comment>
 <May17Source>906</May17Source>
@@ -12193,11 +12010,10 @@ I:INACTIVE
 <FHIR_x0020_R2_x0020_property>clinicalStatus 
 extension: vaClinicalStatus for &apos;inactive&apos; status</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Condition</STU3Resource>
-<STU3Map>clinicalStatus.coding.code
-coding.system = http://terminology.hl7.org/CodeSystem/condition-clinical</STU3Map>
+<STU3Map>clinicalStatus</STU3Map>
 <R4Resource>Condition</R4Resource>
 <R4Map>clinicalStatus.coding.code
-coding.system = http://terminology.hl7.org/CodeSystem/condition-clinical</R4Map>
+clinicalStatus.coding.system = http://terminology.hl7.org/CodeSystem/condition-clinical</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>A ACTIVE = active
 I INACTIVE = inactive</FHIR_x0020_Map_x0020_Comment>
@@ -12710,9 +12526,9 @@ null: N/A</FHIR_x0020_Map_x0020_Comment>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
 
-activity.coding.code=CREATE
+activity.code=CREATE
 
-activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
+activity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Condition</R4Resource>
 <R4Map>recordedDate</R4Map>
 <termMap>0</termMap>
@@ -12741,9 +12557,9 @@ R4 requires the STU3 provenance values to support the Provenance Location in abo
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.name
 
-activity.coding.code=CREATE
+activity.code=CREATE
 
-activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
+activity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Condition</R4Resource>
 <R4Map>recorder</R4Map>
 <termMap>0</termMap>
@@ -12917,8 +12733,8 @@ activity.system = http://ncimeta.nci.nih.gov</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>104</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
-activity.coding.code=CREATE
-activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
+activity.code=CREATE
+activity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 activity.coding.code=CREATE
@@ -13094,10 +12910,12 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <FHIR_x0020_R2_x0020_resource>Organization</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>telecom</FHIR_x0020_R2_x0020_property>
 <STU3Resource>CareTeam</STU3Resource>
-<STU3Map>extension.telecom.value
+<STU3Map>telecom.value
+
 telecom.system=phone</STU3Map>
 <R4Resource>CareTeam</R4Resource>
-<R4Map>extension.telecom.value
+<R4Map>telecom.value
+
 telecom.system=phone</R4Map>
 <termMap>0</termMap>
 <May17Source>998</May17Source>
@@ -13395,11 +13213,11 @@ NT:NO ACTION TAKEN = DAR</FHIR_x0020_Map_x0020_Comment>
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>Appointment</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.appointmentDocument</FHIR_x0020_R2_x0020_property>
-<STU3Resource>Document</STU3Resource>
+<STU3Resource>DocumentReference</STU3Resource>
 <STU3Map>context.encounter.period.start
 
 encounter.identifier = appointment&lt;encounter.identifier</STU3Map>
-<R4Resource>Document</R4Resource>
+<R4Resource>DocumentReference</R4Resource>
 <R4Map>context.encounter.period.start
 
 encounter.identifier = appointment&lt;encounter.identifier</R4Map>
@@ -13489,11 +13307,11 @@ practitionerRole.location = location</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Appointment</STU3Resource>
 <STU3Map>participant.actor
 
-participant.type.code = defaultLocationProvider</STU3Map>
+participant.type.coding.code = defaultLocationProvider</STU3Map>
 <R4Resource>Appointment</R4Resource>
 <R4Map>participant.actor
 
-participant.type.code = defaultLocationProvider</R4Map>
+participant.type.coding.code = defaultLocationProvider</R4Map>
 <termMap>0</termMap>
 <May17Source>992</May17Source>
 <priority>200</priority>
@@ -13577,9 +13395,9 @@ participant.status=accepted</R4Map>
 <FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>6</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
 <May17Source>693</May17Source>
@@ -13700,11 +13518,11 @@ U:UNIT DOSE
 <FHIR_x0020_R2_x0020_property>category</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>682</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-medicationrequestType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.06-4</STU3Map>
+<STU3Map>extension.medicationrequest-medicationrequestType.coding.code
+extension.medicationrequest-medicationrequestType.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.06-4</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-medicationrequestType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.06-4</R4Map>
+<R4Map>extension.medicationrequest-medicationrequestType.coding.code
+extension.medicationrequest-medicationrequestType.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.06-4</R4Map>
 <ExtensionIdentifier>extension: medicationType</ExtensionIdentifier>
 <valueSet>6</valueSet>
 <termMap>0</termMap>
@@ -13867,7 +13685,7 @@ activity.coding.code = verify
 agent.role.code = Nurse</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who
+<STU3Map>agent.whoReference
 agent.role.coding.code=verifyingNurse</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>performer.actor
@@ -14477,9 +14295,9 @@ D:DONE
 <FHIR_x0020_R2_x0020_property>extension.dosageInstruction.unitsPerDose</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>147</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosage.doseQuantity</STU3Map>
+<STU3Map>dosageInstruction.doseQuantity</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>dosage.doseQuantity</R4Map>
+<R4Map>dosageInstruction.doseQuantity</R4Map>
 <ExtensionIdentifier>extension: dosageInstruction.unitsPerDose</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>because you can have multiple dispense drugs
@@ -14536,11 +14354,15 @@ eg aspirin 1000 mg: 1 625 + 1 375</FHIR_x0020_Map_x0020_Comment>
 annotationType = specialInstructions</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>679</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-richAnnotation.type=SPECIAL INSTRUCTIONS</STU3Map>
+<STU3Map>extension.extension.valueAnnotation.comment.text
+extension.extension.valueAnnotation.type=SPECIAL INSTRUCTIONS
+extension.extension.url=annotation
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-richAnnotation.type=SPECIAL INSTRUCTIONS</R4Map>
+<R4Map>extension.extension.valueAnnotation.comment.text
+extension.extension.valueAnnotation.type=SPECIAL INSTRUCTIONS
+extension.extension.url=annotation
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
 <ExtensionIdentifier>extension: vaMediationOrderSpecialInstructions</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>729</May17Source>
@@ -14596,9 +14418,9 @@ richAnnotation.type=SPECIAL INSTRUCTIONS</R4Map>
 <FHIR_x0020_R2_x0020_property>doseageInstruction.timing.boundsPeriod.start</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>doseageInstruction.timing.boundsPeriod.start</STU3Map>
+<STU3Map>doseageInstruction.timing.repeat.boundsPeriod.start</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>doseageInstruction.timing.boundsPeriod.start</R4Map>
+<R4Map>doseageInstruction.timing.repeat.boundsPeriod.start</R4Map>
 <termMap>0</termMap>
 <May17Source>731</May17Source>
 <priority>110</priority>
@@ -14624,9 +14446,9 @@ richAnnotation.type=SPECIAL INSTRUCTIONS</R4Map>
 <FHIR_x0020_R2_x0020_property>doseageInstruction.timing.boundsPeriod.end</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>doseageInstruction.timing.boundsPeriod.end</STU3Map>
+<STU3Map>doseageInstruction.timing.repeat.boundsPeriod.end</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>doseageInstruction.timing.boundsPeriod.end</R4Map>
+<R4Map>doseageInstruction.timing.repeat.boundsPeriod.end</R4Map>
 <termMap>0</termMap>
 <May17Source>732</May17Source>
 <priority>110</priority>
@@ -14685,15 +14507,15 @@ timeOfDay format hh:mm:ss; see http://hl7.org/fhir/R4/datatypes.html#time</FHIR_
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dosageInstruction.timing.code.text
 or
-dosageInstruction.timing.period
-dosageInstruction.timing.periodUnit = min
-dosageInstruction.timing.frequency = 1</STU3Map>
+dosageInstruction.timing.repeat.period
+dosageInstruction.timing.repeat.periodUnit = min
+dosageInstruction.timing.repeat.frequency = 1</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>dosageInstruction.timing.code.text
 or
-dosageInstruction.timing.period
-dosageInstruction.timing.periodUnit = min
-dosageInstruction.timing.frequency = 1</R4Map>
+dosageInstruction.timing.repeat.period
+dosageInstruction.timing.repeat.periodUnit = min
+dosageInstruction.timing.repeat.frequency = 1</R4Map>
 <termMap>0</termMap>
 <May17Source>734</May17Source>
 <priority>110</priority>
@@ -14937,11 +14759,17 @@ context.status=unknown</R4Map>
 type = medicationOrderProviderComment</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>679</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-extension.richAnnotation.commentType.text=PROVIDER COMMENTS</STU3Map>
+<STU3Map>extension.extension.valueAnnotation.text
+extension.extension.url=annotation
+extension.extension.valueCodeableConcept.coding.text=PROVIDER COMMENTS
+extension.extension.url=type
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-extension.richAnnotation.commentType.text=PROVIDER COMMENTS</R4Map>
+<R4Map>extension.extension.valueAnnotation.text
+extension.extension.url=annotation
+extension.extension.valueCodeableConcept.coding.text=PROVIDER COMMENTS
+extension.extension.url=type
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
 <ExtensionIdentifier>extension: vaMedicationOrderProviderComment</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>744</May17Source>
@@ -15020,10 +14848,10 @@ extension.richAnnotation.commentType.text=PROVIDER COMMENTS</R4Map>
 <DSTU2Map>107</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>activity.code
-system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</STU3Map>
+activity.system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>activity.code
-system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</R4Map>
+activity.system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</R4Map>
 <termMap>0</termMap>
 <May17Source>748</May17Source>
 <priority>110</priority>
@@ -15161,10 +14989,15 @@ system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</R4Map>
 element = 55.06-1</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>433</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>extension.reference-targetElement.extension.change.extension.oldValue
-extension.reference-targetElement.elementUri=[MedicationRequest.requester.agent]</STU3Map>
+<STU3Map>extension.extension:change.extension:oldValue.valueString
+extension.extension:change.extension.url=oldValue
+extension.extension:change.url=change
+extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-2
+extension.extension:elementUri.url=elementUri
+extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>extension.reference-targetElement.extension.change.extension.oldValue
+<R4Map>or
+extension.reference-targetElement.extension.change.extension.oldValue
 extension.reference-targetElement.elementUri=[MedicationRequest.requester.agent]</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
@@ -15193,10 +15026,15 @@ extension.reference-targetElement.elementUri=[MedicationRequest.requester.agent]
 element = 55.06-34</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>433</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>extension.reference-targetElement.extension.change.extension.oldValue
-extension.reference-targetElement.elementUri=[MedicationRequest.dosageInstruction.timing.boundsPeriod.end]</STU3Map>
+<STU3Map>extension.extension:change.extension:oldValue.valueDateTime
+extension.extension:change.extension.url=oldValue
+extension.extension:change.url=change
+extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-3
+extension.extension:elementUri.url=elementUri
+extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>extension.reference-targetElement.extension.change.extension.oldValue
+<R4Map>or
+extension.reference-targetElement.extension.change.extension.oldValue
 extension.reference-targetElement.elementUri=[MedicationRequest.dosageInstruction.timing.boundsPeriod.end]</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
@@ -15324,9 +15162,9 @@ extension: VAMedicationOrderStatus</ExtensionIdentifier>
 <FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>6</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
 <May17Source>760</May17Source>
@@ -15480,11 +15318,13 @@ bind to IVType</FHIR_x0020_Map_x0020_Comment>
 <FHIR_x0020_R2_x0020_property>extension.category</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>682</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-medicationScheduleType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-108</STU3Map>
+<STU3Map>extension.valueCodeableConcept.coding.code
+extension.valueCodeableConcept.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-108
+extension.url=http://va.gov/fhir/StructureDefinition/medicationrequest-medicationScheduleType</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-medicationScheduleType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-108</R4Map>
+<R4Map>extension.valueCodeableConcept.coding.code
+extension.valueCodeableConcept.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-108
+extension.url=http://va.gov/fhir/StructureDefinition/medicationrequest-medicationScheduleType</R4Map>
 <ExtensionIdentifier>extension: (syringeType?)</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>if 0..*, must be on Order not Dispense
@@ -15633,12 +15473,12 @@ frequency = 1</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dosageInstruction.timing.repeat.period
-frequence=1
-periodUnit =[TBD]</STU3Map>
+dosageInstruction.timing.repeat.frequency=1
+dosageInstruction.timing.repeat.periodUnit =[TBD]</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>dosageInstruction.timing.repeat.period
-frequence=1
-periodUnit =[TBD]</R4Map>
+dosageInstruction.timing.repeat.frequency=1
+dosageInstruction.timing.repeat.periodUnit =[TBD]</R4Map>
 <termMap>0</termMap>
 <May17Source>770</May17Source>
 <priority>120</priority>
@@ -15698,7 +15538,7 @@ activity.coding.code = verify
 agent.role.code = Nurse</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who
+<STU3Map>agent.whoReference
 agent.role.coding.code=verifyingNurse</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>performer.actor
@@ -16114,11 +15954,17 @@ extension: holdFlag</ExtensionIdentifier>
 annotationType = remarks</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>679</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-extension.richAnnotation.type=REMARKS</STU3Map>
+<STU3Map>extension.extension.valueAnnotation.text
+extension.extension.url=annotation
+extension.extension.valueCodeableConcept.coding.text=REMARKS
+extension.extension.url=type
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-extension.richAnnotation.type=REMARKS</R4Map>
+<R4Map>extension.extension.valueAnnotation.text
+extension.extension.url=annotation
+extension.extension.valueCodeableConcept.coding.text=REMARKS
+extension.extension.url=type
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
 <ExtensionIdentifier>extension: vaMedicationOrderRemarks</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>pending comments etc.</FHIR_x0020_Map_x0020_Comment>
@@ -16262,7 +16108,8 @@ context.status = unknown</R4Map>
 <FHIR_x0020_R2_x0020_property>extension.enteringPerson</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>689</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension-MedicationRequest.recorder</STU3Map>
+<STU3Map>extension.valueReference
+extension.url=http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationRequest.recorder</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>recorder</R4Map>
 <ExtensionIdentifier>http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationRequest.recorder</ExtensionIdentifier>
@@ -16291,11 +16138,11 @@ context.status = unknown</R4Map>
 timing.repeat.durationUnits</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>timing.repeat.duration
-timing.repeat.durationUnits</STU3Map>
+<STU3Map>dosageInstruction.timing.repeat.duration
+dosageInstruction.timing.repeat.durationUnits</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>timing.repeat.duration
-timing.repeat.durationUnits</R4Map>
+<R4Map>dosageInstruction.timing.repeat.duration
+dosageInstruction.timing.repeat.durationUnits</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Either 55.01-151 or 55.01-152 may be present.
 L - Months  = mo
@@ -16798,6 +16645,246 @@ context.status=unknown</R4Map>
 <priorityNote>X</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
+<ID1>915</ID1>
+<ID>60.01-</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Flag</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>interpretation</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>186</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.interpretation.coding.code</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.interpretation.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Source unclear; calculated?  IF OUTSIDE OF REF RANGE  (HIGH OR LOW)
+VistA H = HL7 H, High, system = http://hl7.org/fhir/v2/0078
+VistA H* = HL7 HH, Critically high
+VistA L = HL7 L, Low
+VistA L* = HL7 LL, Critically Low
+This appears to be coming from VistA functionality, not file 63</FHIR_x0020_Map_x0020_Comment>
+<May17Source>143</May17Source>
+<priority>230</priority>
+<priorityNote></priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>916</ID1>
+<ID>60.01-6</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Units</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<Field_x0020_Name>UNITS</Field_x0020_Name>
+<Field_x0020__x0023_>6</Field_x0020__x0023_>
+<description>UNITS represents such things as grams, number of items per cubic millimeter, or microliter. </description>
+<prompt>ANSWER MUST BE 2-10 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>value.unit</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>175</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.value.unit</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.value.unit</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>To do: get allowed values &amp; map to UCUM</FHIR_x0020_Map_x0020_Comment>
+<May17Source>144</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>917</ID1>
+<ID>60.01-1</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Ref Range</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<Field_x0020_Name>REFERENCE LOW</Field_x0020_Name>
+<Field_x0020__x0023_>1</Field_x0020__x0023_>
+<description>This is the user entered reference low value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:         low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>referenceRange.low
+referenceRange.meaning = normal</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>193</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.referenceRange.low
+referenceRange.type.coding.code = normal</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.referenceRange.low
+referenceRange.type.coding.code = normal</R4Map>
+<termMap>0</termMap>
+<May17Source>145</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>918</ID1>
+<ID>60.01-2</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Ref Range</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<Field_x0020_Name>REFERENCE HIGH</Field_x0020_Name>
+<Field_x0020__x0023_>2</Field_x0020__x0023_>
+<description>This is the user entered reference high value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>referenceRange.hig
+hreferenceRange.meaning = normal</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>194</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.referenceRange.high
+referenceRange.type.coding.code = normal</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.referenceRange.high
+referenceRange.type.coding.code = normal</R4Map>
+<termMap>0</termMap>
+<May17Source>146</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>919</ID1>
+<ID>60.01-3</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Critical Range</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<Field_x0020_Name>CRITICAL LOW</Field_x0020_Name>
+<Field_x0020__x0023_>3</Field_x0020__x0023_>
+<description>This is the user entered critical low value for this test. Used to flag results. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>referenceRange.low
+referenceRange.meaning = critical</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>193</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.referenceRange.low
+referenceRange.type.coding.code = critical</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.referenceRange.low
+referenceRange.type.coding.code = critical</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>May not need  info provided through flag with a &quot;*&quot;</FHIR_x0020_Map_x0020_Comment>
+<May17Source>147</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>920</ID1>
+<ID>60.01-4</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Critical Range</Data_x0020_Elements>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<File_x0020__x0023_>60.01</File_x0020__x0023_>
+<Field_x0020_Name>CRITICAL HIGH</Field_x0020_Name>
+<Field_x0020__x0023_>4</Field_x0020__x0023_>
+<description>This is the user entered critical high value of this test.  Used to flag results. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>referenceRange.hig
+hreferenceRange.meaning = critical</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>194</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.referenceRange.high
+referenceRange.type.coding.code = critical</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.referenceRange.high
+referenceRange.type.coding.code = critical</R4Map>
+<termMap>0</termMap>
+<May17Source>148</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>922</ID1>
+<ID>63-4:63.04-.99:63.041-.01</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Comments</Data_x0020_Elements>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<File_x0020__x0023_>63.041</File_x0020__x0023_>
+<Field_x0020_Name>COMMENTS</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<path>pat-rpt-obs-ext</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.richComment</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>237</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.extension.note.text</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.note.text</R4Map>
+<ExtensionIdentifier>extension: RichComment</ExtensionIdentifier>
+<ExtensionExample>&lt;extension url=&quot;http://hl7.org/fhir/4.0/StructureDefinition/extension-Observation.note&quot;&gt;
+    &lt;valueAnnotation&gt;
+        &lt;authorString value=&quot;Dr. Marcus Quinn&quot;/&gt;
+        &lt;text value=&quot;this is a note&quot;/&gt;
+    &lt;/valueAnnotation&gt; 
+&lt;/extension&gt;</ExtensionExample>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Reviewed by Jay 7/2 - if more than author required then use richAnnotation extension provided by Jay, otherwise use Observation.comment</FHIR_x0020_Map_x0020_Comment>
+<May17Source>150</May17Source>
+<priority>230</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>923</ID1>
+<ID>63-4:63.04-.99:63.041-1</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>21</area>
+<Data_x0020_Elements>Person making comment</Data_x0020_Elements>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<File_x0020__x0023_>63.041</File_x0020__x0023_>
+<Field_x0020_Name>PERSON</Field_x0020_Name>
+<Field_x0020__x0023_>1</Field_x0020__x0023_>
+<path>pat-rpt-obs-ext</path>
+<profile>VAChemLabReportResult</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.richComment</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>237</DSTU2Map>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>result.extension.note.authorString</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>result.note.authorString</R4Map>
+<ExtensionIdentifier>extension: RichComment</ExtensionIdentifier>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Reviewed by Jay 7/2 - if more than author required then use richAnnotation extension provided by Jay, otherwise use Observation.comment</FHIR_x0020_Map_x0020_Comment>
+<May17Source>151</May17Source>
+<priority>230</priority>
+<priorityNote>comment author not returned by Lab api</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
 <ID1>667</ID1>
 <ID>55.11-1</ID>
 <Status>101</Status>
@@ -17121,10 +17208,10 @@ activity.coding.code = &apos;change&apos;</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>107</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/55.04-.02</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/55.04-.02</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/55.04-.02</R4Map>
+<R4Map>activity.coding.code
+activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.04-.02</R4Map>
 <termMap>0</termMap>
 <May17Source>823</May17Source>
 <priority>120</priority>
@@ -17232,7 +17319,7 @@ Verify, F for Complete, PNRD for Pending/Non-Verified Renewal Discontinued, G fo
 <FHIR_x0020_R2_x0020_property>agent.actor</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>112</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who</STU3Map>
+<STU3Map>agent.whoReference</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who</R4Map>
 <termMap>0</termMap>
@@ -17285,15 +17372,15 @@ identifier.system = va.gov/identifiers/orders/52</R4Map>
 <Field_x0020__x0023_>2</Field_x0020__x0023_>
 <description>The patient receiving treatment. </description>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>6</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <May17Source>507</May17Source>
 <priority>90</priority>
@@ -17343,7 +17430,7 @@ In addition, since we are using a FHIR facade pattern (?), I&apos;m not positive
 <description>Doctor who wrote the prescription. </description>
 <prompt>Enter the name of a Provider.</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>prescriber.reference</FHIR_x0020_R2_x0020_property>
@@ -17457,9 +17544,9 @@ context.status=unknown</R4Map>
 <FHIR_x0020_R2_x0020_property>quantity</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>53</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>quantity</STU3Map>
+<STU3Map>dispenseRequest.quantity</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>quantity</R4Map>
+<R4Map>dispenseRequest.quantity</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Pharmacy: Pills in the bottle</FHIR_x0020_Map_x0020_Comment>
 <May17Source>513</May17Source>
@@ -17515,9 +17602,9 @@ dispenseRequest.expectedSupplyDuration.unit=d</R4Map>
 <FHIR_x0020_R2_x0020_property>numberOfRepeatsAllowed</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>40</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map> numberOfRepeatsAllowed</STU3Map>
+<STU3Map> dispenseRequest.numberOfRepeatsAllowed</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map> numberOfRepeatsAllowed</R4Map>
+<R4Map> dispenseRequest.numberOfRepeatsAllowed</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>The R2 FHIR description is ambiguous, though the R4 text is not, specifying &quot;refills&quot; exclusive of first fill. This is the VistA meaning: for 3 fills total, including the first, &quot;refills&quot; would be 2.</FHIR_x0020_Map_x0020_Comment>
 <May17Source>515</May17Source>
@@ -17536,7 +17623,7 @@ dispenseRequest.expectedSupplyDuration.unit=d</R4Map>
 <description>The number of copies made of the label for the prescription. </description>
 <prompt>Type a Number between 1 and 99, 0 Decimal Digits</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.labelCopies</FHIR_x0020_R2_x0020_property>
@@ -17597,7 +17684,7 @@ extension.url=http://va.gov/fhir/StructureDefinition/medicationdispense-dispense
 <description>Any additional comments. </description>
 <prompt>ANSWER MUST BE 1-75 CHARACTERS IN LENGTH</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>note</FHIR_x0020_R2_x0020_property>
@@ -17627,7 +17714,7 @@ extension.richAnnotation.type=REMARKS</R4Map>
 <description>This field will show who requested the rx. </description>
 <prompt>Enter the name of the person who requested the medication.</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.recorder</FHIR_x0020_R2_x0020_property>
@@ -17655,7 +17742,7 @@ extension.richAnnotation.type=REMARKS</R4Map>
 <Field_x0020__x0023_>1</Field_x0020__x0023_>
 <description>Date when doctor wrote prescription. </description>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.orderIssueDate</FHIR_x0020_R2_x0020_property>
@@ -17684,7 +17771,7 @@ Keep &apos;issuedate&apos; nmae&quot;</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020__x0023_>21</Field_x0020__x0023_>
 <description>The date the prescription was entered. </description>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>dateWritten</FHIR_x0020_R2_x0020_property>
@@ -17831,7 +17918,7 @@ performer.function=Pharmacist</R4Map>
 0:NO
 </values>
 <path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.patientCounseled</FHIR_x0020_R2_x0020_property>
@@ -17861,7 +17948,7 @@ performer.function=Pharmacist</R4Map>
 0:NO
 </values>
 <path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.patientCounselingUnderstood</FHIR_x0020_R2_x0020_property>
@@ -17971,7 +18058,7 @@ performer.function=Pharmacist</R4Map>
 <description>This field contains the last fill date. </description>
 <prompt>Enter date that he presciption was last filled.</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.lastDispensedDate</FHIR_x0020_R2_x0020_property>
@@ -18032,7 +18119,7 @@ performer.function=VerifyingPharmacist</R4Map>
 <description>The text in this field shall be used for the Patient Instructions in the Outpatient Pharmacy package when entering orders, if the Dispense Drug selected is matched to a Pharmacy Orderable Item with patient instructions. </description>
 <prompt>Enter patient instructions.  Answer must be 1-240 characters in length.</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <R4_x0020_approach>doseageInstructions.patientInstruction</R4_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
@@ -18067,9 +18154,9 @@ performer.function=VerifyingPharmacist</R4Map>
 <FHIR_x0020_R2_x0020_property>extension.methodoforderpickup</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>265</DSTU2Map>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>example.medicationdispense-pickupInstructions</STU3Map>
+<STU3Map>extension.medicationdispense-pickupInstructions</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>example.medicationdispense-pickupInstructions</R4Map>
+<R4Map>extension.medicationdispense-pickupInstructions</R4Map>
 <termMap>0</termMap>
 <May17Source>536</May17Source>
 <priority>90</priority>
@@ -18090,7 +18177,7 @@ performer.function=VerifyingPharmacist</R4Map>
 1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.forServiceConnectedCondition</FHIR_x0020_R2_x0020_property>
@@ -18210,8 +18297,8 @@ performer.function=VerifyingPharmacist</R4Map>
 <DSTU2Map>132</DSTU2Map>
 <STU3Resource>Medication</STU3Resource>
 <STU3Map>form.coding.code</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>medicationReference.form.coding.code</R4Map>
+<R4Resource>Medication</R4Resource>
+<R4Map>form.coding.code</R4Map>
 <termMap>0</termMap>
 <May17Source>542</May17Source>
 <priority>90</priority>
@@ -18237,11 +18324,11 @@ performer.function=VerifyingPharmacist</R4Map>
 <FHIR_x0020_R2_x0020_property>dosageInstruction.timing.duration</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>19</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstruction.timing.duration
-dosageInstruction.timing.durationUnit</STU3Map>
+<STU3Map>dosageInstruction.timing.repeat.duration
+dosageInstruction.timing.repeat.durationUnit</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>dosageInstruction.timing.duration
-dosageInstruction.timing.durationUnit</R4Map>
+<R4Map>dosageInstruction.timing.repeat.duration
+dosageInstruction.timing.repeat.durationUnit</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>&apos;M&apos; for Minutes - min
 &apos;H&apos; for Hours - h
@@ -18409,7 +18496,7 @@ dosageInstruction.route.coding.system=http://va.gov/terminology/vistaDefinedTerm
 <Field_x0020__x0023_>39</Field_x0020__x0023_>
 <description>This field stores any provider comments that are passed to Pharmacy from CPRS. </description>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.note
@@ -18444,7 +18531,7 @@ extension.richAnnotation.commentType.text=PROVIDER COMMENTS</R4Map>
 2:EDITED BY PROVIDER
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>related resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.discontinueMode</FHIR_x0020_R2_x0020_property>
@@ -18473,7 +18560,7 @@ extension.richAnnotation.commentType.text=PROVIDER COMMENTS</R4Map>
 <description>This is the Pharmacy Orderable Item associated with the drug. This data should not be entered by using File Manager.  If the Rx does not have a Pharmacy Orderable Item entered check the drug for the RX.  If the drug is missing an orderable item match the drug not the Rx.  Only matching the Rx will cause problems when renewing the Rx. </description>
 <prompt>This data should not be entered by using File Manager.</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>medicationCodeableConcept</FHIR_x0020_R2_x0020_property>
@@ -18502,7 +18589,7 @@ extension.richAnnotation.commentType.text=PROVIDER COMMENTS</R4Map>
 <description>This is the CPRS entry number for this order. </description>
 <prompt>Type a Number between 1 and 9999999999, 0 Decimal Digits</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder </FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>identifer
@@ -18511,12 +18598,10 @@ system = va.gov/identifiers/orders/100</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>1</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>identifer.value
-identifier.
-System = va.gov/identifiers/orders/100</STU3Map>
+identifier.system = va.gov/identifiers/orders/100</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>identifer.value
-identifier.
-System = va.gov/identifiers/orders/100</R4Map>
+identifier.system = va.gov/identifiers/orders/100</R4Map>
 <termMap>0</termMap>
 <May17Source>552</May17Source>
 <priority>90</priority>
@@ -18535,13 +18620,13 @@ System = va.gov/identifiers/orders/100</R4Map>
 <description>This field is used to indicate the person who finished the order in Pharmacy. </description>
 <prompt>Data not entered directly with FM.</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.performer.actor
 function = finisher</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>428</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Resource>MedicationDispense</STU3Resource>
 <STU3Map>performer.actor
 performer.extension.value.coding.code=FinishingPerson
 performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
@@ -18570,12 +18655,12 @@ performer.function=FinishingPerson</R4Map>
 <description>Date/time prescription is finished. </description>
 <prompt>(No range limit on date)</prompt>
 <path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.performer.extension.time</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>671</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Resource>MedicationDispense</STU3Resource>
 <STU3Map>performer.extension.whenPerformed
 http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function=FinishingPerson</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
@@ -18634,13 +18719,13 @@ performer.function=FillingPerson</R4Map>
 <description>The name of the pharmacist that checked the medication request. </description>
 <prompt>Data not entered directly with FM.</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.performer.actor
 function = checkingPharmacist</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>428</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Resource>MedicationDispense</STU3Resource>
 <STU3Map>performer.actor
 performer.extension.value.coding.code=CheckingPharmacist
 performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
@@ -18696,7 +18781,7 @@ performer.function=CheckingPharmacist</R4Map>
 <Field_x0020__x0023_>100</Field_x0020__x0023_>
 <description>This field represents the current status of the prescription. </description>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource property</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>status</FHIR_x0020_R2_x0020_property>
@@ -18760,7 +18845,7 @@ extension.url=http://va.gov/fhir/StructureDefinition/medicationdispense-copayTra
 <description>This is the Titration Dose Rx from which the corresponding  Maintenance Dose Rx originated. </description>
 <prompt>Enter the corresponding titration dose prescription number.</prompt>
 <path>pat-medRequest</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>priorPrescription</FHIR_x0020_R2_x0020_property>
@@ -18787,7 +18872,7 @@ extension.url=http://va.gov/fhir/StructureDefinition/medicationdispense-copayTra
 <description>This is the Maintenance Dose Rx that was created from the corresponding  Titration Dose Rx. </description>
 <prompt>Enter the corresponding maintenance dose prescription.</prompt>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.MaintenanceOrder</FHIR_x0020_R2_x0020_property>
@@ -18816,7 +18901,7 @@ extension.url=http://va.gov/fhir/StructureDefinition/medicationdispense-copayTra
 <values>1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.titrationPrescriptionIndicator</FHIR_x0020_R2_x0020_property>
@@ -18903,7 +18988,7 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.forMilitarySexualTrauma</FHIR_x0020_R2_x0020_property>
@@ -18934,7 +19019,7 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.forAgentOrangeExposure</FHIR_x0020_R2_x0020_property>
@@ -18966,7 +19051,7 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.forExposureToIonizingRadiation</FHIR_x0020_R2_x0020_property>
@@ -18997,7 +19082,7 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 1:YES
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.forSouthwestAsiaConditions</FHIR_x0020_R2_x0020_property>
@@ -19011,6 +19096,216 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 <May17Source>569</May17Source>
 <priority>90</priority>
 <priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>749</ID1>
+<ID>52-121</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52</File_x0020__x0023_>
+<Field_x0020_Name>HEAD AND/OR NECK CANCER</Field_x0020_Name>
+<Field_x0020__x0023_>121</Field_x0020__x0023_>
+<description>During Outpatient Pharmacy order entry, if a veteran has been identified as having been treated for Head and/or Neck Cancer due to nose or throat radium treatments while in the military, the pharmacist may be asked to identify whether or not the medication prescribed is being used to treat this condition. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription when a prescription fill is being released, or as the default for the question upon renewal of the prescription through CPRS or Outpatient Pharmacy. </description>
+<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat Head and/or Neck Cancer due to nose or throat radium treatments while in the military.</prompt>
+<values>0:NO
+1:YES
+</values>
+<path>pat-medRequest-ext</path>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.forHeadOrNeckCancer</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>676</DSTU2Map>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.medicationrequest-forHeadOrNeckCancer</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>extension.medicationrequest-forHeadOrNeckCancer</R4Map>
+<valueSet>16</valueSet>
+<termMap>0</termMap>
+<May17Source>570</May17Source>
+<priority>90</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>750</ID1>
+<ID>52-122</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52</File_x0020__x0023_>
+<Field_x0020_Name>COMBAT VETERAN</Field_x0020_Name>
+<Field_x0020__x0023_>122</Field_x0020__x0023_>
+<description>During Outpatient Pharmacy order entry, a pharmacist may be asked if the  medication being prescribed is for a condition related to Combat Services  while in the military. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription. </description>
+<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat a condition related to Combat Services.</prompt>
+<values>0:NO
+1:YES
+</values>
+<path>pat-medRequest-ext</path>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.forCombatService</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>677</DSTU2Map>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.medicationrequest-forCombatService</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>extension.medicationrequest-forCombatService</R4Map>
+<valueSet>16</valueSet>
+<termMap>0</termMap>
+<May17Source>571</May17Source>
+<priority>90</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>751</ID1>
+<ID>52-122.01</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52</File_x0020__x0023_>
+<Field_x0020_Name>PROJ 112/SHAD</Field_x0020_Name>
+<Field_x0020__x0023_>122.01</Field_x0020__x0023_>
+<description>During Outpatient Pharmacy order entry, a pharmacist may be asked if the medication being prescribed is for a condition related to PROJ 112/SHAD while in the military. This field will store the pharmacist&apos;s response to this question. The value in this field will be used to evaluate whether or not a copay should be applied to the prescription. This value will also be used as a default should this question be raised again during the life of the prescription. </description>
+<prompt>Enter &apos;Yes&apos; if this prescription is being used to treat a condition related to PROJ 112/SHAD</prompt>
+<values>0:NO
+1:YES
+</values>
+<path>pat-medRequest-ext</path>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
+<R2_x0020_approach>focal resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.forShipboardHazard</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>678</DSTU2Map>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.medicationrequest-forShipboardHazard</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>extension.medicationrequest-forShipboardHazard</R4Map>
+<valueSet>16</valueSet>
+<termMap>0</termMap>
+<May17Source>572</May17Source>
+<priority>90</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>754</ID1>
+<ID>52.1-.01</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<Data_x0020_Elements>refill date</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.1</File_x0020__x0023_>
+<Field_x0020_Name>REFILL DATE</Field_x0020_Name>
+<Field_x0020__x0023_>.01</Field_x0020__x0023_>
+<description>This is the date the prescription is refilled. </description>
+<prompt>Enter Date of refill</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.performer.time
+
+function = filler</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>671</DSTU2Map>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.extension.whenPerformed
+performer.extension.function=refill</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.whenPerformed
+performer.function=refill</R4Map>
+<termMap>0</termMap>
+<May17Source>575</May17Source>
+<priority>90</priority>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>755</ID1>
+<ID>52.1-2</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<Data_x0020_Elements>Refill mail/Window</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.1</File_x0020__x0023_>
+<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
+<Field_x0020__x0023_>2</Field_x0020__x0023_>
+<description>This field contains &apos;M&apos; if the refill is to be mailed to the patient and &apos;W&apos; if the refill is to be picked up at the pharmacy window. </description>
+<values>M:MAIL
+W:WINDOW
+</values>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource extension</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension.dispenseMode</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>125</DSTU2Map>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.medicationdispense-dispenseChannel</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.medicationdispense-dispenseChannel</R4Map>
+<ExtensionIdentifier>extension: prescriptionDeliveryMode</ExtensionIdentifier>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>M&apos; FOR MAIL;
+&apos;W&apos; FOR WINDOW;</FHIR_x0020_Map_x0020_Comment>
+<May17Source>576</May17Source>
+<priority>90</priority>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>756</ID1>
+<ID>52.1-8</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<Data_x0020_Elements>Refill Division</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.1</File_x0020__x0023_>
+<Field_x0020_Name>DIVISION</Field_x0020_Name>
+<Field_x0020__x0023_>8</Field_x0020__x0023_>
+<description>This field contains the Pharmacy Division associated with this Rx. </description>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispenseEncounter</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>extension:location</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>431</DSTU2Map>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.actor</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.actor</R4Map>
+<termMap>0</termMap>
+<May17Source>578</May17Source>
+<priority>90</priority>
+<priorityNote>X</priorityNote>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>757</ID1>
+<ID>52.1-1</ID>
+<Status>101</Status>
+<RequirementSource>Coversheet</RequirementSource>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<File_x0020__x0023_>52.1</File_x0020__x0023_>
+<Field_x0020_Name>QTY</Field_x0020_Name>
+<Field_x0020__x0023_>1</Field_x0020__x0023_>
+<description>TECHNICAL DESCR:  This field allows numeric entries only, both for CMOP prescriptions and non-CMOP prescriptions. It requires a number between .01 and 99999999, with a maximum of 2 fractional decimal places.
+NOTE: QTY values that were on file prior to patch PSO*7*29 (released 2/17/00) may contain alpha characters.</description>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispense</profile>
+<R2_x0020_approach>related resource property</R2_x0020_approach>
+<FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
+<FHIR_x0020_R2_x0020_property>quantity</FHIR_x0020_R2_x0020_property>
+<DSTU2Map>53</DSTU2Map>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>quantity</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>quantity</R4Map>
+<termMap>0</termMap>
+<May17Source>579</May17Source>
+<priority>90</priority>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>758</ID1>
@@ -19029,10 +19324,10 @@ R4 does not use this property: it may become an extension then.</FHIR_x0020_Map_
 <FHIR_x0020_R2_x0020_resource>MedicationDispense</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>daysSupply</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>54</DSTU2Map>
-<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dispenseRequest.expectedSupplyDuration.value
 dispenseRequest.expectedSupplyDuration.unit=d</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
+<R4Resource>MedicationRequest</R4Resource>
 <R4Map>dispenseRequest.expectedSupplyDuration.value
 dispenseRequest.expectedSupplyDuration.unit=d</R4Map>
 <termMap>0</termMap>
@@ -19060,7 +19355,9 @@ function = dispense</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>428</DSTU2Map>
 <STU3Resource>MedicationDispense</STU3Resource>
 <STU3Map>performer.actor
-http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function.coding.code=Pharmacist</STU3Map>
+performer.extension.value.coding.code=Pharmacist
+performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>performer.actor
 performer.function.coding.code=Pharmacist</R4Map>
@@ -19322,18 +19619,20 @@ performer.function.value.coding.system=http://va.gov/terminology/vistaDefinedTer
 <Field_x0020__x0023_>115</Field_x0020__x0023_>
 <description>&lt;blank&gt;</description>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
 <FHIR_x0020_R2_x0020_property>extension.note
 annotationType = medicationExpandedPatientInstructions</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>679</DSTU2Map>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-richAnnotation.type=EXPANDED PATIENT INSTRUCTIONS</STU3Map>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.comment.text
+extension.type=EXPANDED PATIENT INSTRUCTIONS
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-richAnnotation.type=EXPANDED PATIENT INSTRUCTIONS</R4Map>
+<R4Map>extension.comment.text
+extension.type=EXPANDED PATIENT INSTRUCTIONS
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
 <ExtensionIdentifier>extension: VAMedicationExpandedPatientInstructions</ExtensionIdentifier>
 <termMap>0</termMap>
 <May17Source>592</May17Source>
@@ -19471,11 +19770,11 @@ extension.richAnnotation.type=REMARKS</R4Map>
 <FHIR_x0020_R2_x0020_property>daysSupply</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>54</DSTU2Map>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>dispenseRequest.expectedSupplyDuration.value
-dispenseRequest.expectedSupplyDuration.unit=d</STU3Map>
+<STU3Map>daysSupply.value
+daysSupply.unit=d</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>dispenseRequest.expectedSupplyDuration.value
-dispenseRequest.expectedSupplyDuration.unit=d</R4Map>
+<R4Map>daysSupply.value
+daysSupply.unit=d</R4Map>
 <termMap>0</termMap>
 <May17Source>598</May17Source>
 <priority>90</priority>
@@ -19910,9 +20209,9 @@ entity.role=source</R4Map>
 <FHIR_x0020_R2_x0020_property>patient</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>482</DSTU2Map>
 <STU3Resource>MedicationStatement</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationStatement</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
 <May17Source>670</May17Source>
@@ -20671,9 +20970,9 @@ Binding: Medication Clinical Drug (RxNorm) (extensible)</FHIR_x0020_Map_x0020_Co
 <FHIR_x0020_R2_x0020_property>extension.pharmacy-core-refillsRemaining</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>437</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>numberOfRepeatsAllowed</STU3Map>
+<STU3Map>dispenseRequest.numberOfRepeatsAllowed</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>numberOfRepeatsAllowed</R4Map>
+<R4Map>dispenseRequest.numberOfRepeatsAllowed</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>This does not decrement: it is a static total</FHIR_x0020_Map_x0020_Comment>
 <May17Source>622</May17Source>
@@ -21161,9 +21460,9 @@ This field shall designate whether or not a prescription has been flagged for fo
 <FHIR_x0020_R2_x0020_property>doseageInstruction.text</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>17</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>doseageInstruction.text</STU3Map>
+<STU3Map>dosageInstruction.text</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>doseageInstruction.text</R4Map>
+<R4Map>dosageInstruction.text</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Either legible text from CPRS or parseable text for generating SIG1</FHIR_x0020_Map_x0020_Comment>
 <May17Source>642</May17Source>
@@ -21189,9 +21488,9 @@ This field shall designate whether or not a prescription has been flagged for fo
 <FHIR_x0020_R2_x0020_property>timing</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>66</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>doseageInstruction.timing.code.coding.code</STU3Map>
+<STU3Map>dosageInstruction.timing.code.coding.code</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>doseageInstruction.timing.code.coding.code</R4Map>
+<R4Map>dosageInstruction.timing.code.coding.code</R4Map>
 <termMap>0</termMap>
 <May17Source>643</May17Source>
 <priority>100</priority>
@@ -21216,9 +21515,9 @@ This field shall designate whether or not a prescription has been flagged for fo
 <FHIR_x0020_R2_x0020_property>timing.duration</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>66</DSTU2Map>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstruction.timing.duration</STU3Map>
+<STU3Map>dosageInstruction.timing.repeat.duration</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>dosageInstruction.timing.duration</R4Map>
+<R4Map>dosageInstruction.timing.repeat.duration</R4Map>
 <termMap>0</termMap>
 <May17Source>644</May17Source>
 <priority>100</priority>
@@ -21298,8 +21597,8 @@ This field shall designate whether or not a prescription has been flagged for fo
 <DSTU2Map>132</DSTU2Map>
 <STU3Resource>Medication</STU3Resource>
 <STU3Map>form</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>medicationReference.form</R4Map>
+<R4Resource>Medication</R4Resource>
+<R4Map>form</R4Map>
 <termMap>0</termMap>
 <May17Source>647</May17Source>
 <priority>100</priority>
@@ -21878,10 +22177,10 @@ role = enterer</FHIR_x0020_R2_x0020_property>
 <DSTU2Map>106</DSTU2Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/53.799-.04</STU3Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/53.799-.04</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>activity.code
-system=http://va.gov/terminology/vistaDefinedTerms/53.799-.04</R4Map>
+activity.system=http://va.gov/terminology/vistaDefinedTerms/53.799-.04</R4Map>
 <termMap>0</termMap>
 <May17Source>927</May17Source>
 <priority>150</priority>
@@ -22555,246 +22854,6 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 <FHIR_x0020_Map_x0020_Comment>DATA GETS SET IN SPECIFIC NODE i.E. ^LR(D0,CH,D1,N) where N is a specific number designated for a lab value.</FHIR_x0020_Map_x0020_Comment>
 <May17Source>142</May17Source>
 <priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>915</ID1>
-<ID>60.01-</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Flag</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>interpretation</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>186</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.interpretation.coding.code</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.interpretation.coding.code</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>Source unclear; calculated?  IF OUTSIDE OF REF RANGE  (HIGH OR LOW)
-VistA H = HL7 H, High, system = http://hl7.org/fhir/v2/0078
-VistA H* = HL7 HH, Critically high
-VistA L = HL7 L, Low
-VistA L* = HL7 LL, Critically Low
-This appears to be coming from VistA functionality, not file 63</FHIR_x0020_Map_x0020_Comment>
-<May17Source>143</May17Source>
-<priority>230</priority>
-<priorityNote></priorityNote>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>916</ID1>
-<ID>60.01-6</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Units</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<Field_x0020_Name>UNITS</Field_x0020_Name>
-<Field_x0020__x0023_>6</Field_x0020__x0023_>
-<description>UNITS represents such things as grams, number of items per cubic millimeter, or microliter. </description>
-<prompt>ANSWER MUST BE 2-10 CHARACTERS IN LENGTH</prompt>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>value.unit</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>175</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.value.unit</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.value.unit</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>To do: get allowed values &amp; map to UCUM</FHIR_x0020_Map_x0020_Comment>
-<May17Source>144</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>917</ID1>
-<ID>60.01-1</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Ref Range</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<Field_x0020_Name>REFERENCE LOW</Field_x0020_Name>
-<Field_x0020__x0023_>1</Field_x0020__x0023_>
-<description>This is the user entered reference low value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:         low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
-<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>referenceRange.low
-referenceRange.meaning = normal</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>193</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.low
-referenceRange.type.coding.code = normal</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.low
-referenceRange.type.coding.code = normal</R4Map>
-<termMap>0</termMap>
-<May17Source>145</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>918</ID1>
-<ID>60.01-2</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Ref Range</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<Field_x0020_Name>REFERENCE HIGH</Field_x0020_Name>
-<Field_x0020__x0023_>2</Field_x0020__x0023_>
-<description>This is the user entered reference high value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
-<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>referenceRange.hig
-hreferenceRange.meaning = normal</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>194</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.high
-referenceRange.type.coding.code = normal</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.high
-referenceRange.type.coding.code = normal</R4Map>
-<termMap>0</termMap>
-<May17Source>146</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>919</ID1>
-<ID>60.01-3</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Critical Range</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<Field_x0020_Name>CRITICAL LOW</Field_x0020_Name>
-<Field_x0020__x0023_>3</Field_x0020__x0023_>
-<description>This is the user entered critical low value for this test. Used to flag results. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
-<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>referenceRange.low
-referenceRange.meaning = critical</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>193</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.low
-referenceRange.type.coding.code = critical</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.low
-referenceRange.type.coding.code = critical</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>May not need  info provided through flag with a &quot;*&quot;</FHIR_x0020_Map_x0020_Comment>
-<May17Source>147</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>920</ID1>
-<ID>60.01-4</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Critical Range</Data_x0020_Elements>
-<File_x0020_Name>LAB TEST</File_x0020_Name>
-<File_x0020__x0023_>60.01</File_x0020__x0023_>
-<Field_x0020_Name>CRITICAL HIGH</Field_x0020_Name>
-<Field_x0020__x0023_>4</Field_x0020__x0023_>
-<description>This is the user entered critical high value of this test.  Used to flag results. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
-<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
-<path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource property</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>referenceRange.hig
-hreferenceRange.meaning = critical</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>194</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.high
-referenceRange.type.coding.code = critical</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.high
-referenceRange.type.coding.code = critical</R4Map>
-<termMap>0</termMap>
-<May17Source>148</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>922</ID1>
-<ID>63-4:63.04-.99:63.041-.01</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Comments</Data_x0020_Elements>
-<File_x0020_Name>LAB DATA</File_x0020_Name>
-<File_x0020__x0023_>63.041</File_x0020__x0023_>
-<Field_x0020_Name>COMMENTS</Field_x0020_Name>
-<Field_x0020__x0023_>.01</Field_x0020__x0023_>
-<path>pat-rpt-obs-ext</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.richComment</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>237</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.extension.note.text</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.note.text</R4Map>
-<ExtensionIdentifier>extension: RichComment</ExtensionIdentifier>
-<ExtensionExample>&lt;extension url=&quot;http://hl7.org/fhir/4.0/StructureDefinition/extension-Observation.note&quot;&gt;
-    &lt;valueAnnotation&gt;
-        &lt;authorString value=&quot;Dr. Marcus Quinn&quot;/&gt;
-        &lt;text value=&quot;this is a note&quot;/&gt;
-    &lt;/valueAnnotation&gt; 
-&lt;/extension&gt;</ExtensionExample>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>Reviewed by Jay 7/2 - if more than author required then use richAnnotation extension provided by Jay, otherwise use Observation.comment</FHIR_x0020_Map_x0020_Comment>
-<May17Source>150</May17Source>
-<priority>230</priority>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>923</ID1>
-<ID>63-4:63.04-.99:63.041-1</ID>
-<Status>101</Status>
-<RequirementSource>Coversheet</RequirementSource>
-<area>21</area>
-<Data_x0020_Elements>Person making comment</Data_x0020_Elements>
-<File_x0020_Name>LAB DATA</File_x0020_Name>
-<File_x0020__x0023_>63.041</File_x0020__x0023_>
-<Field_x0020_Name>PERSON</Field_x0020_Name>
-<Field_x0020__x0023_>1</Field_x0020__x0023_>
-<path>pat-rpt-obs-ext</path>
-<profile>VAChemLabReportResult</profile>
-<R2_x0020_approach>focal resource extension</R2_x0020_approach>
-<FHIR_x0020_R2_x0020_resource>Observation</FHIR_x0020_R2_x0020_resource>
-<FHIR_x0020_R2_x0020_property>extension.richComment</FHIR_x0020_R2_x0020_property>
-<DSTU2Map>237</DSTU2Map>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.extension.note.authorString</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.note.authorString</R4Map>
-<ExtensionIdentifier>extension: RichComment</ExtensionIdentifier>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>Reviewed by Jay 7/2 - if more than author required then use richAnnotation extension provided by Jay, otherwise use Observation.comment</FHIR_x0020_Map_x0020_Comment>
-<May17Source>151</May17Source>
-<priority>230</priority>
-<priorityNote>comment author not returned by Lab api</priorityNote>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>924</ID1>
@@ -24492,7 +24551,7 @@ activity.coding.code = approve</FHIR_x0020_R2_x0020_property>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
 
-role.text= approve</STU3Map>
+agent.role.text= approve</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent
 role.text= approve
@@ -25587,7 +25646,7 @@ RF:REFILL REQUEST</values>
 16:PROVIDER HOLD
 </values>
 <path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationOrder</profile>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
 <R2_x0020_approach>focal resource extension</R2_x0020_approach>
 <R4_x0020_approach>statusReason</R4_x0020_approach>
 <FHIR_x0020_R2_x0020_resource>MedicationOrder</FHIR_x0020_R2_x0020_resource>
