@@ -21,8 +21,8 @@ Start the Docker image
 Initial setup (get the publisher and optionally the validator and init the node scripts)
 ```
 > cd vha-ampl-fhir-ig
-> curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o org.hl7.fhir.publisher.jar
-> curl -L https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar -o org.hl7.fhir.validator.jar
+> curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar -o publisher.jar
+> curl -L https://github.com/hapifhir/org.hl7.fhir.core/releases/latest/download/validator_cli.jar -o validator_cli.jar
 > cd scripts
 > curl -L http://hl7.org/fhir/STU3/definitions.json.zip -o definitions.json.zip
 > unzip definitions.json.zip -d definitions
@@ -34,7 +34,7 @@ Run the script and IG publisher
 @> cd vha-ampl-fhir-ig/scripts
 @> node vfm2sd.js 2> log.txt
 @> cd ..
-@> java -jar org.hl7.fhir.publisher.jar -ig ig.ini
+@> java -jar publisher.jar -ig ig.ini
 @> http-server output
 ```
 Point you local browser to http://localhost:8080/ to see output!
@@ -50,4 +50,9 @@ Update the project (local)
 ```
 (if local changes) > git stash
 > git pull
+```
+
+Run the FHIR Validator
+```
+@> java -jar validator_cli.jar -version 3.0.2 -ig input/resources {FILE_TO_VALIDATE}
 ```

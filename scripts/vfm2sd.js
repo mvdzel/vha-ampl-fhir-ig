@@ -1,3 +1,4 @@
+const { execSync } = require('child_process');
 const fs = require('fs'),
     xml2js = require('xml2js');
 var xml = new xml2js.Parser();
@@ -163,6 +164,7 @@ lookup_needsExtraTypedPath.push("MedicationRequest.dosageInstruction.timing.repe
 
 //
 // =========================== prepare myig-empty.xml ===========================
+// update revision based on git revision
 //
 let output_myig;
 xml.parseString(fs.readFileSync('input/myig-empty.xml'), function (err, result) {
@@ -170,6 +172,8 @@ xml.parseString(fs.readFileSync('input/myig-empty.xml'), function (err, result) 
 });
 output_myig.ImplementationGuide.definition[0].grouping = [];
 output_myig.ImplementationGuide.definition[0].resource = [];
+var revision = execSync('git rev-list --count HEAD');
+output_myig.ImplementationGuide.version[0].$.value = `0.0.${revision}`.trim();
 
 //
 // =========================== ValueSets ===========================
@@ -361,6 +365,25 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 }
                 // create elementPath based on resource + property (first line only)
                 var fixedElementPath = resourceName + '.' + fixedKey;
+                // special case for ".targetProfile"
+                if (fixedElementPath.endsWith(".targetProfile")) {
+                    fixedElementPath = fixedElementPath.substring(0, fixedElementPath.lastIndexOf('.'));
+                    var element = elementsByPath[profileId][fixedElementPath];
+                    if (element == undefined) {
+                        element = {
+                            path: fixedElementPath,
+                        };
+                        element.mustSupport = true;
+                        elementsByPath[profileId][fixedElementPath] = element;
+                        addDifferentialElement(sd, element, row.ID1);
+                    }
+                    element.type = [ {
+                        code: "Reference",
+                        targetProfile: `${URI_STRUCTUREDEFINITION}${fixedValue}`
+                    } ];
+                    console.warn(`${row.ID1}: INFO: ${profileId} SET targetProfile '${fixedElementPath}'`);
+                    return;
+                }
                 // ASSERT if fixedElementPath is valid
                 if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(fixedElementPath)) {
                     if (/\s/.test(fixedElementPath)) {
@@ -585,7 +608,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     }
 });
 
-// Display myig.xml resource xml part and write profile to file
+// Update myig.xml resource xml part and write profile to file
 profileIds.forEach(profileId => {
     var entry = sds[profileId];
     if (entry.differential.element.length == 0) {
@@ -682,17 +705,14 @@ fs.writeFileSync("../input/myig.xml", builder.buildObject(output_myig));
 //
 function addDifferentialElement(sd, element, row_ID1) {
     var elementPath = element.path;
-    // if (!/^[A-Za-z][A-Za-z0-9]{1,63}(\.[a-z][A-Za-z0-9\-]{1,64}(\[x])?)*$/.test(elementPath)) {
-    //     console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not a valid path`);
-    //     return;
-    // }
     var index = input_fhirProperties_core.fhirProperties.filter(row => row.textkey == elementPath);
     if (index[0]) {
         //console.error(`${row_ID1}: DEBUG: ${sd.name} ${elementPath} ` + index[0].order);
     }
     else {
         console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not an existing path`);
-        return;
+        return false;
     }
     sd.differential.element.push(element);
+    return true;
 }
