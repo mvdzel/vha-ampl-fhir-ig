@@ -1,6 +1,7 @@
 scripts/output
 scripts/node_modules
 scripts/definitions
+input/myig.xml
 input/resources
 output/
 temp/
