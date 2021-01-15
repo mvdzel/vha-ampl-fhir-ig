@@ -283,6 +283,9 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 var parts = propline.split('=');
                 var fixedKey = parts[0].trim();
                 var fixedValue = parts[1].trim().replace(/"/g, ''); // also remove quotes
+                if (!isNaN(fixedValue)) { // convert to number if number so it ends up as a number in the json
+                    fixedValue = Number(fixedValue);
+                }
                 // create elementPath based on resource + property (first line only)
                 var fixedElementPath = resourceName + '.' + fixedKey;
                 // ASSERT if fixedElementPath is valid
@@ -435,11 +438,11 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                         baseDefinition: "http://hl7.org/fhir/StructureDefinition/Extension",
                         derivation: "constraint",
                         abstract: false,
-                        mapping: [
+                        mapping: [ 
                             {
-                            identity: "vista",
-                            name: "VistA",
-                            uri: "http://va.gov/vista/"
+                                identity: "vista",
+                                name: "VistA",
+                                uri: "http://va.gov/vista/"
                             }
                         ],
                         // TODO: figure out kind resource or datatype
@@ -449,14 +452,16 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                         differential: {
                             element: [
                                 {
+                                    // id: "Extension.url",
                                     path: "Extension.url",
-                                    // type: [
-                                    //     { code: "uri" }
-                                    // ],
                                     fixedUri: exturi
                                 },
                                 {
+                                    // id: `Extension.value${exttype}`,
                                     path: `Extension.value${exttype}`,
+                                    type: [
+                                        { code: exttype.substring(0,1).toLowerCase() + exttype.substring(1) }
+                                    ],
                                     mapping: [
                                         { identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` }
                                     ]

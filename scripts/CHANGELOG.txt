@@ -1,3 +1,6 @@
+2021-jan-15
+- vfm2sd.js; convert fixed values to numbers if they are numbers
+
 2021-jan-14
 - vfm2sd.js; generate myig.xml from myig-empty.xml; manual step to copy from part.xml is now obsolete
 - vfm2sd.js; when extension has invalid datatype default to String so ig-publiser doesnot crash on narrative generation
