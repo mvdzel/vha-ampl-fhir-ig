@@ -84,10 +84,6 @@
       <name value="Coversheet Area: Inpatient Orders IV/Clinic Infusions"/>
       <description value="Verified inpatient or clinic IV orders"/>
     </grouping>
-    <grouping id="group-21">
-      <name value="Coversheet Area: Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
-      <description value=""/>
-    </grouping>
     <grouping id="group-23">
       <name value="Coversheet Area: Outpatient Orders"/>
       <description value=""/>
@@ -106,6 +102,10 @@
     </grouping>
     <grouping id="group-12">
       <name value="Coversheet Area: Drug Info"/>
+      <description value=""/>
+    </grouping>
+    <grouping id="group-21">
+      <name value="Coversheet Area: Lab - Chemistry, Hematology, Toxicology, Serology, Radioimmunoassay"/>
       <description value=""/>
     </grouping>
     <grouping id="group-20">
@@ -166,6 +166,60 @@
         <generation value="html"/>
       </page>
     </page>
+    <resource>
+      <reference>
+        <reference value="ValueSet/chemotherapy-order-type"/>
+      </reference>
+      <name value="chemotherapy-order-type"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/iv-order-type"/>
+      </reference>
+      <name value="iv-order-type"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/inpatient-medication-order-type"/>
+      </reference>
+      <name value="inpatient-medication-order-type"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/unit-dose-medication-order-type"/>
+      </reference>
+      <name value="unit-dose-medication-order-type"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/pharmacy-finished-outpatient-order-status"/>
+      </reference>
+      <name value="pharmacy-finished-outpatient-order-status"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/pharmacy-iv-order-status"/>
+      </reference>
+      <name value="pharmacy-iv-order-status"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/pharmacy-pending-inpatient-order-status"/>
+      </reference>
+      <name value="pharmacy-pending-inpatient-order-status"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/pharmacy-pending-outpatient-order-status"/>
+      </reference>
+      <name value="pharmacy-pending-outpatient-order-status"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/pharmacy-unit-dose-order-status"/>
+      </reference>
+      <name value="pharmacy-unit-dose-order-status"/>
+    </resource>
     <resource>
       <reference>
         <reference value="StructureDefinition/VAAllergyIntolerance"/>
@@ -352,6 +406,22 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAProgressNoteOrganization"/>
+      </reference>
+      <name value="VAProgressNoteOrganization"/>
+      <description value=""/>
+      <groupingId value="group-30"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/VAProgressNoteEncounter"/>
+      </reference>
+      <name value="VAProgressNoteEncounter"/>
+      <description value=""/>
+      <groupingId value="group-30"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/patientMovementDate"/>
       </reference>
       <name value="patientMovementDate"/>
@@ -408,17 +478,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAReferralEncounter"/>
+        <reference value="StructureDefinition/VAReferralOrganization"/>
       </reference>
-      <name value="VAReferralEncounter"/>
+      <name value="VAReferralOrganization"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAReferralOrganization"/>
+        <reference value="StructureDefinition/VAReferralOrganization2"/>
       </reference>
-      <name value="VAReferralOrganization"/>
+      <name value="VAReferralOrganization2"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
@@ -432,9 +502,17 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/servicerequest-locationType"/>
+        <reference value="StructureDefinition/VAReferralEncounter"/>
       </reference>
-      <name value="servicerequest-locationType"/>
+      <name value="VAReferralEncounter"/>
+      <description value=""/>
+      <groupingId value="group-10"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/referralrequest-locationType"/>
+      </reference>
+      <name value="referralrequest-locationType"/>
       <description value=""/>
       <groupingId value="group-10"/>
     </resource>
@@ -1488,14 +1566,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/VAChemLabReportResult"/>
-      </reference>
-      <name value="VAChemLabReportResult"/>
-      <description value=""/>
-      <groupingId value="group-21"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/VAInpatientMedicationRequestRenewal"/>
       </reference>
       <name value="VAInpatientMedicationRequestRenewal"/>
@@ -2032,6 +2102,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/VAChemLabReportResult"/>
+      </reference>
+      <name value="VAChemLabReportResult"/>
+      <description value=""/>
+      <groupingId value="group-21"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/VAMicroLabReportSpecimen"/>
       </reference>
       <name value="VAMicroLabReportSpecimen"/>
@@ -2296,51 +2374,11 @@
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/ChemotherapyOrderType"/>
+        <reference value="StructureDefinition/VAAllergyIntoleranceOriginationSite"/>
       </reference>
-      <name value="ChemotherapyOrderType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/IVType"/>
-      </reference>
-      <name value="IVType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/InpatientMedicationScheduleType"/>
-      </reference>
-      <name value="InpatientMedicationScheduleType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/IvMedicationScheduleType"/>
-      </reference>
-      <name value="IvMedicationScheduleType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/MedicationOrderType"/>
-      </reference>
-      <name value="MedicationOrderType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/UnitDoseOrderType"/>
-      </reference>
-      <name value="UnitDoseOrderType"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/OutpatientOrderStatus"/>
-      </reference>
-      <name value="OutpatientOrderStatus"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/OutpatientOrderPriority"/>
-      </reference>
-      <name value="OutpatientOrderPriority"/>
+      <name value="VAAllergyIntoleranceOriginationSite"/>
+      <description value=""/>
+      <groupingId value="group-6"/>
     </resource>
     <resource>
       <reference>

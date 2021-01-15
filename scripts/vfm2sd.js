@@ -93,15 +93,12 @@ input_fhirProperties.fhirProperties.forEach(row => {
         type = type.substring(0,type.indexOf('(')).trim();
     }
     if (row.scope != "core" && row.type != undefined) {
-        // CamelCase type
-        type = type.substring(0,1).toUpperCase() + type.substring(1);
         // Check valid type
         switch(type) {
-            case "Boolean":
+            case "boolean":
             case "Period":
             case "Timing":
             case "Quantity":
-            case "Number":
             case "SimpleQuantity":
             case "Text":
             case "Coding":
@@ -110,24 +107,36 @@ input_fhirProperties.fhirProperties.forEach(row => {
             case "ContactPoint":
             case "Uri":
             case "Attachment":
-            case "Integer":
+            case "integer":
             case "Range":
             case "Ratio":
             case "BackboneElement":
-            case "Code":
-            case "Date":
+            case "code":
+            case "date":
             case "Annotation":
             case "Reference":
-            case "Time":
-            case "String":
-            case "DateTime":
+            case "time":
+            case "string":
+            case "dateTime":
             case "Identifier":
             case "CodeableConcept":
                 break;
+            // case "codeableConcept":
+            //     type = "CodeableConcept";
+            //     break;
+            // case "text":
+            //     type = "Text";
+            //     break;
+            // case "reference":
+            //     type = "Reference";
+            //     break;
+            // case "coding":
+            //     type = "Coding";
+            //     break;
             default:
                 // Default to "String" so IG publisher narrative generator doesnot fail
                 console.error (`ERROR: fhirProperties: invalid type '${type}' for extension ${row.field}`);
-                type = "String";
+                type = "string";
                 break;
         }
 
@@ -161,6 +170,70 @@ xml.parseString(fs.readFileSync('input/myig-empty.xml'), function (err, result) 
 });
 output_myig.ImplementationGuide.definition[0].grouping = [];
 output_myig.ImplementationGuide.definition[0].resource = [];
+
+//
+// =========================== ValueSets ===========================
+//
+var vss;
+xml.parseString(fs.readFileSync('input/ValueSetMembership.xml'), function (err, result) {
+    vss = result.dataroot;
+});
+
+let valuesets = [];
+let valuesetNames = [];
+let valuesetUriById = [];
+
+vss.valueSetMembership_x0020_Query.forEach(row => {
+    var name = row.valueSetName[0];
+    // ASSERT if valuesetname is a valid FHIR id type!
+    if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
+        console.error(`ERROR: ValueSet '${name}' not a valid FHIR id`);
+        return;
+    }
+    var code = row.code[0];
+    var display = row.display[0];
+
+    var valueset = valuesets[name];
+    if (valueset == undefined) {
+        valuesetUriById[row.valueSetID] = `${URI_VALUESET}${name}`;
+        valueset = {
+            resourceType: "ValueSet",
+            id: name,
+            url: `${URI_VALUESET}${name}`,
+            name: name,
+            status: "draft",
+            date: date,
+            compose: {
+                include: [
+                    {
+                        system: "http://va.gov/Terminology/VistaDefinedTerms/",
+                        concept: []
+                    }
+                ]
+            }
+        };
+        valuesets[name] = valueset;
+        valuesetNames.push(name);
+    }
+    valueset.compose.include[0].concept.push({
+        "code": code,
+        "display": display
+    });
+});
+
+// Write the valuesets to separate files
+valuesetNames.forEach(name => {
+    var valueset = valuesets[name];
+    fs.writeFileSync("../input/resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
+});
+
+// Update myig.xml resource xml part
+valuesetNames.forEach(name => {
+    output_myig.ImplementationGuide.definition[0].resource.push ( {
+        reference: {
+            reference: { $: { value: `ValueSet/${name}` }}
+        }, name: { $: { value: name }}});
+});
 
 //
 // =========================== StructureDefinitions ===========================
@@ -423,7 +496,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                 if (sds[extname] == undefined) {
                     var exttype = lookup_typeByExtName[extname];
                     if(exttype == undefined) {
-                        exttype = "String";                    
+                        exttype = "string";                    
                     }
                     console.warn(`${row.ID1}: INFO: create new extension '${extname}' type '${exttype}'`);
                     sds[extname] = {
@@ -458,9 +531,9 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                                 },
                                 {
                                     // id: `Extension.value${exttype}`,
-                                    path: `Extension.value${exttype}`,
+                                    path: "Extension.value" + exttype.substring(0,1).toUpperCase() + exttype.substring(1),
                                     type: [
-                                        { code: exttype.substring(0,1).toLowerCase() + exttype.substring(1) }
+                                        { code: exttype }
                                     ],
                                     mapping: [
                                         { identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` }
@@ -493,6 +566,14 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     if (element.mapping == undefined) {
         element.mapping = [];
     }
+    if (row.valueSet != undefined && valuesetUriById[row.valueSet] != undefined) {
+        element.binding = {
+            strength: "preferred",
+            valueSetReference: {
+                reference: valuesetUriById[row.valueSet]
+            }
+        };
+    }
     element.mapping.push({ identity: "vista", map: `${row.File_x0020_Name} @${row.Field_x0020_Name} ${row.ID}` });
     if (row.description != undefined) {
         element.definition = row.description[0].trim();
@@ -523,68 +604,6 @@ profileIds.forEach(profileId => {
     });
     delete entry.groupingId;
     fs.writeFileSync("../input/resources/StructureDefinition-" + profileId + ".json", JSON.stringify(entry, null, 2));
-});
-
-//
-// =========================== ValueSets ===========================
-//
-var vss;
-xml.parseString(fs.readFileSync('input/ValueSetMembership.xml'), function (err, result) {
-    vss = result.dataroot;
-});
-
-let valuesets = [];
-let valuesetNames = [];
-
-vss.ValueSetMembership_x0020_Query.forEach(row => {
-    var name = row.valueSetName[0];
-    // ASSERT if profileId is a valid FHIR id type!
-    if (!/^[A-Za-z0-9\-\.]{1,64}$/.test(name)) {
-        console.error(`ERROR: ValueSet '${name}' not a valid FHIR id`);
-        return;
-    }
-    var code = row.code[0];
-    var display = row.display[0];
-
-    var valueset = valuesets[name];
-    if (valueset == undefined) {
-        valueset = {
-            resourceType: "ValueSet",
-            id: name,
-            url: `${URI_VALUESET}${name}`,
-            name: name,
-            status: "draft",
-            date: date,
-            compose: {
-                include: [
-                    {
-                        system: "http://va.gov/Terminology/VistaDefinedTerms/",
-                        concept: []
-                    }
-                ]
-            }
-        };
-        valuesets[name] = valueset;
-        valuesetNames.push(name);
-    }
-    valueset.compose.include[0].concept.push({
-        "code": code,
-        "display": display
-    });
-});
-
-// Write the valuesets to separate files
-valuesetNames.forEach(name => {
-    var valueset = valuesets[name];
-    fs.writeFileSync("../input/resources/ValueSet-" + name + ".json", JSON.stringify(valueset, null, 2));
-});
-
-// Display myig.xml resource xml part
-valuesetNames.forEach(name => {
-    output_myig.ImplementationGuide.definition[0].resource.push ( {
-        reference: {
-            reference: { $: { value: `ValueSet/${name}` }}
-        }, name: { $: { value: name }}});
 });
 
 //
@@ -645,7 +664,7 @@ conceptmapNames.forEach(name => {
     fs.writeFileSync("../input/resources/ConceptMap-" + name + ".json", JSON.stringify(conceptmap, null, 2));
 });
 
-// Display myig.xml resource xml part
+// Update myig.xml resource xml part
 conceptmapNames.forEach(name => {
     output_myig.ImplementationGuide.definition[0].resource.push ( {
         reference: {
