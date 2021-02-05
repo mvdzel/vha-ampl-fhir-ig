@@ -3,11 +3,11 @@
 - vfm2sd.js; added support for Vista_FHIR_Map.valuesset -> element valueset binding
 - vfm2sd.js; added type to extensions and fixed casing of types
 - vfm2sd.js; added constraining of targetProfile support for chained profiles
-- vfm2sd.js; update myig version value to git revision
+- vfm2sd.js; update myig.xml version value to git revision
 
 2021-jan-14
 - vfm2sd.js; generate myig.xml from myig-empty.xml; manual step to copy from part.xml is now obsolete
-- vfm2sd.js; when extension has invalid datatype default to String so ig-publiser doesnot crash on narrative generation
+- vfm2sd.js; when extension has invalid datatype default to string so ig-publiser doesnot crash on narrative generation
 
 2021-jan-08
 - fhirprops.js; added Meta because is it used

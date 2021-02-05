@@ -122,18 +122,6 @@ input_fhirProperties.fhirProperties.forEach(row => {
             case "Identifier":
             case "CodeableConcept":
                 break;
-            // case "codeableConcept":
-            //     type = "CodeableConcept";
-            //     break;
-            // case "text":
-            //     type = "Text";
-            //     break;
-            // case "reference":
-            //     type = "Reference";
-            //     break;
-            // case "coding":
-            //     type = "Coding";
-            //     break;
             default:
                 // Default to "String" so IG publisher narrative generator doesnot fail
                 console.error (`ERROR: fhirProperties: invalid type '${type}' for extension ${row.field}`);
@@ -424,8 +412,9 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     fixedElement[`fixed${fixedType}`] = fixedValue;
                     fixedElement.mustSupport = true;
                     elementsByPath[profileId][fixedElementPath] = fixedElement;
-                    addDifferentialElement(sd, fixedElement, row.ID1);
-                    console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value '${fixedElementPath}'`);
+                    if (addDifferentialElement(sd, fixedElement, row.ID1)) {
+                        console.warn(`${row.ID1}: INFO: ${profileId} ADD fixed value '${fixedElementPath}'`);
+                    }
                 }
                 else {
                     console.warn(`${row.ID1}: WARN: ${profileId} MULTIPLE fixed values for '${fixedElementPath}'?`);
