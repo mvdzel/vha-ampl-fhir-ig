@@ -75,11 +75,11 @@
     <resource/>
 <parameter>
 <code value="releaselabel"/>
-<value value="CI Build"/>
+<value value="draft"/>
 </parameter>
 <parameter>
 <code value="copyrightyear"/>
-<value value="2020"/>
+<value value="2021"/>
 </parameter>
   </definition>
 </ImplementationGuide>

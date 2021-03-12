@@ -1,3 +1,10 @@
+2021-mar-12
+- vfm2sd.js; valueset binding done in extension definition when it is an extension
+- vfm2sd.js; extension type to CodeableConcept when binding present
+
+2021-feb-05
+- vfm2sd.js; de-duplicate extension.context
+
 2021-jan-15
 - vfm2sd.js; convert fixed values to numbers if they are numbers
 - vfm2sd.js; added support for Vista_FHIR_Map.valuesset -> element valueset binding

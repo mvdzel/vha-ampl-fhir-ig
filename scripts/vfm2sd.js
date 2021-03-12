@@ -510,6 +510,10 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     if(exttype == undefined) {
                         exttype = "string";                    
                     }
+                    // Assume CodeableConcept if valueSet specified 
+                    if (row.valueSet != undefined) {
+                        exttype = "CodeableConcept";
+                    }
                     console.warn(`${row.ID1}: INFO: create new extension '${extname}' type '${exttype}'`);
                     sds[extname] = {
                         resourceType: "StructureDefinition",
@@ -558,9 +562,19 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     if (row.description != undefined) {
                         sds[extname].description = row.description[0].trim();
                     }
+                    if (row.valueSet != undefined && valuesetUriById[row.valueSet] != undefined) {
+                        sds[extname].differential.element[1].binding = {
+                            strength: "preferred",
+                            valueSetReference: {
+                                reference: valuesetUriById[row.valueSet]
+                            }
+                        };
+                    }
                     profileIds.push(extname);
                 }
-                sds[extname].context.push(resourceName);
+                if (sds[extname].context.indexOf(resourceName) == -1) {
+                    sds[extname].context.push(resourceName);
+                }
             }
         }
         else {
@@ -578,7 +592,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     if (element.mapping == undefined) {
         element.mapping = [];
     }
-    if (row.valueSet != undefined && valuesetUriById[row.valueSet] != undefined) {
+    // Only add valueSet binding when not an Extension element, Extension valueSet binding is in the Extension
+    if (!element.path.endsWith(".extension") && row.valueSet != undefined && valuesetUriById[row.valueSet] != undefined) {
         element.binding = {
             strength: "preferred",
             valueSetReference: {
