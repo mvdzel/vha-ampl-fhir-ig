@@ -21,8 +21,8 @@ if (!fs.existsSync("input/")) {
     console.error("Expecting xml files (Access xml exports) in the script/input folder");
     return;
 }
-if (!fs.existsSync("../input/resources/")) {
-    fs.mkdirSync('../input/resources/');
+if (!fs.existsSync("output/")) {
+    fs.mkdirSync('output/');
 }
 
 //
