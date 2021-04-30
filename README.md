@@ -15,7 +15,7 @@ Build the Docker image
 
 Start the Docker image
 ```
-> docker run -it -v /home/michael/eclipse-workspace/vha-ampl-fhir-ig:/home/node/vha-ampl-fhir-ig -p 8080:8080 vha-ampl-fhir-ig
+> docker run -it -v "$(pwd)":/home/node/vha-ampl-fhir-ig -p 8080:8080 vha-ampl-fhir-ig
 ```
 
 Initial setup (get the publisher and optionally the validator and init the node scripts)
@@ -33,6 +33,7 @@ Run the script and IG publisher
 ```
 @> cd vha-ampl-fhir-ig/scripts
 @> node vfm2sd.js 2> log.txt
+@> node fixorder.js
 @> cd ..
 @> java -jar publisher.jar -ig ig.ini
 @> http-server output
@@ -42,6 +43,7 @@ Point you local browser to http://localhost:8080/ to see output!
 # Misc
 
 Generate fhirProps.xml from fhir definitions http://hl7.org/fhir/STU3/definitions.json.zip
+Needed for vfm2sd.js and fixorder.js.
 ```
 @> node fhirprops.js > fhirProps.xml 2> log3.txt
 ```

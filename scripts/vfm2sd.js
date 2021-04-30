@@ -541,12 +541,12 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                         differential: {
                             element: [
                                 {
-                                    // id: "Extension.url",
+                                    id: "Extension.url",
                                     path: "Extension.url",
                                     fixedUri: exturi
                                 },
                                 {
-                                    // id: `Extension.value${exttype}`,
+                                    id: "Extension.value" + exttype.substring(0,1).toUpperCase() + exttype.substring(1),
                                     path: "Extension.value" + exttype.substring(0,1).toUpperCase() + exttype.substring(1),
                                     type: [
                                         { code: exttype }
@@ -579,6 +579,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         }
         else {
             element = elementsByPath[profileId][elementPath] = {
+                id: elementPath,
                 path: elementPath
             };
         }
