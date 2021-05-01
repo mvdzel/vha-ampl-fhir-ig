@@ -1,3 +1,10 @@
+2021-mei-01
+- vfm2sd.js; [x] elements needed type info for Forge
+
+2021-apr-30
+- vfm2sd.js; moved output for fixorder.js
+- fixorder.js; implemented algorithm for fixing the order of differential elements
+
 2021-mar-12
 - vfm2sd.js; valueset binding done in extension definition when it is an extension
 - vfm2sd.js; extension type to CodeableConcept when binding present

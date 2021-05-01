@@ -70,9 +70,9 @@ function fixOrder(filename) {
         console.log("Fixing element order only: " + filename);
     }
 
-    // Call validator
-    var result = fhir.validate(resource);
-    console.log("Basic validate result: " + result);
+    // Call validator optional
+    //var result = fhir.validate(resource);
+    //console.log("Basic validate result: " + JSON.stringify(result));
 
     // Fix element order
     var xml = fhir.objToXml(resource);

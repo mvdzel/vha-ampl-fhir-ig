@@ -58,3 +58,7 @@ Run the FHIR Validator
 ```
 @> java -jar validator_cli.jar -version 3.0.2 -ig input/resources {FILE_TO_VALIDATE}
 ```
+or
+```
+@> java -jar ~/vha-ampl-fhir-ig/validator_cli.jar -version 3.0.2 -output validation-output.json StructureDefinition-VAFinishedOutpatientMedicationDispense.json -ig .
+```
