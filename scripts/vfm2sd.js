@@ -325,6 +325,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         elementsByPath[profileId] = [];
         // AUTO add slicing setup for extension
         addDifferentialElement(sd, {
+            id: `${resourceName}.extension`,
             path: `${resourceName}.extension`,
             slicing: {
                 discriminator: [ {
@@ -359,7 +360,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     var element = elementsByPath[profileId][fixedElementPath];
                     if (element == undefined) {
                         element = {
-                            path: fixedElementPath,
+                            id: fixedElementPath,
+                            path: fixedElementPath
                         };
                         element.mustSupport = true;
                         elementsByPath[profileId][fixedElementPath] = element;
@@ -407,6 +409,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                         return;
                     }
                     fixedElement = {
+                        id: fixedElementPath,
                         path: fixedElementPath
                     };
                     fixedElement[`fixed${fixedType}`] = fixedValue;
@@ -458,6 +461,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     console.warn(`${row.ID1}: WARN: ${profileId} AUTO add type path '${extraTypedPath}'`);
                     if (elementsByPath[profileId][extraTypedPath] == undefined) {
                         var extraElement = elementsByPath[profileId][extraTypedPath] = {
+                            id: extraTypedPath,
                             path: extraTypedPath,
                             type: [ { code: lookup_typeByPath[extraTypedPath] } ]
                         };
