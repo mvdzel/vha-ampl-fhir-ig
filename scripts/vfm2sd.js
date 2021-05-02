@@ -79,6 +79,13 @@ input_fhirProperties_core.fhirProperties.forEach(row => {
     if (resourceNames.indexOf(row.resource[0]) == -1) {
         resourceNames.push(row.resource[0]);
     }
+    var textkey = row.textkey[0];
+    if (textkey.endsWith("[x]")) {
+        var extraPath = textkey.substring(0, textkey.indexOf('['));
+        if (!lookup_needsExtraTypedPath.includes(extraPath)) {
+            lookup_needsExtraTypedPath.push(extraPath);
+        }
+    }
 });
 
 // process fhirProperties (not core) into different lookup tables
@@ -139,16 +146,7 @@ input_fhirProperties.fhirProperties.forEach(row => {
             }
         }
     }
-    var textkey = row.textkey[0];
-    if (textkey.endsWith("[x]")) {
-        var extraPath = textkey.substring(0, textkey.indexOf('['));
-        if (!lookup_needsExtraTypedPath.includes(extraPath)) {
-            lookup_needsExtraTypedPath.push(extraPath);
-        }
-    }
 });
-// missing from fhirProperties so added manually
-lookup_needsExtraTypedPath.push("MedicationRequest.dosageInstruction.timing.repeat.bounds");
 
 //
 // =========================== prepare myig-empty.xml ===========================

@@ -1,5 +1,6 @@
 2021-mei-02
 - vfm2sd.js; fixed duplicate extension id
+- vfm2sd.js; fixed need extra type path (now read from core!)
 
 2021-mei-01
 - vfm2sd.js; [x] elements needed type info for Forge
