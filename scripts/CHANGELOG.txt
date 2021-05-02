@@ -1,5 +1,9 @@
+2021-mei-02
+- vfm2sd.js; fixed duplicate extension id
+
 2021-mei-01
 - vfm2sd.js; [x] elements needed type info for Forge
+- vfm2sd.js; all elements need id for validator
 
 2021-apr-30
 - vfm2sd.js; moved output for fixorder.js

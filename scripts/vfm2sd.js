@@ -323,20 +323,21 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     // create element path array for profile if not already created
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
-        // AUTO add slicing setup for extension
-        addDifferentialElement(sd, {
-            id: `${resourceName}.extension`,
-            path: `${resourceName}.extension`,
-            slicing: {
-                discriminator: [ {
-                        "type": "value",
-                        "path": "url"
-                    }
-                ],
-                ordered: false,
-                rules: "open"
-            }
-        }, row.ID1);
+        // This causes <resourceName>.extension duplication id in validator?? Snapshot generator adds this one also??
+        // // AUTO add slicing setup for extension
+        // addDifferentialElement(sd, {
+        //     id: `${resourceName}.extension`,
+        //     path: `${resourceName}.extension`,
+        //     slicing: {
+        //         discriminator: [ {
+        //                 "type": "value",
+        //                 "path": "url"
+        //             }
+        //         ],
+        //         ordered: false,
+        //         rules: "open"
+        //     }
+        // }, row.ID1);
     }
 
     // proces fixed values
