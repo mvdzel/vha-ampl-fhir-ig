@@ -321,7 +321,8 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
     // create element path array for profile if not already created
     if (elementsByPath[profileId] == undefined) {
         elementsByPath[profileId] = [];
-        // This causes <resourceName>.extension duplication id in validator?? Snapshot generator adds this one also??
+        // This causes <resourceName>.extension duplication id in validator.
+        // Snapshot generator add this from the base resource, so no need for this.
         // // AUTO add slicing setup for extension
         // addDifferentialElement(sd, {
         //     id: `${resourceName}.extension`,
