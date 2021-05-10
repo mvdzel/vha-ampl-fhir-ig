@@ -84,11 +84,11 @@ readInterface.on('line', function(line) {
                     currentField.description += value + " ";
                 }
                 break;
-	    case undefined:
+	        case undefined:
                 var parts3 = value.split('^');
                 currentField.name = parts3[0];
-		currentField.name = parts3[0];
-		break;
+		        currentField.name = parts3[0];
+		        break;
         }
     }
 });
