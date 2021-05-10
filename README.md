@@ -62,3 +62,9 @@ or
 ```
 @> java -jar ~/vha-ampl-fhir-ig/validator_cli.jar -version 3.0.2 -output validation-output.json StructureDefinition-VAFinishedOutpatientMedicationDispense.json -ig .
 ```
+
+Convert VistA Data Dictionary to csv (DD.zwr)
+```
+@> curl -L https://github.com/shabiel/VistA-M/raw/master/Packages/VA%20FileMan/Globals/DD.zwr -o /tmp/DD.zwr
+@> node dd2csv.js > /tmp/dd.csv
+```

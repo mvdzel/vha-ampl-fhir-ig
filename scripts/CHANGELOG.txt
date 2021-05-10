@@ -1,3 +1,6 @@
+2021-mei-10
+- dd2csv.js; added
+
 2021-mei-07
 - testoutput.js; initial
 
