@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2021-01-15T14:29:16">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2021-05-14T15:01:19">
 <VistA_FHIR_Map>
 <ID1>1</ID1>
 <ID>120.8-.01</ID>
@@ -33,7 +33,7 @@
 <STU3Map>verificationStatus</STU3Map>
 <R4Resource>AllergyIntolerance</R4Resource>
 <R4Map>verificationStatus</R4Map>
-<termMap>0</termMap>
+<termMap>1</termMap>
 <FHIR_x0020_Map_x0020_Comment>&quot;1&quot; (verified=yes) =&gt; &quot;confirmed&quot;
 &quot;0&quot; (verified=no) =&gt; &quot;unconfirmed&quot;
 
@@ -1817,7 +1817,7 @@ O:outpatient
 <prompt>Type The Place Of Consultation: Bedside, Consultant&apos;s Choice, On Call, Emergency Room, EKG Lab.</prompt>
 <path>pt-request-enc</path>
 <profile>VAReferralEncounter</profile>
-<STU3Resource>ReferralRequest</STU3Resource>
+<STU3Resource>Encounter</STU3Resource>
 <STU3Map>extension.referralrequest-locationType</STU3Map>
 <R4Resource>ServiceRequest</R4Resource>
 <R4Map>extension.servicerequest-locationType</R4Map>
@@ -2234,19 +2234,11 @@ B:BOOSTER
 <path>pt-immunization</path>
 <profile>VAImmunization</profile>
 <STU3Resource>Immunization</STU3Resource>
-<STU3Map>reaction.detail.code.coding.code
-reaction.detail.code.coding.value
-reaction.detail.code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/900010.11-.06
-
-reaction.detail.valueCodeableConcept.coding.code = Y
-reaction.detail.valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136</STU3Map>
+<STU3Map>reaction.detail
+reaction.detail.targetProfile = VAImmunizationReaction</STU3Map>
 <R4Resource>Immunization</R4Resource>
-<R4Map>reaction.detail.code.coding.code
-reaction.detail.code.coding.value
-reaction.detail.code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/900010.11-.06
-
-reaction.detail.valueCodeableConcept.coding.code = Y
-reaction.detail.valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136</R4Map>
+<R4Map>reaction.detail
+reaction.detail.targetProfile = VAImmunizationReaction</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -2712,12 +2704,11 @@ Future: unclear whether we can support http://hl7.org/fhir/us/core/StructureDefi
 <path>pt-ext</path>
 <profile>VAPatient</profile>
 <STU3Resource>Patient</STU3Resource>
-<STU3Map>extension.selfIdentifiedGender
-extension.selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</STU3Map>
+<STU3Map>extension.patient-genderIdentity
+extension.patient-selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</STU3Map>
 <R4Resource>Patient</R4Resource>
-<R4Map>extension.selfIdentifiedGender
-extension.selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</R4Map>
-<ExtensionIdentifier>http://va.gov/fhir/StructureDefinition/patient-selfIdentifiedGender</ExtensionIdentifier>
+<R4Map>extension.patient-genderIdentity
+extension.patient-selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedTerms/2-.024</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>&apos;M&apos; FOR Male;
 &apos;F&apos; FOR Female;
@@ -2738,11 +2729,11 @@ extension.selfIdentifiedGender.system = 	http://va.gov/terminology/vistaDefinedT
 <path>pt-ext</path>
 <profile>VAPatient</profile>
 <STU3Resource>Patient</STU3Resource>
-<STU3Map>extension.defaultPrescriptionStatus
-system = 	http://va.gov/terminology/vistaDefinedTerms/55-3</STU3Map>
+<STU3Map>extension.patient-defaultPrescriptionStatus
+extension.patient-defaultPrescriptionStatus.coding.system = 	http://va.gov/terminology/vistaDefinedTerms/55-3</STU3Map>
 <R4Resource>Patient</R4Resource>
-<R4Map>extension.defaultPrescriptionStatus
-system = 	http://va.gov/terminology/vistaDefinedTerms/55-3</R4Map>
+<R4Map>extension.patient-defaultPrescriptionStatus
+extension.patient-defaultPrescriptionStatus.coding.system = 	http://va.gov/terminology/vistaDefinedTerms/55-3</R4Map>
 <ExtensionIdentifier>http://va.gov/fhir/StructureDefinition/patient-defaultPrescriptionStatus</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>specific to pharmacy</FHIR_x0020_Map_x0020_Comment>
@@ -3270,12 +3261,12 @@ address.use = temp</R4Map>
 <path>pt</path>
 <profile>VAPatient</profile>
 <STU3Resource>Patient</STU3Resource>
-<STU3Map>extension.emergencyResponseCohort
-extension.emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</STU3Map>
+<STU3Map>extension.patient-emergencyResponseCohort
+extension.patient-emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</STU3Map>
 <R4Resource>Patient</R4Resource>
-<R4Map>extension.emergencyResponseCohort
-extension.emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</R4Map>
-<ExtensionIdentifier></ExtensionIdentifier>
+<R4Map>extension.patient-emergencyResponseCohort
+extension.patient-emergencyResponseCohort.coding.system=http://va.gov/terminology/vistaDefinedTerms/2-.181</R4Map>
+<ExtensionIdentifier>http://va.gov/fhir/structuredefinition/patient-emergencyResponseCohort</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -3807,12 +3798,12 @@ contact.relationship.coding.system=http://va.gov/terminology/vistaDefinedTerms/2
 <path>pt-encounter</path>
 <profile>VACurrentEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>location.location.identifier
-location.location.physicalType.coding.code = wa
-location.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</STU3Map>
+<STU3Map>location.location.display
+location.extension.physicalType.coding.code = wa
+location.extension.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</STU3Map>
 <R4Resource>Encounter</R4Resource>
-<R4Map>location.location.identifier
-location.location.physicalType.coding.code = wa
+<R4Map>location.location.display
+location.physicalType.coding.code = wa
 location.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <termMap>0</termMap>
@@ -3830,14 +3821,14 @@ location.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location
 <path>pt-encounter</path>
 <profile>VACurrentEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>location.location.identifier
-location.location.physicalType.coding.code = bd
-location.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</STU3Map>
+<STU3Map>location.location.display
+location.extension.extension-Encounter.location.physicalType.coding.code = bd
+location.extension-Encounter.location.physicalType.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</STU3Map>
 <R4Resource>Encounter</R4Resource>
-<R4Map>location.location.identifier
-location.location.physicalType.coding.code = bd
+<R4Map>location.location.display
+location.physicalType.coding.code = bd
 location.physicalType.coding.system = http://hl7.org/fhir/STU3/valueset-location-physical-type.html</R4Map>
-<ExtensionIdentifier></ExtensionIdentifier>
+<ExtensionIdentifier>http://hl7.org/fhir/4.0/StructureDefinition/extension-Encounter.location.physicalType</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -3881,12 +3872,13 @@ status = final</R4Map>
 <path>pt-observation</path>
 <profile>VAPatientServiceConnectionObservation</profile>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>valueQuantity.value
-valueQuantity.unit = %
-valueQuantity.code = %
-code.coding.code = 2-.302
-code.coding.system = http://va.gov/terminology/vistaDefinedElements
-status = final</STU3Map>
+<STU3Map>component.valueQuantity.value
+component.valueQuantity.unit = %
+component.valueQuantity.code = %
+component.code.coding.code = 2-.302
+component.code.coding.system = http://va.gov/terminology/vistaDefinedElements
+code.coding.code = 2-.301
+code.coding.system = http://va.gov/terminology/vistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>option
 component.valueQuantity.value
@@ -3967,14 +3959,14 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-2
-component.code.coding.value = 2.04-2
+component.code.coding.code = 2.04-2
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-2
-component.code.coding.value = 2.04-2
+component.code.coding.code = 2.04-2
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
@@ -4020,9 +4012,13 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <path>pt-appt</path>
 <profile>VAPatientAppointment</profile>
 <STU3Resource>Appointment</STU3Resource>
-<STU3Map>participant.actor</STU3Map>
+<STU3Map>participant.actor
+participant.actor.targetProfile = VAPatient
+participant.status = accepted</STU3Map>
 <R4Resource>Appointment</R4Resource>
-<R4Map>participant.actor</R4Map>
+<R4Map>participant.actor
+participant.actor.targetProfile = VAPatient
+participant.status = accepted</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>location</FHIR_x0020_Map_x0020_Comment>
@@ -4050,7 +4046,7 @@ appointment. This field is set automatically by the scheduling module and must N
 <STU3Map>status</STU3Map>
 <R4Resource>Appointment</R4Resource>
 <R4Map>status</R4Map>
-<termMap>0</termMap>
+<termMap>1</termMap>
 <FHIR_x0020_Map_x0020_Comment>C - CANCELLED BY CLINIC	cancelled
 CA - CANCELLED BY CLINIC &amp; AUTO RE-BOOK	cancelled
 N - NO-SHOW	noshow
@@ -4139,9 +4135,11 @@ participant.type.coding.system=http://hl7.org/fhir/ValueSet/encounter-participan
 <path>pt-careTeam</path>
 <profile>VACareTeam</profile>
 <STU3Resource>CareTeam</STU3Resource>
-<STU3Map>name</STU3Map>
+<STU3Map>name
+subject.targetProfile = VAPatient</STU3Map>
 <R4Resource>CareTeam</R4Resource>
-<R4Map>name</R4Map>
+<R4Map>name
+subject.targetProfile = VAPatient</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -4209,9 +4207,10 @@ participant.type.coding.system=http://hl7.org/fhir/ValueSet/encounter-participan
 <path>pt-encounter</path>
 <profile>VACurrentEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>period.start</STU3Map>
+<STU3Map>identifier
+subject.targetProfile = VAPatient</STU3Map>
 <R4Resource>Encounter</R4Resource>
-<R4Map>period.start</R4Map>
+<R4Map>identifier</R4Map>
 <ExtensionIdentifier></ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -4929,7 +4928,7 @@ component.code.coding.system = http://va.gov/terminology/vistaDefinedElements</R
 <description>For this veteran applicant enter &apos;Y&apos; if s/he actually served in the Republic of Vietnam, &apos;N&apos; if not, or &apos;U&apos; if unknown.  Once the service record has been verified only users who hold the designated security key may enter/edit this field. </description>
 <prompt>Enter &apos;Y&apos; if this patient served in Vietnam, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[1]</profile>
+<profile>VAVNServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -4956,7 +4955,7 @@ status = final</R4Map>
 <description>For this veteran applicant who served in the Republic of Vietnam (DID YOU SERVE IN VIETNAM prompt must be answered YES) enter the date on which service in vietnam commenced [between February 28, 1961 and May 7, 1975]. Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as Vietnam service is indicated this date may not be deleted.                                 </description>
 <prompt>Enter the date this patient commenced service in the Republic of Vietnam.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[1]</profile>
+<profile>VAVNServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.32101</STU3Map>
@@ -4975,7 +4974,7 @@ code.coding.code = 2-.32101</R4Map>
 <description>For this veteran applicant who served in the Republic of Vietnam (DID YOU SERVE IN VIETNAM prompt must be answered YES) enter the date on which service in Vietnam ended [between February 28, 1961 and May 7, 1975]. Once the service record is verified only user who hold the designated security key may enter/edit this field.  As long as Vietnam service is indicated this date may not be deleted. </description>
 <prompt>Enter the date this patient ended service in the Republic of Vietnam.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[1]</profile>
+<profile>VAVNServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.32101</STU3Map>
@@ -4994,7 +4993,7 @@ code.coding.code = 2-.32101</R4Map>
 <description>Did this patient serve in Lebanon between the dates of August 23, 1982 and February 26, 1984? </description>
 <prompt>Did this veteran serve in Lebanon during the conflict there?</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[2]</profile>
+<profile>VALebServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5021,7 +5020,7 @@ status = final</R4Map>
 <description>For this veteran applicant who served in Lebanon, enter the date which the applicant&apos;s service in Lebanon began.  The date must be on or after October 1, 1983. . </description>
 <prompt>TYPE A DATE AFTER OCTOBER 1, 1983 TO INDICATE THE DATE THIS PATIENT BEGAN HIS SERVICE IN LEBANON</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[2]</profile>
+<profile>VALebServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.3221</STU3Map>
@@ -5040,7 +5039,7 @@ code.coding.code = 2-.3221</R4Map>
 <description>For this patient, enter the date the patient&apos;s service in Lebanon ended. The &apos;LEBANON SERVICE INDICATED?&apos; field must be answered yes and the date in this field must be after October 1, 1983. </description>
 <prompt>TYPE A DATE AFTER OCTOBER 1, 1983 INDICATING THE DATE THIS PATIENT&apos;S SERVICE IN LEBANON ENDED.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[2]</profile>
+<profile>VALebServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.3221</STU3Map>
@@ -5059,7 +5058,7 @@ code.coding.code = 2-.3221</R4Map>
 <description>Enter yes if this patient served in Grenada between the dates of October 23, 1983 and November 21, 1983. </description>
 <prompt>If this patient served during the conflict in Grenada, enter YES here.  Enter NO if the patient did not serve in Grenada, or UNKNOWN if this can not be determined.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[3]</profile>
+<profile>VAGreServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5086,7 +5085,7 @@ status = final</R4Map>
 <description>Enter the date which this patient began service in Grenada.  The &apos;GRENADA SERVICE INDICATED?&apos; field must be answered YES and the date entered here must be between October 23, 1983 and November 21, 1983. </description>
 <prompt>TYPE A DATE BETWEEN 10/23/1983 AND 11/21/1983 INDICATING THE DATE THIS PATIENT&apos;S SERVICE IN GRENADA BEGAN.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[3]</profile>
+<profile>VAGreServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.322</STU3Map>
@@ -5105,7 +5104,7 @@ code.coding.code = 2-.322</R4Map>
 <description>Enter the date which this patient&apos;s service in Grenada ended.  The &apos;GRENADA SERVICE INDICATED?&apos; field must be yes and this date must be between October 23, 1983 and November 21, 1983. </description>
 <prompt>TYPE A DATE BETWEEN 10/23/1983 AND 11/21/1983 INDICATING THE DATE THE PATIENT&apos;S SERVICE IN GRENADA ENDED.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[3]</profile>
+<profile>VAGreServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.322</STU3Map>
@@ -5124,7 +5123,7 @@ code.coding.code = 2-.322</R4Map>
 <description>Respond yes if this patient served in Panama between the dates of December 20, 1989 and January 31, 1990.  Enter no if the patient did not serve in Panama during this timeframe.  Otherwise, enter unknown if this information could not be obtained from the patient. </description>
 <prompt>Did this patient serve in the conflict in Panama?  Answer YES, NO, or UNKNOWN.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[4]</profile>
+<profile>VAPanServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5151,7 +5150,7 @@ status = final</R4Map>
 <description>If this patient served in Panama (PANAMA SERVICE INDICATED? is answered YES), enter the date this patient&apos;s service in Panama began.  The date must be between December 20, 1989 and January 31, 1990. </description>
 <prompt>TYPE A DATE BETWEEN 12/20/1989 AND 1/31/1990 INDICATING THE DATE THIS PATIENT BEGAN SERVICE IN PANAMA.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[4]</profile>
+<profile>VAPanServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.3227</STU3Map>
@@ -5170,7 +5169,7 @@ code.coding.code = 2-.3227</R4Map>
 <description>If this patient served during the conflict in Panama (PANAMA SERVICE INDICATED? is YES), enter the date the patient&apos;s service there ended. The date must be between December 20, 1989 and January 31, 1990. </description>
 <prompt>TYPE A DATE BETWEEN 12/20/1989 AND 1/31/1990 INDICATING THE DATE THIS PATIENT&apos;S SERVICE IN PANAMA ENDED.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[4]</profile>
+<profile>VAPanServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.3227</STU3Map>
@@ -5189,7 +5188,7 @@ code.coding.code = 2-.3227</R4Map>
 <description>If this patient served in the Persian Gulf during the war (anytime after August 2, 1990), enter yes here.  If the patient did not serve in the Persian Gulf during this timeframe, enter no.  Enter unknown if this information could not be obtained from the patient. </description>
 <prompt>Did this patient serve in the Persian Gulf War?  Answer yes, no, or unknown.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[5]</profile>
+<profile>VAPGServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5216,7 +5215,7 @@ status = final</R4Map>
 <description>If this patient served in the Persian Gulf during the war (PERSIAN GULF SERVICE? is answered YES), respond with the date the patient began serving there.  The date must be on or after August 2, 1990. </description>
 <prompt>TYPE A DATE BETWEEN 8/2/1990 AND TODAY INDICATING THE DATE THIS PATIENT BEGAN SERVING IN THE PERSIAN GULF.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[5]</profile>
+<profile>VAPGServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.32201</STU3Map>
@@ -5236,7 +5235,7 @@ code.coding.code = 2-.32201</R4Map>
 1990.</description>
 <prompt>Enter the date this patient&apos;s service in the Persian Gulf ended. Date must either be null or in the past.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[5]</profile>
+<profile>VAPGServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.32201</STU3Map>
@@ -5255,7 +5254,7 @@ code.coding.code = 2-.32201</R4Map>
 <description>If this patient served in the Somalia, enter yes here.  If the patient  did not serve in Somalia, enter no. Enter unknown if this information  could not be obtained from the patient. </description>
 <prompt>Did this patient serve in Somalia?</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[6]</profile>
+<profile>VASomServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5282,7 +5281,7 @@ status = final</R4Map>
 <description>If this patient served in Somalia (SOMALIA SERVICE INDICATED? is  answered YES), enter the date this patient&apos;s service in Somalia began.  This date must be on or after September 28, 1992. </description>
 <prompt>Enter the date veteran&apos;s service in Somalia began.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[6]</profile>
+<profile>VASomServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.322016</STU3Map>
@@ -5301,7 +5300,7 @@ code.coding.code = 2-.322016</R4Map>
 <description>This is the last date of service in Somalia.  This date must be on or  after September 28, 1992. </description>
 <prompt>Enter the date veteran&apos;s service in Somalia ended.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[6]</profile>
+<profile>VASomServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.322016</STU3Map>
@@ -5320,7 +5319,7 @@ code.coding.code = 2-.322016</R4Map>
 <description>Field stores code indicating if patient served in the Yugolslavia Conflict. </description>
 <prompt>Respond yes if patient served in the Kosovo Conflict (the airspace above and the adjacent waters of the Republic of Yugoslavia (Serbia/Montenegro), the Adriatic Sea &amp; Ionian Sea n. of 39th parallel).</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[7]</profile>
+<profile>VAYugServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code  
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5347,7 +5346,7 @@ status = final</R4Map>
 <description>Enter the date that service in the Yugoslavia Conflict began for this patient.  Earliest possible date is 6/22/1992. </description>
 <prompt>Type a date between June 22, 1992 and today indicating the date this patient began serving in the Yugoslavia Conflict.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[7]</profile>
+<profile>VAYugServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
 code.coding.code = 2-.322019</STU3Map>
@@ -5366,7 +5365,7 @@ code.coding.code = 2-.322019</R4Map>
 <description>The date service in the Yugoslavia Conflict ended for this patient. </description>
 <prompt>Enter the date this patient&apos;s service in the Yugoslavia Conflict ended.  Date must be after June 22, 1992.</prompt>
 <path>pt-observation</path>
-<profile>VAServiceEpisode[7]</profile>
+<profile>VAYugServiceEpisode</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.322019</STU3Map>
@@ -5385,7 +5384,7 @@ code.coding.code = 2-.322019</R4Map>
 <description>For this veteran applicant enter &apos;Y&apos; if s/he was exposed to the chemical agent orange, &apos;N&apos; if not, or &apos;U&apos; if unknown.  Exposure cannot be claimed unless the Period of Service (field .323) is answered VIETNAM ERA, which entails those serving in the Korean DMZ between January 1, 1968 and December 31, 1969 or Vietnam.   Once the service record has been verified only users who hold the designated security key may enter/edit this field. </description>
 <prompt>Enter &apos;Y&apos; if this patient claims exposure to agent orange, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[1]</profile>
+<profile>VAAgentOrangeRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5412,7 +5411,7 @@ status = final</R4Map>
 <description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date registered. Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
 <prompt>Enter the date on which this patient was registered as being exposed to agent orange.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[1]</profile>
+<profile>VAAgentOrangeRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>issued
 code.coding.code = 2-.32102</STU3Map>
@@ -5431,13 +5430,15 @@ code.coding.code = 2-.32102</R4Map>
 <description>For this veteran applicant who was exposed to agent orange (EXPOSED TO AGENT ORANGE prompt must be answered YES) enter the date s/he was examined for this exposure, if any.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  As long as agent orange exposure is indicated this field may not be deleted. </description>
 <prompt>Enter the date this patient was examined for the agent orange condition claimed.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[1]</profile>
+<profile>VAAgentOrangeRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>context.period
-code.coding.code = 2-.32102</STU3Map>
+<STU3Map>context.display
+code.coding.code = 2-.32102
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
-<R4Map>context.period
-code.coding.code = 2-.32102</R4Map>
+<R4Map>context.display
+code.coding.code = 2-.32102
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5450,7 +5451,7 @@ code.coding.code = 2-.32102</R4Map>
 <description>Enter &apos;Y&apos; if the veteran was exposed to ionizing radiation 1) at a nuclear device testing site (e.g. the Pacific Islands, NM or NV) or 2) as a POW or while serving in Hiroshima and/or Nagasaki, Japan from August 6, 1945 through July 1, 1946, or 3) served at Department of Energy plants at Paducah, KY, Portsmouth, OH or the K25 area at Oak Ridge, TN for at least 250 days before February 1, 1992 or 4) served at Longshot, Milrow, or Cannikin underground nuclear tests at Amchitka Island, AK prior to January 1, 1974.     Veterans exposed by method #3 or #4 are not eligible for  copay exemption or enrollment in priority 6 based on their IR exposure.   Enter &apos;N&apos; if not exposed or &apos;U&apos; if unknown.   Once the record has been verified only HEC users  may enter/edit this field. </description>
 <prompt>Enter the RADIATION EXPOSURE INDICATED associated with the enrollment priority determination</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[2]</profile>
+<profile>VARadiationRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code 
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5477,13 +5478,15 @@ status = final</R4Map>
 <description>For this veteran applicant who was exposed to ionizing radiation (WERE YOU EXPOSED TO RADIATION prompt must be answered YES) enter the date registered.  Once the service record is verified only users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as ionizing radiation exposure is indicated. </description>
 <prompt>Enter the date on which this patient was registered as claiming exposure to ionizing radiation.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[2]</profile>
+<profile>VARadiationRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>issued
-code.coding.code = 2-.32103</STU3Map>
+code.coding.code = 2-.32103
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>issued
-code.coding.code = 2-.32103</R4Map>
+code.coding.code = 2-.32103
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5496,7 +5499,7 @@ code.coding.code = 2-.32103</R4Map>
 <description>This field represents the method by which the exposure to ionizing radiation occurred. </description>
 <prompt>Select from the listing available the method by which this patient was exposed to ionizing radiation.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[2]</profile>
+<profile>VARadiationRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code 
 component.valueCodeableConcept.coding.system =  http://va.gov/Terminology/VistaDefinedTerms/2-.3212
@@ -5527,7 +5530,7 @@ component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R
 <description>Enter &quot;Y&quot; if veteran claims need for care of conditions related to service in SW Asia. Enter &quot;N&quot; if veteran did not serve in SW Asia or does not claim need for care of conditions related to service in SW Asia. Enter &quot;U&quot; when veteran served in SW Asia, but is unsure of whether conditions may be related to that service. SW Asia Theater of operations is defined as: Iraq, Kuwait, Saudi Arabia, the neutral zone between Iraq and Saudi Arabia, Bahrain, Qatar, the United Arab Emirates, Oman, the Gulf of Aden, the Gulf of Oman, the Persian Gulf, the Arabian Sea, the Red Sea, and the airspace above these locations. </description>
 <prompt>Enter &apos;Y&apos; if this patient claims exposure to Southwest Asia Conditions, &apos;N&apos; if not, &apos;U&apos; if unknown.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[3]</profile>
+<profile>VASWARiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code 
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5554,13 +5557,15 @@ status = final</R4Map>
 <description>This is the date on which the patient registered for being exposed to Conditions related to service in SW Asia. This date must be after 8/1/1990. </description>
 <prompt>Enter the date on which this patient was registered as being exposed to Southwest Asia conditions.  This must be after 8/1/1990.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[3]</profile>
+<profile>VASWARiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>issued
-code.coding.code = 2-.322013</STU3Map>
+code.coding.code = 2-.322013
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>issued
-code.coding.code = 2-.322013</R4Map>
+code.coding.code = 2-.322013
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5573,12 +5578,12 @@ code.coding.code = 2-.322013</R4Map>
 <description>This is the date on which an examination for exposure to Conditions  related to service in SW Asia was performed on the patient. </description>
 <prompt>Enter the date this patient was examined for the Southwest Asia conditions claimed (Must be after 8/1/1990).</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[3]</profile>
+<profile>VASWARiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>context.period
+<STU3Map>context.display
 code.coding.code = 2-.322013</STU3Map>
 <R4Resource>Observation</R4Resource>
-<R4Map>context.period
+<R4Map>context.display
 code.coding.code = 2-.322013</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -5591,21 +5596,23 @@ code.coding.code = 2-.322013</R4Map>
 <Field_x0020_Name>NTR Indicator</Field_x0020_Name>
 <description>This field contains the indicator for Nose/Throat Radium Treatment exposure.  A YES indicates that the exposure documentation has been verified and that the veteran has a diagnosis of cancer of the head and/or neck.  A NO indicates that the veteran claims no exposure, no supporting documentation is available or there is no diagnosis of cancer of the head and/or neck. </description>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[4]</profile>
+<profile>VANTRRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 28.11-.02
 code.coding.display = &quot;NTR Indicator&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements
-status = final</STU3Map>
+status = final
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
 code.coding.code = 28.11-.02
 code.coding.display = &quot;NTR Indicator&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements
-status = final</R4Map>
+status = final
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>N&apos; FOR NO;
 &apos;Y&apos; FOR YES;</FHIR_x0020_Map_x0020_Comment>
@@ -5619,7 +5626,7 @@ status = final</R4Map>
 <Field_x0020_Name>Screening Status</Field_x0020_Name>
 <description>This field indicates the status of the screening process for Nose/Throat Radium Treatment exposure. </description>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[4]</profile>
+<profile>VANTRRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code 
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/28.11-.03
@@ -5652,7 +5659,7 @@ code.coding.code = 28.11-.02</R4Map>
 <description>For this veteran applicant enter &apos;Y&apos; if s/he was confined as a prisoner of war, &apos;N&apos; if not, or &apos;U&apos; if unknown.  Once the POW Status is verified  by the HEC, it is no longer editable. </description>
 <prompt>Was this patient a Prisoner of War?</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[5]</profile>
+<profile>VAPOWRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5679,13 +5686,15 @@ status = final</R4Map>
 <description>For this veteran applicant who was confined as a prisoner of war (WERE YOU A PRISONER OF WAR prompt must be answered YES) enter the date on which confinement commenced.  Once the service record is verified only those users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as applicant is identified as a former POW. </description>
 <prompt>For this former POW enter the date confinement commenced.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[5]</profile>
+<profile>VAPOWRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
-code.coding.code = 2-.525</STU3Map>
+code.coding.code = 2-.525
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>effectivePeriod.start
-code.coding.code = 2-.525</R4Map>
+code.coding.code = 2-.525
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5698,7 +5707,7 @@ code.coding.code = 2-.525</R4Map>
 <description>For this veteran applicant who was confined as a prisoner of war (WERE YOU A PRISONER OF WAR prompt must be answered YES) enter the date on which confinement ended.  Once the service record is verified only those users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as applicant is identified as a former POW. </description>
 <prompt>For this former POW enter the date confinement ended.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[5]</profile>
+<profile>VAPOWRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.525</STU3Map>
@@ -5717,7 +5726,7 @@ code.coding.code = 2-.525</R4Map>
 <description>For this veteran applicant who was confined as a prisoner of war (WERE YOU A PRISONER OF WAR prompt must be answered YES) enter the war during which confined.  Once the service record is verified only those users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as applicant is identified as a former POW. </description>
 <prompt>For this former POW enter the war in which confined.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[5]</profile>
+<profile>VAPOWRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.526
@@ -5742,7 +5751,7 @@ component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R
 <description>For this veteran applicant enter &apos;Y&apos; if s/he served in a combat zone, or &apos;N&apos; if not.  Once the service record is verified only users who hold the designated security key may enter/edit this field. </description>
 <prompt>Did this patient serve in combat?</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[6]</profile>
+<profile>VACombatRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136
@@ -5769,13 +5778,15 @@ status = final</R4Map>
 <description>For this veteran who served in a combat zone (IN COMBAT prompt must be answered YES) enter the date on which combat service commenced.  Once the service record is verified only those users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as combat service is indicated. </description>
 <prompt>For this combat veteran enter the date combat service commenced.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[6]</profile>
+<profile>VACombatRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.start
-code.coding.code = 2-.5291</STU3Map>
+code.coding.code = 2-.5291
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>effectivePeriod.start
-code.coding.code = 2-.5291</R4Map>
+code.coding.code = 2-.5291
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5788,7 +5799,7 @@ code.coding.code = 2-.5291</R4Map>
 <description>For this veteran who served in a combat zone (IN COMBAT prompt must be answered YES) enter the date on which combat service ended. Once the service record is verified only those users who hold the designated security key may enter/edit this field.  This field cannot be deleted as long as combat service is indicated. </description>
 <prompt>For this combat veteran enter the date combat service ended.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[6]</profile>
+<profile>VACombatRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>effectivePeriod.end
 code.coding.code = 2-.5291</STU3Map>
@@ -5807,7 +5818,7 @@ code.coding.code = 2-.5291</R4Map>
 <description>For this veteran applicant who served in a combat zone (IN COMBAT prompt must be answered YES) enter the zone in which s/he served.  Once the service record is verified only those users who hold the designated security key may enter/edit this field. This field cannot be deleted as long as combat service is indicated. </description>
 <prompt>For this combat veteran enter the war in which combat service was incurred.</prompt>
 <path>pt-observation</path>
-<profile>VARiskEpisodeProfile[6]</profile>
+<profile>VACombatRiskProfile</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system =http://va.gov/Terminology/VistaDefinedTerms/2-.5292 
@@ -5864,11 +5875,13 @@ status = final</R4Map>
 <path>pt-observation</path>
 <profile>VAPurpleHeartStatusProfile</profile>
 <STU3Resource>Observation</STU3Resource>
-<STU3Map>extension.event-statusReason
-code.coding.code = 2-.531</STU3Map>
+<STU3Map>extension.event-processState
+code.coding.code = 2-.531
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>extension.event-statusReason
-code.coding.code = 2-.531</R4Map>
+code.coding.code = 2-.531
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5880,19 +5893,21 @@ code.coding.code = 2-.531</R4Map>
 <Field_x0020_Name>Combat Veteran End Date </Field_x0020_Name>
 <description>This field represents the last day for combat vet eligibility. This field  will only be populated by cross-reference when the veteran&apos;s combat vet  eligibility has been determined. This value will remain after the combat  vet eligibility period has expired. </description>
 <path>pt-observation</path>
-<profile>VAEligibilityObservation[1]</profile>
+<profile>VACombatEligibilityObservation</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueDateTime
 code.coding.code = 2-.5295
 code.coding.display = &quot;Combat Veteran End Date&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</STU3Map>
+status = final
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueDateTime
 code.coding.code = 2-.5295
 code.coding.	display = &quot;Combat Veteran End Date&quot;
 code.coding.	system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</R4Map>
+status = final
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5905,21 +5920,23 @@ status = final</R4Map>
 <description>This field is computed by the system.  It contains the current means test status for a patient. </description>
 <prompt>This field is computed by the system.  It contains the current means test status for a patient.</prompt>
 <path>pt-observation</path>
-<profile>VAEligibilityObservation[2]</profile>
+<profile>VAMeansEligibilityObservation</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.14
 code.coding.code = 2-.14
 code.coding.display = &quot;Current Means Test Status&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</STU3Map>
+status = final
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.14
 code.coding.code = 2-.14
 code.coding.display = &quot;Current Means Test Status&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</R4Map>
+status = final
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -5932,21 +5949,23 @@ status = final</R4Map>
 <description>DO NOT EDIT THIS FIELD.  It is maintained by the Copay Exemption Software.   This is the patients current Medication Copay Income Exemption Status.  It is updated whenever an entry in the Billing Exemptions file is made.   If a patient&apos;s income is less than the pension level, effective 10/29/92 the patient is exempt from paying the Medication Copayment.  If a patient is receiving a VA Pension, or is receiving Aid and Attendence or House Bound benefits, or his income for the previous year is less than the pension level, he is exempt. </description>
 <prompt>Enter whether this patient is currently exempt from pharmacy copay due to the income exemption.</prompt>
 <path>pt-observation</path>
-<profile>VAEligibilityObservation[3]</profile>
+<profile>VACopayEligibilityObservation</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/354-.04
 code.coding.code = 354-.04
 code.coding.display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</STU3Map>
+status = final
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/354-.04
 code.coding.code = 354-.04
 code.coding.display = &quot;COPAY INCOME EXEMPTION STATUS&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</R4Map>
+status = final
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>1&apos; FOR EXEMPT;
 &apos;0&apos; FOR NON-EXEMPT;
@@ -5962,21 +5981,23 @@ status = final</R4Map>
 <description>Select from the available listing the appropriate eligibility status for this applicant.  Only users who hold the designated security key may enter/edit this field. </description>
 <prompt>Select the status of this patient&apos;s eligibility.</prompt>
 <path>pt-observation</path>
-<profile>VAEligibilityObservation[4]</profile>
+<profile>VABaseEligibilityObservation</profile>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.3611
 code.coding.code = 2-.3611
 code.coding.display = &quot;ELIGIBILITY STATUS&quot;
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements/
-status = final</STU3Map>
+status = final
+subject.targetProfile=VAPatient</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>valueCodeableConcept.coding.code
 valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2-.3611
 code.coding.code = 2-.3611
 code.coding.	Display = &quot;ELIGIBILITY STATUS&quot;
 code.coding.	System = http://va.gov/Terminology/VistaDefinedElements/
-status = final</R4Map>
+status = final
+subject.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>P&apos; FOR PENDING VERIFICATION;
 &apos;R&apos; FOR PENDING RE-VERIFICATION;
@@ -5993,10 +6014,12 @@ status = final</R4Map>
 <path>pt-coverage</path>
 <profile>VACoverage</profile>
 <STU3Resource>Coverage</STU3Resource>
-<STU3Map>grouping.plan</STU3Map>
+<STU3Map>grouping.plan
+beneficiary.targetProfile=VAPatient</STU3Map>
 <R4Resource>Coverage</R4Resource>
 <R4Map>class.value
-class.type = plan</R4Map>
+class.type = plan
+beneficiary.targetProfile=VAPatient</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -7183,11 +7206,13 @@ The number of IV labels needed each day. If populated, this value will override 
 <Field_x0020_Name>ADDITIVE</Field_x0020_Name>
 <description>  The additive selected as part of the IV order.  This entry is a pointer  to the ADDITIVES file (52.6). </description>
 <path>pat-MedRequest-med</path>
-<profile>VAUnfinishedInpatientMedication</profile>
+<profile>VAUnfinishedInpatientMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>medicationReference.ingredient.itemCodeableConcept.text</STU3Map>
+<STU3Map>medicationReference
+medicationReference.targetProfile = VAUnfinishedInpatientMedication</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>medicationReference.ingredient.itemCodeableConcept.text</R4Map>
+<R4Map>medicationReference
+medicationReference.targetProfile = VAUnfinishedInpatientMedication</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>  The additive selected as part of the IV order.  This entry is a pointer to the ADDITIVES file (52.6).</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -7202,8 +7227,8 @@ The number of IV labels needed each day. If populated, this value will override 
 additive. For example, if the DRUG UNITS field of the IV ADDITIVES file specifies the units for ampicillin to be in grams, it would be incorrect to enter 500 for a half-gram dose. Enter 0.5 instead.</description>
 <path>pat-MedRequest-med</path>
 <profile>VAUnfinishedInpatientMedication</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>medicationReference.ingredient.amount</STU3Map>
+<STU3Resource>Medication</STU3Resource>
+<STU3Map>ingredient.amount</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>medicationReference.ingredient.strength</R4Map>
 <termMap>0</termMap>
@@ -7219,7 +7244,7 @@ additive. For example, if the DRUG UNITS field of the IV ADDITIVES file specifie
 <description> This is the bottle number (or numbers, separated by commas) in which  this additive will be included for this IV order. If this field is blank,  it means that the additive will be included in all bottles. </description>
 <prompt>Enter the bottle #&apos;s that this additive will be in (e.g. &apos;1&apos;, &apos;1,3&apos;, or   &lt;return&gt; for all bottles).   In case of &quot;See Comments,&quot; replace with specific bottle #&apos;s or enter &quot;@&quot; to specify all bottles.</prompt>
 <path>pat-MedRequest-enc-ext</path>
-<profile>VAUnfinishedInpatientMedicationRequestEncounter</profile>
+<profile>VAUnfinishedInpatientMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>dosageInstruction.extension.dosageInstruction-ivBottleNumber</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
@@ -7238,13 +7263,11 @@ This is the bottle number (or numbers, separated by commas) in which this additi
 <description>Entry must be a clinic.  Depending on the condition, INACTIVATE and REACTIVATE dates may exist. </description>
 <prompt>Enter the name of the clinic where the patient was seen.</prompt>
 <path>pat-MedRequest-enc</path>
-<profile>VAUnfinishedInpatientMedicationRequestEncounter</profile>
+<profile>VAUnfinishedInpatientMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>dispenseRequest.performer</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>context.location
-context.status=unknown</R4Map>
+<R4Map>dispenseRequest.performer</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Enter the name of the clinic where the patient was seen. 
 Entry must be a clinic.  Depending on the condition, INACTIVATE and REACTIVATE dates may exist.</FHIR_x0020_Map_x0020_Comment>
@@ -7259,13 +7282,11 @@ Entry must be a clinic.  Depending on the condition, INACTIVATE and REACTIVATE d
 <description>This is the date and time of the appointment this order is being placed for.   </description>
 <prompt>Date and time of the appointment for this clinic location. </prompt>
 <path>pat-MedRequest-enc-appt</path>
-<profile>VAUnfinishedInpatientMedicationRequestAppointment</profile>
+<profile>VAUnfinishedInpatientMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.period.start
-context.status=unknown</STU3Map>
+<STU3Map>dispenseRequest.extension-appointmentTime</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>context.period.start
-context.status=unknown</R4Map>
+<R4Map>dispenseRequest.extension-appointmentTime</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>HELP-PROMPT:  Date and time of the appointment for this clinic location.
 DESCRIPTION:   This is the date and time of the appointment this order is being placed for.
@@ -7528,6 +7549,472 @@ richAnnotation.type=OTHER PRINT INFO (LONG)</R4Map>
 <semanticGroup>note</semanticGroup>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
+<ID1>609</ID1>
+<ID>55.6114-.01</ID>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<Field_x0020_Name>LAST RENEW</Field_x0020_Name>
+<description>This is the date/time the order was renewed. </description>
+<prompt>Enter the date/time the order was renewed.</prompt>
+<path>pat-medRequest-provenance</path>
+<profile>VAInpatientUDMedicationRequestRenewal</profile>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>recorded</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>recorded</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>not order date written?</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>renew</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>610</ID1>
+<ID>55.6114-1</ID>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<Field_x0020_Name>RENEWED BY</Field_x0020_Name>
+<description>This is the person who renewed the order. </description>
+<prompt>Enter the name of the person renewing this order.</prompt>
+<path>pat-medRequest-provenance</path>
+<profile>VAInpatientUDMedicationRequestRenewal</profile>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>agent.whoReference</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>agent.who</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>not prescriber?</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>renew</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>611</ID1>
+<ID>55.6114-2</ID>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<Field_x0020_Name>PREVIOUS PROVIDER</Field_x0020_Name>
+<description>This is the name of the provider responsible for the prior order. </description>
+<prompt>Enter the name of the provider for the order you renewed.</prompt>
+<path>pat-medRequest-provenance</path>
+<profile>VAInpatientUDMedicationRequestRenewal</profile>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>extension.extension:change.extension:oldValue.valueString
+extension.extension:change.extension.url=oldValue
+extension.extension:change.url=change
+extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-2
+extension.extension:elementUri.url=elementUri
+extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>or
+extension.reference-targetElement.extension.change.extension.oldValue
+extension.reference-targetElement.elementUri=[MedicationRequest.requester.agent]</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>renew</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>612</ID1>
+<ID>55.6114-3</ID>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<Field_x0020_Name>PREVIOUS STOP DATE/TIME</Field_x0020_Name>
+<description>This is the stop date/time of the prior order. </description>
+<prompt>Enter the stop date/time of the previous order.</prompt>
+<path>pat-medRequest-provenance</path>
+<profile>VAInpatientUDMedicationRequestRenewal</profile>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>extension.extension:change.extension:oldValue.valueDateTime
+extension.extension:change.extension.url=oldValue
+extension.extension:change.url=change
+extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-3
+extension.extension:elementUri.url=elementUri
+extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>or
+extension.reference-targetElement.extension.change.extension.oldValue
+extension.reference-targetElement.elementUri=[MedicationRequest.dosageInstruction.timing.boundsPeriod.end]</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>renew</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>613</ID1>
+<ID>55.6114-4</ID>
+<area>17</area>
+<File_x0020_Name>LAST RENEW</File_x0020_Name>
+<Field_x0020_Name>PREVIOUS ORDERS FILE ENTRY</Field_x0020_Name>
+<description>When an order is being renewed, this is the pointer value of the corresponding entry in the ORDERS file (100), prior to the renewal. </description>
+<prompt>Answer must be 1-30 characters in length.</prompt>
+<path>pat-medRequest-provenance</path>
+<profile>VAInpatientUDMedicationRequestRenewal</profile>
+<STU3Resource>Provenance</STU3Resource>
+<STU3Map>entity.whatIdentifier.value
+entity.role=revision</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>entity.what
+entity.role=revision</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>to 100; cprs may create new order even if pharmacy doesn&apos;t</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>renew</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>615</ID1>
+<ID>55.06-135</ID>
+<area>17</area>
+<Field_x0020_Name>SPECIAL INSTRUCTIONS (LONG)</Field_x0020_Name>
+<description>&lt;blank&gt;</description>
+<path>pat-medRequest-ext</path>
+<profile>VAInpatientUDMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.richAnnotation.comment.text
+richAnnotation.type=SPECIAL INSTRUCTIONS (LONG)</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.richAnnotation.comment.text
+richAnnotation.type=SPECIAL INSTRUCTIONS (LONG)</R4Map>
+<ExtensionIdentifier>extension: vaMediationOrderSpecialInstructionsLong</ExtensionIdentifier>
+<termMap>0</termMap>
+<semanticGroup>note</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>616</ID1>
+<ID>55.01-100b</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>STATUS</Field_x0020_Name>
+<description>  Status of order. Enter one of following codes: A for active, H for hold, R for renewed, D for discontinued, E for expired, P for purge, O for on  call, N for nonverified. </description>
+<values>A:ACTIVE
+H:HOLD
+R:RENEWED
+D:DISCONTINUED
+E:EXPIRED
+P:PURGE
+O:ON CALL
+N:NON VERIFIED
+</values>
+<path>pat-medRequest-ext</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.medicationrequest-pharmacyOrderStatus</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>extension.medicationrequest-pharmacyOrderStatus</R4Map>
+<ExtensionIdentifier>status (required), &amp;
+extension: VAMedicationOrderStatus</ExtensionIdentifier>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>617</ID1>
+<ID>55-.01iv</ID>
+<area>16</area>
+<Data_x0020_Elements>Patient</Data_x0020_Elements>
+<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
+<Field_x0020_Name>PATIENT</Field_x0020_Name>
+<description>This is the name of a patient that has some type of pharmacy order.</description>
+<path>pat-medRequest</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>subject</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>subject</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>618</ID1>
+<ID>55.01-.01</ID>
+<area>16</area>
+<Data_x0020_Elements>order number</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>ORDER NUMBER</Field_x0020_Name>
+<description>Order Number for IV drugs administered to this patient. </description>
+<prompt>Type a whole number between 1 and 9999999.</prompt>
+<path>pat-medRequest</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>identifier.value
+identifier.system = va.gov/identifiers/orders/55.01</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>identifier.value
+identifier.system = va.gov/identifiers/orders/55.01</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>619</ID1>
+<ID>55.01-.02</ID>
+<area>16</area>
+<Data_x0020_Elements>start date</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>START DATE/TIME</Field_x0020_Name>
+<description> This is the date and time the order is to begin. This package initially assigns the START DATE/TIME to the closest administration time or next admin. time or NOW depends on the value of the DEFAULT START DATE CALCULATION field in the WARD PARAMETERS file. START DATE/TIME may not  be entered prior to 7 days from the order&apos;s LOGIN DATE.   </description>
+<prompt>Enter the start DATE and TIME for this order.</prompt>
+<path>pat-medRequest</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>dosageInstruction.timing.repeat.boundsPeriod.start</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>dosageInstruction.timing.repeat.boundsPeriod.start</R4Map>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>620</ID1>
+<ID>55.01-.03</ID>
+<area>16</area>
+<Data_x0020_Elements>stop date</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>STOP DATE/TIME</Field_x0020_Name>
+<description>  This is the date and time the order is to end. </description>
+<path>pat-medRequest</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>dosageInstruction.timing.repeat.boundsPeriod.end</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>dosageInstruction.timing.repeat.boundsPeriod.end</R4Map>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>621</ID1>
+<ID>55.01-.04</ID>
+<area>16</area>
+<Data_x0020_Elements>type</Data_x0020_Elements>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>TYPE</Field_x0020_Name>
+<description>  Type of IV - &apos;A&apos; for Admixture, &apos;C&apos; for chemotherapy, &apos;H&apos; for Hyperal, &apos;P&apos; for Piggyback, and &apos;S&apos; for Syringe. </description>
+<values>A:ADMIXTURE
+P:PIGGYBACK
+H:HYPERAL
+S:SYRINGE
+C:CHEMOTHERAPY
+</values>
+<path>pat-medRequest-ext</path>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>extension.medicationrequest-ivType</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>extension.medicationrequest-ivType</R4Map>
+<ExtensionIdentifier>extension: IVType</ExtensionIdentifier>
+<valueSet>2</valueSet>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>&apos;A&apos; FOR ADMIXTURE;
+&apos;P&apos; FOR PIGGYBACK;
+&apos;H&apos; FOR HYPERAL;
+&apos;S&apos; FOR SYRINGE;
+&apos;C&apos; FOR CHEMOTHERAPY;
+bind to IVType</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>772</ID1>
+<ID>52.2-.02</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
+<description>This field tells whether the medication was picked up  or mailed to the patient. </description>
+<values>M:MAIL
+W:WINDOW
+</values>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.medicationdispense-dispenseChannel</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.medicationdispense-dispenseChannel</R4Map>
+<ExtensionIdentifier>extension: dispenseMode</ExtensionIdentifier>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>773</ID1>
+<ID>52.2-.03</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMARKS</Field_x0020_Name>
+<description>These are any additional comments. </description>
+<prompt>ANSWER MUST BE 2-60 CHARACTERS IN LENGTH</prompt>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.richAnnotation.comment.text
+extension.richAnnotation.type=REMARKS</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.richAnnotation.comment.text
+extension.richAnnotation.type=REMARKS</R4Map>
+<termMap>0</termMap>
+<semanticGroup>note</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>774</ID1>
+<ID>52.2-.04</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>QTY</Field_x0020_Name>
+<description>This field is used to show the amount of medication that was dispensed. </description>
+<prompt>Type a number between .01 and 99999999. Two fractional decimal places are allowed, with no alpha characters. The total length of the entry cannot exceed 11 characters.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>quantity</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>quantity</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>775</ID1>
+<ID>52.2-.041</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>DAYS SUPPLY </Field_x0020_Name>
+<description>This field is used to indicate the days of supply for partial RX fill. </description>
+<prompt>Type a Number between 1 and 999, 0 Decimal Digits</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>daysSupply.value
+daysSupply.unit=d</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>daysSupply.value
+daysSupply.unit=d</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>776</ID1>
+<ID>52.2-.05</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>PHARMACIST NAME</Field_x0020_Name>
+<description>This is the name of the pharmacist. </description>
+<prompt>Enter name of the pharmacist entering the parital rx.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.actor
+performer.extension.value.coding.code=Pharmacist
+performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.actor
+performer.function.coding.code=Pharmacist</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Unless there is a Remote, in which case Pharmacist is originalPharmacist</FHIR_x0020_Map_x0020_Comment>
+<semanticGroup>role</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>777</ID1>
+<ID>52.2-.06</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>LOT#</Field_x0020_Name>
+<description>This field shows the vendor&apos;s lot number. </description>
+<prompt>Answer must be 1-20 characters in length.</prompt>
+<path>pat-medRequest-medDispense-med</path>
+<profile>VAMedication</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>medicationReference.package.batch.lotNumber</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>medicationReference.batch.lotNumber</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>778</ID1>
+<ID>52.2-.08</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>LOGIN DATE</Field_x0020_Name>
+<description>This is the date that the prescription was entered. </description>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.medicationdispense-fillRequestDate</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.medicationdispense-fillRequestDate</R4Map>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>779</ID1>
+<ID>52.2-.09</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>DIVISION</Field_x0020_Name>
+<description>This field contains the Pharmacy Division associated with this RX. </description>
+<prompt>Enter division where partial rx is entered.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.actor</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.actor</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>780</ID1>
+<ID>52.2-8</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>RELEASED DATE/TIME</Field_x0020_Name>
+<description>This field is used to show the date the medication was released. </description>
+<prompt>Enter date/time the medication was released.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>whenPrepared</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>whenPrepared</R4Map>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>781</ID1>
+<ID>52.2-91</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
+<description>This holds the site number for the facility requesting a remote partial fill.</description>
+<prompt>Enter the site number that is requesting this partial fill.</prompt>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>context.location.identifier
+context.status=unknown</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>context.location.identifier
+context.status=unknown</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>782</ID1>
+<ID>52.2-92</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
+<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
+<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.actor
+performer.extension.value.coding.code=Pharmacist
+performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.actor
+performer.function=RemotePharmacist</R4Map>
+<termMap>0</termMap>
+<semanticGroup>role</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>783</ID1>
+<ID>52.2-93</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
+<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
+<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>performer.actor.telecom</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.actor.telecom
+performer.function=RemotePharmacist</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
 <ID1>463</ID1>
 <ID>53.1119-.01</ID>
 <area>15</area>
@@ -7781,7 +8268,7 @@ H:HIDDEN
 <path>patient-condition-extension</path>
 <profile>VAProblem</profile>
 <STU3Resource>Condition</STU3Resource>
-<STU3Map>extension: condition-relationshipToService</STU3Map>
+<STU3Map>extension.condition-relationshipToService</STU3Map>
 <R4Resource>Condition</R4Resource>
 <R4Map>extension.problemRelationshipToService</R4Map>
 <ExtensionIdentifier>extension: condition-relationshipToService</ExtensionIdentifier>
@@ -7983,14 +8470,16 @@ null: N/A</FHIR_x0020_Map_x0020_Comment>
 <path>pat-condition-encounter-location</path>
 <profile>VAProblemAuthorship</profile>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.whoReference.name
+<STU3Map>agent.whoReference
 
 agent.role.coding.code=SDLOC
 
 agent.role.coding.system=http://terminology.hl7.org/CodeSystem/v3-RoleClass</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.whoReference
+
 agent.role.coding.code=SDLOC
+
 agent.role.coding.system=http://terminology.hl7.org/CodeSystem/v3-RoleClass</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use Organization</FHIR_x0020_Map_x0020_Comment>
@@ -8197,7 +8686,7 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.name</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.who.name</R4Map>
+<R4Map>agent.who</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -8263,9 +8752,9 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <path>pat-careTeam</path>
 <profile>VAPrimaryCareTeam</profile>
 <STU3Resource>CareTeam</STU3Resource>
-<STU3Map>telecom.value
-
-telecom.system=phone</STU3Map>
+<STU3Map>extension.valueReference
+extension.url=http://hl7.org/fhir/4.0/StructureDefinition/extension-CareTeam.telecom
+extension.valueReference.system=phone</STU3Map>
 <R4Resource>CareTeam</R4Resource>
 <R4Map>telecom.value
 
@@ -8283,7 +8772,7 @@ telecom.system=phone</R4Map>
 <path>pat-careTeam-org</path>
 <profile>VAPrimaryCareTeam</profile>
 <STU3Resource>CareTeam</STU3Resource>
-<STU3Map>managingOrganization.name </STU3Map>
+<STU3Map>managingOrganization</STU3Map>
 <R4Resource>CareTeam</R4Resource>
 <R4Map>managingOrganization.name </R4Map>
 <termMap>0</termMap>
@@ -8389,7 +8878,7 @@ under participant</ExtensionIdentifier>
 <path>pat-appointment-location</path>
 <profile>VAAppointment</profile>
 <STU3Resource>Appointment</STU3Resource>
-<STU3Map>participant.actor.name
+<STU3Map>participant.actor
 
 participant.status=accepted</STU3Map>
 <R4Resource>Appointment</R4Resource>
@@ -8441,15 +8930,15 @@ NT:NO ACTION TAKEN = DAR</FHIR_x0020_Map_x0020_Comment>
 <File_x0020_Name>TIU DOCUMENT</File_x0020_Name>
 <Field_x0020_Name>VISIT   </Field_x0020_Name>
 <path>pat-appointment-encounter-docRef</path>
-<profile>VAAppointment</profile>
+<profile>VAAppointmentDocument</profile>
 <STU3Resource>DocumentReference</STU3Resource>
 <STU3Map>context.encounter.period.start
 
-encounter.identifier = appointment&lt;encounter.identifier</STU3Map>
+encounter.identifier = appointment.encounter.identifier</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>context.encounter.period.start
 
-encounter.identifier = appointment&lt;encounter.identifier</R4Map>
+encounter.identifier = appointment.encounter.identifier</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Document display requirements unclear. We assume the document will be associated with the Encounter associated with the Appointment</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -8461,14 +8950,12 @@ encounter.identifier = appointment&lt;encounter.identifier</R4Map>
 <File_x0020_Name>HOSPITAL LOCATION</File_x0020_Name>
 <Field_x0020_Name>TREATING SPECIALTY</Field_x0020_Name>
 <path>pat-appt-location</path>
-<profile>VAAppointmentLocation</profile>
+<profile>VAAppointment</profile>
 <STU3Resource>Appointment</STU3Resource>
-<STU3Map>participant.actor.type.code
-
+<STU3Map>participant.actor
 participant.status=accepted</STU3Map>
 <R4Resource>Appointment</R4Resource>
-<R4Map>participant.actor.type.code
-
+<R4Map>participant.actor
 participant.status=accepted</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use Location</FHIR_x0020_Map_x0020_Comment>
@@ -8522,14 +9009,10 @@ participant.type.coding.code = defaultLocationProvider</R4Map>
 <prompt>Answer must be 3-30 characters in length.</prompt>
 <path>pat-appointment-location</path>
 <profile>VAAppointmentLocation</profile>
-<STU3Resource>Appointment</STU3Resource>
-<STU3Map>participant.actor.name
-
-participant.status=accepted</STU3Map>
-<R4Resource>Appointment</R4Resource>
-<R4Map>participant.actor.name
-
-participant.status=accepted</R4Map>
+<STU3Resource>Location</STU3Resource>
+<STU3Map>name</STU3Map>
+<R4Resource>Location</R4Resource>
+<R4Map>name</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use Location</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -8807,9 +9290,9 @@ performer.function=verifyingNurse</R4Map>
 <path>pat-medRequest</path>
 <profile>VAInpatientUDMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>patient</STU3Map>
+<STU3Map>subject</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>patient</R4Map>
+<R4Map>subject</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -9334,7 +9817,7 @@ richAnnotation.type=COMMENTS</R4Map>
 <path>pat-medRequest-prov</path>
 <profile>VAInpatientUDMedicationOrderVerification</profile>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who
+<STU3Map>agent.whoReference
 agent.role.coding.code=verifyingPharmacist</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>performer.actor
@@ -9413,11 +9896,11 @@ performer.function=verifyingPharmacist</R4Map>
 <path>pat-medRequest-encounter</path>
 <profile>VAInpatientUDMedicationRequestEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>location
+status=unknown</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location
-context.status=unknown</R4Map>
+<R4Map>location
+status=unknown</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>[reference to location]</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -9433,11 +9916,11 @@ context.status=unknown</R4Map>
 <path>pat-medRequest-encounter</path>
 <profile>VAInpatientUDMedicationRequestEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>context.period.start
-context.status=unknown</STU3Map>
+<STU3Map>period.start
+status=unknown</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.period.start
-context.status=unknown</R4Map>
+<R4Map>period.start
+status=unknown</R4Map>
 <ExtensionIdentifier>extension: appointmentDate</ExtensionIdentifier>
 <termMap>0</termMap>
 <semanticGroup>time</semanticGroup>
@@ -9547,257 +10030,6 @@ activity.system = http://va.gov/terminology/vistaDefinedTerms/55.09-2</R4Map>
 <R4Map>extension.reference-targetElement.extension.change.extension.oldValue</R4Map>
 <ExtensionIdentifier>http://hl7.no/fhir/StructureDefinition/reference-targetElement</ExtensionIdentifier>
 <termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>609</ID1>
-<ID>55.6114-.01</ID>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<Field_x0020_Name>LAST RENEW</Field_x0020_Name>
-<description>This is the date/time the order was renewed. </description>
-<prompt>Enter the date/time the order was renewed.</prompt>
-<path>pat-medRequest-provenance</path>
-<profile>VAInpatientUDMedicationRequestRenewal</profile>
-<STU3Resource>Provenance</STU3Resource>
-<STU3Map>recorded</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>recorded</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>not order date written?</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>renew</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>610</ID1>
-<ID>55.6114-1</ID>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<Field_x0020_Name>RENEWED BY</Field_x0020_Name>
-<description>This is the person who renewed the order. </description>
-<prompt>Enter the name of the person renewing this order.</prompt>
-<path>pat-medRequest-provenance</path>
-<profile>VAInpatientUDMedicationRequestRenewal</profile>
-<STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.whoReference</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>agent.who</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>not prescriber?</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>renew</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>611</ID1>
-<ID>55.6114-2</ID>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<Field_x0020_Name>PREVIOUS PROVIDER</Field_x0020_Name>
-<description>This is the name of the provider responsible for the prior order. </description>
-<prompt>Enter the name of the provider for the order you renewed.</prompt>
-<path>pat-medRequest-provenance</path>
-<profile>VAInpatientUDMedicationRequestRenewal</profile>
-<STU3Resource>Provenance</STU3Resource>
-<STU3Map>extension.extension:change.extension:oldValue.valueString
-extension.extension:change.extension.url=oldValue
-extension.extension:change.url=change
-extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-2
-extension.extension:elementUri.url=elementUri
-extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>or
-extension.reference-targetElement.extension.change.extension.oldValue
-extension.reference-targetElement.elementUri=[MedicationRequest.requester.agent]</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>renew</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>612</ID1>
-<ID>55.6114-3</ID>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<Field_x0020_Name>PREVIOUS STOP DATE/TIME</Field_x0020_Name>
-<description>This is the stop date/time of the prior order. </description>
-<prompt>Enter the stop date/time of the previous order.</prompt>
-<path>pat-medRequest-provenance</path>
-<profile>VAInpatientUDMedicationRequestRenewal</profile>
-<STU3Resource>Provenance</STU3Resource>
-<STU3Map>extension.extension:change.extension:oldValue.valueDateTime
-extension.extension:change.extension.url=oldValue
-extension.extension:change.url=change
-extension.extension:elementUri.valueUri = http://va.gov/terminology/vistaDefinedElements/55.6114-3
-extension.extension:elementUri.url=elementUri
-extension.url=http://hl7.no/fhir/StructureDefinition/reference-targetElement</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>or
-extension.reference-targetElement.extension.change.extension.oldValue
-extension.reference-targetElement.elementUri=[MedicationRequest.dosageInstruction.timing.boundsPeriod.end]</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>priorPrescription  [Reference(MedicationOrder)]</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>renew</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>613</ID1>
-<ID>55.6114-4</ID>
-<area>17</area>
-<File_x0020_Name>LAST RENEW</File_x0020_Name>
-<Field_x0020_Name>PREVIOUS ORDERS FILE ENTRY</Field_x0020_Name>
-<description>When an order is being renewed, this is the pointer value of the corresponding entry in the ORDERS file (100), prior to the renewal. </description>
-<prompt>Answer must be 1-30 characters in length.</prompt>
-<path>pat-medRequest-provenance</path>
-<profile>VAInpatientUDMedicationRequestRenewal</profile>
-<STU3Resource>Provenance</STU3Resource>
-<STU3Map>entity.whatIdentifier.value
-entity.role=revision</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>entity.what
-entity.role=revision</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>to 100; cprs may create new order even if pharmacy doesn&apos;t</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>renew</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>615</ID1>
-<ID>55.06-135</ID>
-<area>17</area>
-<Field_x0020_Name>SPECIAL INSTRUCTIONS (LONG)</Field_x0020_Name>
-<description>&lt;blank&gt;</description>
-<path>pat-medRequest-ext</path>
-<profile>VAInpatientUDMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-richAnnotation.type=SPECIAL INSTRUCTIONS (LONG)</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-richAnnotation.type=SPECIAL INSTRUCTIONS (LONG)</R4Map>
-<ExtensionIdentifier>extension: vaMediationOrderSpecialInstructionsLong</ExtensionIdentifier>
-<termMap>0</termMap>
-<semanticGroup>note</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>616</ID1>
-<ID>55.01-100b</ID>
-<area>16</area>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<Field_x0020_Name>STATUS</Field_x0020_Name>
-<description>  Status of order. Enter one of following codes: A for active, H for hold, R for renewed, D for discontinued, E for expired, P for purge, O for on  call, N for nonverified. </description>
-<values>A:ACTIVE
-H:HOLD
-R:RENEWED
-D:DISCONTINUED
-E:EXPIRED
-P:PURGE
-O:ON CALL
-N:NON VERIFIED
-</values>
-<path>pat-medRequest-ext</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-pharmacyOrderStatus</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-pharmacyOrderStatus</R4Map>
-<ExtensionIdentifier>status (required), &amp;
-extension: VAMedicationOrderStatus</ExtensionIdentifier>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>617</ID1>
-<ID>55-.01iv</ID>
-<area>16</area>
-<Data_x0020_Elements>Patient</Data_x0020_Elements>
-<File_x0020_Name>PHARMACY PATIENT FILE</File_x0020_Name>
-<Field_x0020_Name>PATIENT</Field_x0020_Name>
-<description>This is the name of a patient that has some type of pharmacy order.</description>
-<path>pat-medRequest</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>subject</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>subject</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>pointer; return .01 name for use in reference.display</FHIR_x0020_Map_x0020_Comment>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>618</ID1>
-<ID>55.01-.01</ID>
-<area>16</area>
-<Data_x0020_Elements>order number</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<Field_x0020_Name>ORDER NUMBER</Field_x0020_Name>
-<description>Order Number for IV drugs administered to this patient. </description>
-<prompt>Type a whole number between 1 and 9999999.</prompt>
-<path>pat-medRequest</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>identifier.value
-identifier.system = va.gov/identifiers/orders/55.01</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>identifier.value
-identifier.system = va.gov/identifiers/orders/55.01</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>619</ID1>
-<ID>55.01-.02</ID>
-<area>16</area>
-<Data_x0020_Elements>start date</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<Field_x0020_Name>START DATE/TIME</Field_x0020_Name>
-<description> This is the date and time the order is to begin. This package initially assigns the START DATE/TIME to the closest administration time or next admin. time or NOW depends on the value of the DEFAULT START DATE CALCULATION field in the WARD PARAMETERS file. START DATE/TIME may not  be entered prior to 7 days from the order&apos;s LOGIN DATE.   </description>
-<prompt>Enter the start DATE and TIME for this order.</prompt>
-<path>pat-medRequest</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstruction.timing.repeat.boundsPeriod.start</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>dosageInstruction.timing.repeat.boundsPeriod.start</R4Map>
-<termMap>0</termMap>
-<semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>620</ID1>
-<ID>55.01-.03</ID>
-<area>16</area>
-<Data_x0020_Elements>stop date</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<Field_x0020_Name>STOP DATE/TIME</Field_x0020_Name>
-<description>  This is the date and time the order is to end. </description>
-<path>pat-medRequest</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>dosageInstruction.timing.repeat.boundsPeriod.end</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>dosageInstruction.timing.repeat.boundsPeriod.end</R4Map>
-<termMap>0</termMap>
-<semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>621</ID1>
-<ID>55.01-.04</ID>
-<area>16</area>
-<Data_x0020_Elements>type</Data_x0020_Elements>
-<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
-<Field_x0020_Name>TYPE</Field_x0020_Name>
-<description>  Type of IV - &apos;A&apos; for Admixture, &apos;C&apos; for chemotherapy, &apos;H&apos; for Hyperal, &apos;P&apos; for Piggyback, and &apos;S&apos; for Syringe. </description>
-<values>A:ADMIXTURE
-P:PIGGYBACK
-H:HYPERAL
-S:SYRINGE
-C:CHEMOTHERAPY
-</values>
-<path>pat-medRequest-ext</path>
-<profile>VAInpatientIVMedicationRequest</profile>
-<STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-ivType</STU3Map>
-<R4Resource>MedicationRequest</R4Resource>
-<R4Map>extension.medicationrequest-ivType</R4Map>
-<ExtensionIdentifier>extension: IVType</ExtensionIdentifier>
-<valueSet>2</valueSet>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>&apos;A&apos; FOR ADMIXTURE;
-&apos;P&apos; FOR PIGGYBACK;
-&apos;H&apos; FOR HYPERAL;
-&apos;S&apos; FOR SYRINGE;
-&apos;C&apos; FOR CHEMOTHERAPY;
-bind to IVType</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>622</ID1>
@@ -10010,11 +10242,9 @@ identifier.system = va.gov/identifiers/orders/100</R4Map>
 <path>pat-medRequest-ext</path>
 <profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location
-context.status=unknown</R4Map>
+<R4Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -10032,11 +10262,11 @@ S:SYRINGE
 <path>pat-medRequest-ext</path>
 <profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>extension.medicationrequest-ivType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-106</STU3Map>
+<STU3Map>coding.extension.medicationrequest-ivType
+coding.extension.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-106</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
 <R4Map>extension.medicationrequest-ivType
-coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-106</R4Map>
+extension.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.01-106</R4Map>
 <ExtensionIdentifier>extension under dispense request: chemotherapyType</ExtensionIdentifier>
 <valueSet>1</valueSet>
 <termMap>0</termMap>
@@ -10307,13 +10537,11 @@ E:EDIT
 <Field_x0020_Name>ORIGINAL WARD</Field_x0020_Name>
 <description>This is the ward where the patient was located when the order was created. </description>
 <path>pat-medRequest-encounter</path>
-<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status = unknown</STU3Map>
+<STU3Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>context.location
-context.status = unknown</R4Map>
+<R4Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -10556,9 +10784,9 @@ agent.role=&quot;verifier&quot;</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>STRENGTH</Field_x0020_Name>
 <description>  &apos;STRENGTH&apos; is the amount of an additive that is used in the manufacturing of the IV order.  NOTE!  You&apos;ll be expected to use the strength units that have been previously defined within the additive file (52.6) for each additive.  That is to say, if the additive file expects AMPICILLIN to be dispensed in &apos;GMS&apos;, it would not be correct for you to enter &apos;500&apos; for a half-gram dose -- enter 0.5 instead. </description>
 <path>pat-medRequest-med</path>
-<profile>VAInpatientIVMedication</profile>
-<STU3Resource>Medication</STU3Resource>
-<STU3Map>medicationReference.ingredient.amount</STU3Map>
+<profile>VAInpatientIVMedicationRequest</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>medicationReference.targetProfile = VAInpatientIVMedication</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
 <R4Map>medicationReference.ingredient.strength</R4Map>
 <ExtensionIdentifier>extension: IVAdditiveStrength</ExtensionIdentifier>
@@ -10613,11 +10841,9 @@ context.status=unknown</R4Map>
 <path>pat-medRequest</path>
 <profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.period.start
-context.status=unknown</STU3Map>
+<STU3Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.period.start
-context.status=unknown</R4Map>
+<R4Map>encounter.targetProfile=VAInpatientIVMedicationRequestEncounter</R4Map>
 <ExtensionIdentifier>extension: appointmentDate</ExtensionIdentifier>
 <termMap>0</termMap>
 <semanticGroup>time</semanticGroup>
@@ -12411,221 +12637,6 @@ extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
 <R4Map>extension.medicationdispense-fillDate</R4Map>
 <termMap>0</termMap>
 <semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>772</ID1>
-<ID>52.2-.02</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>MAIL/WINDOW</Field_x0020_Name>
-<description>This field tells whether the medication was picked up  or mailed to the patient. </description>
-<values>M:MAIL
-W:WINDOW
-</values>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.medicationdispense-dispenseChannel</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.medicationdispense-dispenseChannel</R4Map>
-<ExtensionIdentifier>extension: dispenseMode</ExtensionIdentifier>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>773</ID1>
-<ID>52.2-.03</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMARKS</Field_x0020_Name>
-<description>These are any additional comments. </description>
-<prompt>ANSWER MUST BE 2-60 CHARACTERS IN LENGTH</prompt>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.richAnnotation.comment.text
-extension.richAnnotation.type=REMARKS</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.richAnnotation.comment.text
-extension.richAnnotation.type=REMARKS</R4Map>
-<termMap>0</termMap>
-<semanticGroup>note</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>774</ID1>
-<ID>52.2-.04</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>QTY</Field_x0020_Name>
-<description>This field is used to show the amount of medication that was dispensed. </description>
-<prompt>Type a number between .01 and 99999999. Two fractional decimal places are allowed, with no alpha characters. The total length of the entry cannot exceed 11 characters.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>quantity</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>quantity</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>775</ID1>
-<ID>52.2-.041</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>DAYS SUPPLY </Field_x0020_Name>
-<description>This field is used to indicate the days of supply for partial RX fill. </description>
-<prompt>Type a Number between 1 and 999, 0 Decimal Digits</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>daysSupply.value
-daysSupply.unit=d</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>daysSupply.value
-daysSupply.unit=d</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>776</ID1>
-<ID>52.2-.05</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>PHARMACIST NAME</Field_x0020_Name>
-<description>This is the name of the pharmacist. </description>
-<prompt>Enter name of the pharmacist entering the parital rx.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor
-performer.extension.value.coding.code=Pharmacist
-performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
-performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor
-performer.function.coding.code=Pharmacist</R4Map>
-<termMap>0</termMap>
-<FHIR_x0020_Map_x0020_Comment>Unless there is a Remote, in which case Pharmacist is originalPharmacist</FHIR_x0020_Map_x0020_Comment>
-<semanticGroup>role</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>777</ID1>
-<ID>52.2-.06</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>LOT#</Field_x0020_Name>
-<description>This field shows the vendor&apos;s lot number. </description>
-<prompt>Answer must be 1-20 characters in length.</prompt>
-<path>pat-medRequest-medDispense-med</path>
-<profile>VAMedication</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>medicationReference.package.batch.lotNumber</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>medicationReference.batch.lotNumber</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>778</ID1>
-<ID>52.2-.08</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>LOGIN DATE</Field_x0020_Name>
-<description>This is the date that the prescription was entered. </description>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.medicationdispense-fillRequestDate</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.medicationdispense-fillRequestDate</R4Map>
-<termMap>0</termMap>
-<semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>779</ID1>
-<ID>52.2-.09</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>DIVISION</Field_x0020_Name>
-<description>This field contains the Pharmacy Division associated with this RX. </description>
-<prompt>Enter division where partial rx is entered.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>780</ID1>
-<ID>52.2-8</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>RELEASED DATE/TIME</Field_x0020_Name>
-<description>This field is used to show the date the medication was released. </description>
-<prompt>Enter date/time the medication was released.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>whenPrepared</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>whenPrepared</R4Map>
-<termMap>0</termMap>
-<semanticGroup>time</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>781</ID1>
-<ID>52.2-91</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
-<description>This holds the site number for the facility requesting a remote partial fill.</description>
-<prompt>Enter the site number that is requesting this partial fill.</prompt>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>context.location.identifier
-context.status=unknown</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location.identifier
-context.status=unknown</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>782</ID1>
-<ID>52.2-92</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
-<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
-<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor
-performer.extension.value.coding.code=Pharmacist
-performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
-performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor
-performer.function=RemotePharmacist</R4Map>
-<termMap>0</termMap>
-<semanticGroup>role</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>783</ID1>
-<ID>52.2-93</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
-<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
-<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor.telecom</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor.telecom
-performer.function=RemotePharmacist</R4Map>
-<termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>784</ID1>
@@ -14449,7 +14460,7 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>915</ID1>
-<ID>60.01-</ID>
+<ID>60.01</ID>
 <area>21</area>
 <Data_x0020_Elements>Flag</Data_x0020_Elements>
 <File_x0020_Name>LAB TEST</File_x0020_Name>
@@ -15259,11 +15270,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>SURGEON/PHYSICIAN </Field_x0020_Name>
 <description>This is the requesting provider. </description>
 <path>pat-rpt-order-practitioner</path>
-<profile>VASurgicalPathologyReport</profile>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<profile>VASurgicalPathologyProcedureRequest</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
 <R4Map>basedOn.requester.agent.display
 ProcedureRequest.status=completed
@@ -16895,11 +16906,11 @@ system=http://va.gov/terminology</FHIR_x0020_Map_x0020_Comment>
 <area>6</area>
 <File_x0020_Name>INSTITUTION</File_x0020_Name>
 <Field_x0020_Name>NAME</Field_x0020_Name>
-<path>pt-allergy-prov-loc</path>
+<path>pt-allergy-prov-org</path>
 <profile>VAAllergyIntoleranceOriginationSite</profile>
-<STU3Resource>Location</STU3Resource>
+<STU3Resource>Organization</STU3Resource>
 <STU3Map>name</STU3Map>
-<R4Resource>Location</R4Resource>
+<R4Resource>Organization</R4Resource>
 <R4Map>name</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Note: relation to 4 is not in VistA but in an environmental variable.</FHIR_x0020_Map_x0020_Comment>
@@ -16910,11 +16921,11 @@ system=http://va.gov/terminology</FHIR_x0020_Map_x0020_Comment>
 <area>6</area>
 <File_x0020_Name>INSTITUTION</File_x0020_Name>
 <Field_x0020_Name>STATION NUMBER</Field_x0020_Name>
-<path>pt-allergy-prov-loc</path>
+<path>pt-allergy-prov-org</path>
 <profile>VAAllergyIntoleranceOriginationSite</profile>
-<STU3Resource>Location</STU3Resource>
+<STU3Resource>Organization</STU3Resource>
 <STU3Map>identifier</STU3Map>
-<R4Resource>Location</R4Resource>
+<R4Resource>Organization</R4Resource>
 <R4Map>identifier</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -16952,5 +16963,147 @@ R4: Use PractitionerRole</FHIR_x0020_Map_x0020_Comment>
 <R4Map>context.location.location</R4Map>
 <ExtensionIdentifier>Encounter extension</ExtensionIdentifier>
 <termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1110</ID1>
+<ID>9000010.11-.06b</ID>
+<area>14</area>
+<File_x0020_Name>V IMMUNIZATION FILE</File_x0020_Name>
+<Field_x0020_Name>REACTION</Field_x0020_Name>
+<description>This is the reaction that may have been observed by the provider as a result of the immunization given. </description>
+<prompt>Enter the number representing the patients reaction to the immunization.</prompt>
+<values>1:FEVER
+2:IRRITABILITY
+3:LOCAL REACTION OR SWELLING
+4:VOMITING
+5:RASH OR ITCHING
+6:LETHARGY
+7:CONVULSIONS
+8:ARTHRITIS OR ARTHRALGIAS
+9:ANAPHYLAXIS OR COLLAPSE
+10:RESPIRATORY DISTRESS
+11:OTHER
+0:NONE
+</values>
+<path>pt-immunization</path>
+<profile>VAImmunizationReaction</profile>
+<STU3Resource>Observation</STU3Resource>
+<STU3Map>reaction.detail.code.coding.code
+code.coding.value
+code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/900010.11-.06
+
+valueCodeableConcept.coding.code = Y
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136</STU3Map>
+<R4Resource>Observation</R4Resource>
+<R4Map>reaction.detail.code.coding.code
+code.coding.value
+code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/900010.11-.06
+
+valueCodeableConcept.coding.code = Y
+valueCodeableConcept.coding.system = http://terminology.hl7.org/CodeSystem/v2-0136</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1113</ID1>
+<ID>53.157-.01b</ID>
+<area>15</area>
+<File_x0020_Name>NON-VERIFIED ORDERS</File_x0020_Name>
+<Field_x0020_Name>ADDITIVE</Field_x0020_Name>
+<description>  The additive selected as part of the IV order.  This entry is a pointer  to the ADDITIVES file (52.6). </description>
+<path>pat-MedRequest-med</path>
+<profile>VAUnfinishedInpatientMedication</profile>
+<STU3Resource>Medication</STU3Resource>
+<STU3Map>ingredient.itemCodeableConcept.text</STU3Map>
+<R4Resource>MedicationRequest</R4Resource>
+<R4Map>ingredient.itemCodeableConcept.text</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>  The additive selected as part of the IV order.  This entry is a pointer to the ADDITIVES file (52.6).</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1114</ID1>
+<ID>2.98-21:409.68-.04:44-9.5</ID>
+<area>7</area>
+<File_x0020_Name>HOSPITAL LOCATION</File_x0020_Name>
+<Field_x0020_Name>TREATING SPECIALTY</Field_x0020_Name>
+<path>pat-appt-location</path>
+<profile>VAAppointmentLocation</profile>
+<STU3Resource>Location</STU3Resource>
+<STU3Map>type.code</STU3Map>
+<R4Resource>Appointment</R4Resource>
+<R4Map>participant.actor.type.code
+
+participant.status=accepted</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>use Location</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1115</ID1>
+<ID>55.01-104</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>WARD</Field_x0020_Name>
+<description>  If the IV is not a outpatient IV, this field will be a pointer to the ward file 42. If the IV is a outpatient IV, this field will contain a .5 </description>
+<prompt>Type a Number between 0 and 999, 1 Decimal Digit.</prompt>
+<path>pat-medRequest-ext</path>
+<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location
+status=unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>location
+status=unknown</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1116</ID1>
+<ID>55.01-9b</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>ORIGINAL WARD</Field_x0020_Name>
+<description>This is the ward where the patient was located when the order was created. </description>
+<path>pat-medRequest-encounter</path>
+<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location
+status = unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>context=VAInpatientIVMedicationRequestEncounter</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1117</ID1>
+<ID>55.02-.02b</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>STRENGTH</Field_x0020_Name>
+<description>  &apos;STRENGTH&apos; is the amount of an additive that is used in the manufacturing of the IV order.  NOTE!  You&apos;ll be expected to use the strength units that have been previously defined within the additive file (52.6) for each additive.  That is to say, if the additive file expects AMPICILLIN to be dispensed in &apos;GMS&apos;, it would not be correct for you to enter &apos;500&apos; for a half-gram dose -- enter 0.5 instead. </description>
+<path>pat-medRequest-med</path>
+<profile>VAInpatientIVMedication</profile>
+<STU3Resource>MedicationRequest</STU3Resource>
+<STU3Map>ingredient.amount</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>medicationReference.ingredient.strength</R4Map>
+<ExtensionIdentifier>extension: IVAdditiveStrength</ExtensionIdentifier>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1118</ID1>
+<ID>55.01-139b</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>APPOINTMENT DATE/TIME</Field_x0020_Name>
+<description>Date and time of the appointment for this clinic location. </description>
+<prompt>This is the date and time of the appointment this order is being placed for.</prompt>
+<path>pat-medRequest</path>
+<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>period.start
+status=unknown</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>period.start
+status=unknown</R4Map>
+<ExtensionIdentifier>extension: appointmentDate</ExtensionIdentifier>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
 </VistA_FHIR_Map>
 </dataroot>

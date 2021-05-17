@@ -1,3 +1,7 @@
+2021-mei-17
+- vfm2sd.js; forgot to check to add extra typed paths for fixed values; only worked if there were mappings
+- Dockerfile; updated
+
 2021-mei-10
 - dd2csv.js; added
 

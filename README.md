@@ -60,7 +60,8 @@ Run the FHIR Validator
 ```
 or
 ```
-@> java -jar ~/vha-ampl-fhir-ig/validator_cli.jar -version 3.0.2 -output validation-output.json StructureDefinition-VAFinishedOutpatientMedicationDispense.json -ig .
+@> cd ~/vha-ampl-fhir-ig/input/resources
+@> java -jar ~/vha-ampl-fhir-ig/validator_cli.jar -version 3.0.2 -ig . -output validation-output.json {FILE_TO_VALIDATE}
 ```
 
 Convert VistA Data Dictionary to csv (DD.zwr)

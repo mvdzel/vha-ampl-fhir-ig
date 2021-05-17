@@ -436,42 +436,7 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
         return;
     }
 
-    var passed_needsExtraTypedPath = true;
-    lookup_needsExtraTypedPath.forEach(extraPath => {
-        if (elementPath == extraPath) {
-            console.error(`${row.ID1}: ERROR: type missing for '${elementPath}'`);
-            passed_needsExtraTypedPath = false;
-        }
-        else if (elementPath.startsWith(extraPath)) {
-            if (/\[x\]/.test(elementPath)) {
-                console.error(`${row.ID1}: ERROR: type missing for '${elementPath}'`);
-                passed_needsExtraTypedPath = false;
-            }
-            else if (elementPath.indexOf('.', extraPath.length) == -1) {
-                // This is the extra types path; so nothing to fix here
-            }
-            else {
-                var extraTypedPath = elementPath.substring(0, elementPath.indexOf('.', extraPath.length));
-                if (extraTypedPath == extraPath) {
-                    console.error(`${row.ID1}: ERROR: type missing for '${extraTypedPath}'`);
-                    passed_needsExtraTypedPath = false;
-                }
-                else {
-                    // AUTO: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
-                    console.warn(`${row.ID1}: WARN: ${profileId} AUTO add type path '${extraTypedPath}'`);
-                    if (elementsByPath[profileId][extraTypedPath] == undefined) {
-                        var extraElement = elementsByPath[profileId][extraTypedPath] = {
-                            id: extraTypedPath,
-                            path: extraTypedPath,
-                            type: [ { code: lookup_typeByPath[extraTypedPath] } ]
-                        };
-                        sd.differential.element.push(extraElement);
-                    }
-                }
-            }
-        }
-    });
-    if (!passed_needsExtraTypedPath) {
+    if (!checkNeedsExtraTypedPath(sd, elementPath, row.ID1)) {
         // This element did not pass the needsExtraType check; because the type was not specified in the input
         return;
     }
@@ -710,14 +675,15 @@ var builder = new xml2js.Builder();
 fs.writeFileSync("../input/myig.xml", builder.buildObject(output_myig));
 
 //
-// Helper function to check and add differential element and
-// try to take order of the element in the profiled resource into account
+// Helper function to check path and add differential element
 //
 function addDifferentialElement(sd, element, row_ID1) {
     var elementPath = element.path;
     var index = input_fhirProperties_core.fhirProperties.filter(row => row.textkey == elementPath);
     if (index[0]) {
-        //console.error(`${row_ID1}: DEBUG: ${sd.name} ${elementPath} ` + index[0].order);
+        if (!checkNeedsExtraTypedPath(sd, elementPath, row_ID1)) {
+            return false;
+        }
     }
     else {
         console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not an existing path`);
@@ -725,4 +691,43 @@ function addDifferentialElement(sd, element, row_ID1) {
     }
     sd.differential.element.push(element);
     return true;
+}
+
+function checkNeedsExtraTypedPath(sd, elementPath, row_ID1) {
+    var passed_needsExtraTypedPath = true;
+    var extraPaths = lookup_needsExtraTypedPath.filter(extraPath => elementPath.startsWith(extraPath));
+    if (extraPaths.length > 0) {
+        var extraPath = extraPaths[0];
+        if (elementPath == extraPath) {
+            console.error(`${row_ID1}: ERROR: type missing for '${elementPath}'`);
+            passed_needsExtraTypedPath = false;
+        }
+        else if (/\[x\]/.test(elementPath)) {
+            console.error(`${row_ID1}: ERROR: type missing for '${elementPath}'`);
+            passed_needsExtraTypedPath = false;
+        }
+        else if (elementPath.indexOf('.', extraPath.length) == -1) {
+            // This is the extra types path; so nothing to fix here
+        }
+        else {
+            var extraTypedPath = elementPath.substring(0, elementPath.indexOf('.', extraPath.length));
+            if (extraTypedPath == extraPath) {
+                console.error(`${row_ID1}: ERROR: type missing for '${extraTypedPath}'`);
+                passed_needsExtraTypedPath = false;
+            }
+            else {
+                // AUTO: There should be a path effective/medication/value<type> so that the IG "knows" about the choosen [x] type.
+                if (elementsByPath[sd.name][extraTypedPath] == undefined) {
+                    console.warn(`${row_ID1}: WARN: ${sd.name} AUTO add type path '${extraTypedPath}'`);
+                    var extraElement = elementsByPath[sd.name][extraTypedPath] = {
+                        id: extraTypedPath,
+                        path: extraTypedPath,
+                        type: [ { code: lookup_typeByPath[extraTypedPath] } ]
+                    };
+                    sd.differential.element.push(extraElement);
+                }
+            }
+        }
+    }
+    return passed_needsExtraTypedPath;
 }
