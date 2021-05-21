@@ -710,8 +710,8 @@ function addDifferentialElement(sd, element, row_ID1) {
                     else {
                         console.error(`${row_ID1}: ERROR: '${elementPath}' not existing path; valid up to '${_path_last}:${type}'`);
                     }
+                    return;
                 }
-                break;
             }
             _path_last = _path;
             _path = _path + '.' + comp;
