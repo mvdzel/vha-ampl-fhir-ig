@@ -391,11 +391,11 @@ input_mappings.VistA_FHIR_Map.forEach(row => {
                     if (fixedType == undefined) {
                         // Try some guessing based on the element name
                         if (fixedElementPath.endsWith(".code")) {
-                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknow path. Assume type Code`);
+                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknown path. Assume type Code`);
                             fixedType = "Code";
                         }
                         else if (fixedElementPath.endsWith(".system")) {
-                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknow path. Assume type Uri`);
+                            console.error(`${row.ID1}: WARN fixedElementPath '${fixedElementPath}' unknown path. Assume type Uri`);
                             fixedType = "Uri";
                         }
                         else {
@@ -686,6 +686,36 @@ function addDifferentialElement(sd, element, row_ID1) {
         }
     }
     else {
+        // try to figure out if this is a chained profile
+        var comps = elementPath.split('.');
+        var _path = comps.shift() + '.' + comps.shift();
+        var _path_last;
+        for (var idx in comps) {
+            var comp = comps[idx];
+            var index = input_fhirProperties_core.fhirProperties.filter(row => row.textkey == _path);
+            // Not found this path?
+            if (!index[0]) {
+                // The whole path not existing?
+                if (!_path_last) {
+                    // logged below
+                }
+                else {
+                    var type = lookup_typeByPath[_path_last];
+                    if (type == "Reference") {
+                        // This is a Chained Profile!
+                        var _part_rest = elementPath.substring(_path_last.length + 1);
+                        console.error(`${row_ID1}: ERROR: Change '${_path_last}' to Chained Profile with '<type>.${_part_rest}'`);
+                    }
+                    // Something else
+                    else {
+                        console.error(`${row_ID1}: ERROR: '${elementPath}' not existing path; valid up to '${_path_last}:${type}'`);
+                    }
+                }
+                break;
+            }
+            _path_last = _path;
+            _path = _path + '.' + comp;
+        }
         console.error(`${row_ID1}: ERROR: elementPath '${elementPath}' not an existing path`);
         return false;
     }
