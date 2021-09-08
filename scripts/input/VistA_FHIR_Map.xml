@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2021-05-14T15:01:19">
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2021-09-08T17:57:52">
 <VistA_FHIR_Map>
 <ID1>1</ID1>
 <ID>120.8-.01</ID>
@@ -352,11 +352,15 @@ U:UNKNOWN
 agent.whoReference.targetProfile = VAAllergyIntoleranceOriginationSite
 
 agent.role.text=location
-activity.code=new</STU3Map>
+activity.code=CREATE
+activity.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.whoReference
+<R4Map>agent.who
+agent.who.targetProfile = VAAllergyIntoleranceOriginationSite
+
 agent.role.text=location
-activity.code=new</R4Map>
+activity.coding.code=CREATE
+activity.coding.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>Encounter</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Note: relation to 4 is not in VistA but in an environmental variable.</FHIR_x0020_Map_x0020_Comment>
@@ -375,13 +379,15 @@ activity.code=new</R4Map>
 agent.whoReference.targetProfile = VAAllergyIntoleranceOriginationSite
 agent.role.text=location
 location.identifier.system = http://va.gov/fhir/identifiers/Locations
-activity.code=new</STU3Map>
+activity.code=CREATE
+activity.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>location.identifier.value
+<R4Map>agent.who
+agent.who.targetProfile = VAAllergyIntoleranceOriginationSite
 
-location.identifier.system = http://va.gov/fhir/identifiers/Locations
-
-activity.coding.code=new</R4Map>
+agent.role.text=location
+activity.coding.code=CREATE
+activity.coding.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>Encounter</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -420,10 +426,12 @@ activity.coding.code=new</R4Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
 
-activity.code = nullified</STU3Map>
+activity.code = NULLIFY
+activity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>AllergyIntolerance</R4Resource>
 <R4Map>recorded
-activity.code = nullified</R4Map>
+activity.coding.code = NULLIFY
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>Entry</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -440,11 +448,12 @@ activity.code = nullified</R4Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
 
-activity.code = nullified</STU3Map>
+activity.code = NULLIFYactivity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>AllergyIntolerance</R4Resource>
 <R4Map>agent.who
 
-activity.code = nullified</R4Map>
+activity.coding.code = NULLIFY
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>Entry</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -555,11 +564,13 @@ These comment values seem appropriate to the reaction, rather than the comment. 
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
 
-activity.code = verify</STU3Map>
+activity.code = VRF
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
-activity.coding.code = verify</R4Map>
+activity.coding.code = verify
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -576,11 +587,13 @@ activity.coding.code = verify</R4Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
 
-activity.code = verify</STU3Map>
+activity.code = VRF
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who
 
-activity.coding.code = verify</R4Map>
+activity.coding.code = verify
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -597,11 +610,13 @@ activity.coding.code = verify</R4Map>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockTitle
 
-activity.code = verify</STU3Map>
+activity.code = VRF
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlockTitle
 
-activity.coding.code = verify</R4Map>
+activity.coding.code = verify
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -613,14 +628,15 @@ activity.coding.code = verify</R4Map>
 <Field_x0020_Name>ASSESSMENT DATE/TIME</Field_x0020_Name>
 <description>This field contains the date/time of the last reaction assessment for this patient. </description>
 <path>pt-allergy-prov</path>
-<profile>VAAllergyIntoleranceAssessment</profile>
+<profile>VAAllergyIntoleranceAssessmentAct</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
-activity.code = assess</STU3Map>
+activity.code = UPDATE
+activity.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
-
-activity.coding.code = assess</R4Map>
+activity.coding.code = UPDATE
+activity.coding.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>extension: ReactionAssessement.date</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -633,19 +649,23 @@ activity.coding.code = assess</R4Map>
 <Field_x0020_Name>NAME</Field_x0020_Name>
 <description>This is the patient who has been asked about allergies/adverse reactions. </description>
 <path>pt-allergy</path>
-<profile>VAAllergyIntoleranceAssessment</profile>
+<profile>VAAllergyIntoleranceAssessmentAct</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
 
 agent.role.text = informant
 
-activity.code = assess</STU3Map>
+activity.code = UPDATE
+
+activity.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who
 
 agent.role.text = informant
 
-activity.coding.code = assess</R4Map>
+activity.coding.code = UPDATE
+
+activity.coding.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>Adverse reaction assessment extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -658,19 +678,23 @@ activity.coding.code = assess</R4Map>
 <Field_x0020_Name>ACESSING USER</Field_x0020_Name>
 <description>This field contains the name of the user who made the last reaction assessment for this patient. </description>
 <path>pt-allergy-prov</path>
-<profile>VAAllergyIntoleranceAssessment</profile>
+<profile>VAAllergyIntoleranceAssessmentAct</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
 
 agent.role.text = recorder
 
-activity.code = assess</STU3Map>
+activity.code = UPDATE
+
+activity.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who
 
 agent.role.text = recorder
 
-activity.coding.code = assess</R4Map>
+activity.coding.code = UPDATE
+
+activity.coding.system = http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <ExtensionIdentifier>extension: ReactionAssessement.assessor</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -754,11 +778,15 @@ code.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.03</R4
 <profile>VAVitalsEntry</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
-activity.code=entered</STU3Map>
+activity.code=enter
+
+activity.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
-activity.code=entered</R4Map>
+activity.coding.code=entered
+
+activity.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -774,11 +802,14 @@ activity.code=entered</R4Map>
 <profile>VAVitalsEntry</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference
-activity.code=entered</STU3Map>
+activity.code=enter
+activity.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who
 
-activity=entered</R4Map>
+activity.code=entered
+
+activity.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -793,11 +824,15 @@ activity=entered</R4Map>
 <profile>VAVitalsEntry</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>location.display
-activity.code=entered</STU3Map>
+activity.code=enter
+
+activity.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>location.display
 
-activity.code=entered</R4Map>
+activity.coding.code=entered
+
+activity.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -812,11 +847,15 @@ activity.code=entered</R4Map>
 <profile>VAVitalsEntry</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>location.identifier
-activity.code=entered</STU3Map>
-<R4Resource>Provenance</R4Resource>
-<R4Map>location.display
+activity.code=enter
 
-activity.code=entered</R4Map>
+activity.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</STU3Map>
+<R4Resource>Provenance</R4Resource>
+<R4Map>location.identifier
+
+activity.coding.code=entered
+
+activity.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/120.5-.06</R4Map>
 <ExtensionIdentifier>Entry extension</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment></FHIR_x0020_Map_x0020_Comment>
@@ -982,6 +1021,7 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
+
 activity.coding.code = AU
 
 activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
@@ -1008,6 +1048,7 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>agent.who
 
+
 activity.coding.code = AU
 
 activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
@@ -1033,9 +1074,9 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlockName
 
-activity.code = AU
+activity.coding.code = AU
 
-activity.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
+activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signatureBlockName</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1059,9 +1100,9 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who.extension.signatureBlockTitle
 
-activity.code = AU
+activity.coding.code = AU
 
-activity.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
+activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signatureBlockTitle</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1080,15 +1121,16 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <STU3Map>recorded
 
 
-activity.code = cosign
+activity.code = LA
 
-activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
-activity.coding.code = cosign
 
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4Map>
+activity.coding.code = LA
+
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1106,14 +1148,16 @@ activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4
 <STU3Map>agent.whoReference
 
 
-activity.code = cosign
+activity.code = LA
 
-activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
 <R4Map>agent.who
 
-activity.coding.code = cosign
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4Map>
+
+activity.coding.code = LA
+
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1130,13 +1174,17 @@ activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockName
 
-activity.code = cosign
 
-activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.code = LA
+
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.who.extension.signatureBlock.name
-activity.coding.code = cosign
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4Map>
+<R4Map>agent.who.extension.signatureBlockName
+
+
+activity.coding.code = LA
+
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1153,13 +1201,15 @@ activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>agent.whoReference.extension.signatureBlockTitle
 
-activity.code = cosign
+activity.code = LA
 
-activity.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</STU3Map>
+activity.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</STU3Map>
 <R4Resource>Provenance</R4Resource>
-<R4Map>agent.who.extension.signatureBlock.title
-activity.coding.code = cosign
-activity.coding.system=http://va.gov/terminology/vistaDefinedTerms/8925-1507</R4Map>
+<R4Map>agent.who.extension.signatureBlockTitle
+
+activity.coding.code = LA
+
+activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-ParticipationType</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -1368,9 +1418,9 @@ activity.system=http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Map>agent.who.extension.signatureMode.coding.code
 agent.who.extension.signatureMode.coding.coding.system=http://www.va.gov/Terminology/VistADefinedTerms/8925-1505
 
-activity.code = AU
+activity.coding.code = AU
 
-activity.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
+activity.coding.system=http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signatureMode</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>E&apos; FOR electronic;
@@ -1460,12 +1510,15 @@ relatesTo.code = appends</R4Map>
 <STU3Map>recorded
 
 
-activity.code = DI</STU3Map>
+activity.code = DI
+activity.system = http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
 
+
 activity.coding.code = DI
-agent.whoReference = author (8925-1202)</R4Map>
+
+activity.coding.system = http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <ExtensionIdentifier>signature extension</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -3986,14 +4039,14 @@ code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
 <STU3Resource>Observation</STU3Resource>
 <STU3Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-3
-component.code.coding.value = 2.04-3
+component.code.coding.code = 2.04-3
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</STU3Map>
 <R4Resource>Observation</R4Resource>
 <R4Map>component.valueCodeableConcept.coding.code
 component.valueCodeableConcept.coding.system = http://va.gov/Terminology/VistaDefinedTerms/2.04-3
-component.code.coding.value = 2.04-3
+component.code.coding.code = 2.04-3
 component.code.coding.system = http://va.gov/Terminology/VistaDefinedElements
 code.coding.code = 2-.3721
 code.coding.system = http://va.gov/Terminology/VistaDefinedElements</R4Map>
@@ -6143,7 +6196,7 @@ http://va.gov/Terminology/VistaDefinedTerms/2.312-6</R4Map>
 <profile>VAPatient</profile>
 <STU3Resource>Patient</STU3Resource>
 <STU3Map>maritalStatus.coding.code
-system = http://hl7.org/fhir/v3/MaritalStatus</STU3Map>
+maritalStatus.coding.system = http://hl7.org/fhir/v3/MaritalStatus</STU3Map>
 <R4Resource>Patient</R4Resource>
 <R4Map>maritalStatus.coding.code
 system = http://hl7.org/fhir/v3/MaritalStatus</R4Map>
@@ -7800,6 +7853,44 @@ C:CHEMOTHERAPY
 bind to IVType</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
+<ID1>769</ID1>
+<ID>52-115</ID>
+<area>23</area>
+<Data_x0020_Elements>Medication Instructions</Data_x0020_Elements>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>EXPANDED PATIENT INSTRUCTIONS</Field_x0020_Name>
+<description>&lt;blank&gt;</description>
+<path>pat-medRequest-ext</path>
+<profile>VAFinishedOutpatientMedicationRequest</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.comment.text
+extension.type=EXPANDED PATIENT INSTRUCTIONS
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.comment.text
+extension.type=EXPANDED PATIENT INSTRUCTIONS
+extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
+<ExtensionIdentifier>extension: VAMedicationExpandedPatientInstructions</ExtensionIdentifier>
+<termMap>0</termMap>
+<semanticGroup>note</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>771</ID1>
+<ID>52.2-.01</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>PARTIAL DATE</Field_x0020_Name>
+<description>This is the date the partial was made. </description>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>extension.medicationdispense-fillDate</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>extension.medicationdispense-fillDate</R4Map>
+<termMap>0</termMap>
+<semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
 <ID1>772</ID1>
 <ID>52.2-.02</ID>
 <area>23</area>
@@ -7902,11 +7993,11 @@ performer.function.coding.code=Pharmacist</R4Map>
 <description>This field shows the vendor&apos;s lot number. </description>
 <prompt>Answer must be 1-20 characters in length.</prompt>
 <path>pat-medRequest-medDispense-med</path>
-<profile>VAMedication</profile>
+<profile>VAMedicationDispense</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>medicationReference.package.batch.lotNumber</STU3Map>
+<STU3Map>medicationReference.targetProfile=VAMedication</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>medicationReference.batch.lotNumber</R4Map>
+<R4Map>medicationReference.targetProfile=VAMedication</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -7969,49 +8060,11 @@ performer.function.coding.code=Pharmacist</R4Map>
 <path>pat-medRequest-medDispense-ext</path>
 <profile>VAFinishedOutpatientMedicationPartial</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>context.location.identifier
+<STU3Map>context.targetProfile=VAFinishedOutpatientMedicationPartial
 context.status=unknown</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location.identifier
+<R4Map>context.targetProfile=VAFinishedOutpatientMedicationPartial
 context.status=unknown</R4Map>
-<termMap>0</termMap>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>782</ID1>
-<ID>52.2-92</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
-<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
-<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
-<path>pat-medRequest-medDispense-ext</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor
-performer.extension.value.coding.code=Pharmacist
-performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
-performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor
-performer.function=RemotePharmacist</R4Map>
-<termMap>0</termMap>
-<semanticGroup>role</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>783</ID1>
-<ID>52.2-93</ID>
-<area>23</area>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
-<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
-<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
-<path>pat-medRequest-medDispense</path>
-<profile>VAFinishedOutpatientMedicationPartial</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor.telecom</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor.telecom
-performer.function=RemotePharmacist</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -8560,7 +8613,7 @@ R4 requires the STU3 provenance values to support the Provenance Location in abo
 <path>pat-condition-provenance</path>
 <profile>VAProblemAuthorship</profile>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.whoReference.name
+<STU3Map>agent.whoReference.display
 
 activity.code=CREATE
 
@@ -8646,14 +8699,14 @@ R4 requires the STU3 provenance values to support the Provenance Location in abo
 <Field_x0020_Name>DATE/TIME MODIFIED</Field_x0020_Name>
 <description>This is the date and time that this data was changed. </description>
 <path>pat-condition-prov</path>
-<profile>ProblemListChange</profile>
+<profile>VAProblemListChange</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>recorded
-activity.code=CREATE
+activity.code=UPDATE
 activity.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>recorded
-activity.coding.code=CREATE
+activity.coding.code=UPDATE
 activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -8667,7 +8720,7 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <description>This is the number of the field for which a change is being recorded. </description>
 <prompt>Type a Number between .01 and 9999.9999, 4 Decimal Digits</prompt>
 <path>pat-condition-prov-ext</path>
-<profile>ProblemListChange</profile>
+<profile>VAProblemListChange</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>extension.reference-targetElement.extension.elementUri</STU3Map>
 <R4Resource>Provenance</R4Resource>
@@ -8682,9 +8735,9 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <Data_x0020_Elements>change author name</Data_x0020_Elements>
 <Field_x0020_Name>NAME</Field_x0020_Name>
 <path>pat-condition-prov</path>
-<profile>ProblemListChange</profile>
+<profile>VAProblemListChange</profile>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.whoReference.name</STU3Map>
+<STU3Map>agent.whoReference.display</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who</R4Map>
 <termMap>0</termMap>
@@ -8699,7 +8752,7 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <description>This is the original value as stored in the Problem file global (internal format). </description>
 <prompt>Answer must be 1-15 characters in length.</prompt>
 <path>pat-condition-prov-ext</path>
-<profile>ProblemListChange</profile>
+<profile>VAProblemListChange</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>extension.reference-targetElement.extension.change.extension.oldValue</STU3Map>
 <R4Resource>Provenance</R4Resource>
@@ -8717,7 +8770,7 @@ activity.coding.system=http://terminology.hl7.org/CodeSystem/v3-DataOperation</R
 <description>This is the new value now stored in the Problem file global (internal format). </description>
 <prompt>Answer must be 1-15 characters in length.</prompt>
 <path>pat-condition-prov-ext</path>
-<profile>ProblemListChange</profile>
+<profile>VAProblemListChange</profile>
 <STU3Resource>Provenance</STU3Resource>
 <STU3Map>extension.reference-targetElement.extension.change.extension.newValue</STU3Map>
 <R4Resource>Provenance</R4Resource>
@@ -8932,13 +8985,9 @@ NT:NO ACTION TAKEN = DAR</FHIR_x0020_Map_x0020_Comment>
 <path>pat-appointment-encounter-docRef</path>
 <profile>VAAppointmentDocument</profile>
 <STU3Resource>DocumentReference</STU3Resource>
-<STU3Map>context.encounter.period.start
-
-encounter.identifier = appointment.encounter.identifier</STU3Map>
+<STU3Map>context.encounter.targetProfile=VAAppointmentDocument</STU3Map>
 <R4Resource>DocumentReference</R4Resource>
-<R4Map>context.encounter.period.start
-
-encounter.identifier = appointment.encounter.identifier</R4Map>
+<R4Map>context.encounter.targetProfile=VAAppointmentDocument</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Document display requirements unclear. We assume the document will be associated with the Encounter associated with the Appointment</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -10243,7 +10292,7 @@ identifier.system = va.gov/identifiers/orders/100</R4Map>
 <profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
 <STU3Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
+<R4Resource>MedicationRequest</R4Resource>
 <R4Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -10819,13 +10868,11 @@ agent.role=&quot;verifier&quot;</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>CLINIC</Field_x0020_Name>
 <description>&lt;blank&gt;</description>
 <path>pat-medRequest-encounter</path>
-<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<profile>VAInpatientIVMedicationRequest</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location
-context.status=unknown</R4Map>
+<R4Map>context.targetProfile=VAInpatientIVMedicationRequestEncounter</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>[reference to location]</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -11222,13 +11269,11 @@ In addition, since we are using a FHIR facade pattern (?), I&apos;m not positive
 <Field_x0020_Name>CLINIC</Field_x0020_Name>
 <description>Clinic where treatment was given and prescription was written. </description>
 <path>pat-medRequest-encounter</path>
-<profile>VAFinishedOutpatientMedicationOrderEncounter</profile>
+<profile>VAFinishedOutpatientMedicationOrder</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>context.targetProfile=VAFinishedOutpatientMedicationOrderEncounter</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>context.location
-context.status=unknown</R4Map>
+<R4Map>context.targetProfile=VAFinishedOutpatientMedicationOrderEncounter</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -12531,12 +12576,11 @@ performer.function=Pharmacist</R4Map>
 <description>This field is used for the National Drug Code for the issued drug. </description>
 <prompt>Answer must be 5-13 characters in length.</prompt>
 <path>pat-medRequest-medDispense-med</path>
-<profile>VAMedication</profile>
+<profile>VAMedicationDispense</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>medicationReference.code.coding.code
-medicationReference.code.coding.system=http://hl7.org/fhir/sid/ndc</STU3Map>
+<STU3Map>medicationReference.targetProfile=VAMedication</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>medicationReference.code.coding.code</R4Map>
+<R4Map>medicationReference.targetProfile=VAMedication</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -12549,11 +12593,9 @@ medicationReference.code.coding.system=http://hl7.org/fhir/sid/ndc</STU3Map>
 <path>pat-medRequest-medDispense</path>
 <profile>VAFinishedOutpatientMedicationDispense</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>context.location.identifier
-Encounter.status=unknown</STU3Map>
+<STU3Map>performer.actor.targetProfile=VAFinishedOutpatientMedicationDispense</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>context.location.identifier
-Encounter.status=unknown</R4Map>
+<R4Map>performer.actor.targetProfile=VAFinishedOutpatientMedicationDispense</R4Map>
 <ExtensionIdentifier>extension: prescriptionRemoteSite</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
@@ -12589,54 +12631,48 @@ performer.function.coding.code=RemotePharmacist</R4Map>
 <path>pat-medRequest-medDispense</path>
 <profile>VAFinishedOutpatientMedicationDispense</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>performer.actor.telecom
-performer.extension.value.coding.code=RemotePharmacist
-performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
-performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
+<STU3Map>dispenseRequest.performer.targetProfile=VAFinishedOutpatientMedicationDispensePharmicist</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>performer.actor.telecom
-performer.function.coding.code=RemotePharmacist
-performer.function.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93</R4Map>
+<R4Map>performer.targetProfile=VAFinishedOutpatientMedicationDispensePharmicist</R4Map>
 <ExtensionIdentifier>extension: prescriptionRemotePhone</ExtensionIdentifier>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
-<ID1>769</ID1>
-<ID>52-115</ID>
-<area>23</area>
-<Data_x0020_Elements>Medication Instructions</Data_x0020_Elements>
-<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>EXPANDED PATIENT INSTRUCTIONS</Field_x0020_Name>
-<description>&lt;blank&gt;</description>
-<path>pat-medRequest-ext</path>
-<profile>VAFinishedOutpatientMedicationRequest</profile>
-<STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.comment.text
-extension.type=EXPANDED PATIENT INSTRUCTIONS
-extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</STU3Map>
-<R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.comment.text
-extension.type=EXPANDED PATIENT INSTRUCTIONS
-extension.url=http://va.gov/fhir/StructureDefinition/richAnnotation</R4Map>
-<ExtensionIdentifier>extension: VAMedicationExpandedPatientInstructions</ExtensionIdentifier>
-<termMap>0</termMap>
-<semanticGroup>note</semanticGroup>
-</VistA_FHIR_Map>
-<VistA_FHIR_Map>
-<ID1>771</ID1>
-<ID>52.2-.01</ID>
+<ID1>782</ID1>
+<ID>52.2-92</ID>
 <area>23</area>
 <File_x0020_Name>PRESCRIPTION</File_x0020_Name>
-<Field_x0020_Name>PARTIAL DATE</Field_x0020_Name>
-<description>This is the date the partial was made. </description>
+<Field_x0020_Name>REMOTE PHARMACIST</Field_x0020_Name>
+<description>This holds the name of the pharmacist that initiated the remote partail fill request.</description>
+<prompt>Enter the name of the Pharmacist that made this remote partial fill request. 1-45 characters.</prompt>
 <path>pat-medRequest-medDispense-ext</path>
 <profile>VAFinishedOutpatientMedicationPartial</profile>
 <STU3Resource>MedicationDispense</STU3Resource>
-<STU3Map>extension.medicationdispense-fillDate</STU3Map>
+<STU3Map>performer.actor
+performer.extension.value.coding.code=Pharmacist
+performer.extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+performer.extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
 <R4Resource>MedicationDispense</R4Resource>
-<R4Map>extension.medicationdispense-fillDate</R4Map>
+<R4Map>performer.actor
+performer.function=RemotePharmacist</R4Map>
 <termMap>0</termMap>
-<semanticGroup>time</semanticGroup>
+<semanticGroup>role</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>783</ID1>
+<ID>52.2-93</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
+<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
+<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartial</profile>
+<STU3Resource>MedicationDispense</STU3Resource>
+<STU3Map>dispenseRequest.performer.targetProfile=VAFinishedOutpatientMedicationPartialPharmacist</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>performer.targetProfile=VAFinishedOutpatientMedicationPartialPharmacist</R4Map>
+<termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
 <ID1>784</ID1>
@@ -12787,8 +12823,8 @@ entity.role=source</R4Map>
 <path>pat-medStatement</path>
 <profile>NonVAMedicationStatement</profile>
 <STU3Resource>MedicationStatement</STU3Resource>
-<STU3Map>medicationCodeableConcept
-system=http://va.gov/terminology/vistaDefinedTerms/55.05-.01</STU3Map>
+<STU3Map>medicationCodeableConcept.coding.code
+medicationCodeableConcept.coding.system=http://va.gov/terminology/vistaDefinedTerms/55.05-.01</STU3Map>
 <R4Resource>MedicationStatement</R4Resource>
 <R4Map>medicationCodeableConcept
 system=http://va.gov/terminology/vistaDefinedTerms/55.05-.01</R4Map>
@@ -13289,13 +13325,11 @@ Binding: Medication Clinical Drug (RxNorm) (extensible)</FHIR_x0020_Map_x0020_Co
 <Field_x0020_Name>PATIENT LOCATION</Field_x0020_Name>
 <description>This is the pointer to the Hospital Location file. </description>
 <path>pat-medRequest-encounter</path>
-<profile>VAUnfinishedOutpatientMedicationOrderEncounter</profile>
+<profile>VAUnfinishedOutpatientMedicationOrder</profile>
 <STU3Resource>MedicationRequest</STU3Resource>
-<STU3Map>context.location
-context.status=unknown</STU3Map>
+<STU3Map>context.targetProfile=VAFinishedOutpatientMedicationOrderEncounter</STU3Map>
 <R4Resource>MedicationRequest</R4Resource>
-<R4Map>encounter.location
-context.status=unknown</R4Map>
+<R4Map>context.targetProfile=VAFinishedOutpatientMedicationOrderEncounter</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>This is the pointer to the Hospital Location file.</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -14343,11 +14377,11 @@ Need the &quot;AQ&quot; cross reference on this field as an extention as part of
 <description>This is the date/time the specimen was taken. </description>
 <prompt>ENTER DRAW TIME OR VERIFY TIME</prompt>
 <path>pat-rpt-obs-spec</path>
-<profile>VAChemLabReportSpecimen</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.collectedDateTime</STU3Map>
+<STU3Map>specimen.targetProfile=VAChemLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.collectedDateTime</R4Map>
+<R4Map>specimen.targetProfile=VAChemLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14376,11 +14410,11 @@ Need the &quot;AQ&quot; cross reference on this field as an extention as part of
 <Field_x0020_Name>SPECIMEN TYPE</Field_x0020_Name>
 <description>This is the specimen type. </description>
 <path>pat-rpt-obs-spec</path>
-<profile>VAChemLabReportSpecimen</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VAChemLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.coding.code</R4Map>
+<R4Map>specimen.targetProfile=VAChemLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14392,11 +14426,11 @@ Need the &quot;AQ&quot; cross reference on this field as an extention as part of
 <description>This is the accession for this specimen. </description>
 <prompt>ANSWER MUST BE 1-20 CHARACTERS IN LENGTH</prompt>
 <path>pat-rpt-obs-spec</path>
-<profile>VAChemLabReportSpecimen</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.accessionIdentifier</STU3Map>
+<STU3Map>specimen.targetProfile=VAChemLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.accessionIdentifier</R4Map>
+<R4Map>specimen.targetProfile=VAChemLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14407,17 +14441,11 @@ Need the &quot;AQ&quot; cross reference on this field as an extention as part of
 <Field_x0020_Name>REQUESTING PERSON</Field_x0020_Name>
 <description>This is the person requesting the test. </description>
 <path>pat-rpt-order-practitioner</path>
-<profile>VAChemLabReportOrder</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order
-ProcedureRequest.code=[60-51]</STU3Map>
+<STU3Map>basedOn.targetProfile=VAChemLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order
-ProcedureRequest.code=[60-51]</R4Map>
+<R4Map>basedOn.targetProfile=VAChemLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Use ProcedureRequest; use Practitioner
 R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
@@ -14506,13 +14534,11 @@ This appears to be coming from VistA functionality, not file 63</FHIR_x0020_Map_
 <description>This is the user entered reference low value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:         low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
 <prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
 <path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.low
-referenceRange.type.coding.code = normal</STU3Map>
+<STU3Map>basedOn.targetProfile=VAChemLabReportResult</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.low
-referenceRange.type.coding.code = normal</R4Map>
+<R4Map>basedOn.targetProfile=VAChemLabReportResult</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14525,13 +14551,11 @@ referenceRange.type.coding.code = normal</R4Map>
 <description>This is the user entered reference high value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
 <prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
 <path>pat-rpt-obs</path>
-<profile>VAChemLabReportResult</profile>
+<profile>VAChemLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>result.referenceRange.high
-referenceRange.type.coding.code = normal</STU3Map>
+<STU3Map>basedOn.targetProfile=VAChemLabReportResult</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>result.referenceRange.high
-referenceRange.type.coding.code = normal</R4Map>
+<R4Map>basedOn.targetProfile=VAChemLabReportResult</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14633,11 +14657,11 @@ referenceRange.type.coding.code = critical</R4Map>
 <description>This is the date/time of collection of the microbiology specimen. </description>
 <prompt>ENTER DATE/TIME SPECIMEN TAKEN or ACCESSION #</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VAMicroLabReportSpecimen</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.collectedDateTime</STU3Map>
+<STU3Map>specimen.targetProfile=VAMicroLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.collectedDateTime</R4Map>
+<R4Map>specimen.targetProfile=VAMicroLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14663,12 +14687,11 @@ referenceRange.type.coding.code = critical</R4Map>
 <Field_x0020_Name>SITE/SPECIMEN</Field_x0020_Name>
 <description>This is the site/specimen collected. </description>
 <path>pat-rpt-specimen</path>
-<profile>VAMicroLabReportSpecimen</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VAMicroLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>specimen.targetProfile=VAMicroLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14680,11 +14703,11 @@ referenceRange.type.coding.code = critical</R4Map>
 <description>This is the microbiology accession. </description>
 <prompt>ANSWER MUST BE 1-20 CHARACTERS IN LENGTH</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VAMicroLabReportSpecimen</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.accessionIdentifier</STU3Map>
+<STU3Map>specimen.targetProfile=VAMicroLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.accessionIdentifier</R4Map>
+<R4Map>specimen.targetProfile=VAMicroLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14695,17 +14718,11 @@ referenceRange.type.coding.code = critical</R4Map>
 <Field_x0020_Name>PHYSICIAN</Field_x0020_Name>
 <description>This is the requesting physician. </description>
 <path>pat-rpt-order-practitioner</path>
-<profile>VAMicroLabReportOrder</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.name
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order
-ProcedureRequest.code=[60-51]</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.name
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order
-ProcedureRequest.code=[60-51]</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>Use ProcedureRequest; use Practitioner
 R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
@@ -14718,11 +14735,11 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
 <description>This is the collection sample of the specimen. </description>
 <path>pat-rpt-specimen</path>
-<profile>VAMicroLabReportSpecimen</profile>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.coding.code</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.coding.code</R4Map>
+<profile>VAMicroLabReport</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>specimen.targetProfile=VAMicroLabReportSpecimen</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>specimen.targetProfile=VAMicroLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>How does this differ from .05?</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -14735,11 +14752,11 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 <description>Enter the hospital location or institution ordering this test. </description>
 <prompt>Enter the hospital location or institution ordering this test.</prompt>
 <path>pat-rpt-order-practitioner</path>
-<profile>VAMicroLabReportOrder</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.onBehalfOf.display</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use Organization</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -14751,11 +14768,11 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>ACCESSIONING INSTITUTION</Field_x0020_Name>
 <description>This field contains the pointer to the institution where the specimen was  accessioned. This field can be blank if LEDI or POC specimen is  accessioned. The field will be set if an actual user accepts the specimen. </description>
 <path>pat-rpt-specimen-ext</path>
-<profile>VAMicroLabReportOrderSpecimen</profile>
+<profile>VAMicroLabReportOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.organization.display</STU3Map>
+<STU3Map>specimen.targetProfile=VAMicroLabReportOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.organization.display</R4Map>
+<R4Map>specimen.targetProfile=VAMicroLabReportOrderSpecimen</R4Map>
 <ExtensionIdentifier>extension: accessioningInstitution</ExtensionIdentifier>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use PractitionerRole</FHIR_x0020_Map_x0020_Comment>
@@ -14769,13 +14786,11 @@ R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
 <description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
 <prompt>Enter the ordered laboratory test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VAMicroLabReportOrder</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.code.coding.code
-</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.code.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest
@@ -14790,11 +14805,11 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <description>This field contains the urgency for this ordered test. </description>
 <prompt>Select urgency for this test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VAMicroLabReportOrder</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.priority</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.priority</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
 &apos;A&apos; FOR ASAP (Fill after S orders) = asap
@@ -14818,15 +14833,11 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <Field_x0020_Name>ORDERING PROVIDER LOCAL</Field_x0020_Name>
 <description>The pointer to the NEW PERSON file if the original order was placed on the local system.  This field will be empty if order is placed via LEDI. </description>
 <path>pat-rpt-order</path>
-<profile>VAMicroLabReportOrder</profile>
+<profile>VAMicroLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrder</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14857,12 +14868,11 @@ ProcedureRequest.intent=order</R4Map>
 <Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
 <description>This field contains the topography location for this test. </description>
 <path>pat-rpt-order-specimen</path>
-<profile>VAMicroLabReportOrderSpecimen</profile>
+<profile>VAMicroLabReportOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrderSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -14875,11 +14885,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
 <description>This field contains the collection sample for this test. </description>
 <path>pat-rpt-order-specimen</path>
-<profile>VAMicroLabReportOrderSpecimen</profile>
+<profile>VAMicroLabReportOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.type.coding.code</STU3Map>
+<STU3Map>basedOn.targetProfile=VAMicroLabReportOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.type.coding.code</R4Map>
+<R4Map>basedOn.targetProfile=VAMicroLabReportOrderSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14891,11 +14901,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <description>This is the date/time of collection of the specimen. </description>
 <prompt>FUTURE DATE/TIME NOT ALLOWED</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VACytopathologyLabSpecimen</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.collectedDateTime</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.collectedDateTime</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14939,11 +14949,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <description>This is the accession number of the cytopathology  specimen. </description>
 <prompt>Answer must be 5-15 characters in length.</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VACytopathologyLabSpecimen</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.accessionIdentifier</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.accessionIdentifier</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -14954,11 +14964,9 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>PHYSICIAN </Field_x0020_Name>
 <description>This is the requesting provider. </description>
 <path>pat-rpt-order-practitioner</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
 <R4Map>basedOn.requester.agent.display
 ProcedureRequest.status=completed
@@ -14974,11 +14982,11 @@ ProcedureRequest.intent=order</R4Map>
 <description>This is the requesting location. </description>
 <prompt>ANSWER MUST BE 2-30 CHARACTERS IN LENGTH</prompt>
 <path>pat-rpt-enc</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.context.display</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.encounter.display</R4Map>
+<R4Map>basedOn.targetProfile=VACytopathologyLabOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -15026,11 +15034,11 @@ DocumentReference.content.attachment.id</ExtensionIdentifier>
 <description>Enter the name of the specimen submitted.. </description>
 <prompt>Answer must be 2-75 characters in length.</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VACytopathologyLabSpecimen</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.text</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.text</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15041,12 +15049,11 @@ DocumentReference.content.attachment.id</ExtensionIdentifier>
 <Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
 <description>This field contains the topography location for this test.  </description>
 <path>pat-rpt-specimen</path>
-<profile>VACytopathologyLabSpecimen</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15059,9 +15066,9 @@ DocumentReference.content.attachment.id</ExtensionIdentifier>
 <path>pat-rpt-specimen</path>
 <profile>VACytopathologyLabSpecimen</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.coding.code</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15090,13 +15097,11 @@ DocumentReference.content.attachment.id</ExtensionIdentifier>
 <description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
 <prompt>Enter the ordered laboratory test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.code.coding.code
-</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.code.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VACytopathologyLabOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest
@@ -15111,9 +15116,9 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <description>This field contains the urgency for this ordered test. </description>
 <prompt>Select urgency for this test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.priority</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
 <R4Map>basedOn.priority</R4Map>
 <termMap>0</termMap>
@@ -15133,15 +15138,11 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <Field_x0020_Name>ORDERING PROVIDER LOCAL</Field_x0020_Name>
 <description>The pointer to the NEW PERSON file if the original order was placed on the local system.  This field will be empty if order is placed via LEDI. </description>
 <path>pat-rpt-order</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</R4Map>
+<R4Map>basedOn.targetProfile=VACytopathologyLabOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use VistA values</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -15154,15 +15155,11 @@ ProcedureRequest.intent=order</R4Map>
 <description>If this test is ordered by a provider from a remote system (not local system), the names contained in the HL7 message will be  stored in this field. </description>
 <prompt>Answer must be 1-80 characters in length.</prompt>
 <path>pat-rpt-order</path>
-<profile>VACytopathologyLabOrder</profile>
+<profile>VACytopathologyLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</R4Map>
+<R4Map>basedOn.targetProfile=VACytopathologyLabOrder</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15175,10 +15172,9 @@ ProcedureRequest.intent=order</R4Map>
 <path>pat-rpt-order-specimen</path>
 <profile>VACytopathologyLabOrderSpecimen</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VACytopathologyLabOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>specimen.targetProfile=VACytopathologyLabOrderSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -15191,11 +15187,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
 <description>This field contains the collection sample for this test. </description>
 <path>pat-rpt-order-specimen</path>
-<profile>VACytopathologyLabOrderSpecimen</profile>
+<profile>VACytopathologyLabOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.type.coding.code</STU3Map>
+<STU3Map>basedOn.targetProfile=VACytopathologyLabOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.type.coding.code</R4Map>
+<R4Map>basedOn.targetProfile=VACytopathologyLabOrderSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>These are in 63.902; why do we have them again?</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -15292,9 +15288,9 @@ ProcedureRequest.intent=order</R4Map>
 <path>pat-rpt-request-encounter</path>
 <profile>VASurgicalPathologyReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.context.location.location</STU3Map>
+<STU3Map>basedOn.targetProfile=VASurgicalPathologyReportRequest</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.encounter.display</R4Map>
+<R4Map>basedOn.targetProfile=VASurgicalPathologyReport</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -15387,11 +15383,9 @@ DocumentReference.content.attachment.id</ExtensionIdentifier>
 <path>pat-rpt-request</path>
 <profile>VASurgicalPathologyReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.code.coding.code
-</STU3Map>
+<STU3Map>basedOn.targetProfile=VASurgicalPathologyReportRequest</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.code.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VASurgicalPathologyReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest
@@ -15407,9 +15401,9 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <path>pat-rpt-request</path>
 <profile>VASurgicalPathologyReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.priority</STU3Map>
+<STU3Map>basedOn.targetProfile=VASurgicalPathologyReportRequest</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.priority</R4Map>
+<R4Map>basedOn.targetProfile=VASurgicalPathologyReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
 &apos;A&apos; FOR ASAP (Fill after S orders) = asap
@@ -15428,13 +15422,9 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <path>pat-rpt-request</path>
 <profile>VASurgicalPathologyReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VASurgicalPathologyReportRequest</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</R4Map>
+<R4Map>basedOn.targetProfile=VASurgicalPathologyReportOrder</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15911,11 +15901,11 @@ status=unknown</R4Map>
 <Field_x0020_Name>DATE/TIME SPECIMEN TAKEN</Field_x0020_Name>
 <description>This is the date/time of collection of the EM specimen. </description>
 <path>pat-rpt-obs-spec</path>
-<profile>VAEMLabReportSpecimen</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.collectedDateTime</STU3Map>
+<STU3Map>specimen.targetProfile=VAEMLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.collectedDateTime</R4Map>
+<R4Map>specimen.targetProfile=VAEMLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -15957,15 +15947,11 @@ status=unknown</R4Map>
 <Field_x0020_Name>PHYSICIAN</Field_x0020_Name>
 <description>This is the requesting physician. </description>
 <path>pat-rpt-order-practitioner</path>
-<profile>VAEMLabReportOrder</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</STU3Map>
+<STU3Map>basedOn.targetProfile=VAEMLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.requester.agent.display
-ProcedureRequest.status=completed
-ProcedureRequest.intent=order</R4Map>
+<R4Map>basedOn.targetProfile=VAEMLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -15979,11 +15965,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <description>This is the requesting location. </description>
 <prompt>ANSWER MUST BE 2-30 CHARACTERS IN LENGTH</prompt>
 <path>pat-rpt-enc</path>
-<profile>VAEMLabReportEncounter</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.context.display</STU3Map>
+<STU3Map>context.targetProfile=VAEMLabReportEncounter</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.encounter.display</R4Map>
+<R4Map>encounter.targetProfile=VAEMLabReportEncounter</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -16012,11 +15998,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <description>This is the specimen submitted for testing. </description>
 <prompt>ANSWER MUST BE 2-75 CHARACTERS IN LENGTH</prompt>
 <path>pat-rpt-specimen</path>
-<profile>VAEMLabReportSpecimen</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.text</STU3Map>
+<STU3Map>specimen.targetProfile=VAEMLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.text</R4Map>
+<R4Map>specimen.targetProfile=VAEMLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -16027,12 +16013,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
 <description>This field contains the topography location for this test. </description>
 <path>pat-rpt-spec</path>
-<profile>VAEMLabReportSpecimen</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VAEMLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>specimen.targetProfile=VAEMLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -16043,11 +16028,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
 <description>  This field contains the collection sample for this test. </description>
 <path>pat-rpt-spec</path>
-<profile>VAEMLabReportSpecimen</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>specimen.type.coding.code</STU3Map>
+<STU3Map>specimen.targetProfile=VAEMLabReportSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>specimen.type.coding.code</R4Map>
+<R4Map>specimen.targetProfile=VAEMLabReportSpecimen</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -16076,13 +16061,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
 <prompt>Enter the ordered laboratory test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VAEMLabReportOrder</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.code.coding.code
-</STU3Map>
+<STU3Map>basedOn.targetProfile=VAEMLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.code.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VAEMLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest
@@ -16097,11 +16080,11 @@ We may also need to put this value in result.code.text (Observation)</FHIR_x0020
 <description>This field contains the urgency for this ordered test. </description>
 <prompt>Select urgency for this test.</prompt>
 <path>pat-rpt-order</path>
-<profile>VAEMLabReportOrder</profile>
+<profile>VAEMLabReport</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.priority</STU3Map>
+<STU3Map>basedOn.targetProfile=VAEMLabReportOrder</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.priority</R4Map>
+<R4Map>basedOn.targetProfile=VAEMLabReportOrder</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
 &apos;A&apos; FOR ASAP (Fill after S orders) = asap
@@ -16162,12 +16145,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
 <description>This field contains the topography location for this test. </description>
 <path>pat-rpt-ord-specimen</path>
-<profile>VAEMLabReportOrderSpecimen</profile>
+<profile>VAEMLabReportOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.collection.bodySite.coding.code</STU3Map>
+<STU3Map>basedOn.targetProfile=VAEMLabReportOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.collection.bodysite.coding.code
-</R4Map>
+<R4Map>basedOn.targetProfile=VAEMLabReportOrderSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -16180,11 +16162,11 @@ R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
 <Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
 <description>This field contains the collection sample for this test. </description>
 <path>pat-rpt-ord-specimen</path>
-<profile>VAEMLabReportOrderSpecimen</profile>
+<profile>VAEMLabReportOrder</profile>
 <STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.specimen.type.coding.code</STU3Map>
+<STU3Map>basedOn.targetProfile=VAEMLabReportOrderSpecimen</STU3Map>
 <R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.specimen.type.coding.code</R4Map>
+<R4Map>basedOn.targetProfile=VAEMLabReportOrderSpecimen</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
 R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
@@ -16555,10 +16537,10 @@ NT:NO ACTION TAKEN
 <Field_x0020_Name>ORDER URGENCY</Field_x0020_Name>
 <path>pat-rpt-order-ext</path>
 <profile>VACytopathologyLabOrder</profile>
-<STU3Resource>DiagnosticReport</STU3Resource>
-<STU3Map>basedOn.extension.request-extendedPriority</STU3Map>
-<R4Resource>DiagnosticReport</R4Resource>
-<R4Map>basedOn.extension.request-extendedPriority</R4Map>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>extension.request-extendedPriority</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>extension.request-extendedPriority</R4Map>
 <termMap>0</termMap>
 <FHIR_x0020_Map_x0020_Comment>use VistA values</FHIR_x0020_Map_x0020_Comment>
 </VistA_FHIR_Map>
@@ -16762,11 +16744,14 @@ code.coding.system=http://va.gov/Terminology/VistaDefinedTerms/26.11-.01</R4Map>
 <path>pt-document</path>
 <profile>VAProgressNoteDictation</profile>
 <STU3Resource>Provenance</STU3Resource>
-<STU3Map>agent.who
-activity.code = DI</STU3Map>
+<STU3Map>agent.whoReference
+activity.code = DI
+activity.system = http://hl7.org/fhir/v3/DocumentCompletion</STU3Map>
 <R4Resource>Provenance</R4Resource>
 <R4Map>agent.who
-activity.code = DI</R4Map>
+activity.coding.code = DI
+
+activity.coding.system = http://hl7.org/fhir/v3/DocumentCompletion</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -17047,11 +17032,11 @@ participant.status=accepted</R4Map>
 <path>pat-medRequest-ext</path>
 <profile>VAInpatientIVMedicationRequestEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>location
-status=unknown</STU3Map>
+<STU3Map>location.location.identifier
+status = unknown</STU3Map>
 <R4Resource>Encounter</R4Resource>
-<R4Map>location
-status=unknown</R4Map>
+<R4Map>location.location.identifier
+status = unknown</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -17064,10 +17049,11 @@ status=unknown</R4Map>
 <path>pat-medRequest-encounter</path>
 <profile>VAInpatientIVMedicationRequestEncounter</profile>
 <STU3Resource>Encounter</STU3Resource>
-<STU3Map>location
+<STU3Map>location.location.display
 status = unknown</STU3Map>
 <R4Resource>Encounter</R4Resource>
-<R4Map>context=VAInpatientIVMedicationRequestEncounter</R4Map>
+<R4Map>location.location.display
+status = unknown</R4Map>
 <termMap>0</termMap>
 </VistA_FHIR_Map>
 <VistA_FHIR_Map>
@@ -17105,5 +17091,938 @@ status=unknown</R4Map>
 <ExtensionIdentifier>extension: appointmentDate</ExtensionIdentifier>
 <termMap>0</termMap>
 <semanticGroup>time</semanticGroup>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1119</ID1>
+<ID>63.09-.01b</ID>
+<area>11</area>
+<File_x0020_Name>CYTOPATHOLOGY</File_x0020_Name>
+<Field_x0020_Name>DATE/TIME SPECIMEN TAKEN</Field_x0020_Name>
+<description>This is the date/time of collection of the specimen. </description>
+<prompt>FUTURE DATE/TIME NOT ALLOWED</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VACytopathologyLabSpecimen</profile>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>collection.collectedDateTime</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>collection.collectedDateTime</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1120</ID1>
+<ID>63.09-.06</ID>
+<area>11</area>
+<File_x0020_Name>CYTOPATHOLOGY</File_x0020_Name>
+<Field_x0020_Name>CYTOPATH ACC #</Field_x0020_Name>
+<description>This is the accession number of the cytopathology  specimen. </description>
+<prompt>Answer must be 5-15 characters in length.</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VACytopathologyLabSpecimen</profile>
+<STU3Resource>DiagnosticReport</STU3Resource>
+<STU3Map>accessionIdentifier</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>accessionIdentifier</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1121</ID1>
+<ID>63.09-.07b</ID>
+<area>11</area>
+<File_x0020_Name>CYTOPATHOLOGY</File_x0020_Name>
+<Field_x0020_Name>PHYSICIAN </Field_x0020_Name>
+<description>This is the requesting provider. </description>
+<path>pat-rpt-order-practitioner</path>
+<profile>VACytopathologyLabOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>basedOn.requester.agent.display
+ProcedureRequest.status=completed
+ProcedureRequest.intent=order</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1122</ID1>
+<ID>63.09-.08b</ID>
+<area>11</area>
+<File_x0020_Name>CYTOPATHOLOGY</File_x0020_Name>
+<Field_x0020_Name>PATIENT LOCATION</Field_x0020_Name>
+<description>This is the requesting location. </description>
+<prompt>ANSWER MUST BE 2-30 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-enc</path>
+<profile>VACytopathologyLabOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>context.display</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>context.display</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1123</ID1>
+<ID>63.902-.01b</ID>
+<area>11</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN</Field_x0020_Name>
+<description>Enter the name of the specimen submitted.. </description>
+<prompt>Answer must be 2-75 characters in length.</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VACytopathologyLabSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.text</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.text</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1124</ID1>
+<ID>63.902-.06b</ID>
+<area>11</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
+<description>This field contains the topography location for this test.  </description>
+<path>pat-rpt-specimen</path>
+<profile>VACytopathologyLabSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.bodySite.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.bodySite.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1125</ID1>
+<ID>63.51-8b</ID>
+<area>11</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
+<description>This field contains the topography location for this test. </description>
+<path>pat-rpt-order-specimen</path>
+<profile>VACytopathologyLabOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.bodySite.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.bodySite.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1126</ID1>
+<ID>63.902-.07b</ID>
+<area>11</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>This field contains the collection sample for this test.   </description>
+<path>pat-rpt-specimen</path>
+<profile>VACytopathologyLabSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1127</ID1>
+<ID>63.51-9b</ID>
+<area>11</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>This field contains the collection sample for this test. </description>
+<path>pat-rpt-order-specimen</path>
+<profile>VACytopathologyLabOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>These are in 63.902; why do we have them again?</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1128</ID1>
+<ID>63.51-13b</ID>
+<area>11</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>LAB TEST ORDERED</Field_x0020_Name>
+<description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
+<prompt>Enter the ordered laboratory test.</prompt>
+<path>pat-rpt-order</path>
+<profile>VACytopathologyLabOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>code.coding.code</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>code.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest
+We may also need to put this value in result.code.text (Observation)</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1129</ID1>
+<ID>63.51-6b</ID>
+<area>11</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>ORDERING PROVIDER LOCAL</Field_x0020_Name>
+<description>The pointer to the NEW PERSON file if the original order was placed on the local system.  This field will be empty if order is placed via LEDI. </description>
+<path>pat-rpt-order</path>
+<profile>VACytopathologyLabOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>use VistA values</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1130</ID1>
+<ID>63.51-7b</ID>
+<area>11</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>ORDERING PROVIDER REMOTE</Field_x0020_Name>
+<description>If this test is ordered by a provider from a remote system (not local system), the names contained in the HL7 message will be  stored in this field. </description>
+<prompt>Answer must be 1-80 characters in length.</prompt>
+<path>pat-rpt-order</path>
+<profile>VACytopathologyLabOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1131</ID1>
+<ID>52.1-11b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>NDC</Field_x0020_Name>
+<description>This field is used for the National Drug Code for the issued drug. </description>
+<prompt>Answer must be 5-13 characters in length.</prompt>
+<path>pat-medRequest-medDispense-med</path>
+<profile>VAMedication</profile>
+<STU3Resource>Medication</STU3Resource>
+<STU3Map>code.coding.code
+code.coding.system=http://hl7.org/fhir/sid/ndc</STU3Map>
+<R4Resource>Medication</R4Resource>
+<R4Map>code.coding.code
+code.coding.system=http://hl7.org/fhir/sid/ndc</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1132</ID1>
+<ID>52.2-.06b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>LOT#</Field_x0020_Name>
+<description>This field shows the vendor&apos;s lot number. </description>
+<prompt>Answer must be 1-20 characters in length.</prompt>
+<path>pat-medRequest-medDispense-med</path>
+<profile>VAMedication</profile>
+<STU3Resource>Medication</STU3Resource>
+<STU3Map>package.batch.lotNumber</STU3Map>
+<R4Resource>VAMedication</R4Resource>
+<R4Map>package.batch.lotNumber</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1133</ID1>
+<ID>63.52-13</ID>
+<area>13</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>LAB TEST ORDERED</Field_x0020_Name>
+<description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
+<prompt>Enter the ordered laboratory test.</prompt>
+<path>pat-rpt-order</path>
+<profile>VAEMLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>code.coding.code</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>code.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest
+We may also need to put this value in result.code.text (Observation)</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1134</ID1>
+<ID>63.52-2b</ID>
+<area>13</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>ORDERED URGENCY</Field_x0020_Name>
+<description>This field contains the urgency for this ordered test. </description>
+<prompt>Select urgency for this test.</prompt>
+<path>pat-rpt-order</path>
+<profile>VAEMLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>priority</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>priority</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
+&apos;A&apos; FOR ASAP (Fill after S orders) = asap
+&apos;R&apos; FOR Routine = routine
+&apos;P&apos; FOR Preop = routine
+&apos;T&apos; FOR Timing critical  = routine
+&apos;C&apos; FOR Callback  = routine
+&apos;PRN&apos; FOR As Needed  = routine</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1135</ID1>
+<ID>63.5-13b</ID>
+<area>20</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>LAB TEST ORDERED</Field_x0020_Name>
+<description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
+<prompt>Enter the ordered laboratory test.</prompt>
+<path>pat-rpt-order</path>
+<profile>VAMicroLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>code.coding.code</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>code.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest
+We may also need to put this value in result.code.text (Observation)</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1136</ID1>
+<ID>63.5-2b</ID>
+<area>20</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>ORDER URGENCY</Field_x0020_Name>
+<description>This field contains the urgency for this ordered test. </description>
+<prompt>Select urgency for this test.</prompt>
+<path>pat-rpt-order</path>
+<profile>VAMicroLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>priority</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>priority</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
+&apos;A&apos; FOR ASAP (Fill after S orders) = asap
+&apos;R&apos; FOR Routine = routine
+&apos;P&apos; FOR Preop = routine
+&apos;T&apos; FOR Timing critical  = &apos;S&apos; FOR Stat (with highest priority) = stat
+&apos;A&apos; FOR ASAP (Fill after S orders) = asap
+</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1137</ID1>
+<ID>63.53-13b</ID>
+<area>31</area>
+<Field_x0020_Name>LAB TEST ORDERED</Field_x0020_Name>
+<description>Contains the ordered laboratory test associated with the ordered NLT code. </description>
+<prompt>Enter the ordered laboratory test.</prompt>
+<path>pat-rpt-request</path>
+<profile>VASurgicalPathologyReportRequest</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>code.coding.code</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>code.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest
+We may also need to put this value in result.code.text (Observation)</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1138</ID1>
+<ID>63.53-2b</ID>
+<area>31</area>
+<Field_x0020_Name>ORDER URGENCY</Field_x0020_Name>
+<description>This field contains the urgency for this ordered test. </description>
+<prompt>Select urgency for this test.</prompt>
+<path>pat-rpt-request</path>
+<profile>VASurgicalPathologyReportRequest</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>priority</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>priority</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>&apos;S&apos; FOR Stat (with highest priority) = stat
+&apos;A&apos; FOR ASAP (Fill after S orders) = asap
+&apos;R&apos; FOR Routine = routine
+&apos;P&apos; FOR Preop = routine
+&apos;T&apos; FOR Timing critical  = routine
+&apos;C&apos; FOR Callback  = routine
+&apos;PRN&apos; FOR As Needed  = routine</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1139</ID1>
+<ID>52.2-93b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
+<description>This is the contact number for the remote pharmacist who initiated this partial fill request.</description>
+<prompt>Enter the contact telephone number for the pharmacist requesting this partial fill. 1-15 characters.</prompt>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationPartialPharmacist</profile>
+<STU3Resource>Practioner</STU3Resource>
+<STU3Map>telecom</STU3Map>
+<R4Resource>Practioner</R4Resource>
+<R4Map>telecom</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1140</ID1>
+<ID>52.1-93b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE PHARMACIST PHONE</Field_x0020_Name>
+<description>This is the contact telephone number for the remote pharmacist requesting a refill.</description>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationDispensePharmicist</profile>
+<STU3Resource>Practioner</STU3Resource>
+<STU3Map>telecom
+extension.value.coding.code=RemotePharmacist
+extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>telecom
+extension.value.coding.code=RemotePharmacist
+extension.value.coding.system=http://va.gov/terminology/vistaDefinedTerms/52.1-93
+extension.url = http://hl7.org/fhir/4.0/StructureDefinition/extension-MedicationDispense.performer.function</R4Map>
+<ExtensionIdentifier>extension: prescriptionRemotePhone</ExtensionIdentifier>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1141</ID1>
+<ID>63.02-.01b</ID>
+<area>13</area>
+<File_x0020_Name>EM</File_x0020_Name>
+<Field_x0020_Name>DATE/TIME SPECIMEN TAKEN</Field_x0020_Name>
+<description>This is the date/time of collection of the EM specimen. </description>
+<path>pat-rpt-obs-spec</path>
+<profile>VAEMLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.collectedDateTime</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.collectedDateTime</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1142</ID1>
+<ID>63.202-.01b</ID>
+<area>13</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN</Field_x0020_Name>
+<description>This is the specimen submitted for testing. </description>
+<prompt>ANSWER MUST BE 2-75 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VAEMLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.text</STU3Map>
+<R4Resource>DiagnosticReport</R4Resource>
+<R4Map>type.text</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1143</ID1>
+<ID>63.202-.06b</ID>
+<area>13</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
+<description>This field contains the topography location for this test. </description>
+<path>pat-rpt-spec</path>
+<profile>VAEMLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.bodySite.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.bodySite.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1144</ID1>
+<ID>63.202-.07</ID>
+<area>13</area>
+<File_x0020_Name>SPECIMEN</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>  This field contains the collection sample for this test. </description>
+<path>pat-rpt-spec</path>
+<profile>VAEMLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1145</ID1>
+<ID>63.52-8b</ID>
+<area>13</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
+<description>This field contains the topography location for this test. </description>
+<path>pat-rpt-ord-specimen</path>
+<profile>VAEMLabReportOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.bodySite.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.bodySite.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1146</ID1>
+<ID>63.52-9b</ID>
+<area>13</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>This field contains the collection sample for this test. </description>
+<path>pat-rpt-ord-specimen</path>
+<profile>VAEMLabReportOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1147</ID1>
+<ID>63.04-.01b</ID>
+<area>21</area>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<Field_x0020_Name>DATE SPECIMEN TAKEN</Field_x0020_Name>
+<description>This is the date/time the specimen was taken. </description>
+<prompt>ENTER DRAW TIME OR VERIFY TIME</prompt>
+<path>pat-rpt-obs-spec</path>
+<profile>VAChemLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.collectedDateTime</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.collectedDateTime</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1148</ID1>
+<ID>63.04-.05b</ID>
+<area>21</area>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TYPE</Field_x0020_Name>
+<description>This is the specimen type. </description>
+<path>pat-rpt-obs-spec</path>
+<profile>VAChemLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1149</ID1>
+<ID>63.04-.06b</ID>
+<area>21</area>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<Field_x0020_Name>ACCESSION</Field_x0020_Name>
+<description>This is the accession for this specimen. </description>
+<prompt>ANSWER MUST BE 1-20 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-obs-spec</path>
+<profile>VAChemLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>accessionIdentifier</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>accessionIdentifier</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1150</ID1>
+<ID>63.05-.01b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>DATE/TIME SPECIMEN TAKEN</Field_x0020_Name>
+<description>This is the date/time of collection of the microbiology specimen. </description>
+<prompt>ENTER DATE/TIME SPECIMEN TAKEN or ACCESSION #</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VAMicroLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.collectedDateTime</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.collectedDateTime</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1151</ID1>
+<ID>63.05-.06b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>MICROBIOLOGY ACCESSION</Field_x0020_Name>
+<description>This is the microbiology accession. </description>
+<prompt>ANSWER MUST BE 1-20 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-specimen</path>
+<profile>VAMicroLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>accessionIdentifier</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>accessionIdentifier</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1152</ID1>
+<ID>63.05-.055b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>This is the collection sample of the specimen. </description>
+<path>pat-rpt-specimen</path>
+<profile>VAMicroLabReportSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>How does this differ from .05?</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1153</ID1>
+<ID>63.05-.112b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>ACCESSIONING INSTITUTION</Field_x0020_Name>
+<description>This field contains the pointer to the institution where the specimen was  accessioned. This field can be blank if LEDI or POC specimen is  accessioned. The field will be set if an actual user accepts the specimen. </description>
+<path>pat-rpt-specimen-ext</path>
+<profile>VAMicroLabReportOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.organization.display</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.organization.display</R4Map>
+<ExtensionIdentifier>extension: accessioningInstitution</ExtensionIdentifier>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>use PractitionerRole</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1154</ID1>
+<ID>63.5-8b</ID>
+<area>20</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>SPECIMEN TOPOGRAPHY</Field_x0020_Name>
+<description>This field contains the topography location for this test. </description>
+<path>pat-rpt-order-specimen</path>
+<profile>VAMicroLabReportOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>collection.bodySite.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>collection.bodySite.coding.code</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1155</ID1>
+<ID>63.5-9b</ID>
+<area>20</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>COLLECTION SAMPLE</Field_x0020_Name>
+<description>This field contains the collection sample for this test. </description>
+<path>pat-rpt-order-specimen</path>
+<profile>VAMicroLabReportOrderSpecimen</profile>
+<STU3Resource>Specimen</STU3Resource>
+<STU3Map>type.coding.code</STU3Map>
+<R4Resource>Specimen</R4Resource>
+<R4Map>type.coding.code</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1156</ID1>
+<ID>63.02-.08b</ID>
+<area>13</area>
+<File_x0020_Name>EM</File_x0020_Name>
+<Field_x0020_Name>PATIENT LOCATION</Field_x0020_Name>
+<description>This is the requesting location. </description>
+<prompt>ANSWER MUST BE 2-30 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-enc</path>
+<profile>VAEMLabReportEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location.location.display
+status=unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>location.location.display
+status=unknown</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1157</ID1>
+<ID>8925-03b</ID>
+<area>7</area>
+<File_x0020_Name>TIU DOCUMENT</File_x0020_Name>
+<Field_x0020_Name>VISIT   </Field_x0020_Name>
+<path>pat-appointment-encounter-docRef</path>
+<profile>VAAppointmentDocumentEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>period.start
+status = unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>period.start
+status = unknown</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Document display requirements unclear. We assume the document will be associated with the Encounter associated with the Appointment</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1158</ID1>
+<ID>55.01-136b</ID>
+<area>16</area>
+<File_x0020_Name>Pharmacy Patient</File_x0020_Name>
+<Field_x0020_Name>CLINIC</Field_x0020_Name>
+<description>&lt;blank&gt;</description>
+<path>pat-medRequest-encounter</path>
+<profile>VAInpatientIVMedicationRequestEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location.location.display
+status=unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>location.location.display
+status=unknown</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>[reference to location]</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1159</ID1>
+<ID>52-5b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>CLINIC</Field_x0020_Name>
+<description>Clinic where treatment was given and prescription was written. </description>
+<path>pat-medRequest-encounter</path>
+<profile>VAFinishedOutpatientMedicationOrderEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location.location.display
+status=unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>location.location.display
+status=unknown</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1160</ID1>
+<ID>52.1-91b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
+<description>This is the institution number of the facility that performed the physical refill.</description>
+<path>pat-medRequest-medDispense</path>
+<profile>VAFinishedOutpatientMedicationOrganization</profile>
+<STU3Resource>Organization</STU3Resource>
+<STU3Map>name</STU3Map>
+<R4Resource>Organization</R4Resource>
+<R4Map>name</R4Map>
+<ExtensionIdentifier>extension: prescriptionRemoteSite</ExtensionIdentifier>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1161</ID1>
+<ID>52.2-91b</ID>
+<area>23</area>
+<File_x0020_Name>PRESCRIPTION</File_x0020_Name>
+<Field_x0020_Name>REMOTE FILL SITE</Field_x0020_Name>
+<description>This holds the site number for the facility requesting a remote partial fill.</description>
+<prompt>Enter the site number that is requesting this partial fill.</prompt>
+<path>pat-medRequest-medDispense-ext</path>
+<profile>VAFinishedOutpatientMedicationOrganization</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location.identifier
+context.status=unknown</STU3Map>
+<R4Resource>MedicationDispense</R4Resource>
+<R4Map>location.identifier
+context.status=unknown</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1162</ID1>
+<ID>52.41-1.1b</ID>
+<area>27</area>
+<File_x0020_Name>PENDING OUTPATIENT ORDERS</File_x0020_Name>
+<Field_x0020_Name>PATIENT LOCATION</Field_x0020_Name>
+<description>This is the pointer to the Hospital Location file. </description>
+<path>pat-medRequest-encounter</path>
+<profile>VAUnfinishedOutpatientMedicationOrderEncounter</profile>
+<STU3Resource>Encounter</STU3Resource>
+<STU3Map>location
+context.status=unknown</STU3Map>
+<R4Resource>Encounter</R4Resource>
+<R4Map>location
+context.status=unknown</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>This is the pointer to the Hospital Location file.</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1163</ID1>
+<ID>63.08-.08b</ID>
+<area>31</area>
+<File_x0020_Name>SURGICAL PATHOLOGY</File_x0020_Name>
+<Field_x0020_Name>PATIENT LOCATION</Field_x0020_Name>
+<description>This is the requesting location. </description>
+<prompt>ANSWER MUST BE 2-30 CHARACTERS IN LENGTH</prompt>
+<path>pat-rpt-request-encounter</path>
+<profile>VASurgicalPathologyReportRequest</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>basedOn.encounter.display</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1164</ID1>
+<ID>60.01-1b</ID>
+<area>21</area>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<Field_x0020_Name>REFERENCE LOW</Field_x0020_Name>
+<description>This is the user entered reference low value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:         low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<STU3Resource>Observation</STU3Resource>
+<STU3Map>referenceRange.low</STU3Map>
+<R4Resource>Observation</R4Resource>
+<R4Map>referenceRange.low</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1165</ID1>
+<ID>60.01-2b</ID>
+<area>21</area>
+<File_x0020_Name>LAB TEST</File_x0020_Name>
+<Field_x0020_Name>REFERENCE HIGH</Field_x0020_Name>
+<description>This is the user entered reference high value for this test. If both the low and high are defined it will print in this manner:         low : 10         high : 50 If only the low is defined and it is numeric it will print in this manner:          low: 10 If only the low is defined and it is alphanumeric it will print in  this manner:         NORMAL If only the high is defined and it is numeric it will print in this  manner:         high: 50 If only the high is defined and it is alphanumeric it will print in this manner:         &gt;1000 </description>
+<prompt>ANSWER MUST BE 0-50 CHARACTERS IN LENGTH (USE &quot;QUOTES&quot; AROUND TEXT)</prompt>
+<path>pat-rpt-obs</path>
+<profile>VAChemLabReportResult</profile>
+<STU3Resource>Observation</STU3Resource>
+<STU3Map>referenceRange.high</STU3Map>
+<R4Resource>Observation</R4Resource>
+<R4Map>referenceRange.high</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1166</ID1>
+<ID>63.02-.07b</ID>
+<area>13</area>
+<File_x0020_Name>EM</File_x0020_Name>
+<Field_x0020_Name>PHYSICIAN</Field_x0020_Name>
+<description>This is the requesting physician. </description>
+<path>pat-rpt-order-practitioner</path>
+<profile>VAEMLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>STU3: use ProcedureRequest
+R4: use ServiceRequest</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1167</ID1>
+<ID>63.04-.1b</ID>
+<area>21</area>
+<File_x0020_Name>LAB DATA</File_x0020_Name>
+<Field_x0020_Name>REQUESTING PERSON</Field_x0020_Name>
+<description>This is the person requesting the test. </description>
+<path>pat-rpt-order-practitioner</path>
+<profile>VAChemLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Use ProcedureRequest; use Practitioner
+R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1168</ID1>
+<ID>63.05-.07b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>PHYSICIAN</Field_x0020_Name>
+<description>This is the requesting physician. </description>
+<path>pat-rpt-order-practitioner</path>
+<profile>VAMicroLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>Use ProcedureRequest; use Practitioner
+R4 use ServiceRequest; use Practitioner</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1169</ID1>
+<ID>63.05-.111b</ID>
+<area>20</area>
+<File_x0020_Name>MICROBIOLOGY</File_x0020_Name>
+<Field_x0020_Name>REQUESTING LOC/DIV </Field_x0020_Name>
+<description>Enter the hospital location or institution ordering this test. </description>
+<prompt>Enter the hospital location or institution ordering this test.</prompt>
+<path>pat-rpt-order-practitioner</path>
+<profile>VAMicroLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.onBehalfOf.display</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.onBehalfOf.display</R4Map>
+<termMap>0</termMap>
+<FHIR_x0020_Map_x0020_Comment>use Organization</FHIR_x0020_Map_x0020_Comment>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1170</ID1>
+<ID>63.5-6b</ID>
+<area>20</area>
+<File_x0020_Name>ORDERED TEST</File_x0020_Name>
+<Field_x0020_Name>ORDERING PROVIDER LOCAL</Field_x0020_Name>
+<description>The pointer to the NEW PERSON file if the original order was placed on the local system.  This field will be empty if order is placed via LEDI. </description>
+<path>pat-rpt-order</path>
+<profile>VAMicroLabReportOrder</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
+</VistA_FHIR_Map>
+<VistA_FHIR_Map>
+<ID1>1171</ID1>
+<ID>63.53-6b</ID>
+<area>31</area>
+<Field_x0020_Name>ORDERING PROVIDER LOCAL</Field_x0020_Name>
+<description>The pointer to the NEW PERSON file if the original order was placed on the local system.  This field will be empty if order is placed via LEDI. </description>
+<path>pat-rpt-request</path>
+<profile>VASurgicalPathologyReportRequest</profile>
+<STU3Resource>ProcedureRequest</STU3Resource>
+<STU3Map>requester.agent.display
+status=completed
+intent=order</STU3Map>
+<R4Resource>ServiceRequest</R4Resource>
+<R4Map>requester.agent.display
+status=completed
+intent=order</R4Map>
+<termMap>0</termMap>
 </VistA_FHIR_Map>
 </dataroot>
